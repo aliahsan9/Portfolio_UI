@@ -1,0 +1,108 @@
+<div class="fixed-profile-pic" data-aos="fade-down">
+  <div class="animated-frame profile-sparkle">
+    <img src="assets/Images/myImg.jpeg" alt="Ali Ahsan" class="rounded-circle img-fluid" />
+  </div>
+
+ <div class="social-icons">
+    <a href="https://github.com/aliahsan9" class="social-icon" data-tooltip="GitHub">
+      <i class="fab fa-github"></i>
+    </a>
+    <a href="https://github.com/aliahsan9" class="social-icon" data-tooltip="LinkedIn">
+      <i class="fab fa-linkedin-in"></i>
+    </a> 
+    <a href="https://github.com/aliahsan9" class="social-icon" data-tooltip="Twitter">
+      <i class="fab fa-twitter"></i>
+    </a>
+  </div>
+</div>  
+<!-- Hero Section with movable text -->
+<div class="hero-section text-white d-flex align-items-center justify-content-center flex-column text-center px-3"
+     [style.transform]="'translate(' + textPosition.x + 'px, ' + textPosition.y + 'px)'"
+     (mousemove)="moveTextWithMouse($event)">
+  <div class="hero-content" data-aos="fade-up">
+    <h1 class="display-4 fw-bold mb-3 glow-text">
+      Hi, I'm
+      <span class="text-info">
+        <ngx-typed-js [strings]="typedStrings" [typeSpeed]="50" [loop]="true" [backSpeed]="30" [backDelay]="2000">
+          <span class="typing"></span>
+        </ngx-typed-js>
+      </span>
+    </h1>
+    <p class="lead mb-4">
+      <ngx-typed-js
+        [strings]="[
+          'A passionate Full Stack Developer building modern web applications',
+          'Specializing in Angular, .NET & SQL Server',
+          'Creating responsive and performant web solutions',
+          'Turning ideas into functional applications'
+        ]"
+        [typeSpeed]="40" [loop]="true" [backSpeed]="25" [backDelay]="1500">
+        <span class="typing"></span>
+      </ngx-typed-js>
+    </p>
+    <div class="d-flex flex-wrap justify-content-center gap-3">
+      <a routerLink="/projects" class="btn btn-info btn-lg px-4 py-2 shadow-lg">
+        <i class="bi bi-code-slash me-2"></i> View Projects
+      </a>
+      <a routerLink="/contact" class="btn btn-outline-light btn-lg px-4 py-2 shadow-lg">
+        <i class="bi bi-envelope me-2"></i> Contact Me
+      </a>
+    </div>
+  </div>
+
+  <!-- Scroll Down Arrow -->
+  <div class="scroll-arrow mt-5" data-aos="fade-up" data-aos-delay="300">
+    <i class="bi bi-chevron-double-down text-info fs-2 animate-bounce"></i>
+  </div>
+</div>
+
+<!-- Skills Section -->
+<div class="container my-5" id="skills">
+  <h2 class="text-white text-center mb-5" data-aos="fade-up">My Technical Skills</h2>
+  <div class="row">
+    <div class="col-md-6 mb-4" *ngFor="let skill of skills; let i = index" [attr.data-aos]="'fade-right'" [attr.data-aos-delay]="i * 100">
+      <div class="skill-box bg-dark bg-opacity-75 p-4 rounded shadow-lg">
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <h5 class="text-white mb-0">{{ skill.name }}</h5>
+          <span class="text-info fw-bold">{{ skill.level }}%</span>
+        </div>
+        <div class="progress" style="height: 8px;">
+          <div class="progress-bar bg-info" role="progressbar" [style.width.%]="skill.level"
+               [attr.aria-valuenow]="skill.level" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Testimonials -->
+<div class="container mt-5" id="testimonials">
+  <h2 class="text-white text-center mb-5" data-aos="fade-up">What People Say About Me</h2>
+  <div class="row g-4">
+    <div class="col-md-6 col-lg-4" *ngFor="let person of testimonials; let i = index" [attr.data-aos]="'fade-up'" [attr.data-aos-delay]="i * 100">
+      <div class="card testimonial-card text-white bg-gradient bg-dark shadow-lg border-0 h-100">
+        <div class="card-body d-flex flex-column align-items-center text-center p-4">
+          <img [src]="person.image" alt="User" class="rounded-circle shadow mb-3" width="80" height="80" data-aos="zoom-in">
+          <h5 class="card-title">{{ person.name }}</h5>
+          <p class="card-text fst-italic text-light">"{{ person.feedback }}"</p>
+          <small class="text-info">{{ person.title }}</small>
+        </div>
+      </div>
+    </div>
+  </div> 
+</div>
+
+<!-- Floating Particles Background -->
+<div class="particles-container">
+  <div
+    *ngFor="let particle of particles"
+    class="particle"
+    [style.left.%]="particle.x"
+    [style.top.%]="particle.y"
+    [style.width.px]="particle.size"
+    [style.height.px]="particle.size"
+    [style.animation-delay.s]="particle.delay"
+    [style.animation-duration.s]="particle.speed">
+  </div>
+</div>
+ 

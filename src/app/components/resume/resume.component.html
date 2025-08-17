@@ -1,0 +1,30 @@
+<div class="container py-5 text-white">
+  <h2 class="text-center mb-4" data-aos="fade-down">My Resume</h2>
+
+  <div *ngIf="safeResumeUrl; else noResume">
+    <!-- Download Button -->
+    <div class="text-center mb-4" data-aos="fade-up">
+      <a
+        [href]="resumeUrl"
+        download="Ali_Ahsan_Resume.pdf"
+        class="btn btn-outline-light btn-lg"
+      >
+        <i class="bi bi-download"></i> Download Resume
+      </a>
+    </div>
+
+    <div class="resume-preview" data-aos="zoom-in">
+      <iframe
+        [src]="safeResumeUrl"
+        width="100%"
+        height="600"
+        frameborder="0"
+        style="border-radius: 10px;"
+      ></iframe>
+    </div>
+  </div>
+
+  <ng-template #noResume>
+    <p class="text-danger text-center">Resume is not available yet.</p>
+  </ng-template>
+</div>

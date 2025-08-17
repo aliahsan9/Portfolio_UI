@@ -1,0 +1,127 @@
+.custom-footer {
+  background: linear-gradient(135deg, #0b1f3a, #081529);
+  color: #ffffff;
+  padding: 3rem 2rem 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  font-family: 'Segoe UI', sans-serif;
+
+  h5 {
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+    color: #0ef;
+    text-shadow: 0 0 6px #0ef6;
+    letter-spacing: 1px;
+    font-weight: 600;
+  }
+
+  p {
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+    color: #ffffffcc;
+  }
+
+  .footer-link {
+    color: #ffffffcc;
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 0.4rem;
+    font-weight: 500;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+    font-size: 0.95rem;
+    padding-bottom: 2px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 15%;
+      width: 70%;
+      height: 2px;
+      background-color: #00d9ff;
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    &:hover {
+      color: #00d9ff;
+      text-shadow: 0 0 5px #00d9ff;
+
+      &::before {
+        transform: scaleX(1);
+        transform-origin: left;
+      }
+    }
+  }
+
+  .social-icons {
+    margin-top: 1.5rem;
+
+    i {
+      font-size: 1.4rem;
+      margin: 0 0.6rem;
+      color: #ffffffcc;
+      transition: all 0.3s ease;
+
+      &:hover {
+        color: #00d9ff;
+        transform: scale(1.2);
+        text-shadow: 0 0 5px #00d9ff;
+      }
+    }
+  }
+
+  hr {
+    opacity: 0.15;
+    margin: 2rem auto;
+    width: 80%;
+    border-color: #ffffff22;
+  }
+
+  .small {
+    color: #ffffff88;
+    font-size: 0.85rem;
+  }
+
+  // Optional: animated glow particles
+  &::after {
+    content: '';
+    position: absolute;
+    top: -100px;
+    left: -100px;
+    width: 300%;
+    height: 300%;
+    background: radial-gradient(circle, #00d9ff22 0%, transparent 70%);
+    animation: floatGlow 20s infinite ease-in-out;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  @keyframes floatGlow {
+    0% {
+      transform: translate(0, 0) scale(1);
+    }
+    50% {
+      transform: translate(50px, 30px) scale(1.2);
+    }
+    100% {
+      transform: translate(0, 0) scale(1);
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 2rem 1.5rem;
+
+    .social-icons i {
+      margin: 0 0.4rem;
+    }
+
+    .footer-link {
+      font-size: 0.9rem;
+    }
+  }
+}

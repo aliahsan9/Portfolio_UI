@@ -1,0 +1,86 @@
+<div class="about-section">
+  <!-- Animated Background Elements -->
+  <div class="particles">
+    <div *ngFor="let particle of particles"
+         class="particle"
+         [style.left.px]="particle.x"
+         [style.top.px]="particle.y"
+         [style.width.px]="particle.size"
+         [style.height.px]="particle.size"
+         [style.animation-delay.s]="particle.delay">
+    </div>
+  </div>
+ 
+  <div class="container" *ngIf="aboutData">
+    <!-- Profile Card with 3D Tilt Effect -->
+    <div class="profile-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-perspective="1000">
+      <div class="profile-image-container">
+        <img 
+          [src]="aboutData.profileImageUrl" 
+          alt="Profile Image" 
+          class="profile-image"
+          (mousemove)="onImageHover($event)"  
+          (mouseleave)="onImageLeave()"
+        />
+        <div class="profile-border"></div>
+        <div class="profile-overlay"></div>
+      </div>
+
+      <div class="profile-content">
+        <h1 class="name">Ali Ahsan</h1>
+        <h2 class="title">Ful Stack Web Developer</h2>
+
+        <!-- Animated Social Links -->
+        <div class="social-links">
+          <a *ngFor="let link of socialLinks" 
+             [href]="link.url" 
+             target="_blank"
+             class="social-link"
+             [ngStyle]="{ 'animation-delay': link.delay + 's' }">
+            <i [class]="link.icon"></i>
+            <span class="tooltip">{{ link.name }}</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Animated About Text -->
+    <div class="about-content">
+      <div class="section-title">
+        <h2>About Me</h2>
+        <div class="title-line"></div>
+      </div>
+
+      <div class="about-text">
+        <p *ngFor="let paragraph of aboutParagraphs" [@paragraphAnimation]>
+          {{ paragraph }}
+        </p>
+      </div>
+
+      <!-- Skills with Animated Bars -->
+      <div class="skills-section">
+        <h3>My Skills</h3>
+        <div class="skills-container">
+          <div *ngFor="let skill of skills" class="skill">
+            <div class="skill-name">{{ skill.name }}</div>
+            <div class="skill-bar">
+              <div class="skill-progress"
+                   [style.width.%]="skill.level"
+                   [style.background]="skill.color">
+                <span class="skill-percent">{{ skill.level }}%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Scroll Indicator -->
+  <div class="scroll-indicator" *ngIf="showScrollIndicator">
+    <span>Scroll Down</span>
+    <div class="mouse">
+      <div class="wheel"></div>
+    </div>
+  </div>
+</div>

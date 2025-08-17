@@ -1,0 +1,49 @@
+<div class="container my-5" data-aos="fade-up">
+  <div class="card bg-dark bg-opacity-75 border-0 shadow-lg rounded-4 p-4 text-white" style="backdrop-filter: blur(12px);">
+    <h4 class="text-center mb-4" data-aos="fade-down">✏️ Edit About Section</h4>
+
+    <form [formGroup]="aboutForm" (ngSubmit)="saveAbout()">
+      <!-- Description -->
+      <div class="form-group mb-3" data-aos="fade-right">
+        <label for="description">📝 Description</label>
+        <textarea
+          rows="5"
+          class="form-control"
+          id="description"
+          formControlName="description"
+          placeholder="Enter your about description"
+        ></textarea>
+      </div>
+
+      <!-- Profile Image URL -->
+      <div class="form-group mb-3" data-aos="fade-left">
+        <label for="profileImageUrl">🖼️ Profile Image URL</label>
+        <input
+          type="text"
+          class="form-control"
+          id="profileImageUrl"
+          formControlName="profileImageUrl"
+          placeholder="https://example.com/your-image.jpg"
+        />
+      </div>
+
+      <!-- Preview Image -->
+      <div class="mb-3 text-center" *ngIf="aboutForm.get('profileImageUrl')?.value" data-aos="zoom-in">
+        <label class="d-block">Preview:</label>
+        <img
+          [src]="aboutForm.get('profileImageUrl')?.value"
+          alt="Preview"
+          class="img-thumbnail rounded shadow"
+          style="max-width: 200px;"
+        />
+      </div>
+
+      <!-- Save Button -->
+      <div class="text-center" data-aos="fade-up">
+        <button type="submit" class="btn btn-outline-light px-4 py-2" [disabled]="aboutForm.invalid">
+          💾 Save
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

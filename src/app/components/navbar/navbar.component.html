@@ -1,0 +1,42 @@
+<nav
+  class="navbar navbar-expand-lg custom-navbar shadow-lg px-4"
+  data-aos="fade-down"
+  data-aos-duration="1000"
+>
+  <div class="container-fluid">
+    <a class="navbar-brand text-glow fw-bold fs-4" routerLink="/">🌟 Ali Ahsan</a>
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    > 
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav gap-3">
+        <li
+          class="nav-item"
+          *ngFor="let link of navLinks; let i = index"
+          [attr.data-aos]="'fade-down'"
+          [attr.data-aos-delay]="300 + (i * 100)"
+          [attr.data-aos-duration]="'800'"
+        >
+          <a
+            [routerLink]="link.path"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            class="nav-link custom-nav-link"
+          >
+            {{ link.label }}
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

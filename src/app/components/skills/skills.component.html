@@ -1,0 +1,50 @@
+<section class="skills-section py-5 text-white position-relative overflow-hidden">
+  <!-- Particle Background -->
+  <div class="particle-container">
+    <div
+      *ngFor="let particle of particles"
+      class="particle"
+      [ngStyle]="{
+        top: particle.top + '%',
+        left: particle.left + '%',
+        animationDelay: particle.delay + 's',
+        animationDuration: particle.duration + 's',
+        '--x-distance': particle.x + 'px',
+        '--y-distance': particle.y + 'px'
+      }"
+    ></div>
+  </div>
+
+  <div class="container position-relative">
+    <h2 class="mb-5 text-center display-5 fw-bold" data-aos="fade-down" data-aos-duration="800">
+      My Skills
+    </h2>
+
+    <div class="row">
+      <div
+        class="col-lg-4 col-md-6 mb-4"
+        *ngFor="let skill of skills"
+        data-aos="zoom-in"
+        data-aos-delay="200"
+        data-aos-duration="800"
+      >
+        <div class="card skill-card text-white shadow-lg border-0 h-100">
+          <div class="card-body">
+            <h5 class="card-title mb-3">
+              <i class="fas fa-code me-2"></i>{{ skill.name }}
+            </h5>
+            <div class="progress rounded-pill" style="height: 18px;">
+              <div
+                class="progress-bar bg-info text-dark fw-bold"
+                role="progressbar"
+                [style.width.%]="getProgress(skill.level)"
+              >
+                {{ skill.level }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

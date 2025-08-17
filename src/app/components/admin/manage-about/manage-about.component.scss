@@ -1,0 +1,45 @@
+.card {
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+  border-radius: 1.5rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+}
+
+label {
+  font-weight: 500;
+  margin-bottom: 0.4rem;
+}
+
+textarea,
+input {
+  background-color: #1d1d1d;
+  color: #fff;
+  border: 1px solid #444;
+  transition: all 0.3s ease;
+}
+
+textarea:focus,
+input:focus {
+  border-color: #0dcaf0;
+  box-shadow: 0 0 0 0.15rem rgba(13, 202, 240, 0.25);
+  background-color: #1d1d1d;
+}
+
+button {
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+    padding: 2rem 1rem;
+  }
+
+  h4 {
+    font-size: 1.5rem;
+  }
+}
