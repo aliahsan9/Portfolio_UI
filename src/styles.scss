@@ -1,1 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+.circle-icon {
+  width: 64px;       /* set size */
+  height: 64px;
+  border-radius: 50%; /* makes it circle */
+  object-fit: cover;  /* keeps image inside circle */
+  border: 2px solid #ddd; /* optional border */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2); /* optional shadow */
+}
