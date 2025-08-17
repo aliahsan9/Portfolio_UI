@@ -20,16 +20,47 @@
     }
   }
 
+  /* Hamburger */
   .navbar-toggler {
     background-color: #0ef;
     border: none;
     transition: transform 0.3s ease;
+    padding: 6px 10px;
 
     &:hover {
       transform: rotate(90deg);
     }
+
+    .navbar-toggler-icon {
+      background-image: none; /* Remove default Bootstrap icon */
+      display: inline-block;
+      width: 24px;
+      height: 2px;
+      background-color: #081529;
+      position: relative;
+    }
+
+    .navbar-toggler-icon::before,
+    .navbar-toggler-icon::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      width: 24px;
+      height: 2px;
+      background-color: #081529;
+      transition: all 0.3s ease;
+    }
+
+    .navbar-toggler-icon::before {
+      top: -6px;
+    }
+
+    .navbar-toggler-icon::after {
+      top: 6px;
+    }
   }
 
+  /* Nav Links */
   .navbar-nav {
     align-items: center;
     gap: 1.2rem;
@@ -79,7 +110,7 @@
     transform-origin: left;
   }
 
-  // Optional glow border bottom on scroll
+  /* Glow on scroll */
   &.scrolled {
     background: rgba(11, 31, 58, 0.95);
     backdrop-filter: blur(5px);

@@ -126,54 +126,51 @@
 .social-icons {
   margin-top: 20px;
   display: flex;
-  gap: 15px;
-  
+  justify-content: center;
+  flex-wrap: wrap; /* allows wrapping on smaller screens */
+  gap: 18px;
+  position: relative;
+  top: 140px;
+
   /* Individual Social Icon */
   .social-icon {
-    width: 85px;
-    height: 40px;
-    border-radius: 100%;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     background: rgba(10, 25, 47, 0.9);
     color: #00d4ff;
-    font-size: 20px;
+    font-size: 22px;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.4);
     box-shadow: 0 4px 15px rgba(2, 12, 27, 0.7);
     position: relative;
-    top: 150px;
     overflow: hidden;
-    
+
     /* Animated Border */
     &::before {
       content: '';
       position: absolute;
-      top: -2px;
-      left: -2px;
-      right: -2px;
-      bottom: -2px;
+      inset: -2px;
       background: linear-gradient(135deg, #00d4ff, #0a192f, #00d4ff);
       z-index: -1;
       border-radius: 50%;
       background-size: 200% 200%;
       animation: gradientBorder 4s linear infinite;
     }
-    
+
     /* Inner Glow */
     &::after {
       content: '';
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
+      inset: 0;
       border-radius: 50%;
       box-shadow: inset 0 0 10px rgba(0, 212, 255, 0.3);
       opacity: 0;
       transition: opacity 0.3s ease;
     }
-    
+
     /* Tooltip */
     .tooltip {
       position: absolute;
@@ -191,7 +188,7 @@
       visibility: hidden;
       transition: all 0.3s ease;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-      
+
       &::before {
         content: '';
         position: absolute;
@@ -205,25 +202,25 @@
         border-bottom: 5px solid #00d4ff;
       }
     }
-    
+
     /* Hover Effects */
     &:hover {
-      transform: translateY(-8px) scale(1.15);
+      transform: translateY(-6px) scale(1.1);
       background: #00d4ff;
       color: #0a192f;
       box-shadow: 0 10px 25px rgba(0, 212, 255, 0.6);
-      
+
       &::after {
         opacity: 1;
       }
-      
+
       .tooltip {
         opacity: 1;
         visibility: visible;
         transform: translateX(-50%) translateY(0);
       }
     }
-    
+
     /* Pulse Animation */
     &:nth-child(1) { animation: pulse 2s infinite 0.1s; }
     &:nth-child(2) { animation: pulse 2s infinite 0.3s; }
@@ -234,59 +231,49 @@
 
 /* Keyframe Animations */
 @keyframes gradientBorder {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 @keyframes pulse {
-  0% {
-    box-shadow: 0 0 0 0 rgba(0, 212, 255, 0.4);
-  }
-  70% {
-    box-shadow: 0 0 0 10px rgba(0, 212, 255, 0);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(0, 212, 255, 0);
-  }
+  0% { box-shadow: 0 0 0 0 rgba(0, 212, 255, 0.4); }
+  70% { box-shadow: 0 0 0 12px rgba(0, 212, 255, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(0, 212, 255, 0); }
 }
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
   .social-icons {
-    gap: 12px;
-    margin-top: 15px;
-    
+    gap: 14px;
+    top: 100px;
+
     .social-icon {
-      width: 42px;
-      height: 42px;
+      width: 48px;
+      height: 48px;
       font-size: 18px;
-      top: 120px;
     }
   }
 }
 
 @media (max-width: 480px) {
   .social-icons {
-    gap: 10px;
-    
+    gap: 12px;
+    top: 80px;
+
     .social-icon {
-      width: 38px;
-      height: 38px;
+      width: 42px;
+      height: 42px;
       font-size: 16px;
-      top: 100px;
     }
   }
 }
+
+/* Typing Effect */
 .typing {
   min-height: 1.5em;
   display: inline-block;
+  font-size: clamp(16px, 2vw, 22px); /* responsive font */
 }
 
 .typed-cursor {
@@ -304,7 +291,7 @@
 .hero-section {
   background: linear-gradient(135deg, #06142e, #042a4f, #06142e);
   min-height: 100vh;
-  padding: 100px 20px;
+  padding: clamp(60px, 8vw, 120px) 20px; /* scales padding */
   position: relative;
   z-index: 1;
   overflow: hidden;
@@ -324,39 +311,49 @@
   }
 
   .hero-content {
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
+    text-align: center;
     position: relative;
     z-index: 2;
+
+    h1 {
+      font-size: clamp(26px, 5vw, 54px); /* scales smoothly */
+      font-weight: 700;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    p {
+      font-size: clamp(14px, 2vw, 20px);
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
   }
 }
 
+/* Glow animation */
 @keyframes pulseGlow {
-  0%, 100% {
-    transform: scale(1);
-    opacity: 0.08;
-  }
-  50% {
-    transform: scale(1.1);
-    opacity: 0.13;
-  }
+  0%, 100% { transform: scale(1); opacity: 0.08; }
+  50%      { transform: scale(1.1); opacity: 0.13; }
 }
 
 .glow-text {
-  text-shadow: 0 0 5px rgba(13, 202, 240, 0.5), 0 0 10px rgba(13, 202, 240, 0.3);
+  text-shadow: 0 0 5px rgba(13, 202, 240, 0.5), 
+               0 0 10px rgba(13, 202, 240, 0.3);
   animation: glowText 2s ease-in-out infinite alternate;
 }
 
 @keyframes glowText {
-  from {
-    text-shadow: 0 0 5px rgba(13, 202, 240, 0.5);
-  }
-  to {
-    text-shadow: 0 0 20px rgba(13, 202, 240, 0.8);
-  }
+  from { text-shadow: 0 0 5px rgba(13, 202, 240, 0.5); }
+  to   { text-shadow: 0 0 20px rgba(13, 202, 240, 0.8); }
 }
 
+/* Buttons */
 .hero-section .btn {
+  padding: clamp(10px, 2vw, 14px) clamp(18px, 3vw, 28px);
+  font-size: clamp(13px, 1.6vw, 18px);
+  border-radius: 30px;
   transition: all 0.3s ease;
 
   &:hover {
@@ -365,10 +362,13 @@
   }
 }
 
+/* Scroll Arrow */
 .scroll-arrow {
   animation: bounceArrow 2s infinite;
+  margin-top: 40px;
 
   i {
+    font-size: clamp(20px, 5vw, 34px);
     cursor: pointer;
     transition: transform 0.3s;
 
@@ -379,13 +379,58 @@
 }
 
 @keyframes bounceArrow {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(10px);
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(10px); }
+}
+
+/* ✅ Responsive Breakpoints */
+
+/* Large screens */
+@media (min-width: 1440px) {
+  .hero-section .hero-content {
+    max-width: 1100px;
+    h1 { font-size: 58px; }
+    p  { font-size: 22px; }
   }
 }
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .hero-section { padding: 80px 15px; }
+  .hero-section .hero-content { max-width: 650px; }
+}
+
+/* Mobile (portrait tablets & big phones) */
+@media (max-width: 768px) {
+  .hero-section { padding: 70px 12px; }
+  .hero-section .hero-content {
+    max-width: 500px;
+    h1 { font-size: clamp(22px, 6vw, 34px); }
+    p  { font-size: 15px; }
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .hero-section { padding: 60px 10px; }
+  .hero-section .hero-content {
+    max-width: 100%;
+    h1 { font-size: 20px; }
+    p  { font-size: 14px; }
+  }
+  .hero-section .btn {
+    width: 100%;
+    padding: 10px 20px;
+  }
+}
+
+/* Extra small (old phones / 320px–360px) */
+@media (max-width: 360px) {
+  .hero-section .hero-content h1 { font-size: 18px; }
+  .hero-section .hero-content p  { font-size: 13px; }
+  .scroll-arrow i { font-size: 20px; }
+}
+
 
 .social-icons a {
   transition: color 0.3s, transform 0.3s;
@@ -404,7 +449,9 @@
     transform: scale(1.08);
   }
 }
-/* Testimonials */
+/* ================================
+   Testimonials Section
+================================ */
 .testimonial-card {
   background: linear-gradient(145deg, #0d2747, #0a1c32);
   border-radius: 1.2rem;
@@ -421,8 +468,8 @@
   }
 
   img {
-    width: 100px;
-    height: 100px;
+    width: clamp(70px, 8vw, 100px);
+    height: clamp(70px, 8vw, 100px);
     object-fit: cover;
     border-radius: 50%;
     margin-bottom: 1rem;
@@ -438,15 +485,14 @@
 
   .card-title {
     font-weight: 700;
-    font-size: 1.2rem;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    margin: 0.5rem 0;
     color: #ffffff;
     text-shadow: 0 0 4px #0ef3;
   }
 
   .card-text {
-    font-size: 0.96rem;
+    font-size: clamp(0.85rem, 2vw, 0.96rem);
     color: #d0d8e8;
     padding: 0 1.2rem;
     line-height: 1.6;
@@ -459,10 +505,26 @@
     font-style: italic;
     font-weight: 500;
     letter-spacing: 0.5px;
+    font-size: clamp(0.75rem, 1.8vw, 0.85rem);
   }
 }
 
-// Responsive Layout
+/* ================================
+   Responsive Layout
+================================ */
+
+/* Tablets (<= 1024px) */
+@media (max-width: 1024px) {
+  .testimonial-card {
+    padding: 1.8rem 1.2rem;
+
+    .card-text {
+      padding: 0 1rem;
+    }
+  }
+}
+
+/* Mobile devices (<= 768px) */
 @media (max-width: 768px) {
   .testimonial-card {
     padding: 1.5rem 1rem;
@@ -478,8 +540,57 @@
   }
 }
 
+/* Small phones (<= 480px) */
+@media (max-width: 480px) {
+  .testimonial-card {
+    padding: 1.2rem 0.8rem;
 
-/* Skills */
+    img {
+      width: 70px;
+      height: 70px;
+    }
+
+    .card-title {
+      font-size: 1rem;
+    }
+
+    .card-text {
+      font-size: 0.85rem;
+      padding: 0 0.6rem;
+    }
+
+    small {
+      font-size: 0.75rem;
+    }
+  }
+}
+
+/* Extra small devices (<= 360px) */
+@media (max-width: 360px) {
+  .testimonial-card {
+    padding: 1rem 0.6rem;
+
+    img {
+      width: 60px;
+      height: 60px;
+    }
+
+    .card-title {
+      font-size: 0.9rem;
+    }
+
+    .card-text {
+      font-size: 0.8rem;
+      padding: 0 0.4rem;
+    }
+  }
+}
+
+
+
+/* ================================
+   Skills Section
+================================ */
 .skill-box {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 
@@ -489,27 +600,22 @@
   }
 }
 
+/* Progress Bar */
 .progress {
   background-color: #1c2b3a;
   border-radius: 10px;
+  overflow: hidden;
 }
 
 .progress-bar {
   transition: width 1s ease-in-out;
 }
 
-/* Floating Particles */
+/* ================================
+   Floating Particles
+================================ */
 .particles-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  overflow: hidden;
-  z-index: 0;
-.particles-container {
-  position: fixed;
+  position: fixed; /* covers entire viewport */
   top: 0;
   left: 0;
   width: 100vw;
@@ -524,66 +630,52 @@
   background-color: #0dcaf0;
   border-radius: 50%;
   opacity: 0.7;
-  animation: floatUp ease-in-out infinite;
+  width: clamp(8px, 2vw, 32px);  /* scales with screen size */
+  height: clamp(8px, 2vw, 32px);
+  animation: floatUp 10s linear infinite;
   box-shadow: 0 0 16px 4px rgba(13, 202, 240, 0.3);
 }
 
+.particle-edge {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+  width: 2px;
+  background: linear-gradient(90deg, #0dcaf0 0%, #6f42c1 100%);
+  opacity: 0.4;
+  transform-origin: top left;
+}
+
+/* Particle floating animation */
 @keyframes floatUp {
-  0% {
-    transform: translateY(100vh);
-    opacity: 0;
-  }
-  50% {
-    opacity: 0.8;
-  }
-  100% {
-    transform: translateY(-10vh);
-    opacity: 0;
-  }
+  0%   { transform: translateY(100vh); opacity: 0; }
+  50%  { opacity: 0.7; }
+  100% { transform: translateY(-10vh); opacity: 0; }
 }
 
-  .particle {
-    position: absolute;
-    background-color: #0dcaf0;
-    border-radius: 50%;
-    opacity: 0.7;
-    // Increased particle size
-    width: 32px;
-    height: 32px;
-    animation: floatUp 10s linear infinite;
-    box-shadow: 0 0 16px 4px rgba(13, 202, 240, 0.3);
-  }
+/* ================================
+   Responsive Design
+================================ */
 
-  // Edges between particles (lines)
-  .particle-edge {
-    position: absolute;
-    pointer-events: none;
-    z-index: 1;
-    // The edge will be drawn using a thin line
-    width: 2px;
-    background: linear-gradient(90deg, #0dcaf0 0%, #6f42c1 100%);
-    opacity: 0.4;
-    // Height and rotation will be set inline via JS
-    transform-origin: top left;
-  }
+/* Large screens (1440px+) */
+@media (min-width: 1440px) {
+  .skill-box { padding: 30px; }
+  .particle  { width: 32px; height: 32px; }
 }
 
-@keyframes floatUp {
-  0% {
-    transform: translateY(100vh);
-    opacity: 0;
-  }
-  50% {
-    opacity: 0.7;
-  }
-  100% {
-    transform: translateY(-10vh);
-    opacity: 0;
-  }
+/* Tablets (<= 1024px) */
+@media (max-width: 1024px) {
+  .skill-box { padding: 25px; }
+  .particle  { width: 24px; height: 24px; }
 }
 
-/* Responsive */
+/* Mobile devices (<= 768px) */
 @media (max-width: 768px) {
+  .skill-box {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
   .fixed-profile-pic {
     top: 15px;
     left: 15px;
@@ -597,4 +689,26 @@
   .text-md-start {
     text-align: center !important;
   }
+
+  .particle { width: 18px; height: 18px; }
+}
+
+/* Small phones (<= 480px) */
+@media (max-width: 480px) {
+  .skill-box {
+    padding: 15px;
+    font-size: 14px;
+  }
+
+  .particle {
+    width: 14px;
+    height: 14px;
+    opacity: 0.5; /* lighter for performance */
+  }
+}
+
+/* Extra small devices (<= 360px) */
+@media (max-width: 360px) {
+  .skill-box { font-size: 13px; }
+  .particle  { width: 10px; height: 10px; }
 }
