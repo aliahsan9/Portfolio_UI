@@ -21,6 +21,15 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
     window.addEventListener('scroll', this.onScroll);
+
+    // Hamburger toggle
+    const hamburger = document.getElementById('hamburger');
+    const sidebar = document.getElementById('sidebar');
+
+    hamburger?.addEventListener('click', () => {
+      sidebar?.classList.toggle('active');
+      hamburger.classList.toggle('open');
+    });
   }
 
   onScroll = () => {
@@ -31,4 +40,11 @@ export class NavbarComponent implements OnInit {
       navbar?.classList.remove('scrolled');
     }
   };
+
+  closeSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    const hamburger = document.getElementById('hamburger');
+    sidebar?.classList.remove('active');
+    hamburger?.classList.remove('open');
+  }
 }

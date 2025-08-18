@@ -1,28 +1,25 @@
 <nav
-  class="navbar navbar-expand-lg custom-navbar shadow-lg px-4"
+  class="navbar custom-navbar shadow-lg px-4"
   data-aos="fade-down"
   data-aos-duration="1000"
 >
   <div class="container-fluid">
     <!-- Brand -->
-    
-    <img src="PakSchoolsLogo.png" height="50px" width="50px" alt="">
-<a class="navbar-brand text-glow fw-bold fs-4" routerLink="/">Ali Ahsan</a>
+    <img src="PakSchoolsLogo.png" height="50px" width="50px" alt="" />
+    <a class="navbar-brand text-glow fw-bold fs-4" routerLink="/">Ali Ahsan</a>
+
     <!-- Hamburger Toggler -->
     <button
       class="navbar-toggler"
       type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarNav"
-      aria-controls="navbarNav"
-      aria-expanded="false"
+      id="hamburger"
       aria-label="Toggle navigation"
     >
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <!-- Links -->
-    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+    <!-- Sidebar Links -->
+    <div class="navbar-sidebar" id="sidebar">
       <ul class="navbar-nav gap-3">
         <li
           class="nav-item"
@@ -36,6 +33,7 @@
             routerLinkActive="active"
             [routerLinkActiveOptions]="{ exact: true }"
             class="nav-link custom-nav-link"
+            (click)="closeSidebar()"
           >
             {{ link.label }}
           </a>
