@@ -26,8 +26,8 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void { 
     AOS.init({
-      duration: 1500,
-      once: false,
+      duration: 1000,
+      once: true,
       easing: 'ease-in-out'
     });
 

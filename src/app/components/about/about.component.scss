@@ -7,7 +7,8 @@
 .about-section {
   position: relative;
   min-height: 100vh;
-  background: linear-gradient(135deg, #0a0e2e, #10194d); // Dark blue like homepage
+    background: #0b1f3a;
+
   color: #e6f1ff;
   font-family: "Poppins", sans-serif;
   padding: 100px 0;
@@ -66,10 +67,10 @@
 
   /* Profile Card */
   .profile-card {
-    background: rgba(10, 25, 47, 0.7);
+  background-color: #0b1f3a;
     border-radius: 15px;
     padding: 30px;
-    box-shadow: 0 10px 30px rgba(2, 12, 27, 0.7);
+  background-color: #0b1f3a;
     backdrop-filter: blur(10px);
     border: 1px solid rgba(100, 255, 218, 0.1);
     transition: all 0.3s ease;
@@ -170,6 +171,7 @@
 
     .profile-card {
       padding: 20px;
+      margin-top: 70px;
     }
   }
 }
@@ -181,6 +183,23 @@
 
     .profile-card {
       padding: 15px;
+      margin-top: 55px;
+
+      .profile-image-container {
+        width: 140px;
+        height: 140px;
+      }
+    }
+  }
+}
+/* Small Phones */
+@media (max-width: 360px) {
+  .about-section {
+    padding: 40px 0;
+
+    .profile-card {
+      padding: 25px;
+      margin-top: 60px;
 
       .profile-image-container {
         width: 140px;
@@ -310,7 +329,7 @@
    About Content
 =========================== */
 .about-content {
-  background: linear-gradient(135deg, #0a0e2e, #10194d); // Dark blue like homepage
+  background-color: #0b1f3a;
   padding: 40px;
   border-radius: 15px;
 
@@ -329,7 +348,7 @@
 
     .title-line {
       height: 1px;
-      background: #233554;
+  background-color: #0b1f3a;
       flex: 1;
       position: relative;
 
@@ -450,7 +469,7 @@
    Skills Section (Dark Blue BG)
 =========================== */
 .skills-section {
-  background: linear-gradient(135deg, #0a0e2e, #10194d); // Dark blue like homepage
+  background-color: #0b1f3a;
   padding: 60px 40px;
   border-radius: 15px;
 
@@ -521,7 +540,7 @@
   align-items: center;
   color: #64ffda;
   opacity: 0.7;
-  animation: bounce 2s infinite;
+  animation: bounce 1s infinite;
 
   span {
     font-size: clamp(0.7rem, 2vw, 0.85rem);
@@ -544,7 +563,7 @@
       height: 8px;
       background: #64ffda;
       border-radius: 2px;
-      animation: scrollWheel 2s infinite;
+      animation: scrollWheel 1s infinite;
     }
   }
 

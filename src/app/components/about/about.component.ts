@@ -57,7 +57,7 @@ export class AboutComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.createParticles();
-    this.loadAboutData();
+    this.loadAboutData(); 
   }
 
   ngAfterViewInit(): void {

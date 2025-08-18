@@ -19,15 +19,21 @@
   transition: transform 0.4s ease;
 
   @media (max-width: 768px) {
-    top: 15px;
+    position: relative;
     left: 15px;
-    width: 60px;
-    height: 60px;
+    width: 130px;
+    height: 130px;
   }
 
   @media (max-width: 480px) {
-    width: 50px;
-    height: 50px;
+     position: relative;
+    width: 100px;
+    height: 100px;
+  }
+  @media (max-width: 360px) {
+    position: relative;
+    width: 70px;
+    height: 70px;
   }
 
   &:hover {
@@ -127,10 +133,11 @@
   margin-top: 20px;
   display: flex;
   justify-content: center;
-  flex-wrap: wrap; /* allows wrapping on smaller screens */
+  flex-wrap: nowrap; /* allows wrapping on smaller screens */
   gap: 18px;
-  position: relative;
+  position: fixed;
   top: 140px;
+  left: -6px;
 
   /* Individual Social Icon */
   .social-icon {
@@ -157,7 +164,7 @@
       z-index: -1;
       border-radius: 50%;
       background-size: 200% 200%;
-      animation: gradientBorder 4s linear infinite;
+      animation: gradientBorder 2s linear infinite;
     }
 
     /* Inner Glow */
@@ -183,7 +190,7 @@
       border-radius: 20px;
       font-size: 12px;
       font-weight: 600;
-      white-space: nowrap;
+      white-space: wrap;
       opacity: 0;
       visibility: hidden;
       transition: all 0.3s ease;
@@ -246,7 +253,9 @@
 @media (max-width: 768px) {
   .social-icons {
     gap: 14px;
-    top: 100px;
+    top: 100px; 
+    display: flex;
+      flex-wrap: wrap;
 
     .social-icon {
       width: 48px;
@@ -258,13 +267,36 @@
 
 @media (max-width: 480px) {
   .social-icons {
+    gap: 8px;
+    display: flex;
+    flex-wrap: wrap;
+
+    .social-icon {
+      font-size: 10px;
+      top: -95px;
+    }
+  }
+}
+@media (max-width: 768px) {
+  .social-icons {
     gap: 12px;
-    top: 80px;
+    top: 180px;
+    display: flex;
+    flex-wrap: nowrap;
 
     .social-icon {
       width: 42px;
       height: 42px;
       font-size: 16px;
+    }
+  }
+}
+@media (max-width: 360px) {
+  .social-icons {
+    display:none;
+
+    .social-icon {
+      display: none;
     }
   }
 }
@@ -289,7 +321,6 @@
 
 /* Hero Section */
 .hero-section {
-  background: linear-gradient(135deg, #06142e, #042a4f, #06142e);
   min-height: 100vh;
   padding: clamp(60px, 8vw, 120px) 20px; /* scales padding */
   position: relative;
@@ -351,7 +382,7 @@
 
 /* Buttons */
 .hero-section .btn {
-  padding: clamp(10px, 2vw, 14px) clamp(18px, 3vw, 28px);
+  padding: clamp(10px, 2vw, 14px) clamp(18px, 3vw, 28px); 
   font-size: clamp(13px, 1.6vw, 18px);
   border-radius: 30px;
   transition: all 0.3s ease;
@@ -448,6 +479,28 @@
   &:hover {
     transform: scale(1.08);
   }
+}
+/* ================================
+   Skills Section
+================================ */
+.skill-box {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 8px 16px rgba(13, 202, 240, 0.2);
+  }
+}
+
+/* Progress Bar */
+.progress {
+  background-color: #3c5063;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  transition: width 1s ease-in-out;
 }
 /* ================================
    Testimonials Section
@@ -586,31 +639,6 @@
   }
 }
 
-
-
-/* ================================
-   Skills Section
-================================ */
-.skill-box {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-  &:hover {
-    transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 8px 16px rgba(13, 202, 240, 0.2);
-  }
-}
-
-/* Progress Bar */
-.progress {
-  background-color: #1c2b3a;
-  border-radius: 10px;
-  overflow: hidden;
-}
-
-.progress-bar {
-  transition: width 1s ease-in-out;
-}
-
 /* ================================
    Floating Particles
 ================================ */
@@ -676,15 +704,6 @@
     text-align: center;
   }
 
-  .fixed-profile-pic {
-    top: 15px;
-    left: 15px;
-
-    .animated-frame {
-      width: 50px;
-      height: 50px;
-    }
-  }
 
   .text-md-start {
     text-align: center !important;

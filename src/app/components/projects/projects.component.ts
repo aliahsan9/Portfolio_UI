@@ -27,4 +27,4 @@ export class PublicProjectsComponent implements OnInit {
       this.projects = data;
     });
   }
-}
+} 

@@ -1,11 +1,11 @@
 .custom-navbar {
-  background: linear-gradient(90deg, #0b1f3a 0%, #081529 100%);
+  background: linear-gradient(135deg, #0b1f3a, #081529);
   padding: 1rem 2rem;
-  border-bottom: 2px solid #0ef;
   box-shadow: 0 4px 10px rgba(0, 238, 255, 0.1);
   z-index: 999;
   transition: background 0.5s ease-in-out;
-
+  position: fixed;
+  width: 100%;
   .navbar-brand {
     color: #0ef !important;
     font-weight: bold;

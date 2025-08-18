@@ -14,7 +14,7 @@
       <i class="fab fa-twitter"></i>
     </a> 
   </div>
-</div>  
+</div>   
 <!-- Hero Section with movable text -->
 <div class="hero-section text-white d-flex align-items-center justify-content-center flex-column text-center px-3"
      [style.transform]="'translate(' + textPosition.x + 'px, ' + textPosition.y + 'px)'"
@@ -31,17 +31,17 @@
     <p class="lead mb-4">
       <ngx-typed-js
         [strings]="[
-          'A passionate Full Stack Developer building modern web applications',
+          'Building modern web applications',
           'Specializing in Angular, .NET & SQL Server',
-          'Creating responsive and performant web solutions',
+          'Creating performant web solutions',
           'Turning ideas into functional applications'
         ]"
-        [typeSpeed]="40" [loop]="true" [backSpeed]="25" [backDelay]="1500">
+        [typeSpeed]="50" [loop]="true" [backSpeed]="40" [backDelay]="3000">
         <span class="typing"></span>
       </ngx-typed-js>
     </p>
     <div class="d-flex flex-wrap justify-content-center gap-3">
-      <a routerLink="/projects" class="btn btn-info btn-lg px-4 py-2 shadow-lg">
+      <a routerLink="/projects" class="btn btn-outline-light btn-lg px-4 py-2 shadow-lg">
         <i class="bi bi-code-slash me-2"></i> View Projects
       </a>
       <a routerLink="/contact" class="btn btn-outline-light btn-lg px-4 py-2 shadow-lg">

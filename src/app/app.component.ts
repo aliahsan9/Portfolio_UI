@@ -17,6 +17,12 @@ export class AppComponent implements OnInit {
   title = 'portfolio-ui';
  
   ngOnInit(): void {
-    AOS.init();
+    AOS.init(
+      {
+            duration: 1000,
+      once: true,
+      easing: 'ease-in-out'
+      }
+    );
   }
 }
