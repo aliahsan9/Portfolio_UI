@@ -32,8 +32,10 @@
   }
   @media (max-width: 360px) {
     position: relative;
-    width: 70px;
-    height: 70px;
+    align-items: center;
+    left: 130px;
+    width: 90px;
+    height: 90px;
   }
 
   &:hover {
@@ -501,6 +503,7 @@
 
 .progress-bar {
   transition: width 1s ease-in-out;
+  color: #64ffda;
 }
 /* ================================
    Testimonials Section
@@ -556,7 +559,7 @@
     margin-top: 0.8rem;
     color: #0ef;
     font-style: italic;
-    font-weight: 500;
+    font-weight: 700;
     letter-spacing: 0.5px;
     font-size: clamp(0.75rem, 1.8vw, 0.85rem);
   }

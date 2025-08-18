@@ -33,7 +33,7 @@ import { RouterModule } from '@angular/router';
 })
 export class AboutComponent implements OnInit, AfterViewInit {
   aboutData!: About;
-  showScrollIndicator = true;
+  showScrollIndicator = false; 
   particles: any[] = [];
   aboutParagraphs: string[] = [];
 
@@ -46,11 +46,11 @@ export class AboutComponent implements OnInit, AfterViewInit {
     
   skills = [
     { name: 'Angular', level: 90, color: '#64ffda' },
-    { name: 'ASP Core DotNet', level: 85, color: '#b197fc' },
-    { name: 'TypeScript', level: 85, color: '#4dabf7' },
-    { name: 'JavaScript', level: 85, color: '#ffa94d' },
-    { name: 'HTML/CSS', level: 95, color: '#ff8787' },
-    { name: 'UI/UX Design', level: 75, color: '#b197fc' }
+    { name: 'ASP Core DotNet', level: 85, color: '#64ffda' },
+    { name: 'TypeScript', level: 85, color: '#64ffda' },
+    { name: 'JavaScript', level: 85, color: '#64ffda' },
+    { name: 'HTML/CSS', level: 95, color: '#64ffda' },
+    { name: 'UI/UX Design', level: 75, color: '#64ffda' }
   ];
 
   constructor(private aboutService: AboutService) {}
