@@ -74,26 +74,117 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  testimonials = [
-    {
-      name: 'M Jawad',
-      title: 'Frontend Developer',
-      feedback: 'Ali is a brilliant developer and communicator.',
-      image: 'assets/Images/man1.jpg'
-    },
-    {
-      name: 'Jawed Iqbal',
-      title: 'Project Manager',
-      feedback: 'Always delivers on time with great attention to detail.',
-      image: 'assets/Images/man5.jpg'
-    },
-    {
-      name: 'Mr. Ahmad',
-      title: 'UX Designer',
-      feedback: 'He transforms UI designs into beautiful web apps.',
-      image: 'assets/Images/man7.jpg'
-    }
-  ];
+testimonials = [
+  {
+    name: 'David Miller',
+    title: 'Frontend Developer',
+    feedback: 'Ali is an exceptional developer with a rare balance of creativity and technical expertise.',
+    image: 'assets/Images/man8.jpg'
+  },
+  {
+    name: 'James Anderson',
+    title: 'Project Manager',
+    feedback: 'Working with Ali has been seamless—he consistently delivers high-quality results ahead of deadlines.',
+    image: 'assets/Images/man2.jpg'
+  },
+  {
+    name: 'Michael Johnson',
+    title: 'Software Engineer',
+    feedback: 'His problem-solving skills are outstanding, and he quickly adapts to new challenges with innovative solutions.',
+    image: 'assets/Images/man3.jpg'
+  },
+  {
+    name: 'Robert Wilson',
+    title: 'Project Manager',
+    feedback: 'Ali is reliable, detail-oriented, and communicates complex ideas with clarity, making teamwork effortless.',
+    image: 'assets/Images/man5.jpg'
+  },
+  {
+    name: 'Daniel Smith',
+    title: 'Technical Lead',
+    feedback: 'His dedication and ability to optimize workflows have significantly improved our project efficiency.',
+    image: 'assets/Images/man7.jpg'
+  },
+  {
+    name: 'Christopher Brown',
+    title: 'UX Designer',
+    feedback: 'Ali has an eye for design—he transforms user experiences into intuitive, visually engaging web applications.',
+    image: 'assets/Images/man4.jpg'
+  },
+  {
+    name: 'David Miller',
+    title: 'Frontend Developer',
+    feedback: 'Ali is an exceptional developer with a rare balance of creativity and technical expertise.',
+    image: 'assets/Images/man8.jpg'
+  },
+  {
+    name: 'James Anderson',
+    title: 'Project Manager',
+    feedback: 'Working with Ali has been seamless—he consistently delivers high-quality results ahead of deadlines.',
+    image: 'assets/Images/man2.jpg'
+  },
+  {
+    name: 'Michael Johnson',
+    title: 'Software Engineer',
+    feedback: 'His problem-solving skills are outstanding, and he quickly adapts to new challenges with innovative solutions.',
+    image: 'assets/Images/man3.jpg'
+  },
+  {
+    name: 'Robert Wilson',
+    title: 'Project Manager',
+    feedback: 'Ali is reliable, detail-oriented, and communicates complex ideas with clarity, making teamwork effortless.',
+    image: 'assets/Images/man5.jpg'
+  },
+  {
+    name: 'Daniel Smith',
+    title: 'Technical Lead',
+    feedback: 'His dedication and ability to optimize workflows have significantly improved our project efficiency.',
+    image: 'assets/Images/man7.jpg'
+  },
+  {
+    name: 'Christopher Brown',
+    title: 'UX Designer',
+    feedback: 'Ali has an eye for design—he transforms user experiences into intuitive, visually engaging web applications.',
+    image: 'assets/Images/man4.jpg'
+  },
+  {
+    name: 'David Miller',
+    title: 'Frontend Developer',
+    feedback: 'Ali is an exceptional developer with a rare balance of creativity and technical expertise.',
+    image: 'assets/Images/man8.jpg'
+  },
+  {
+    name: 'James Anderson',
+    title: 'Project Manager',
+    feedback: 'Working with Ali has been seamless—he consistently delivers high-quality results ahead of deadlines.',
+    image: 'assets/Images/man2.jpg'
+  },
+  {
+    name: 'Michael Johnson',
+    title: 'Software Engineer',
+    feedback: 'His problem-solving skills are outstanding, and he quickly adapts to new challenges with innovative solutions.',
+    image: 'assets/Images/man3.jpg'
+  },
+  {
+    name: 'Robert Wilson',
+    title: 'Project Manager',
+    feedback: 'Ali is reliable, detail-oriented, and communicates complex ideas with clarity, making teamwork effortless.',
+    image: 'assets/Images/man5.jpg'
+  },
+  {
+    name: 'Daniel Smith',
+    title: 'Technical Lead',
+    feedback: 'His dedication and ability to optimize workflows have significantly improved our project efficiency.',
+    image: 'assets/Images/man7.jpg'
+  },
+  {
+    name: 'Christopher Brown',
+    title: 'UX Designer',
+    feedback: 'Ali has an eye for design—he transforms user experiences into intuitive, visually engaging web applications.',
+    image: 'assets/Images/man4.jpg'
+  }
+];
+
 
   skills = [
     { name: 'Angular', level: 90 },

@@ -10,7 +10,7 @@
          [style.animation-delay.s]="particle.delay">
     </div>
   </div>
- 
+
   <div class="container" *ngIf="aboutData">
     <!-- Profile Card with 3D Tilt Effect -->
     <div class="profile-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-perspective="1000">
@@ -27,8 +27,8 @@
       </div>
 
       <div class="profile-content">
-        <h1 class="name">Ali Ahsan</h1>
-        <h2 class="title">Ful Stack Web Developer</h2>
+        <h1 class="name">{{ aboutData.name }}</h1>
+        <h2 class="title">{{ aboutData.title }}</h2>
 
         <!-- Animated Social Links -->
         <div class="social-links">
@@ -41,11 +41,23 @@
             <span class="tooltip">{{ link.name }}</span>
           </a>
         </div>
+
+        <!-- Skills Cards -->
+        <div class="skills-cards d-flex flex-wrap gap-3 justify-content-center mt-4">
+          <div class="skill-card d-flex flex-column align-items-center p-3 rounded shadow"
+               *ngFor="let skill of skills">
+            <i [class]="skill.icon" [ngStyle]="{'font-size': '2rem', 'color': skill.color}"></i>
+            <h6 class="mt-2 text-white">{{ skill.name }}</h6>
+            <div class="skill-bar w-100 mt-2 rounded" style="height: 5px; background: rgba(255,255,255,0.1)">
+              <div class="skill-fill rounded" [style.width.%]="skill.level" [style.background]="skill.color"></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
     <!-- Animated About Text -->
-    <div class="about-content">
+    <div class="about-content mt-5">
       <div class="section-title">
         <h2>About Me</h2>
         <div class="title-line"></div>
@@ -56,31 +68,14 @@
           {{ paragraph }}
         </p>
       </div>
-
-      <!-- Skills with Animated Bars -->
-      <div class="skills-section">
-        <h3>My Skills</h3>
-        <div class="skills-container">
-          <div *ngFor="let skill of skills" class="skill">
-            <div class="skill-name">{{ skill.name }}</div>
-            <div class="skill-bar">
-              <div class="skill-progress"
-                   [style.width.%]="skill.level"
-                   [style.background]="skill.color">
-                <span class="skill-percent">{{ skill.level }}%</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
-  </div>
 
-  <!-- Floating Scroll Indicator -->
-  <div class="scroll-indicator" *ngIf="showScrollIndicator">
-    <span>Scroll Down</span>
-    <div class="mouse">
-      <div class="wheel"></div>
+    <!-- Floating Scroll Indicator -->
+    <div class="scroll-indicator" *ngIf="showScrollIndicator">
+      <span>Scroll Down</span>
+      <div class="mouse">
+        <div class="wheel"></div>
+      </div>
     </div>
   </div>
 </div>

@@ -16,7 +16,7 @@ import { RouterModule } from '@angular/router';
   selector: 'app-about',
   standalone: true,
   imports: [CommonModule, RouterModule],
-  templateUrl: './about.component.html',   
+  templateUrl: './about.component.html',
   styleUrls: ['./about.component.scss'],
   animations: [
     trigger('paragraphAnimation', [
@@ -33,73 +33,82 @@ import { RouterModule } from '@angular/router';
 })
 export class AboutComponent implements OnInit, AfterViewInit {
   aboutData!: About;
-  showScrollIndicator = false; 
-  particles: any[] = [];
   aboutParagraphs: string[] = [];
+  showScrollIndicator = false;
+  particles: any[] = [];
 
   socialLinks = [
     { name: 'GitHub', url: 'https://github.com/aliahsan9', icon: 'fab fa-github', delay: 0.1 },
-    { name: 'Facebook', url: 'https://github.com/aliahsan9', icon: 'fab fa-facebook-f', delay: 0.2 },
-    { name: 'LinkedIn', url: 'https://github.com/aliahsan9', icon: 'fab fa-linkedin-in', delay: 0.3 },
-    { name: 'Twitter', url: 'https://github.com/aliahsan9', icon: 'fab fa-twitter', delay: 0.4 }
+    { name: 'LinkedIn', url: 'https://www.linkedin.com/in/ali-ahsan-6895a9315?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app', icon: 'fab fa-linkedin-in', delay: 0.3 },
+    { name: 'Twitter', url: 'https://x.com/AliAhsa00861384?t=cX7EqjpG_BysgFzODjR_qw&s=09', icon: 'fab fa-twitter', delay: 0.4 }
   ];
-    
+
   skills = [
-    { name: 'Angular', level: 90, color: '#64ffda' },
-    { name: 'ASP Core DotNet', level: 85, color: '#64ffda' },
-    { name: 'TypeScript', level: 85, color: '#64ffda' },
-    { name: 'JavaScript', level: 85, color: '#64ffda' },
-    { name: 'HTML/CSS', level: 95, color: '#64ffda' },
-    { name: 'UI/UX Design', level: 75, color: '#64ffda' }
+    { name: 'Angular', level: 90, color: '#dd0031', icon: 'bi bi-angular' },
+    { name: 'ASP Core DotNet', level: 85, color: '#512bd4', icon: 'bi bi-stack' },
+    { name: 'TypeScript', level: 85, color: '#3178c6', icon: 'bi bi-file-code' },
+    { name: 'JavaScript', level: 85, color: '#f7df1e', icon: 'bi bi-js-square' },
+    { name: 'HTML/CSS', level: 95, color: '#e34c26', icon: 'bi bi-code-slash' },
+    { name: 'UI/UX Design', level: 75, color: '#64ffda', icon: 'bi bi-brush' }
   ];
 
   constructor(private aboutService: AboutService) {}
 
   ngOnInit(): void {
     this.createParticles();
-    this.loadAboutData(); 
+    this.loadAboutData();
   }
 
   ngAfterViewInit(): void {
     this.hideScrollIndicatorAfterScroll();
   }
 
+  // Fetch About Data
   loadAboutData(): void {
     this.aboutService.getAbout().subscribe({
-      next: (data: About) => {
-        this.aboutData = data;
-        this.aboutParagraphs = data.description
-          .split('\n')
-          .filter(p => p.trim().length > 0);
-      },
-      error: () => {
-        this.aboutData = {
-          id: 0,
-          title: 'Full Stack Developer',
-          name: 'Ali Ahsan',
-          profileImageUrl: 'assets/Images/myImg.jpeg',
-          description:
-            'Passionate frontend developer with expertise in Angular and modern web technologies.\n\nI create beautiful, responsive and user-friendly web applications with focus on performance and accessibility.'
-        };
-        this.aboutParagraphs = this.aboutData.description
-          .split('\n')
-          .filter(p => p.trim().length > 0);
-      }
+      next: (data: About) => this.setAboutData(data),
+      error: () => this.setAboutData(this.getDefaultAboutData())
     });
   }
 
-  createParticles(): void {
-    const particleCount = window.innerWidth < 768 ? 30 : 50;
-    for (let i = 0; i < particleCount; i++) {
-      this.particles.push({
-        x: Math.random() * window.innerWidth,
-        y: Math.random() * window.innerHeight,
-        size: Math.random() * 5 + 2,
-        delay: Math.random() * 5
-      });
-    }
+  private setAboutData(data: About) {
+    this.aboutData = data;
+    this.aboutParagraphs = data.description.split('\n').filter(p => p.trim().length > 0);
   }
 
+  private getDefaultAboutData(): About {
+    return {
+      id: 0,
+      title: 'Full Stack Developer',
+      name: 'Ali Ahsan',
+      profileImageUrl: 'assets/Images/myImg.jpeg',
+      description: `
+Passionate frontend developer and problem solver with expertise in Angular, modern web technologies, and full-stack development using .NET and SQL Server.
+
+I specialize in creating beautiful, responsive, and user-friendly web applications, with a strong focus on performance, accessibility, and clean code.
+
+🔹 Tech Stack Expertise: Angular, TypeScript, HTML5, CSS3, Tailwind, Bootstrap, .NET Core, C#, SQL Server.  
+🔹 Problem Solving & Algorithms: Active LeetCode problem solver, enhancing logical thinking and coding efficiency.  
+🔹 Projects & Achievements: Built dynamic web apps, including portfolio sites, CRUD applications, and interactive dashboards.  
+🔹 Passions: Learning new frameworks, contributing to open source, and developing scalable, maintainable software solutions.
+
+I love transforming ideas into functional and visually appealing web experiences, continuously improving my skills, and sharing knowledge with the community. Let's build something amazing together!
+`
+    };
+  }
+
+  // Particles
+  createParticles(): void {
+    const particleCount = window.innerWidth < 768 ? 30 : 50;
+    this.particles = Array.from({ length: particleCount }, () => ({
+      x: Math.random() * window.innerWidth,
+      y: Math.random() * window.innerHeight,
+      size: Math.random() * 5 + 2,
+      delay: Math.random() * 5
+    }));
+  }
+
+  // Scroll Indicator
   @HostListener('window:scroll')
   onWindowScroll(): void {
     this.showScrollIndicator = window.scrollY < 100;
@@ -111,6 +120,7 @@ export class AboutComponent implements OnInit, AfterViewInit {
     }, 3000);
   }
 
+  // Profile 3D hover effect
   onImageHover(event: MouseEvent): void {
     const img = event.target as HTMLElement;
     const rect = img.getBoundingClientRect();
@@ -135,7 +145,6 @@ export class AboutComponent implements OnInit, AfterViewInit {
 
   @HostListener('window:resize')
   onResize(): void {
-    this.particles = [];
     this.createParticles();
   }
 }

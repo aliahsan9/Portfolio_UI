@@ -482,6 +482,54 @@
     transform: scale(1.08);
   }
 }
+//Moving icons, 
+.tech-slider {
+  background: linear-gradient(145deg, #0d2747, #0a1c32);
+
+  h2 {
+    font-weight: 700;
+    color: #e7e4e4;
+  }
+
+  .slider {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+  }
+
+  .slide-track {
+    display: flex;
+    width: calc(250px * 18); // width = slide width * number of slides
+    animation: scroll 25s linear infinite;
+  }
+
+  .slide { 
+    height: 100px;
+    width: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      max-height: 70px;
+      max-width: 100px;
+      filter: grayscale(100%);
+      transition: transform 0.3s ease, filter 0.3s ease;
+
+      &:hover {
+        transform: scale(1.2);
+        filter: grayscale(0%);
+      }
+    }
+  }
+}
+
+// Animation Keyframes
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-250px * 9)); }
+}
+
 /* ================================
    Skills Section
 ================================ */
@@ -639,6 +687,38 @@
       font-size: 0.8rem;
       padding: 0 0.4rem;
     }
+  }
+}
+.testimonials-marquee {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.testimonials-track {
+  display: flex;
+  gap: 1.5rem;
+  animation: scrollTestimonials 5s linear infinite;
+}
+
+.testimonial-card {
+  flex: 0 0 300px;  // card width
+  min-width: 250px;
+  background: linear-gradient(145deg, #0d2747, #0a1c32);
+  border-radius: 1.2rem;
+  box-shadow: 0 8px 20px rgba(0, 255, 255, 0.05);
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+@keyframes scrollTestimonials {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
   }
 }
 

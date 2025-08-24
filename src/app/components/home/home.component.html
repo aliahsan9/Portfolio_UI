@@ -7,10 +7,10 @@
     <a href="https://github.com/aliahsan9" class="social-icon" data-tooltip="GitHub">
       <i class="fab fa-github"></i>
     </a>
-    <a href="https://github.com/aliahsan9" class="social-icon" data-tooltip="LinkedIn">
+    <a href="https://www.linkedin.com/in/ali-ahsan-6895a9315?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="social-icon" data-tooltip="LinkedIn">
       <i class="fab fa-linkedin-in"></i>
     </a> 
-    <a href="https://github.com/aliahsan9" class="social-icon" data-tooltip="Twitter">
+    <a href="https://x.com/AliAhsa00861384?t=cX7EqjpG_BysgFzODjR_qw&s=09" class="social-icon" data-tooltip="Twitter">
       <i class="fab fa-twitter"></i>
     </a> 
   </div>
@@ -55,6 +55,36 @@
     <i class="bi bi-chevron-double-down text-info fs-2 animate-bounce"></i>
   </div>
 </div>
+<section class="tech-slider py-5">
+  <div class="container text-center">
+    <h2 class="mb-4" data-aos="fade-up">My Tech Stack</h2>
+    <div class="slider" data-aos="fade-up" data-aos-delay="200">
+      <div class="slide-track">
+        <!-- Repeat logos twice for infinite loop effect -->
+        <div class="slide"><img src="assets/Images/github.png" alt="GitHub"></div>
+        <div class="slide"><img src="assets/Images/leetcode.png" alt="LeetCode"></div>
+        <div class="slide"><img src="assets/Images/angular.png" alt="Angular"></div>
+        <div class="slide"><img src="assets/Images/sql.png" alt="SQL"></div>
+        <div class="slide"><img src="assets/Images/tailwind.png" alt="Tailwind"></div>
+        <div class="slide"><img src="assets/Images/bootstrap.png" alt="Bootstrap"></div>
+        <div class="slide"><img src="assets/Images/html.png" alt="HTML"></div>
+        <div class="slide"><img src="assets/Images/css.png" alt="CSS"></div>
+        <div class="slide"><img src="assets/Images/js.png" alt="JavaScript"></div>
+ 
+        <!-- repeat to make loop smooth -->
+        <div class="slide"><img src="assets/Images/github.png" alt="GitHub"></div>
+        <div class="slide"><img src="assets/Images/leetcode.png" alt="LeetCode"></div>
+        <div class="slide"><img src="assets/Images/angular.png" alt="Angular"></div>
+        <div class="slide"><img src="assets/Images/sql.png" alt="SQL"></div>
+        <div class="slide"><img src="assets/Images/tailwind.png" alt="Tailwind"></div>
+        <div class="slide"><img src="assets/Images/bootstrap.png" alt="Bootstrap"></div>
+        <div class="slide"><img src="assets/Images/html.png" alt="HTML"></div>
+        <div class="slide"><img src="assets/Images/css.png" alt="CSS"></div>
+        <div class="slide"><img src="assets/Images/js.png" alt="JavaScript"></div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- Skills Section -->
 <div class="container my-5" id="skills">
@@ -78,19 +108,30 @@
 <!-- Testimonials -->
 <div class="container mt-5" id="testimonials">
   <h2 class="text-white text-center mb-5" data-aos="fade-up">What People Say About Me</h2>
-  <div class="row g-4">
-    <div class="col-md-6 col-lg-4" *ngFor="let person of testimonials; let i = index" [attr.data-aos]="'fade-up'" [attr.data-aos-delay]="i * 100">
-      <div class="card testimonial-card text-white bg-gradient shadow-lg border-0 h-100">
+
+  <div class="testimonials-marquee">
+    <div class="testimonials-track">
+      <div class="testimonial-card" *ngFor="let person of testimonials">
         <div class="card-body d-flex flex-column align-items-center text-center p-4">
-          <img [src]="person.image" alt="User" class="rounded-circle shadow mb-3" width="80" height="80" data-aos="zoom-in">
+          <img [src]="person.image" alt="User" data-aos="zoom-in">
+          <h5 class="card-title">{{ person.name }}</h5>
+          <p class="card-text fst-italic text-light">"{{ person.feedback }}"</p>
+          <small class="text-info">{{ person.title }}</small>
+        </div>
+      </div>
+      <!-- Repeat cards again for seamless loop -->
+      <div class="testimonial-card" *ngFor="let person of testimonials">
+        <div class="card-body d-flex flex-column align-items-center text-center p-4">
+          <img [src]="person.image" alt="User" data-aos="zoom-in">
           <h5 class="card-title">{{ person.name }}</h5>
           <p class="card-text fst-italic text-light">"{{ person.feedback }}"</p>
           <small class="text-info">{{ person.title }}</small>
         </div>
       </div>
     </div>
-  </div> 
+  </div>
 </div>
+
 
 <!-- Floating Particles Background -->
 <div class="particles-container">
