@@ -18,7 +18,7 @@ export class PublicResumeComponent implements OnInit {
   constructor(private sanitizer: DomSanitizer) {}
  
   ngOnInit(): void {
-    AOS.init({ duration: 1000 });
+    AOS.init({ duration: 800 });
 
     // Convert resumeUrl into a safe resource for iframe
     this.safeResumeUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.resumeUrl);

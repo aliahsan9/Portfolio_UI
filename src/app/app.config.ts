@@ -1,5 +1,4 @@
-import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
-import { JwtInterceptor } from './interceptors/jwt.interceptor';
+import { provideHttpClient, withFetch} from '@angular/common/http';
 import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
 import { routes } from './app.routes';
 import { provideRouter } from '@angular/router';
@@ -10,8 +9,7 @@ export const appConfig: ApplicationConfig = {
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideHttpClient(
-      withFetch(),
-      withInterceptors([JwtInterceptor])
+      withFetch()
     ),
     provideAnimations()
   ]

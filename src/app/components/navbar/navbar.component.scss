@@ -1,134 +1,154 @@
 .custom-navbar {
   background: linear-gradient(135deg, #0b1f3a, #081529);
   padding: 1rem 2rem;
-  box-shadow: 0 4px 10px rgba(0, 238, 255, 0.1);
-  z-index: 999;
-  transition: background 0.5s ease-in-out;
+  box-shadow: 0 4px 15px rgba(0, 238, 255, 0.15);
+  z-index: 1300; /* higher so navbar sits above page */
   position: fixed;
   width: 100%;
-  
+  transition: all 0.35s ease-in-out;
+
   .navbar-brand {
     color: #0ef !important;
-    font-weight: bold;
     font-size: 1.4rem;
-    
     letter-spacing: 1px;
-    text-shadow: 0 0 6px #0ef, 0 0 12px #0ef3;
-    transition: all 0.3s ease;
+    text-shadow: 0 0 8px #0ef8;
+    transition: transform 0.25s ease, text-shadow 0.25s ease;
 
     &:hover {
-      transform: scale(1.05);
-      text-shadow: 0 0 12px #0ef9;
+      transform: scale(1.06);
+      text-shadow: 0 0 16px #0ef;
     }
   }
 
   /* Hamburger */
   .navbar-toggler {
-    background-color: #0ef;
+    background: transparent;
     border: none;
-    transition: transform 0.3s ease;
-    padding: 6px 10px;
-
-    &:hover {
-      transform: rotate(90deg);
-    }
+    cursor: pointer;
+    padding: 6px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.25s ease;
 
     .navbar-toggler-icon {
-      background-image: none;
-      display: inline-block;
-      width: 24px;
+      width: 28px;
       height: 2px;
-      background-color: #081529;
+      background: #0ef;
+      display: block;
       position: relative;
+      border-radius: 2px;
+      transition: background 0.25s ease, transform 0.25s ease;
     }
 
     .navbar-toggler-icon::before,
     .navbar-toggler-icon::after {
-      content: "";
+      content: '';
       position: absolute;
       left: 0;
-      width: 24px;
+      width: 28px;
       height: 2px;
-      background-color: #081529;
-      transition: all 0.3s ease;
+      background: #0ef;
+      border-radius: 2px;
+      transition: transform 0.25s ease, top 0.25s ease, opacity 0.25s ease;
     }
 
     .navbar-toggler-icon::before {
-      top: -6px;
+      top: -8px;
     }
 
     .navbar-toggler-icon::after {
-      top: 6px;
+      top: 8px;
+    }
+
+    /* open state (button gets .open class via Angular binding) */
+    &.open {
+      .navbar-toggler-icon {
+        background: transparent;
+      }
+      .navbar-toggler-icon::before {
+        transform: rotate(45deg);
+        top: 0;
+      }
+      .navbar-toggler-icon::after {
+        transform: rotate(-45deg);
+        top: 0;
+      }
     }
   }
 
-  /* Sidebar */
+  /* Sidebar (mobile) */
   .navbar-sidebar {
     position: fixed;
     top: 0;
-    left: -300px;
-    width: 250px;
-    height: 100%;
+    left: -280px;
+    width: 260px;
+    height: 100vh;
     background: linear-gradient(135deg, #081529, #0b1f3a);
     padding: 4rem 1.5rem;
-    box-shadow: 4px 0 15px rgba(0, 238, 255, 0.2);
-    transition: left 0.4s ease-in-out;
-    z-index: 998;
+    box-shadow: 4px 0 20px rgba(0, 238, 255, 0.18);
+    transition: left 0.35s cubic-bezier(.2,.9,.3,1);
+    z-index: 1299; /* above backdrop, below navbar if desired */
 
     .navbar-nav {
       display: flex;
       flex-direction: column;
-      gap: 1.5rem;
+      gap: 1.25rem;
     }
 
     .nav-link {
-      font-size: 1.2rem;
+      font-size: 1.05rem;
+      font-weight: 600;
+      text-transform: lowercase;
       color: #ffffffd1 !important;
-      font-weight: 500;
-      text-transform: uppercase;
       position: relative;
+      transition: color 0.25s, transform 0.25s;
 
       &.active {
         color: #0ef !important;
         text-shadow: 0 0 8px #0ef;
       }
 
-      &::before {
+      &::after {
         content: '';
         position: absolute;
-        bottom: 0;
-        left: 20%;
-        width: 60%;
+        bottom: -6px;
+        left: 0;
+        width: 0;
         height: 2px;
         background: #0ef;
-        transform: scaleX(0);
-        transform-origin: right;
-        transition: transform 0.4s ease-in-out;
+        transition: width 0.35s;
       }
 
       &:hover {
         color: #0ef !important;
-        text-shadow: 0 0 5px #0ef;
       }
 
-      &:hover::before {
-        transform: scaleX(1);
-        transform-origin: left;
+      &:hover::after {
+        width: 100%;
       }
     }
   }
 
-  /* Sidebar Active */
   .navbar-sidebar.active {
     left: 0;
   }
 
-  /* Glow on scroll */
+  /* Backdrop (when sidebar open) */
+  .sidebar-backdrop {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 1280; /* below sidebar (1299) and below navbar (1300) */
+  }
+
+  /* On scroll */
   &.scrolled {
     background: rgba(11, 31, 58, 0.95);
-    backdrop-filter: blur(5px);
-    border-color: #00f0ff;
-    box-shadow: 0 2px 12px rgba(0, 238, 255, 0.2);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 2px 16px rgba(0, 238, 255, 0.2);
   }
 
   @media (min-width: 769px) {
@@ -142,10 +162,17 @@
       padding: 0;
       box-shadow: none;
       background: transparent;
+      display: flex;
+      align-items: center;
 
       .navbar-nav {
         flex-direction: row;
+        gap: 1.5rem;
       }
+    }
+
+    .sidebar-backdrop {
+      display: none;
     }
   }
 }
