@@ -6,11 +6,12 @@
   transition: background 0.5s ease-in-out;
   position: fixed;
   width: 100%;
-
+  
   .navbar-brand {
     color: #0ef !important;
     font-weight: bold;
     font-size: 1.4rem;
+    
     letter-spacing: 1px;
     text-shadow: 0 0 6px #0ef, 0 0 12px #0ef3;
     transition: all 0.3s ease;

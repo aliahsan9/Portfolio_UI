@@ -1,81 +1,119 @@
-<div class="about-section">
-  <!-- Animated Background Elements -->
-  <div class="particles">
-    <div *ngFor="let particle of particles"
-         class="particle"
-         [style.left.px]="particle.x"
-         [style.top.px]="particle.y"
-         [style.width.px]="particle.size"
-         [style.height.px]="particle.size"
-         [style.animation-delay.s]="particle.delay">
-    </div>
-  </div>
-
-  <div class="container" *ngIf="aboutData">
-    <!-- Profile Card with 3D Tilt Effect -->
-    <div class="profile-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-perspective="1000">
-      <div class="profile-image-container">
-        <img 
-          [src]="aboutData.profileImageUrl" 
-          alt="Profile Image" 
-          class="profile-image"
-          (mousemove)="onImageHover($event)"  
-          (mouseleave)="onImageLeave()"
-        />
-        <div class="profile-border"></div>
-        <div class="profile-overlay"></div>
+<section class="about-section py-5 mt-5" id="about">
+  <div class="container">
+    <!-- Intro -->
+    <div class="row align-items-center mb-5" data-aos="fade-up">
+      <div class="col-lg-4 text-center mb-4 mb-lg-0">
+        <img src="assets/Images/myImg.jpeg" alt="Profile"
+             class="img-fluid rounded-circle shadow-lg profile-pic">
       </div>
-
-      <div class="profile-content">
-        <h1 class="name">{{ aboutData.name }}</h1>
-        <h2 class="title">{{ aboutData.title }}</h2>
-
-        <!-- Animated Social Links -->
-        <div class="social-links">
-          <a *ngFor="let link of socialLinks" 
-             [href]="link.url" 
-             target="_blank"
-             class="social-link"
-             [ngStyle]="{ 'animation-delay': link.delay + 's' }">
-            <i [class]="link.icon"></i>
-            <span class="tooltip">{{ link.name }}</span>
+      <div class="col-lg-8 text-center text-lg-start">
+        <h1 class="display-4 fw-bold text-gradient mb-3">Ali Ahsan</h1>
+        <h4 class="text-info mb-3">Full-Stack Software Engineer</h4>
+        <p class="lead text-light">
+          Crafting premium digital experiences with <strong>Angular, .NET, and SQL Server</strong>.  
+          Blending elegant UI with robust backend logic, I help businesses scale with  
+          performance-driven solutions. Passionate about <strong>DSA, C++, C#, JS, TS</strong>, and solving problems efficiently.
+        </p>
+        <div class="mt-4 d-flex flex-wrap justify-content-center justify-content-lg-start gap-3">
+          <a href="assets/resume.pdf" class="btn btn-primary btn-lg" target="_blank">
+            <i class="bi bi-download me-2"></i> Resume
+          </a>
+          <a href="https://github.com/yourusername" class="btn btn-outline-light btn-lg" target="_blank">
+            <i class="bi bi-github me-2"></i> GitHub
+          </a>
+          <a href="https://linkedin.com/in/yourusername" class="btn btn-outline-info btn-lg" target="_blank">
+            <i class="bi bi-linkedin me-2"></i> LinkedIn
           </a>
         </div>
+      </div>
+    </div>
 
-        <!-- Skills Cards -->
-        <div class="skills-cards d-flex flex-wrap gap-3 justify-content-center mt-4">
-          <div class="skill-card d-flex flex-column align-items-center p-3 rounded shadow"
-               *ngFor="let skill of skills">
-            <i [class]="skill.icon" [ngStyle]="{'font-size': '2rem', 'color': skill.color}"></i>
-            <h6 class="mt-2 text-white">{{ skill.name }}</h6>
-            <div class="skill-bar w-100 mt-2 rounded" style="height: 5px; background: rgba(255,255,255,0.1)">
-              <div class="skill-fill rounded" [style.width.%]="skill.level" [style.background]="skill.color"></div>
-            </div>
-          </div>
+    <!-- Stats -->
+    <div class="row text-center mb-5" data-aos="zoom-in">
+      <div class="col-md-4 mb-3">
+        <div class="stat-card">
+          <h2 class="text-gradient">3+</h2>
+          <p class="text-light">Years Experience</p>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="stat-card">
+          <h2 class="text-gradient">20+</h2>
+          <p class="text-light">Projects Delivered</p>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="stat-card">
+          <h2 class="text-gradient">500+</h2>
+          <p class="text-light">LeetCode Problems Solved</p>
         </div>
       </div>
     </div>
 
-    <!-- Animated About Text -->
-    <div class="about-content mt-5">
-      <div class="section-title">
-        <h2>About Me</h2>
-        <div class="title-line"></div>
+    <!-- Skills -->
+    <div class="row mb-5">
+      <div class="col-12 text-center mb-4" data-aos="fade-up">
+        <h2 class="h3 text-white fw-bold">Core Expertise</h2>
       </div>
-
-      <div class="about-text">
-        <p *ngFor="let paragraph of aboutParagraphs" [@paragraphAnimation]>
-          {{ paragraph }}
-        </p>
+      <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="glass-card h-100 p-4 text-center">
+          <i class="bi bi-laptop display-1 text-gradient mb-3"></i>
+          <h5 class="text-white">Frontend</h5>
+          <p class="text-light">
+            Angular, TypeScript, JavaScript, HTML, CSS, Bootstrap, Tailwind –  
+            pixel-perfect and responsive UIs.
+          </p>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="glass-card h-100 p-4 text-center">
+          <i class="bi bi-hdd-network display-1 text-gradient mb-3"></i>
+          <h5 class="text-white">Backend</h5>
+          <p class="text-light">
+            .NET 8, C#, SQL Server – secure APIs, clean architecture, optimized queries.
+          </p>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+        <div class="glass-card h-100 p-4 text-center">
+          <i class="bi bi-people display-1 text-gradient mb-3"></i>
+          <h5 class="text-white">Collaboration</h5>
+          <p class="text-light">
+            GitHub, Figma, Agile teamwork – bridging design & development efficiently.
+          </p>
+        </div>
       </div>
     </div>
 
-    <!-- Floating Scroll Indicator -->
-    <div class="scroll-indicator" *ngIf="showScrollIndicator">
-      <span>Scroll Down</span>
-      <div class="mouse">
-        <div class="wheel"></div>
+    <!-- Timeline -->
+    <div class="row justify-content-center mb-5" data-aos="fade-up" data-aos-delay="400">
+      <div class="col-lg-10">
+        <h2 class="h3 text-white text-center fw-bold mb-4">Professional Journey</h2>
+        <ul class="timeline list-unstyled">
+          <li class="timeline-item mb-5">
+            <h5 class="fw-bold text-gradient">Software Engineer Intern – ABC Tech</h5>
+            <small class="text-light">2024 - Present</small>
+            <p class="text-light mt-2">
+              Contributed to Angular + .NET projects, implemented JWT authentication,
+              and optimized SQL Server for enterprise systems.
+            </p>
+          </li>
+          <li class="timeline-item mb-5">
+            <h5 class="fw-bold text-gradient">Freelance Developer</h5>
+            <small class="text-light">2022 - 2024</small>
+            <p class="text-light mt-2">
+              Delivered full-stack apps, e-commerce platforms, and portfolio sites for clients worldwide.
+            </p>
+          </li>
+          <li class="timeline-item">
+            <h5 class="fw-bold text-gradient">Competitive Programmer</h5>
+            <small class="text-light">2019 - Present</small>
+            <p class="text-light mt-2">
+              Solved 500+ DSA problems, excelling in algorithms, C++, and C#.
+            </p>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
-</div>
+</section>

@@ -1,30 +1,128 @@
-<div class="container py-5 text-white">
-  <h2 class="text-center mb-4" data-aos="fade-down">My Resume</h2>
-
-  <div *ngIf="safeResumeUrl; else noResume">
-    <!-- Download Button -->
-    <div class="text-center mb-4" data-aos="fade-up">
-      <a
-        [href]="resumeUrl"
-        download="Ali_Ahsan_Resume.pdf"
-        class="btn btn-outline-light btn-lg"
-      >
-        <i class="bi bi-download"></i> Download Resume
+<section class="resume-section py-5 mt-5" id="resume">
+  <div class="container">
+    <!-- Header -->
+    <div class="text-center mb-5" data-aos="fade-down">
+      <h1 class="fw-bold text-gradient">Ali Ahsan</h1>
+      <h4 class="text-light">Full-Stack Software Engineer</h4>
+      <p class="text-light mb-1"><i class="bi bi-envelope me-2"></i> aliahsan8751&#64;gmail.com</p>
+      <p class="text-light"><i class="bi bi-telephone me-2"></i> (+92) 3141710751</p>
+      <a href="assets/Ali_Ahsan_Resume.pdf" download class="btn btn-primary mt-3">
+        <i class="bi bi-download me-2"></i> Download Resume
       </a>
     </div>
 
-    <div class="resume-preview" data-aos="zoom-in">
-      <iframe
-        [src]="safeResumeUrl"
-        width="100%"
-        height="600"
-        frameborder="0"
-        style="border-radius: 10px;"
-      ></iframe>
+    <!-- About -->
+    <div class="row mb-5" data-aos="fade-up">
+      <div class="col-12">
+        <h3 class="section-title">About Me</h3>
+        <div class="glass-card p-3">
+          <p class="text-light">
+            I’m a passionate <strong>Full-Stack Developer</strong> skilled in creating scalable web apps 
+            using <strong>Angular, .NET, SQL Server</strong>. Strong background in problem solving, DSA, and 
+            competitive programming. I love building products that are clean, responsive, and performance-driven.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Skills -->
+    <div class="row mb-5">
+      <div class="col-12"><h3 class="section-title">Core Skills</h3></div>
+      <div class="col-md-6 col-lg-3" data-aos="zoom-in">
+        <div class="glass-card p-3 h-100">
+          <h5 class="fw-bold text-gradient">Frontend</h5>
+          <p class="text-light small">Angular, TypeScript, JavaScript, HTML, CSS, Bootstrap, Tailwind, SCSS</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="100">
+        <div class="glass-card p-3 h-100">
+          <h5 class="fw-bold text-gradient">Backend</h5>
+          <p class="text-light small">.NET 8, ASP.NET Core, C#, SQL Server, EF Core, REST APIs, JWT</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="200">
+        <div class="glass-card p-3 h-100">
+          <h5 class="fw-bold text-gradient">Tools</h5>
+          <p class="text-light small">GitHub, Git, Azure, Vercel, Postman, Figma, Agile</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="300">
+        <div class="glass-card p-3 h-100">
+          <h5 class="fw-bold text-gradient">Soft Skills</h5>
+          <p class="text-light small">Problem Solving, Team Collaboration, Leadership</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Timeline -->
+    <div class="row mb-5">
+      <div class="col-12">
+        <h3 class="section-title">Education & Experience Timeline</h3>
+        <ul class="timeline list-unstyled">
+          <!-- Experience -->
+          <li class="timeline-item mb-5" data-aos="fade-up">
+            <h5 class="fw-bold text-gradient">Full Stack Web Developer – Remote</h5>
+            <small class="text-light">Jan 2023 – Present</small>
+            <p class="text-light mt-2 small">
+              • Built Angular + .NET apps with SQL Server<br>
+              • Implemented secure APIs with JWT<br>
+              • Deployed projects on Azure & Vercel
+            </p>
+          </li>
+          <li class="timeline-item mb-5" data-aos="fade-up">
+            <h5 class="fw-bold text-gradient">Freelance Projects</h5>
+            <small class="text-light">2021 – 2023</small>
+            <p class="text-light mt-2 small">
+              • Delivered portfolio websites & e-commerce apps<br>
+              • Worked with global clients ensuring responsive, fast UIs
+            </p>
+          </li>
+
+          <!-- Education -->
+          <li class="timeline-item mb-5" data-aos="fade-up">
+            <h5 class="fw-bold text-gradient">BS Computer Science – UAF Toba Tek Singh</h5>
+            <small class="text-light">2021 – 2025</small>
+            <p class="text-light mt-2 small">Specialized in Software Engineering, Databases, AI</p>
+          </li>
+          <li class="timeline-item" data-aos="fade-up">
+            <h5 class="fw-bold text-gradient">PGC College Primahal</h5>
+            <small class="text-light">2019 – 2021</small>
+            <p class="text-light mt-2 small">CGPA: 3.3 | Intermediate (ICS)</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Projects -->
+    <div class="row mb-5">
+      <div class="col-12"><h3 class="section-title">Highlighted Project</h3></div>
+      <div class="col-12" data-aos="zoom-in">
+        <div class="glass-card p-3">
+          <h5 class="fw-bold text-gradient">Mini Amazon Clone – FalconShop</h5>
+          <p class="text-light small">
+            Developed a complete e-commerce platform with Angular frontend, .NET 8 Web API backend, 
+            and SQL Server (Code First). Added JWT authentication, product filters, pagination, 
+            and responsive Bootstrap UI.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Achievements -->
+    <div class="row">
+      <div class="col-12"><h3 class="section-title">Achievements & Leadership</h3></div>
+      <div class="col-md-6" data-aos="fade-right">
+        <div class="glass-card p-3 h-100">
+          <h5 class="fw-bold text-gradient">Tech Society Lead</h5>
+          <p class="text-light small">Developer Society – UAF Sub Campus</p>
+        </div>
+      </div>
+      <div class="col-md-6" data-aos="fade-left">
+        <div class="glass-card p-3 h-100">
+          <h5 class="fw-bold text-gradient">Competitive Programmer</h5>
+          <p class="text-light small">Top 5% on LeetCode & HackerRank (500+ problems solved)</p>
+        </div>
+      </div>
     </div>
   </div>
-
-  <ng-template #noResume>
-    <p class="text-danger text-center">Resume is not available yet.</p>
-  </ng-template>
-</div>
+</section>

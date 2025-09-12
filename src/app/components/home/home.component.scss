@@ -500,7 +500,7 @@
   .slide-track {
     display: flex;
     width: calc(250px * 18); // width = slide width * number of slides
-    animation: scroll 25s linear infinite;
+    animation: scroll 15s linear infinite;
   }
 
   .slide { 

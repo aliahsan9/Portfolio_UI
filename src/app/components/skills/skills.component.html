@@ -1,48 +1,87 @@
-<section class="skills-section py-5 text-white position-relative overflow-hidden">
-  <!-- Particle Background -->
-  <div class="particle-container">
-    <div
-      *ngFor="let particle of particles"
-      class="particle"
-      [ngStyle]="{
-        top: particle.top + '%',
-        left: particle.left + '%',
-        animationDelay: particle.delay + 's',
-        animationDuration: particle.duration + 's',
-        '--x-distance': particle.x + 'px',
-        '--y-distance': particle.y + 'px'
-      }"
-    ></div>
-  </div>
+<section class="skills-section py-5" id="skills">
+  <div class="container">
+    <!-- Header -->
+    <div class="row mb-5 text-center" data-aos="fade-down">
+      <div class="col">
+        <h1 class="fw-bold text-gradient mb-3">Skills & Expertise</h1>
+        <p class="lead text-light">
+          A blend of technical depth and creative problem solving.  
+          From building sleek UIs to architecting scalable backend systems.
+        </p>
+      </div>
+    </div>
 
-  <div class="container position-relative">
-    <h2 class="mb-5 text-center display-5 fw-bold" data-aos="fade-down" data-aos-duration="800">
-      My Skills
-    </h2>
+    <!-- Skills Grid -->
+    <div class="row g-4">
+      <!-- Frontend -->
+      <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="100">
+        <div class="glass-card h-100 p-4 text-center">
+          <i class="bi bi-laptop display-3 text-gradient mb-3"></i>
+          <h4 class="text-white mb-3">Frontend</h4>
+          <p class="text-light">
+            Angular, TypeScript, JavaScript, HTML5, CSS3, Bootstrap, Tailwind –  
+            crafting pixel-perfect, responsive, and accessible interfaces.
+          </p>
+        </div>
+      </div>
 
-    <div class="row">
-      <div
-        class="col-lg-4 col-md-6 mb-4"
-        *ngFor="let skill of skills"
-        data-aos="zoom-in"
-        data-aos-delay="200"
-        data-aos-duration="800"
-      >
-        <div class="card skill-card text-white shadow-lg border-0 h-100">
-          <div class="card-body">
-            <h5 class="card-title mb-3">
-              <i class="fas fa-code me-2"></i>{{ skill.name }}
-            </h5>
-            <div class="progress rounded-pill" style="height: 18px;">
-              <div
-                class="progress-bar bg-info text-dark fw-bold"
-                role="progressbar"
-                [style.width.%]="getProgress(skill.level)"
-              >
-                {{ skill.level }}
-              </div>
-            </div>
-          </div>
+      <!-- Backend -->
+      <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="200">
+        <div class="glass-card h-100 p-4 text-center">
+          <i class="bi bi-server display-3 text-gradient mb-3"></i>
+          <h4 class="text-white mb-3">Backend</h4>
+          <p class="text-light">
+            .NET 8, C#, SQL Server – designing secure APIs,  
+            optimized queries, and clean architectures.
+          </p>
+        </div>
+      </div>
+
+      <!-- Programming -->
+      <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="300">
+        <div class="glass-card h-100 p-4 text-center">
+          <i class="bi bi-code-slash display-3 text-gradient mb-3"></i>
+          <h4 class="text-white mb-3">Programming</h4>
+          <p class="text-light">
+            C++, C#, JavaScript, TypeScript – strong problem-solving,  
+            algorithms, and data structures (500+ LeetCode problems solved).
+          </p>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="400">
+        <div class="glass-card h-100 p-4 text-center">
+          <i class="bi bi-tools display-3 text-gradient mb-3"></i>
+          <h4 class="text-white mb-3">Tools</h4>
+          <p class="text-light">
+            GitHub, Git, VS Code, Visual Studio, Postman –  
+            streamlining development workflows.
+          </p>
+        </div>
+      </div>
+
+      <!-- Collaboration -->
+      <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="500">
+        <div class="glass-card h-100 p-4 text-center">
+          <i class="bi bi-people display-3 text-gradient mb-3"></i>
+          <h4 class="text-white mb-3">Collaboration</h4>
+          <p class="text-light">
+            Agile, Scrum, teamwork, and version control –  
+            ensuring smooth collaboration across teams.
+          </p>
+        </div>
+      </div>
+
+      <!-- UI/UX -->
+      <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="600">
+        <div class="glass-card h-100 p-4 text-center">
+          <i class="bi bi-brush display-3 text-gradient mb-3"></i>
+          <h4 class="text-white mb-3">UI/UX</h4>
+          <p class="text-light">
+            Figma, wireframing, prototyping, and design systems –  
+            bridging aesthetics with functionality.
+          </p>
         </div>
       </div>
     </div>

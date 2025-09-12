@@ -3,13 +3,16 @@ import AOS from 'aos';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { NgxTypedJsModule } from 'ngx-typed-js';
+import { ContactComponent } from "../contact/contact.component";
+import { AboutComponent } from "../about/about.component";
+import { SkillsComponent } from "../skills/skills.component";
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
   standalone: true,
-  imports: [CommonModule, RouterModule, NgxTypedJsModule]
+  imports: [CommonModule, RouterModule, NgxTypedJsModule, ContactComponent, AboutComponent, SkillsComponent]
 })
 export class HomeComponent implements OnInit {
   textPosition = { x: 0, y: 0 };
@@ -184,16 +187,4 @@ testimonials = [
     image: 'assets/Images/man4.jpg'
   }
 ];
-
-
-  skills = [
-    { name: 'Angular', level: 90 },
-    { name: '.NET Core', level: 85 },
-    { name: 'SQL Server', level: 80 },
-    { name: 'JavaScript', level: 88 },
-    { name: 'HTML & CSS', level: 95 },
-    { name: 'Bootstrap', level: 90 },
-    { name: 'Git & GitHub', level: 85 },
-    { name: 'RESTful APIs', level: 80 }
-  ];
 }
