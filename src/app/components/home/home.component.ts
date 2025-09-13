@@ -6,13 +6,14 @@ import { NgxTypedJsModule } from 'ngx-typed-js';
 import { ContactComponent } from "../contact/contact.component";
 import { AboutComponent } from "../about/about.component";
 import { SkillsComponent } from "../skills/skills.component";
+import { PublicProjectsComponent } from "../projects/projects.component";
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
   standalone: true,
-  imports: [CommonModule, RouterModule, NgxTypedJsModule, ContactComponent, AboutComponent, SkillsComponent]
+  imports: [CommonModule, RouterModule, NgxTypedJsModule, ContactComponent, AboutComponent, SkillsComponent, PublicProjectsComponent]
 })
 export class HomeComponent implements OnInit {
   textPosition = { x: 0, y: 0 };

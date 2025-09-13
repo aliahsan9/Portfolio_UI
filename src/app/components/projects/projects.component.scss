@@ -23,6 +23,17 @@
   100% { background-position: 0% center; }
 }
 
+/* Highlight Boxes */
+.highlight-box {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-8px);
+  }
+}
+
 /* Project Card */
 .project-card {
   position: relative;
@@ -38,14 +49,15 @@
 
   .project-img {
     width: 100%;
-    height: 250px;
-    object-fit: cover;
+    height: auto; /* Keep full image ratio, no cutting */
     border-radius: 15px;
     transition: transform 0.5s ease;
+    object-fit: contain; /* Ensures full image visibility */
+    background: #000; /* Adds background padding if aspect ratio differs */
   }
 
   &:hover .project-img {
-    transform: scale(1.1);
+    transform: scale(1.05);
   }
 
   .project-overlay {
@@ -72,9 +84,7 @@
 /* Responsive */
 @media (max-width: 992px) {
   h1 { font-size: 2rem; }
-  .project-img { height: 220px; }
 }
 @media (max-width: 576px) {
   h1 { font-size: 1.8rem; }
-  .project-img { height: 200px; }
 }
