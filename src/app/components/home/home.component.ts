@@ -13,7 +13,7 @@ import { PublicProjectsComponent } from "../projects/projects.component";
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
   standalone: true,
-  imports: [CommonModule, RouterModule, NgxTypedJsModule, ContactComponent, AboutComponent, SkillsComponent, PublicProjectsComponent]
+  imports: [CommonModule, RouterModule, NgxTypedJsModule, AboutComponent, SkillsComponent, PublicProjectsComponent, ContactComponent]
 })
 export class HomeComponent implements OnInit {
   textPosition = { x: 0, y: 0 };

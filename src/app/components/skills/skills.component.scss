@@ -45,3 +45,42 @@
   h1 { font-size: 1.8rem; }
   .display-3 { font-size: 2rem; }
 }
+/* Glass Cards */
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 18px;
+  backdrop-filter: blur(15px);
+  transition: all 0.4s ease;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+}
+.glass-card:hover {
+  transform: translateY(-12px) scale(1.05) rotate(1deg);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.55);
+}
+
+/* Progress Bars */
+.progress {
+  height: 10px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.1);
+}
+.progress-bar {
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-align: right;
+  padding-right: 8px;
+  animation: fillBar 2s ease forwards;
+}
+@keyframes fillBar {
+  from { width: 0; }
+  to { width: var(--progress-width, 80%); }
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  h1 { font-size: 2rem; }
+}
+@media (max-width: 576px) {
+  h1 { font-size: 1.7rem; }
+}
