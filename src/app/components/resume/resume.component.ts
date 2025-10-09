@@ -12,16 +12,10 @@ import { RouterModule } from '@angular/router';
   styleUrls: ['./resume.component.scss']
 })
 export class PublicResumeComponent implements OnInit {
-  resumeUrl: string = 'assets/Resume1.pdf';
-  safeResumeUrl: SafeResourceUrl | null = null;  
-
-  constructor(private sanitizer: DomSanitizer) {}
  
   ngOnInit(): void {
     AOS.init({ duration: 800 });
 
-    // Convert resumeUrl into a safe resource for iframe
-    this.safeResumeUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.resumeUrl);
-  }
+      }
 }
  

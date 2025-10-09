@@ -1,18 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500&display=swap');
+
 .hero-section {
+  min-height: 100vh;
+  background: #0b1f3a;
+  color: #fff;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  min-height: 100vh;
-  // background: linear-gradient(135deg, #020617, #0b1120);
-    background: #0b1f3a;
-  padding: 120px 5% 60px;
-  color: #fff;
-  position: relative;
   overflow: hidden;
+  padding: 120px 5% 60px;
+  font-family: 'Poppins', sans-serif;
 
   .hero-content {
     max-width: 600px;
-    z-index: 2;
 
     h1 {
       font-size: 3rem;
@@ -20,18 +19,23 @@
       margin-bottom: 10px;
 
       span {
-        color: #00b4ff;
-      }
+  background: linear-gradient(90deg,#00b4ff,#b14bff);
+  background-clip: text; /* standard property */
+  -webkit-background-clip: text; /* for Safari/Chrome */
+  -webkit-text-fill-color: transparent;
+  color: transparent; /* fallback for other browsers */
+}
+
     }
 
     h3 {
       font-size: 1.8rem;
       color: #00b4ff;
       margin-bottom: 20px;
+      font-weight: 600;
     }
 
     p {
-      font-size: 1rem;
       color: #cbd5e1;
       margin-bottom: 30px;
       line-height: 1.6;
@@ -39,37 +43,27 @@
 
     .btn-group {
       display: flex;
-      flex-wrap: wrap;
       gap: 15px;
+      flex-wrap: wrap;
 
       .btn {
         padding: 10px 25px;
         border-radius: 50px;
         font-weight: 600;
-        font-size: 1rem;
-        transition: all 0.3s ease;
-      }
+        transition: 0.3s;
 
-      .btn-primary {
-        background-color: #00b4ff;
-        border: none;
-        color: #fff;
-
-        &:hover {
-          background-color: #0099cc;
-          transform: translateY(-2px);
-        }
-      }
-
-      .btn-outline-primary {
-        background: transparent;
-        border: 2px solid #00b4ff;
-        color: #00b4ff;
-
-        &:hover {
-          background-color: #00b4ff;
+        &.btn-primary {
+          background: linear-gradient(90deg,#00b4ff,#00ffd0);
+          border: none;
           color: #fff;
-          transform: translateY(-2px);
+          &:hover { transform: translateY(-2px); opacity: 0.9; }
+        }
+
+        &.btn-outline-primary {
+          border: 2px solid #00b4ff;
+          background: transparent;
+          color: #00b4ff;
+          &:hover { background: #00b4ff; color: #fff; transform: translateY(-2px); }
         }
       }
     }
@@ -80,79 +74,34 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1;
 
     img {
       width: 90%;
-      max-width: 500px;
-      height: auto;
-      object-fit: cover;
-      border-radius: 10px;
-      margin-top: 40px; // ensures image starts below navbar
+      max-width: 480px;
+      border-radius: 15px;
       animation: float 4s ease-in-out infinite;
     }
   }
 }
 
-/* Floating image animation */
+/* Floating animation */
 @keyframes float {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-  100% {
-    transform: translateY(0);
-  }
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
 }
 
-/* Responsive design */
+/* Responsive */
 @media (max-width: 992px) {
-  .hero-section {
-    flex-direction: column;
-    text-align: center;
-    padding: 140px 5% 60px; // more top padding for smaller devices
-
-    .hero-content {
-      order: 2;
-      h1 {
-        font-size: 2.5rem;
-      }
-      h3 {
-        font-size: 1.4rem;
-      }
-    }
-
-    .hero-image {
-      order: 1;
-      img {
-        width: 80%;
-        max-width: 380px;
-        margin-top: 60px; // space below navbar
-      }
-    }
-  }
+  .hero-section { flex-direction: column; text-align: center; padding: 140px 5% 60px; }
+  .hero-image img { width: 80%; margin-top: 40px; }
+  .hero-content h1 { font-size: 2.5rem; }
+  .hero-content h3 { font-size: 1.5rem; }
 }
 
 @media (max-width: 576px) {
-  .hero-section {
-    padding: 150px 5% 40px; // even more padding for mobile
-    .hero-content {
-      h1 {
-        font-size: 2rem;
-      }
-      h3 {
-        font-size: 1.2rem;
-      }
-      p {
-        font-size: 0.9rem;
-      }
-    }
-    .hero-image img {
-      width: 75%;
-      max-width: 320px;
-      margin-top: -55px;
-    }
-  }
+  .hero-section { padding: 150px 5% 40px; }
+  .hero-content h1 { font-size: 2rem; }
+  .hero-content h3 { font-size: 1.2rem; }
+  .hero-content p { font-size: 0.9rem; }
+  .hero-image img { width: 75%; max-width: 320px; }
 }

@@ -2,107 +2,83 @@
   display: block;
   background: #0b1f3a;
   min-height: 100vh;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  padding-top: 100px; /* fixes navbar hiding issue */
-  padding-left: 1rem;
-  padding-right: 1rem;
+  font-family: 'Poppins', sans-serif;
+  padding-top: 90px;
+  color: #ffffff;
 }
 
-/* Gradient Text */
+/* Gradient heading text */
 .text-gradient {
-  background: linear-gradient(90deg, #00ffe7, #4da6ff, #8a2be2);
+  background: linear-gradient(90deg, #00eaff, #4d9fff, #b14bff);
   background-size: 200% auto;
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
   -webkit-text-fill-color: transparent;
-  animation: gradient-flow 4s ease-in-out infinite;
+  animation: gradient-move 4s ease-in-out infinite;
 }
 
-@keyframes gradient-flow {
-  0% { background-position: 0% center; }
-  50% { background-position: 100% center; }
-  100% { background-position: 0% center; }
+@keyframes gradient-move {
+  0% { background-position: 0%; }
+  50% { background-position: 100%; }
+  100% { background-position: 0%; }
 }
 
-/* Gradient Button */
+/* Download button */
 .btn-gradient {
-  background: linear-gradient(90deg, #00ffe7, #4da6ff, #8a2be2);
-  border: none;
+  background: linear-gradient(90deg, #00eaff, #4d9fff, #b14bff);
   color: #fff;
-  font-weight: 600;
-  padding: 0.6rem 1.5rem;
-  border-radius: 30px;
+  border: none;
+  font-weight: 500;
+  padding: 10px 22px;
+  border-radius: 8px;
   transition: all 0.3s ease;
 }
+
 .btn-gradient:hover {
-  transform: scale(1.08);
-  box-shadow: 0 0 20px rgba(0, 255, 231, 0.6);
+  transform: translateY(-3px);
+  box-shadow: 0 4px 15px rgba(77, 159, 255, 0.4);
 }
 
-/* Section Titles */
-.section-title {
-  font-size: 1.6rem;
-  font-weight: 700;
-  color: #0ef;
-  border-bottom: 2px solid #0ef3;
-  margin-bottom: 1.4rem;
-  padding-bottom: 0.4rem;
-  text-shadow: 0 0 8px #0ef6;
+/* Resume viewer container */
+.resume-viewer {
+  width: 100%;
+  max-width: 850px;
+  margin: 30px auto;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease;
+
+  iframe {
+    width: 100%;
+    height: 90vh;
+    border: none;
+  }
 }
 
-/* Glass Cards */
-.glass-card {
-  background: rgba(255, 255, 255, 0.07);
-  border-radius: 16px;
-  backdrop-filter: blur(14px);
-  transition: all 0.3s ease;
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35);
-}
-.glass-card:hover {
-  transform: translateY(-6px) scale(1.03);
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.6);
+.resume-viewer:hover {
+  transform: translateY(-5px);
 }
 
-/* Skill Cards subtle animation */
-.skill-card {
-  text-align: center;
-  transition: transform 0.4s ease;
-}
-.skill-card:hover {
-  transform: rotate3d(1, 1, 0, 10deg) scale(1.05);
-}
-
-/* Timeline */
-.timeline {
-  border-left: 3px solid #4da6ff;
-  padding-left: 1.5rem;
-}
-.timeline .timeline-item {
-  position: relative;
-  margin-bottom: 2rem;
-}
-.timeline .timeline-item::before {
-  content: "";
-  position: absolute;
-  left: -11px;
-  top: 5px;
-  width: 14px;
-  height: 14px;
-  background: #4da6ff;
-  border-radius: 50%;
-  box-shadow: 0 0 12px rgba(77,166,255,0.9);
-}
-
-/* Responsive Adjustments */
+/* Responsive design */
 @media (max-width: 992px) {
-  .section-title { font-size: 1.4rem; }
+  .resume-viewer iframe {
+    height: 75vh;
+  }
+  h1 {
+    font-size: 2rem;
+  }
 }
-@media (max-width: 768px) {
-  .section-title { font-size: 1.2rem; }
-  .timeline { padding-left: 1rem; }
-}
+
 @media (max-width: 576px) {
-  h1 { font-size: 1.8rem; }
-  .glass-card { padding: 1rem; }
+  .resume-viewer iframe {
+    height: 65vh;
+  }
+  .btn-gradient {
+    padding: 8px 18px;
+    font-size: 0.9rem;
+  }
 }

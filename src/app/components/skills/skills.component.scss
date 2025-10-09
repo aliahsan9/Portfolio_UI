@@ -2,85 +2,85 @@
   display: block;
   background: #0b1f3a;
   min-height: 100vh;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Poppins', sans-serif;
   padding-top: 80px;
 }
 
-/* Gradient text */
+/* Gradient heading text */
 .text-gradient {
-  background: linear-gradient(90deg, #00ffe7, #4da6ff, #8a2be2);
+  background: linear-gradient(90deg, #00eaff, #4d9fff, #b14bff);
   background-size: 200% auto;
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
   -webkit-text-fill-color: transparent;
-  animation: gradient-flow 4s ease-in-out infinite;
+  animation: gradient-move 4s ease-in-out infinite;
 }
 
-@keyframes gradient-flow {
-  0% { background-position: 0% center; }
-  50% { background-position: 100% center; }
-  100% { background-position: 0% center; }
+@keyframes gradient-move {
+  0% { background-position: 0%; }
+  50% { background-position: 100%; }
+  100% { background-position: 0%; }
 }
 
-/* Glass Cards */
-.glass-card {
+/* Skill Card */
+.skill-card {
   background: rgba(255, 255, 255, 0.05);
+  padding: 1.5rem;
   border-radius: 15px;
-  backdrop-filter: blur(12px);
   transition: all 0.3s ease;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+
   &:hover {
-    transform: translateY(-10px) scale(1.03);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
   }
 }
 
-/* Responsive */
-@media (max-width: 992px) {
-  h1 { font-size: 2rem; }
-  .display-3 { font-size: 2.5rem; }
-}
-@media (max-width: 576px) {
-  h1 { font-size: 1.8rem; }
-  .display-3 { font-size: 2rem; }
-}
-/* Glass Cards */
-.glass-card {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 18px;
-  backdrop-filter: blur(15px);
-  transition: all 0.4s ease;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
-}
-.glass-card:hover {
-  transform: translateY(-12px) scale(1.05) rotate(1deg);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.55);
+/* Skill Icon */
+.skill-icon {
+  width: 35px;
+  height: 35px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.12);
+  }
 }
 
-/* Progress Bars */
-.progress {
+/* Progress Bar */
+.skill-progress {
   height: 10px;
   border-radius: 8px;
-  overflow: hidden;
   background: rgba(255,255,255,0.1);
+  overflow: hidden;
+  margin-bottom: 5px;
+
+  .progress-bar {
+    transition: width 1s ease;
+    border-radius: 8px;
+  }
 }
-.progress-bar {
-  font-size: 0.75rem;
-  font-weight: bold;
-  text-align: right;
-  padding-right: 8px;
-  animation: fillBar 2s ease forwards;
-}
-@keyframes fillBar {
-  from { width: 0; }
-  to { width: var(--progress-width, 80%); }
-}
+
+/* Gradient Colors */
+.bg-info { background: linear-gradient(90deg,#00c9ff,#92fe9d); }
+.bg-success { background: linear-gradient(90deg,#00f260,#0575e6); }
+.bg-warning { background: linear-gradient(90deg,#f7971e,#ffd200); }
+.bg-danger { background: linear-gradient(90deg,#ff416c,#ff4b2b); }
+.bg-primary { background: linear-gradient(90deg,#0072ff,#00c6ff); }
+.bg-pink { background: linear-gradient(90deg,#ff6a00,#ee0979); }
 
 /* Responsive */
 @media (max-width: 992px) {
-  h1 { font-size: 2rem; }
+  .skill-card { padding: 1.2rem; }
+  .skill-icon { width: 30px; height: 30px; }
 }
+
 @media (max-width: 576px) {
-  h1 { font-size: 1.7rem; }
+  h1 { font-size: 1.8rem; }
+  .skill-card { padding: 1rem; }
+  .skill-icon { width: 25px; height: 25px; }
+  .skill-progress { height: 8px; }
 }

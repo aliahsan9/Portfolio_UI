@@ -1,125 +1,44 @@
-<section class="skills-section py-5" id="skills">
+<section id="skills" class="skills-section py-5 text-center">
   <div class="container">
-
-    <!-- Header -->
-    <div class="row mb-5 text-center" data-aos="fade-down">
-      <div class="col">
-        <h1 class="fw-bold text-gradient mb-3">Skills & Expertise</h1>
-        <p class="lead text-light">
-          A perfect balance of <strong>frontend elegance</strong>, <strong>backend robustness</strong>,  
-          and <strong>problem-solving mindset</strong>.  
-          These are the technologies I master and use to deliver <strong>impactful solutions</strong>.
-        </p>
-      </div>
-    </div>
+    <!-- Section Title -->
+    <h1 class="fw-bold text-gradient mb-3" data-aos="fade-down">
+      Skills & Expertise
+    </h1>
+    <p class="text-light mb-5" data-aos="fade-up">
+      Blending <strong>Frontend Elegance</strong>, <strong>Backend Strength</strong>, and 
+      <strong>Engineering Precision</strong>.
+    </p>
 
     <!-- Skills Grid -->
-    <div class="row g-4">
-
-      <!-- Frontend -->
-      <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="100">
-        <div class="glass-card h-100 p-4 text-center skill-card">
-          <i class="bi bi-laptop display-3 text-gradient mb-3"></i>
-          <h4 class="text-white mb-3">Frontend</h4>
-          <p class="text-light">
-            Angular, TypeScript, JavaScript, HTML5, CSS3, Bootstrap, Tailwind.  
-            Building <strong>responsive, accessible, and pixel-perfect UIs</strong>.
-          </p>
-          <div class="progress mt-3">
-            <div class="progress-bar bg-info" style="width: 90%">90%</div>
-          </div>
+    <div class="row g-4 justify-content-center">
+      <div
+        class="col-sm-6 col-md-4 col-lg-3 skill-card"
+        *ngFor="let skill of skills"
+        data-aos="fade-up"
+        [attr.data-aos-delay]="skill.delay"
+      >
+        <div class="d-flex align-items-center mb-2">
+          <img [src]="skill.icon" alt="{{skill.title}}" class="skill-icon me-2" />
+          <h5 class="fw-semibold text-white mb-0">{{ skill.title }}</h5>
         </div>
-      </div>
 
-      <!-- Backend -->
-      <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="200">
-        <div class="glass-card h-100 p-4 text-center skill-card">
-          <i class="bi bi-server display-3 text-gradient mb-3"></i>
-          <h4 class="text-white mb-3">Backend</h4>
-          <p class="text-light">
-            .NET 8, C#, SQL Server.  
-            Designing <strong>secure, scalable APIs</strong> and <strong>clean architectures</strong>.
-          </p>
-          <div class="progress mt-3">
-            <div class="progress-bar bg-success" style="width: 85%">85%</div>
-          </div>
+        <div class="progress skill-progress">
+          <div
+            class="progress-bar"
+            role="progressbar"
+            [ngClass]="skill.color"
+            [style.width.%]="skill.percent"
+            [attr.aria-valuenow]="skill.percent"
+            [attr.aria-valuemin]="0"
+            [attr.aria-valuemax]="100"
+          ></div>
         </div>
-      </div>
 
-      <!-- Programming -->
-      <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="300">
-        <div class="glass-card h-100 p-4 text-center skill-card">
-          <i class="bi bi-code-slash display-3 text-gradient mb-3"></i>
-          <h4 class="text-white mb-3">Programming</h4>
-          <p class="text-light">
-            C++, C#, JavaScript, TypeScript.  
-            <strong>500+ DSA problems solved</strong> – mastering algorithms & data structures.
-          </p>
-          <div class="progress mt-3">
-            <div class="progress-bar bg-warning" style="width: 88%">88%</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Tools -->
-      <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="400">
-        <div class="glass-card h-100 p-4 text-center skill-card">
-          <i class="bi bi-tools display-3 text-gradient mb-3"></i>
-          <h4 class="text-white mb-3">Tools</h4>
-          <p class="text-light">
-            GitHub, Git, VS Code, Visual Studio, Postman –  
-            <strong>boosting productivity</strong> with streamlined workflows.
-          </p>
-          <div class="progress mt-3">
-            <div class="progress-bar bg-danger" style="width: 80%">80%</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Collaboration -->
-      <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="500">
-        <div class="glass-card h-100 p-4 text-center skill-card">
-          <i class="bi bi-people display-3 text-gradient mb-3"></i>
-          <h4 class="text-white mb-3">Collaboration</h4>
-          <p class="text-light">
-            Agile, Scrum, teamwork, version control.  
-            Strong <strong>communication & leadership</strong> skills.
-          </p>
-          <div class="progress mt-3">
-            <div class="progress-bar bg-primary" style="width: 95%">95%</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- UI/UX -->
-      <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="600">
-        <div class="glass-card h-100 p-4 text-center skill-card">
-          <i class="bi bi-brush display-3 text-gradient mb-3"></i>
-          <h4 class="text-white mb-3">UI/UX</h4>
-          <p class="text-light">
-            Figma, wireframing, prototyping.  
-            <strong>Design-thinking mindset</strong> for blending aesthetics with usability.
-          </p>
-          <div class="progress mt-3">
-            <div class="progress-bar bg-pink" style="width: 75%">75%</div>
-          </div>
+        <div class="d-flex justify-content-between mt-1">
+          <small class="text-light">{{ skill.desc }}</small>
+          <small class="text-light">{{ skill.percent }}%</small>
         </div>
       </div>
     </div>
-
-    <!-- Tech Stack Overview -->
-    <div class="row mt-5" data-aos="fade-up">
-      <div class="col text-center">
-        <h2 class="fw-bold text-gradient mb-4">Tech Stack Overview</h2>
-        <p class="text-light">
-          My expertise revolves around a <strong>modern full-stack ecosystem</strong>:  
-          Angular + TypeScript for frontend, .NET 8 + C# for backend,  
-          and SQL Server for database management.  
-          I also integrate <strong>CI/CD pipelines, authentication (JWT, OAuth), and cloud readiness</strong>  
-          into projects to deliver production-grade solutions.
-        </p>
-      </div>
-    </div>
-
   </div>
 </section>

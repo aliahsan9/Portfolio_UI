@@ -1,45 +1,41 @@
-<footer class="custom-footer text-white pt-5 pb-3" data-aos="fade-up" data-aos-duration="1000">
-  <div class="container text-center text-md-start">
-    <div class="row">
+<footer class="custom-footer py-5" data-aos="fade-up">
+  <div class="container">
 
-      <!-- About Me -->
-      <div class="col-md-4 mb-4" data-aos="fade-right" data-aos-delay="100">
-        <h5 class="fw-bold">About Me</h5>
+    <div class="row text-center text-md-start">
+
+      <!-- About -->
+      <div class="col-md-4 mb-4">
+        <h5>About Me</h5>
         <p>
-          I'm a full-stack developer passionate about building modern, responsive, and user-friendly web apps using Angular, .NET, and SQL Server.
+          Full-stack developer building modern, responsive web apps with Angular, .NET, and SQL Server.
         </p>
       </div>
 
-      <!-- Quick Links -->
-      <div class="col-md-4 mb-4" data-aos="zoom-in" data-aos-delay="200">
-        <h5 class="fw-bold">Quick Links</h5>
-        <ul class="list-unstyled">
-          <li *ngFor="let link of navLinks; let i = index"
-              [attr.data-aos]="'fade-up'"
-              [attr.data-aos-delay]="250 + (i * 100)">
-            <a [routerLink]="link.path" class="footer-link">{{ link.label }}</a>
-          </li>
-        </ul>
-      </div>
-
-      <!-- Contact Info -->
-      <div class="col-md-4 mb-4" data-aos="fade-left" data-aos-delay="300">
-        <h5 class="fw-bold">Contact</h5>
+      <!-- Contact -->
+      <div class="col-md-4 mb-4">
+        <h5>Contact</h5>
         <p><i class="bi bi-envelope me-2"></i> aliahsan8751&#64;gmail.com</p>
         <p><i class="bi bi-telephone me-2"></i> +92-314-1710751</p>
         <p><i class="bi bi-geo-alt me-2"></i> Pirmahal, Pakistan</p>
-        <div class="social-icons mt-3" data-aos="zoom-in-up" data-aos-delay="400">
-          <a href="https://github.com/aliahsan9" target="_blank" class="me-3"><i class="bi bi-github"></i></a>
-          <a href="https://x.com/AliAhsa00861384?t=cX7EqjpG_BysgFzODjR_qw&s=09" target="_blank" class="me-3"><i class="bi bi-twitter"></i></a>
-          <a href="https://www.linkedin.com/in/ali-ahsan-6895a9315?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank"><i class="bi bi-linkedin"></i></a>
+      </div>
+
+      <!-- Socials -->
+      <div class="col-md-4 mb-4 d-flex flex-column align-items-center align-items-md-start">
+        <h5>Follow Me</h5>
+        <div class="social-icons mt-2">
+          <a href="https://github.com/aliahsan9" target="_blank"><i class="bi bi-github"></i></a>
+          <a href="https://x.com/AliAhsa00861384" target="_blank"><i class="bi bi-twitter"></i></a>
+          <a href="https://www.linkedin.com/in/ali-ahsan-6895a9315" target="_blank"><i class="bi bi-linkedin"></i></a>
         </div>
-      </div>  
+      </div>
 
-    </div>  
-  </div>
+    </div>
 
-  <hr class="border-secondary" />
-  <div class="text-center small mt-3" data-aos="fade-up" data-aos-delay="500">
-    © {{ currentYear }} Ali Ahsan. All Rights Reserved.
+    <hr />
+
+    <div class="text-center small mt-3">
+      © {{ currentYear }} Ali Ahsan. All Rights Reserved.
+    </div>
+
   </div>
 </footer>
