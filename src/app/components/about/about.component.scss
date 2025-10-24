@@ -3,91 +3,75 @@
   background: #0b1f3a;
   min-height: 100vh;
   font-family: "Poppins", sans-serif;
-  padding-top: 80px; // fixes navbar overlap
   color: #e2e8f0;
 }
 
-/* Section Titles */
-.title,
-.section-heading {
-  color: #fff;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-}
-
-/* Gradient text */
+/* Gradient Text */
 .text-gradient {
-  background: linear-gradient(90deg, #00b4ff, #4f46e5);
+  background: linear-gradient(90deg, #00b4ff, #00ffd0);
   background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
   -webkit-text-fill-color: transparent;
 }
 
-/* Stats */
-.highlight-number {
+/* Highlight Numbers */
+.highlight {
   font-size: 3rem;
   font-weight: 700;
   color: #00b4ff;
-  transition: transform 0.3s ease;
+  transition: 0.3s;
 }
-.highlight-number:hover {
+.highlight:hover {
   transform: scale(1.1);
 }
 
 /* Timeline */
 .timeline {
-  position: relative;
-  margin-left: 1rem;
   border-left: 2px solid #00b4ff;
   padding-left: 1.5rem;
-}
-.timeline-item {
-  margin-bottom: 2rem;
-  position: relative;
-}
-.timeline-item::before {
-  content: "";
-  position: absolute;
-  left: -10px;
-  top: 6px;
-  width: 12px;
-  height: 12px;
-  background: #00b4ff;
-  border-radius: 50%;
-  box-shadow: 0 0 10px rgba(0, 180, 255, 0.6);
+  max-width: 600px;
+
+  div {
+    margin-bottom: 1.5rem;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: -10px;
+      top: 6px;
+      width: 12px;
+      height: 12px;
+      background: #00b4ff;
+      border-radius: 50%;
+      box-shadow: 0 0 10px rgba(0, 180, 255, 0.6);
+    }
+
+    small {
+      color: #a8b2d1;
+    }
+  }
 }
 
-/* Transitions */
-h5,
-p,
-h2 {
-  transition: all 0.3s ease-in-out;
+/* Hover Animations */
+h6, p {
+  transition: 0.3s ease;
 }
-h5:hover,
-p:hover {
+h6:hover, p:hover {
   transform: translateX(5px);
 }
 
 /* Responsive */
 @media (max-width: 992px) {
-  .highlight-number {
+  .highlight {
     font-size: 2.4rem;
-  }
-  .timeline {
-    border-left-width: 1.5px;
   }
 }
 @media (max-width: 576px) {
-  .title {
-    font-size: 1.8rem;
-  }
-  .highlight-number {
+  .highlight {
     font-size: 2rem;
   }
-  .timeline-item::before {
-    width: 10px;
-    height: 10px;
+  .timeline {
+    border-left-width: 1.5px;
+    padding-left: 1rem;
   }
 }
- 

@@ -2,90 +2,179 @@
   display: block;
   background: #0b1f3a;
   min-height: 100vh;
-  font-family: 'Roboto', sans-serif;
-  padding-top: 80px;
+  font-family: "Poppins", sans-serif;
+  color: #e2e8f0;
+  padding-top: 100px; /* Prevent heading from hiding behind navbar */
 }
 
-/* Gradient Title */
+/* ============================= */
+/* Animated Gradient Title */
+/* ============================= */
 .text-gradient {
-  background: linear-gradient(90deg, #00ffe7, #4da6ff, #8a2be2);
-  background-size: 200% auto;
+  background: linear-gradient(90deg, #00ffd0, #4f46e5, #00b4ff);
+  background-size: 300% auto;
   background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
   -webkit-text-fill-color: transparent;
-  animation: gradient-flow 4s ease-in-out infinite;
+  animation: gradient-move 5s ease infinite;
+  font-weight: 700;
 }
 
-@keyframes gradient-flow {
-  0% { background-position: 0% center; }
-  50% { background-position: 100% center; }
-  100% { background-position: 0% center; }
+@keyframes gradient-move {
+  0% { background-position: 0%; }
+  50% { background-position: 100%; }
+  100% { background-position: 0%; }
 }
 
-/* Highlight Boxes */
-.highlight-box {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: transform 0.3s ease;
-
-  &:hover {
-    transform: translateY(-8px);
-  }
-}
-
-/* Project Card */
+/* ============================= */
+/* Project Cards */
+/* ============================= */
 .project-card {
   position: relative;
+  border-radius: 18px;
   overflow: hidden;
-  border-radius: 15px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
-  transition: transform 0.3s ease;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  transform: scale(1);
+  transition: all 0.4s ease;
   cursor: pointer;
+  background: rgba(255, 255, 255, 0.05);
 
   &:hover {
-    transform: translateY(-8px) scale(1.02);
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 15px 35px rgba(0, 180, 255, 0.3);
   }
 
+  /* Project Image */
   .project-img {
     width: 100%;
-    height: auto; /* Keep full image ratio, no cutting */
-    border-radius: 15px;
-    transition: transform 0.5s ease;
-    object-fit: contain; /* Ensures full image visibility */
-    background: #000; /* Adds background padding if aspect ratio differs */
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: contain; /* ✅ full image always visible */
+    background-color: #0b1f3a;
+    padding: 10px;
+    transition: transform 0.5s ease, filter 0.3s ease;
   }
 
   &:hover .project-img {
     transform: scale(1.05);
+    filter: brightness(1.15);
   }
 
+  /* Overlay (content on hover) */
   .project-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(11, 31, 58, 0.85);
-    color: white;
-    padding: 1.5rem;
-    text-align: center;
+    background: rgba(9, 26, 50, 0.92);
     opacity: 0;
     transform: translateY(100%);
-    transition: all 0.4s ease;
+    transition: all 0.5s ease;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem 1.5rem;
+    overflow-y: auto; /* ✅ Allows scroll on small screens */
+    scrollbar-width: none; /* Hide scrollbar (Firefox) */
+    -ms-overflow-style: none; /* Hide scrollbar (IE) */
+  }
+
+  .project-overlay::-webkit-scrollbar {
+    display: none; /* Hide scrollbar (Chrome) */
   }
 
   &:hover .project-overlay {
     opacity: 1;
     transform: translateY(0);
   }
+
+  /* Overlay text & buttons */
+  .project-overlay h4 {
+    font-size: 1.4rem;
+    color: #fff;
+  }
+
+  .project-overlay p {
+    font-size: 0.95rem;
+    color: #cbd5e1;
+  }
+
+  .project-overlay .btn {
+    border-radius: 50px;
+    padding: 0.5rem 1.2rem;
+    font-weight: 500;
+  }
 }
 
-/* Responsive */
+/* ============================= */
+/* Tech Tags */
+/* ============================= */
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 10px;
+
+  span {
+    background: linear-gradient(90deg, #00b4ff, #00ffd0);
+    padding: 5px 12px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    color: #0b1f3a;
+    font-weight: 600;
+    transition: 0.3s;
+    white-space: nowrap;
+  }
+
+  span:hover {
+    background: #fff;
+    color: #007bff;
+  }
+}
+
+/* ============================= */
+/* Responsive Adjustments */
+/* ============================= */
 @media (max-width: 992px) {
-  h1 { font-size: 2rem; }
+  .project-img {
+    aspect-ratio: 4 / 3;
+  }
+
+  .project-overlay {
+    padding: 1.5rem 1rem;
+  }
+
+  .project-overlay h4 {
+    font-size: 1.2rem;
+  }
+
+  .project-overlay p {
+    font-size: 0.9rem;
+  }
 }
+
 @media (max-width: 576px) {
-  h1 { font-size: 1.8rem; }
+  .project-img {
+    aspect-ratio: 1 / 1;
+    padding: 6px;
+  }
+
+  .project-overlay {
+    padding: 1.2rem;
+    font-size: 0.85rem;
+    justify-content: flex-start;
+    padding-top: 2rem;
+  }
+
+  .project-overlay h4 {
+    font-size: 1.1rem;
+  }
+
+  .project-overlay p {
+    font-size: 0.85rem;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
 }
- 
