@@ -17,10 +17,21 @@
 
     <!-- Right: Image -->
     <div class="hero-image mt-4 mt-lg-0" data-aos="fade-left">
-      <img src="assets/Images/ali.png" alt="Profile Image" />
+      <img src="assets/Images/myimg.png" alt="Profile Image" />
     </div>
   </div>
-  
+  <section class="skills-section py-5">
+  <div class="container text-center">
+    <!-- <h2 class="mb-4 fw-bold">My Skills</h2> -->
+
+    <div class="skills-slider overflow-hidden">
+      <div class="skills-track d-flex align-items-center">
+        <img *ngFor="let skill of skills" [src]="skill" alt="Skill Logo" class="skill-logo mx-3" />
+      </div>
+    </div>
+  </div>
+</section>
+
 </section>
 <app-about></app-about>
 <app-skills></app-skills>
