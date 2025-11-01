@@ -4,12 +4,10 @@
   min-height: 100vh;
   font-family: "Poppins", sans-serif;
   color: #e2e8f0;
-  padding-top: 100px; /* Prevent heading from hiding behind navbar */
+  padding-top: 100px;
 }
 
-/* ============================= */
 /* Animated Gradient Title */
-/* ============================= */
 .text-gradient {
   background: linear-gradient(90deg, #00ffd0, #4f46e5, #00b4ff);
   background-size: 300% auto;
@@ -25,156 +23,151 @@
   100% { background-position: 0%; }
 }
 
-/* ============================= */
-/* Project Cards */
-/* ============================= */
+/* Project Card */
 .project-card {
   position: relative;
   border-radius: 18px;
   overflow: hidden;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-  transform: scale(1);
-  transition: all 0.4s ease;
-  cursor: pointer;
   background: rgba(255, 255, 255, 0.05);
-
-  &:hover {
-    transform: translateY(-8px) scale(1.03);
-    box-shadow: 0 15px 35px rgba(0, 180, 255, 0.3);
-  }
-
-  /* Project Image */
-  .project-img {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 16 / 9;
-    object-fit: contain; /* ✅ full image always visible */
-    background-color: #0b1f3a;
-    padding: 10px;
-    transition: transform 0.5s ease, filter 0.3s ease;
-  }
-
-  &:hover .project-img {
-    transform: scale(1.05);
-    filter: brightness(1.15);
-  }
-
-  /* Overlay (content on hover) */
-  .project-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(9, 26, 50, 0.92);
-    opacity: 0;
-    transform: translateY(100%);
-    transition: all 0.5s ease;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 2rem 1.5rem;
-    overflow-y: auto; /* ✅ Allows scroll on small screens */
-    scrollbar-width: none; /* Hide scrollbar (Firefox) */
-    -ms-overflow-style: none; /* Hide scrollbar (IE) */
-  }
-
-  .project-overlay::-webkit-scrollbar {
-    display: none; /* Hide scrollbar (Chrome) */
-  }
-
-  &:hover .project-overlay {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  /* Overlay text & buttons */
-  .project-overlay h4 {
-    font-size: 1.4rem;
-    color: #fff;
-  }
-
-  .project-overlay p {
-    font-size: 0.95rem;
-    color: #cbd5e1;
-  }
-
-  .project-overlay .btn {
-    border-radius: 50px;
-    padding: 0.5rem 1.2rem;
-    font-weight: 500;
-  }
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  cursor: pointer;
 }
 
-/* ============================= */
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 35px rgba(0, 180, 255, 0.3);
+}
+
+/* Project Image */
+.project-img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  background-color: #0b1f3a;
+  transition: transform 0.5s ease, filter 0.3s ease;
+}
+
+.project-card:hover .project-img {
+  transform: scale(1.08);
+  filter: brightness(1.15);
+}
+
+/* Overlay */
+.project-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 25, 50, 0.94);
+  opacity: 0;
+  transform: translateY(100%);
+  transition: all 0.5s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+}
+
+.project-card:hover .project-overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Overlay Inner Content */
+.overlay-content {
+  text-align: center;
+  color: #fff;
+  max-width: 90%;
+}
+
+.overlay-content h4 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+.overlay-content p {
+  font-size: 0.9rem;
+  color: #cbd5e1;
+  margin-bottom: 15px;
+}
+
 /* Tech Tags */
-/* ============================= */
 .tech-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 6px;
   justify-content: center;
-  margin-top: 10px;
+  margin-bottom: 10px;
+}
 
-  span {
-    background: linear-gradient(90deg, #00b4ff, #00ffd0);
-    padding: 5px 12px;
-    border-radius: 50px;
-    font-size: 0.8rem;
-    color: #0b1f3a;
-    font-weight: 600;
-    transition: 0.3s;
-    white-space: nowrap;
+.tech-tags span {
+  background: linear-gradient(90deg, #00b4ff, #00ffd0);
+  padding: 4px 10px;
+  border-radius: 30px;
+  font-size: 0.75rem;
+  color: #0b1f3a;
+  font-weight: 600;
+  transition: 0.3s;
+  white-space: nowrap;
+}
+
+.tech-tags span:hover {
+  background: #fff;
+  color: #007bff;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+  .project-img {
+    height: 200px;
   }
 
-  span:hover {
-    background: #fff;
-    color: #007bff;
+  .overlay-content h4 {
+    font-size: 1.15rem;
+  }
+
+  .overlay-content p {
+    font-size: 0.85rem;
   }
 }
 
-/* ============================= */
-/* Responsive Adjustments */
-/* ============================= */
-@media (max-width: 992px) {
+@media (max-width: 768px) {
   .project-img {
-    aspect-ratio: 4 / 3;
+    height: 180px;
   }
 
   .project-overlay {
-    padding: 1.5rem 1rem;
+    padding: 1.2rem;
   }
 
-  .project-overlay h4 {
-    font-size: 1.2rem;
+  .overlay-content h4 {
+    font-size: 1.05rem;
   }
 
-  .project-overlay p {
-    font-size: 0.9rem;
+  .overlay-content p {
+    font-size: 0.8rem;
   }
 }
 
 @media (max-width: 576px) {
   .project-img {
-    aspect-ratio: 1 / 1;
-    padding: 6px;
+    height: 160px;
   }
 
-  .project-overlay {
-    padding: 1.2rem;
-    font-size: 0.85rem;
-    justify-content: flex-start;
-    padding-top: 2rem;
+  .overlay-content {
+    max-width: 100%;
   }
 
-  .project-overlay h4 {
-    font-size: 1.1rem;
+  .overlay-content p {
+    font-size: 0.8rem;
+    line-height: 1.3;
   }
 
-  .project-overlay p {
-    font-size: 0.85rem;
+  .btn {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.9rem;
   }
 
   h1 {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
   }
 }
