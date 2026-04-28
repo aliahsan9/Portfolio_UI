@@ -1,78 +1,85 @@
 :host {
   display: block;
-  background: #0b1f3a;
+  background: radial-gradient(circle at top, #0f2a4d, #081426);
   min-height: 100vh;
   font-family: "Poppins", sans-serif;
   color: #e2e8f0;
-}
+ }
 
 /* Gradient Text */
 .text-gradient {
   background: linear-gradient(90deg, #00b4ff, #00ffd0);
   background-clip: text;
   -webkit-text-fill-color: transparent;
-   margin-top: 50px;
+}
+
+/* Intro Width */
+.intro-text {
+  max-width: 800px;
+}
+
+/* Glass Cards */
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  padding: 20px;
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: 0.3s;
+}
+
+.glass-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 30px rgba(0, 180, 255, 0.2);
 }
 
 /* Highlight Numbers */
 .highlight {
-  font-size: 3rem;
+  font-size: 2.8rem;
   font-weight: 700;
   color: #00b4ff;
-  transition: 0.3s;
-}
-.highlight:hover {
-  transform: scale(1.1);
 }
 
 /* Timeline */
 .timeline {
   border-left: 2px solid #00b4ff;
-  padding-left: 1.5rem;
+  padding-left: 20px;
   max-width: 600px;
 
   div {
-    margin-bottom: 1.5rem;
+    margin-bottom: 25px;
     position: relative;
 
     &::before {
       content: "";
       position: absolute;
-      left: -10px;
+      left: -11px;
       top: 6px;
       width: 12px;
       height: 12px;
       background: #00b4ff;
       border-radius: 50%;
-      box-shadow: 0 0 10px rgba(0, 180, 255, 0.6);
+      box-shadow: 0 0 12px #00b4ff;
     }
 
     small {
-      color: #a8b2d1;
+      color: #9aa4c3;
     }
   }
 }
 
-/* Hover Animations */
+/* Hover Effects */
 h6, p {
   transition: 0.3s ease;
 }
+
 h6:hover, p:hover {
-  transform: translateX(5px);
+  transform: translateX(6px);
 }
 
 /* Responsive */
-@media (max-width: 992px) {
+@media (max-width: 768px) {
   .highlight {
-    font-size: 2.4rem;
-  }
-}
-@media (max-width: 576px) {
-  .highlight {
-    font-size: 2rem;
-  }
-  .timeline {
-    border-left-width: 1.5px;
-    padding-left: 1rem;
+    font-size: 2.2rem;
   }
 }
