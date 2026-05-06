@@ -6,6 +6,8 @@ import { ContactComponent } from './components/contact/contact.component';
 import { SkillsComponent } from './components/skills/skills.component';
 import { PublicProjectsComponent } from './components/projects/projects.component';
 import { PublicResumeComponent } from './components/resume/resume.component';
+import { BlogDetailComponent } from './components/blogs/blog-detail/blog-detail.component';
+import { BlogsComponent } from './components/blogs/blogs/blogs.component';
  
 export const routes: Routes = [    
   // Public Routes
@@ -15,6 +17,8 @@ export const routes: Routes = [
   { path: 'projects', component: PublicProjectsComponent },
   { path: 'skills', component: SkillsComponent },
   { path: 'resume', component: PublicResumeComponent},
+  { path: 'blogs', component: BlogsComponent},
+  { path: 'blog/:slug', component: BlogDetailComponent },
 
   // Wildcard for 404
   { path: '**', redirectTo: '' }

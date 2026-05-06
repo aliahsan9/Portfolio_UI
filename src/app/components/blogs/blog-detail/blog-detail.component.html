@@ -1,0 +1,31 @@
+<div class="blog-page">
+
+  <!-- HERO HEADER -->
+  <div class="blog-hero">
+    <div class="container"> 
+
+      <a routerLink="/blog" class="back-btn">← Back to Blogs</a>
+
+      <h1 class="title">{{ title }}</h1>
+
+      <div class="meta">
+        <span>📘 Reading Mode</span>
+        <span>•</span>
+        <span>✨ Angular Blog</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="container blog-content-wrapper">
+
+    <div class="blog-card">
+
+      <markdown [src]="markdownPath"></markdown>
+
+    </div>
+
+  </div>
+
+</div>

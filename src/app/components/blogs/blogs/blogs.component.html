@@ -1,0 +1,46 @@
+<div class="blog-page">
+
+  <div class="container py-5">
+
+    <h1 class="page-title text-center mb-5">
+       My Blog Space
+    </h1>
+
+    <div class="row g-4">
+
+      <div class="col-md-6 col-lg-4" *ngFor="let blog of blogs">
+
+        <div class="blog-card">
+
+          <div class="image-wrapper">
+            <img [src]="blog.image" alt="blog image" />
+          </div>
+
+          <div class="content">
+            <h3>{{ blog.title }}</h3>
+
+            <p class="date">
+              {{ blog.date | date:'mediumDate' }}
+            </p>
+
+            <p class="desc">
+              {{ blog.description }}
+            </p>
+
+            <a 
+              class="read-btn"
+              [routerLink]="['/blog', blog.slug]"
+            >
+              Read More →
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

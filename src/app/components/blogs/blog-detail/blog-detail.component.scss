@@ -1,0 +1,110 @@
+.blog-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #06142e, #0b2a4a);
+  color: #e2e8f0;
+}
+
+/* HERO SECTION */
+.blog-hero { 
+  padding: 60px 0 30px;
+  text-align: center;
+}
+
+.title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #00ffd0, #00b4ff);
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 10px;
+}
+
+.meta {
+  font-size: 0.9rem;
+  color: #94a3b8;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* BACK BUTTON */
+.back-btn {
+  position: relative;
+  margin-top: 50px;
+  display: inline-block;
+  margin-bottom: 20px;
+  color: #00b4ff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.2s;
+}
+.blog-card img {
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+  border-radius: 12px;
+  margin: 20px 0;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+.back-btn:hover {
+  color: #00ffd0;
+  transform: translateX(-3px);
+}
+
+/* CONTENT WRAPPER */
+.blog-content-wrapper {
+  padding-bottom: 60px;
+}
+
+/* GLASS CARD */
+.blog-card {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.4);
+  line-height: 1.9;
+}
+
+/* MARKDOWN STYLING */
+.blog-card h1,
+.blog-card h2,
+.blog-card h3 {
+  color: #00b4ff;
+  margin-top: 25px;
+}
+
+.blog-card p {
+  color: #cbd5e1;
+  margin-bottom: 15px;
+}
+
+.blog-card code {
+  background: #0b1f3a;
+  padding: 4px 8px;
+  border-radius: 6px;
+  color: #00ffd0;
+}
+
+.blog-card pre {
+  background: #091a32;
+  padding: 18px;
+  border-radius: 12px;
+  overflow-x: auto;
+  border-left: 4px solid #00b4ff;
+}
+
+.blog-card ul {
+  padding-left: 20px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .title {
+    font-size: 2rem;
+  }
+
+  .blog-card {
+    padding: 18px;
+  }
+}
