@@ -8,12 +8,14 @@ import { PublicProjectsComponent } from './components/projects/projects.componen
 import { PublicResumeComponent } from './components/resume/resume.component';
 import { BlogDetailComponent } from './components/blogs/blog-detail/blog-detail.component';
 import { BlogsComponent } from './components/blogs/blogs/blogs.component';
+import { NewsletterComponent } from './components/newsletter/newsletter.component';
  
 export const routes: Routes = [    
   // Public Routes
   { path: '', component: HomeComponent },
   { path: 'about', component: AboutComponent},
   { path: 'contact', component: ContactComponent },
+  { path: 'news', component: NewsletterComponent },
   { path: 'projects', component: PublicProjectsComponent },
   { path: 'skills', component: SkillsComponent },
   { path: 'resume', component: PublicResumeComponent},

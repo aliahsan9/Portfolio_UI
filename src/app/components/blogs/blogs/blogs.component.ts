@@ -13,18 +13,11 @@ export class BlogsComponent {
 
   blogs = [
     {
-      title: 'Building SchoolFish SaaS',
-      slug: 'schoolfish-saas',
-      date: '2026-05-01',
-      description: 'How I built a multi-tenant SaaS for schools with Angular + .NET.',
-      image: 'assets/blogs/images/schoolfish.webp'
-    },
-    {
-      title: 'Clean Architecture',
-      slug: 'clean-architecture',
+      title: 'How to Fix CORS in ASP.NET Core (Real Fix)',
+      slug: 'fix-cors',
       date: '2026-04-20',
-      description: 'Best practices to write .net core web apis.',
-      image: 'assets/blogs/angular.jpg'
+      description: 'CORS stands for Cross-Origin Resource Sharing.',
+      image: 'assets/blogs/images/cors.jfif'
     }
   ];
 }

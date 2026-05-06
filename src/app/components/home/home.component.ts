@@ -6,13 +6,14 @@ import { AboutComponent } from "../about/about.component";
 import { SkillsComponent } from "../skills/skills.component";
 import { PublicProjectsComponent } from "../projects/projects.component";
 import { ContactComponent } from "../contact/contact.component";
+import { NewsletterComponent } from "../newsletter/newsletter.component";
 
 @Component({
   selector: 'app-home',
   standalone: true,
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
-  imports: [CommonModule, RouterModule, AboutComponent, SkillsComponent, PublicProjectsComponent, ContactComponent],
+  imports: [CommonModule, RouterModule, AboutComponent, SkillsComponent, PublicProjectsComponent, ContactComponent, NewsletterComponent],
 })
 export class HomeComponent implements OnInit {
   ngOnInit(): void {

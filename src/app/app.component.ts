@@ -5,7 +5,7 @@ import { FooterComponent } from "./components/footer/footer.component";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-// Declare gtag for TypeScript
+// 👇 Declare gtag for TypeScript
 declare let gtag: Function;
 
 @Component({
@@ -19,10 +19,13 @@ export class AppComponent implements OnInit {
 
   title = 'portfolio-ui';
 
+  // Constructor must be OUTSIDE ngOnInit
   constructor(private router: Router) {
-    this.router.events.subscribe(event => {
+    this.router.events.subscribe((event: any) => {
       if (event instanceof NavigationEnd) {
-        this.trackPage(event.urlAfterRedirects);
+        gtag('config', 'G-SQHK5HWF68', {
+          page_path: event.urlAfterRedirects
+        });
       }
     });
   }
@@ -32,15 +35,6 @@ export class AppComponent implements OnInit {
       duration: 800,
       once: true,
       easing: 'ease-in-out'
-    });
-  }
-
-  // Proper GA4 page tracking
-  trackPage(url: string) {
-    gtag('event', 'page_view', {
-      page_path: url,
-      page_title: document.title,
-      page_location: window.location.href
     });
   }
 }
