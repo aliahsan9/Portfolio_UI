@@ -11,14 +11,14 @@ import { RouterModule } from '@angular/router';
 })
 export class NavbarComponent implements OnInit, OnDestroy {
   navLinks = [
-    { path: '/', label: 'home' },
-    { path: '/about', label: 'about' },
-    { path: '/news', label: 'NewsLetter' },
-    { path: '/blogs', label: 'blogs' },
-    { path: '/skills', label: 'skills' },
-    { path: '/projects', label: 'projects' },
-    { path: '/resume', label: 'resume' },
-    { path: '/contact', label: 'contact' }
+    { path: '/', label: 'Home' },
+    { path: '/about', label: 'About' },
+    { path: '/news', label: 'Newsletter' },
+    { path: '/blogs', label: 'Blogs' },
+    { path: '/skills', label: 'Skills' },
+    { path: '/projects', label: 'Projects' },
+    { path: '/resume', label: 'Resume' },
+    { path: '/contact', label: 'Contact' }
   ];
 
   isSidebarOpen = false;
