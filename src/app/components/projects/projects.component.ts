@@ -14,6 +14,6 @@ export class PublicProjectsComponent implements OnInit {
  
 
   ngOnInit(): void {
-    AOS.init({ duration: 800, once: true });
+    AOS.init({ duration: 400, once: true });
   }
 } 

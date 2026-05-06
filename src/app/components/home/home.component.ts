@@ -17,7 +17,7 @@ import { NewsletterComponent } from "../newsletter/newsletter.component";
 })
 export class HomeComponent implements OnInit {
   ngOnInit(): void {
-    AOS.init({ duration: 900, once: true });
+    AOS.init({ duration: 400, once: true });
     this.skills = [...this.skills, ...this.skills];
   }
     skills: string[] = [

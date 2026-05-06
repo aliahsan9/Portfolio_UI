@@ -12,6 +12,6 @@ import { RouterModule } from '@angular/router';
 })
 export class ContactComponent implements OnInit {
   ngOnInit(): void {
-    AOS.init({ duration: 800 });
+    AOS.init({ duration: 400 });
   }
 }  
