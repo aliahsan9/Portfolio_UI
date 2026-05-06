@@ -20,10 +20,10 @@ export class BlogsComponent {
       image: 'assets/blogs/images/schoolfish.webp'
     },
     {
-      title: 'Angular Performance Tips',
-      slug: 'angular-performance',
+      title: 'Clean Architecture',
+      slug: 'clean-architecture',
       date: '2026-04-20',
-      description: 'Best practices to make Angular apps lightning fast.',
+      description: 'Best practices to write .net core web apis.',
       image: 'assets/blogs/angular.jpg'
     }
   ];
