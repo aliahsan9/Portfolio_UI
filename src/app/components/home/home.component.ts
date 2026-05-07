@@ -7,13 +7,14 @@ import { SkillsComponent } from "../skills/skills.component";
 import { PublicProjectsComponent } from "../projects/projects.component";
 import { ContactComponent } from "../contact/contact.component";
 import { NewsletterComponent } from "../newsletter/newsletter.component";
+import { BlogsComponent } from "../blogs/blogs/blogs.component";
 
 @Component({
   selector: 'app-home',
   standalone: true,
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
-  imports: [CommonModule, RouterModule, AboutComponent, SkillsComponent, PublicProjectsComponent, ContactComponent, NewsletterComponent],
+  imports: [CommonModule, RouterModule, AboutComponent, SkillsComponent, PublicProjectsComponent, ContactComponent, NewsletterComponent, BlogsComponent],
 })
 export class HomeComponent implements OnInit {
   ngOnInit(): void {

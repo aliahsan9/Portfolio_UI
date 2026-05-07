@@ -13,11 +13,25 @@ export class BlogsComponent {
 
   blogs = [
     {
-      title: 'How to Fix CORS in ASP.NET Core (Real Fix)',
-      slug: 'fix-cors',
-      date: '2026-04-20',
-      description: 'CORS stands for Cross-Origin Resource Sharing.',
-      image: 'assets/blogs/images/cors.jfif'
+      title: 'How I Built Production-Ready JWT Authentication in ASP.NET Core + Angular',
+      slug: 'secure-auth',
+      date: '2026-05-07',
+      description: 'Authentication is one of the most critical parts of any modern web application...',
+      image: 'assets/blogs/images/blog1.png'
+    },
+    {
+      title: 'How I Built Production-Ready JWT Authentication in ASP.NET Core + Angular',
+      slug: 'secure-auth',
+      date: '2026-05-07',
+      description: 'Authentication is one of the most critical parts of any modern web application...',
+      image: 'assets/blogs/images/blog1.png'
+    },
+    {
+      title: 'How I Built Production-Ready JWT Authentication in ASP.NET Core + Angular',
+      slug: 'secure-auth',
+      date: '2026-05-07',
+      description: 'Authentication is one of the most critical parts of any modern web application...',
+      image: 'assets/blogs/images/blog1.png'
     },
   ];
 }
