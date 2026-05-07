@@ -19,19 +19,5 @@ export class BlogsComponent {
       description: 'CORS stands for Cross-Origin Resource Sharing.',
       image: 'assets/blogs/images/cors.jfif'
     },
-    {
-      title: 'How to Fix CORS in ASP.NET Core (Real Fix)',
-      slug: 'fix-cors',
-      date: '2026-04-20',
-      description: 'CORS stands for Cross-Origin Resource Sharing.',
-      image: 'assets/blogs/images/cors.jfif'
-    },
-    {
-      title: 'How to Fix CORS in ASP.NET Core (Real Fix)',
-      slug: 'fix-cors',
-      date: '2026-04-20',
-      description: 'CORS stands for Cross-Origin Resource Sharing.',
-      image: 'assets/blogs/images/cors.jfif'
-    },
   ];
 }
