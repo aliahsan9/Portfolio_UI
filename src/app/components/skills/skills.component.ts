@@ -40,7 +40,7 @@ export class SkillsComponent {
       percent: 82,
       color: 'bg-danger',
       desc: 'Git • GitHub • Postman • Azure • Vercel',
-      icon: 'assets/c/github.png',
+      icon: 'assets/icons/github.png',
       delay: 400
     },
     {
