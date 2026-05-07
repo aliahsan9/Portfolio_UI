@@ -17,21 +17,21 @@ export class BlogsComponent {
       slug: 'secure-auth',
       date: '2026-05-07',
       description: 'Authentication is one of the most critical parts of any modern web application...',
-      image: 'assets/blogs/images/blog1.png'
+      image: 'assets/blogs/images/jwt-thumbnail.webp'
     },
     {
       title: 'How I Built Production-Ready JWT Authentication in ASP.NET Core + Angular',
       slug: 'secure-auth',
       date: '2026-05-07',
       description: 'Authentication is one of the most critical parts of any modern web application...',
-      image: 'assets/blogs/images/blog1.png'
+      image: 'assets/blogs/images/jwt-thumbnail.webp'
     },
     {
       title: 'How I Built Production-Ready JWT Authentication in ASP.NET Core + Angular',
       slug: 'secure-auth',
       date: '2026-05-07',
       description: 'Authentication is one of the most critical parts of any modern web application...',
-      image: 'assets/blogs/images/blog1.png'
+      image: 'assets/blogs/images/jwt-thumbnail.webp'
     },
   ];
 }

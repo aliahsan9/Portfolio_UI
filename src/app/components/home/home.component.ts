@@ -22,18 +22,19 @@ export class HomeComponent implements OnInit {
     this.skills = [...this.skills, ...this.skills];
   }
     skills: string[] = [
-    'assets/Images/angular.png',
-    'assets/Images/dotnet.png',
-    'assets/Images/sql.png',
-    'assets/Images/leetcode.png',
-    'assets/Images/github.png',
-    'assets/Images/azure.png',
-    'assets/Images/html.png',
-    'assets/Images/css.png',
-    'assets/Images/bootstrap.png',
-    'assets/Images/tailwind.png',
-    'assets/Images/js.png',
-    'assets/Images/ts.png',
-    'assets/Images/figma.png',
+    'assets/icons/angular.png',
+    'assets/icons/dotnet.png',
+    'assets/icons/sql.png',
+    'assets/icons/leetcode.png',
+    'assets/icons/github.png',
+    'assets/icons/azure.png',
+    'assets/icons/html.png',
+    'assets/icons/css.png',
+    'assets/icons/bootstrap.png',
+    'assets/icons/tailwind.png',
+    'assets/icons/js.png',
+    'assets/icons/ts.png',
+    'assets/icons/figma.png',
   ];
 }
+ 

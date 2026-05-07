@@ -1,5 +1,5 @@
 <img 
-  src="assets/blogs/images/blog1.png" 
+  src="assets/blogs/images/jwt-thumbnail.webp" 
   alt="CORS Img" 
   style="width:100%; max-width:100%; height:auto; display:block; margin:16px 0;" 
 />
