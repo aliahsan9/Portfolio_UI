@@ -133,49 +133,6 @@
   font-size: 0.92rem;
 }
 
-/* ======================================== */
-/* CODE BLOCK                               */
-/* ======================================== */
-
-.markdown-body ::ng-deep pre {
-  position: relative;
-
-  margin: 28px 0;
-
-  padding:
-    64px 20px 20px;
-
-  overflow-x: auto;
-
-  border-radius: 16px;
-
-  border: 1px solid rgba(255,255,255,0.08);
-
-  background: #0b1120;
-
-  -webkit-overflow-scrolling: touch;
-}
-
-/* CODE */
-
-.markdown-body ::ng-deep pre code {
-  display: block;
-
-  min-width: max-content;
-
-  color: #e2e8f0;
-
-  background: transparent;
-
-  font-size: 14px;
-
-  line-height: 1.8;
-
-  font-family:
-    "Fira Code",
-    monospace;
-}
-
 
 /* ======================================== */
 /* IMAGES                                   */

@@ -1,17 +1,133 @@
-/* ============================= */
-/* GLOBAL MARKDOWN STYLES       */
-/* ============================= */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+
+  background: #020617;
+  color: #e2e8f0;
+
+  font-family:
+    Inter,
+    system-ui,
+    sans-serif;
+
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* ===================================== */
+/* MARKDOWN                              */
+/* ===================================== */
 
 markdown {
   display: block;
 }
 
-/* Responsive Images */
-
 markdown img {
   width: 100%;
-  max-width: 100%;
-  height: auto;
+  border-radius: 16px;
+}
+
+/* ===================================== */
+/* PRISM CODE BLOCKS                     */
+/* ===================================== */
+
+pre[class*="language-"] {
+  position: relative;
+
+  margin: 28px 0 !important;
+
+  padding: 20px !important;
+
+  overflow-x: auto;
 
   border-radius: 16px;
+
+  border: 1px solid rgba(255,255,255,0.08);
+
+  background: #0b1120 !important;
+
+  -webkit-overflow-scrolling: touch;
+}
+
+code[class*="language-"] {
+  font-family:
+    "Fira Code",
+    monospace !important;
+
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* ===================================== */
+/* SINGLE COPY BUTTON                    */
+/* ===================================== */
+
+.code-toolbar {
+  position: relative;
+}
+
+.code-toolbar > .toolbar {
+  opacity: 1 !important;
+
+  position: absolute !important;
+
+  top: 12px;
+  right: 12px;
+}
+
+.code-toolbar > .toolbar .toolbar-item button {
+  border: none;
+
+  border-radius: 8px;
+
+  padding: 6px 12px;
+
+  background: #1e293b;
+
+  color: white;
+
+  font-size: 12px;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.code-toolbar > .toolbar .toolbar-item button:hover {
+  background: #334155;
+}
+
+@media (max-width: 768px) {
+
+  pre[class*="language-"] {
+    padding: 18px !important;
+  }
+
+  code[class*="language-"] {
+    font-size: 13px;
+  }
+
+  .code-toolbar > .toolbar {
+    top: 10px;
+    right: 10px;
+  }
 }
