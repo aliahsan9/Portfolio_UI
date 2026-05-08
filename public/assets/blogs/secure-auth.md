@@ -3,7 +3,6 @@
 ![JWT Authentication](assets/blogs/images/jwt-thumbnail.webp)
 
 Authentication is one of the most critical parts of any modern web application. It protects user data, secures APIs, controls access to resources, and forms the foundation of application security.
-
 While building multiple full-stack applications using ASP.NET Core and Angular, I realized that many authentication implementations work fine in development but fail in real production environments due to poor security decisions, weak token handling, or incorrect architecture.
 
 In this article, I'll walk through how I designed and implemented a production-ready JWT authentication system using ASP.NET Core and Angular, including the architectural decisions, security improvements, common mistakes to avoid, and the patterns I use in real-world applications.
