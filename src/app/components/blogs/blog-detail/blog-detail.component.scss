@@ -1,20 +1,12 @@
-/* ========================= */
-/* PAGE                      */
-/* ========================= */
-
 .blog-page {
   min-height: 100vh;
   background: #020617;
   color: #e2e8f0;
 }
 
-/* ========================= */
-/* HERO                      */
-/* ========================= */
-
 .blog-hero {
   padding: 60px 0 30px;
-  border-bottom: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .hero-container {
@@ -25,13 +17,10 @@
 
 .back-link {
   width: fit-content;
-
   color: #38bdf8;
   text-decoration: none;
-
   font-size: 14px;
   font-weight: 500;
-
   transition: 0.2s ease;
 }
 
@@ -40,23 +29,13 @@
   transform: translateX(-4px);
 }
 
-/* ========================= */
-/* TITLE                     */
-/* ========================= */
-
 .blog-title {
   margin: 0;
-
   font-size: clamp(2rem, 5vw, 3.5rem);
   line-height: 1.15;
   font-weight: 800;
-
   color: #ffffff;
 }
-
-/* ========================= */
-/* CONTENT                   */
-/* ========================= */
 
 .blog-main {
   padding: 40px 0 80px;
@@ -64,216 +43,87 @@
 
 .blog-article {
   background: #0f172a;
-
-  border: 1px solid rgba(255,255,255,0.08);
-
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 18px;
-
   padding: clamp(20px, 4vw, 42px);
-
   overflow: hidden;
-
-  box-shadow:
-    0 10px 40px rgba(0,0,0,0.4);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
 }
-
-/* ========================= */
-/* MARKDOWN                  */
-/* ========================= */
 
 .markdown-body {
   line-height: 1.9;
+
+  ::ng-deep {
+    h1, h2, h3, h4 {
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      color: #38bdf8;
+      line-height: 1.3;
+    }
+
+    p {
+      margin-bottom: 1.4rem;
+      color: #cbd5e1;
+      font-size: 1.05rem;
+    }
+
+    a {
+      color: #22d3ee;
+      &:hover { text-decoration: underline; }
+    }
+
+    :not(pre) > code {
+      background: #111827;
+      color: #22d3ee;
+      padding: 3px 7px;
+      border-radius: 6px;
+      font-size: 0.92rem;
+    }
+
+    pre {
+      position: relative;
+      margin: 28px 0;
+      padding: 22px;
+      padding-top: 50px; // Space for button
+      overflow-x: auto;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: #0b1120 !important;
+
+      code {
+        display: block;
+        color: #e2e8f0;
+        background: transparent !important;
+        font-size: 14px;
+        line-height: 1.8;
+        font-family: "Fira Code", monospace;
+      }
+    }
+
+    img {
+      width: 100%;
+      border-radius: 14px;
+      margin: 28px 0;
+    }
+
+    ul, ol {
+      padding-left: 24px;
+      margin-bottom: 20px;
+      li { margin-bottom: 10px; }
+    }
+
+    blockquote {
+      margin: 24px 0;
+      padding-left: 18px;
+      border-left: 4px solid #38bdf8;
+      color: #94a3b8;
+      font-style: italic;
+    }
+  }
 }
-
-/* HEADINGS */
-
-.markdown-body ::ng-deep h1,
-.markdown-body ::ng-deep h2,
-.markdown-body ::ng-deep h3,
-.markdown-body ::ng-deep h4 {
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-
-  color: #38bdf8;
-
-  line-height: 1.3;
-}
-
-/* PARAGRAPHS */
-
-.markdown-body ::ng-deep p {
-  margin-bottom: 1.4rem;
-
-  color: #cbd5e1;
-
-  font-size: 1.05rem;
-}
-
-/* LINKS */
-
-.markdown-body ::ng-deep a {
-  color: #22d3ee;
-}
-
-.markdown-body ::ng-deep a:hover {
-  text-decoration: underline;
-}
-
-/* INLINE CODE */
-
-.markdown-body ::ng-deep :not(pre) > code {
-  background: #111827;
-
-  color: #22d3ee;
-
-  padding: 3px 7px;
-
-  border-radius: 6px;
-
-  font-size: 0.92rem;
-}
-
-/* ========================= */
-/* CODE BLOCK                */
-/* ========================= */
-
-.markdown-body ::ng-deep pre {
-  position: relative;
-
-  margin: 28px 0;
-
-  padding: 22px;
-
-  overflow-x: auto;
-
-  border-radius: 16px;
-
-  border: 1px solid rgba(255,255,255,0.08);
-
-  background: #0b1120 !important;
-}
-
-/* CODE */
-
-.markdown-body ::ng-deep pre code {
-  display: block;
-
-  color: #e2e8f0;
-
-  background: transparent !important;
-
-  font-size: 14px;
-  line-height: 1.8;
-
-  font-family:
-    "Fira Code",
-    monospace;
-}
-
-/* ========================= */
-/* COPY BUTTON               */
-/* ========================= */
-
-.markdown-body ::ng-deep .copy-btn {
-  position: absolute;
-
-  top: 12px;
-  right: 12px;
-
-  z-index: 999;
-
-  border: 0;
-
-  border-radius: 8px;
-
-  background: #111827;
-
-  color: #22d3ee;
-
-  padding: 7px 12px;
-
-  font-size: 12px;
-  font-weight: 600;
-
-  cursor: pointer;
-
-  transition: 0.2s ease;
-}
-
-.markdown-body ::ng-deep .copy-btn:hover {
-  background: #22d3ee;
-  color: #020617;
-}
-
-/* ========================= */
-/* IMAGES                    */
-/* ========================= */
-
-.markdown-body ::ng-deep img {
-  width: 100%;
-
-  border-radius: 14px;
-
-  margin: 28px 0;
-}
-
-/* ========================= */
-/* LISTS                     */
-/* ========================= */
-
-.markdown-body ::ng-deep ul,
-.markdown-body ::ng-deep ol {
-  padding-left: 24px;
-  margin-bottom: 20px;
-}
-
-.markdown-body ::ng-deep li {
-  margin-bottom: 10px;
-}
-
-/* ========================= */
-/* BLOCKQUOTE                */
-/* ========================= */
-
-.markdown-body ::ng-deep blockquote {
-  margin: 24px 0;
-
-  padding-left: 18px;
-
-  border-left: 4px solid #38bdf8;
-
-  color: #94a3b8;
-
-  font-style: italic;
-}
-
-/* ========================= */
-/* MOBILE                    */
-/* ========================= */
 
 @media (max-width: 768px) {
-
-  .blog-hero {
-    padding-top: 40px;
-  }
-
-  .blog-article {
-    border-radius: 14px;
-    padding: 18px;
-  }
-
-  .blog-title {
-    font-size: 2rem;
-  }
-
-  .markdown-body ::ng-deep pre {
-    padding: 18px;
-  }
-
-  .markdown-body ::ng-deep .copy-btn {
-    top: 10px;
-    right: 10px;
-
-    padding: 6px 10px;
-  }
+  .blog-hero { padding-top: 40px; }
+  .blog-article { border-radius: 14px; padding: 18px; }
+  .blog-title { font-size: 2rem; }
 }

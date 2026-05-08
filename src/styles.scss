@@ -1,12 +1,10 @@
 /* ============================= */
-/* GLOBAL MARKDOWN STYLES       */
+/* GLOBAL MARKDOWN STYLES        */
 /* ============================= */
 
 markdown {
   display: block;
 } 
-
-/* Responsive Images */
 
 markdown img {
   width: 100%;
@@ -16,105 +14,77 @@ markdown img {
 }
 
 /* ============================= */
-/* CODE BLOCK                   */
+/* CODE BLOCK CONTAINER          */
 /* ============================= */
 
+/* Targets both ngx-markdown and custom blog cards */
 markdown pre,
-.blog-card ::ng-deep pre {
+.blog-card ::ng-deep pre,
+.markdown-body ::ng-deep pre {
   position: relative !important;
-
   overflow-x: auto;
-
-  padding-top: 56px !important; // space for copy button
+  padding-top: 56px !important; 
+  background: #0b1120 !important;
 }
 
 /* ============================= */
-/* COPY BUTTON                  */
+/* UNIFIED COPY BUTTON           */
 /* ============================= */
 
+/* Combined selectors to ensure one style rules them all */
 markdown pre .copy-button,
-.blog-card ::ng-deep pre .copy-button {
+.blog-card ::ng-deep pre .copy-button,
+.markdown-body ::ng-deep pre .copy-button {
   position: absolute !important;
-
-  top: 14px;
-  right: 14px;
-
+  top: 12px !important;
+  right: 12px !important;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  z-index: 10;
 
-  z-index: 9999;
+  min-width: 70px;
+  height: 32px;
+  padding: 0 12px;
 
-  min-width: 72px;
-  height: 36px;
+  background: rgba(30, 41, 59, 0.7) !important;
+  color: #38bdf8 !important;
+  border: 1px solid rgba(56, 189, 248, 0.3) !important;
+  border-radius: 8px;
 
-  padding: 0 14px;
-
-  background: rgba(15, 23, 42, 0.96);
-
-  color: #00ffd0;
-
-  border: 1px solid rgba(56, 189, 248, 0.35);
-
-  border-radius: 12px;
-
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.3px;
-
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
   cursor: pointer;
-
-  backdrop-filter: blur(10px);
-
-  transition:
-    background 0.2s ease,
-    color 0.2s ease,
-    transform 0.2s ease,
-    border-color 0.2s ease;
-
-  box-shadow:
-    0 4px 14px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(8px);
+  transition: all 0.2s ease;
 }
 
-/* Hover */
-
+/* Hover state */
 markdown pre .copy-button:hover,
-.blog-card ::ng-deep pre .copy-button:hover {
-  background: #38bdf8;
-
-  color: #020617;
-
-  border-color: #38bdf8;
-
+.blog-card ::ng-deep pre .copy-button:hover,
+.markdown-body ::ng-deep pre .copy-button:hover {
+  background: #38bdf8 !important;
+  color: #0f172a !important;
+  border-color: #38bdf8 !important;
   transform: translateY(-1px);
 }
 
-/* Active */
-
-markdown pre .copy-button:active,
-.blog-card ::ng-deep pre .copy-button:active {
-  transform: scale(0.96);
+/* Success state (when copied) */
+.copy-button.copied {
+  color: #10b981 !important;
+  border-color: #10b981 !important;
 }
 
-/* Mobile */
-
+/* Mobile adjustments */
 @media (max-width: 768px) {
-
   markdown pre .copy-button,
-  .blog-card ::ng-deep pre .copy-button {
-    top: 10px;
-    right: 10px;
-
-    min-width: 64px;
-    height: 32px;
-
-    font-size: 11px;
-
-    border-radius: 10px;
-  }
-
-  markdown pre,
-  .blog-card ::ng-deep pre {
-    padding-top: 50px !important;
+  .blog-card ::ng-deep pre .copy-button,
+  .markdown-body ::ng-deep pre .copy-button {
+    top: 8px !important;
+    right: 8px !important;
+    min-width: 60px;
+    height: 28px;
+    font-size: 10px;
   }
 }
