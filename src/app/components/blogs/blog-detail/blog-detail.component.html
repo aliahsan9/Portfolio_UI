@@ -1,12 +1,11 @@
 <div class="blog-page">
 
   <!-- HERO -->
-  <section class="blog-hero">
-
-    <div class="container">
+  <header class="blog-hero">
+    <div class="container hero-inner">
 
       <a routerLink="/blogs" class="back-btn">
-        ← Back to Blogs
+        ← Back
       </a>
 
       <h1 class="title">
@@ -14,24 +13,21 @@
       </h1>
 
     </div>
-
-  </section>
+  </header>
 
   <!-- CONTENT -->
-  <section class="blog-content-wrapper">
-
+  <main class="blog-content">
     <div class="container">
 
       <article class="blog-card">
 
-        <markdown
-          [src]="markdownPath">
-        </markdown>
+        <div class="markdown-wrapper">
+          <markdown [src]="markdownPath"></markdown>
+        </div>
 
       </article>
 
     </div>
-
-  </section>
+  </main>
 
 </div>

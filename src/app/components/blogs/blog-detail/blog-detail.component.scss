@@ -1,212 +1,221 @@
+/* ============================= */
+/* BASE PAGE                    */
+/* ============================= */
+
 .blog-page {
   min-height: 100vh;
-  background:
-    radial-gradient(circle at top left, #0f172a, #020617);
-  color: #e2e8f0;
+  background: #0b1220;
+  color: #e5e7eb;
 }
 
-/* HERO */
+/* ============================= */
+/* HERO                         */
+/* ============================= */
 
 .blog-hero {
-  padding: 70px 0 30px;
+  padding: 60px 0 30px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
 }
 
-.title {
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  font-weight: 800;
-  line-height: 1.2;
-
-  background: linear-gradient(
-    90deg,
-    #00ffd0,
-    #38bdf8
-  );
-
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-
-  margin-top: 20px;
+.hero-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }
 
 /* BACK BUTTON */
 
 .back-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-
-  color: #38bdf8;
+  width: fit-content;
+  font-size: 14px;
+  color: #60a5fa;
   text-decoration: none;
-
-  font-size: 0.95rem;
-  font-weight: 500;
-
-  transition: 0.25s ease;
+  transition: 0.2s ease;
 }
 
 .back-btn:hover {
-  color: #00ffd0;
-  transform: translateX(-4px);
+  color: #22d3ee;
+  transform: translateX(-3px);
 }
 
-/* CONTENT */
+/* TITLE */
 
-.blog-content-wrapper {
-  padding-bottom: 80px;
-}
-
-/* GLASS CARD */
-
-.blog-card {
-  background: rgba(255, 255, 255, 0.04);
-
-  border: 1px solid rgba(255, 255, 255, 0.08);
-
-  backdrop-filter: blur(14px);
-
-  border-radius: 24px;
-
-  padding: clamp(20px, 5vw, 50px);
-
-  box-shadow:
-    0 20px 60px rgba(0, 0, 0, 0.45);
-
-  overflow: hidden;
-}
-
-/* MARKDOWN CONTENT */
-
-.blog-card ::ng-deep h1,
-.blog-card ::ng-deep h2,
-.blog-card ::ng-deep h3,
-.blog-card ::ng-deep h4 {
-  color: #38bdf8;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-  font-weight: 700;
-}
-
-.blog-card ::ng-deep p {
-  color: #cbd5e1;
-  line-height: 1.9;
-  margin-bottom: 1.3rem;
-  font-size: 1.05rem;
-}
-
-.blog-card ::ng-deep strong {
+.title {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 800;
+  line-height: 1.2;
   color: #ffffff;
 }
 
-.blog-card ::ng-deep a {
-  color: #00ffd0;
-  text-decoration: none;
+/* ============================= */
+/* CONTENT LAYOUT               */
+/* ============================= */
+
+.blog-content {
+  padding: 40px 0 80px;
 }
 
-.blog-card ::ng-deep a:hover {
-  text-decoration: underline;
+/* CARD (CLEAN, NOT GLASSY) */
+
+.blog-card {
+  background: #0f172a;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 16px;
+  padding: 28px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+}
+
+/* ============================= */
+/* MARKDOWN WRAPPER            */
+/* ============================= */
+
+.markdown-wrapper {
+  line-height: 1.8;
+}
+
+/* HEADINGS */
+
+.markdown-wrapper ::ng-deep h1,
+.markdown-wrapper ::ng-deep h2,
+.markdown-wrapper ::ng-deep h3 {
+  color: #38bdf8;
+  margin: 24px 0 12px;
+}
+
+/* PARAGRAPH */
+
+.markdown-wrapper ::ng-deep p {
+  color: #cbd5e1;
+  margin-bottom: 14px;
+  font-size: 1.05rem;
+}
+
+/* LINKS */
+
+.markdown-wrapper ::ng-deep a {
+  color: #22d3ee;
 }
 
 /* INLINE CODE */
 
-.blog-card ::ng-deep code:not(pre code) {
-  background: rgba(15, 23, 42, 0.9);
+.markdown-wrapper ::ng-deep code:not(pre code) {
+  background: #111827;
+  color: #22d3ee;
+  padding: 2px 6px;
+  border-radius: 6px;
+}
 
-  color: #00ffd0;
+/* ============================= */
+/* CODE BLOCK (FIXED SYSTEM)    */
+/* ============================= */
 
-  padding: 3px 8px;
+.markdown-wrapper ::ng-deep pre {
+  position: relative;
+  background: #0a0f1a !important;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px;
+  padding: 18px 18px 18px 18px;
+  overflow-x: auto;
+  margin: 24px 0;
+}
 
+/* CODE TEXT */
+
+.markdown-wrapper ::ng-deep pre code {
+  font-family: "Fira Code", monospace;
+  font-size: 14px;
+  color: #e5e7eb;
+  background: transparent !important;
+}
+
+/* ============================= */
+/* COPY BUTTON (ROBUST FIX)     */
+/* ============================= */
+
+.markdown-wrapper ::ng-deep pre .copy-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 100;
+
+  background: #111827;
+  color: #22d3ee;
+
+  border: 1px solid rgba(34, 211, 238, 0.3);
   border-radius: 8px;
 
-  font-size: 0.9rem;
+  padding: 5px 10px;
+  font-size: 11px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  opacity: 0.9;
+  transition: 0.2s ease;
 }
 
-/* CODE BLOCK */
-
-.blog-card ::ng-deep pre {
-  position: relative;
-
-  background: #0d1117 !important;
-
-  border-radius: 22px;
-
-  padding: 24px;
-
-  overflow-x: auto;
-
-  margin: 30px 0;
-
-  border: 1px solid rgba(255,255,255,0.08);
+.markdown-wrapper ::ng-deep pre .copy-button:hover {
+  background: #22d3ee;
+  color: #0b1220;
+  opacity: 1;
 }
 
-/* CODE */
+/* ============================= */
+/* IMAGES                      */
+/* ============================= */
 
-.blog-card ::ng-deep pre code {
-  background: transparent !important;
-
-  color: #e2e8f0;
-
-  font-size: 0.95rem;
-
-  line-height: 1.8;
-
-  font-family:
-    "Fira Code",
-    monospace;
-}
-
-/* IMAGES */
-
-.blog-card ::ng-deep img {
+.markdown-wrapper ::ng-deep img {
   width: 100%;
-  border-radius: 20px;
-  margin: 30px 0;
+  border-radius: 12px;
+  margin: 20px 0;
 }
 
-/* LISTS */
+/* ============================= */
+/* LISTS                       */
+/* ============================= */
 
-.blog-card ::ng-deep ul,
-.blog-card ::ng-deep ol {
-  padding-left: 22px;
-  margin-bottom: 20px;
-}
-
-.blog-card ::ng-deep li {
-  margin-bottom: 10px;
-  line-height: 1.8;
-}
-
-/* BLOCKQUOTE */
-
-.blog-card ::ng-deep blockquote {
-  border-left: 4px solid #38bdf8;
-
+.markdown-wrapper ::ng-deep ul,
+.markdown-wrapper ::ng-deep ol {
   padding-left: 20px;
-
-  margin: 30px 0;
-
-  color: #94a3b8;
-
-  font-style: italic;
+  margin-bottom: 16px;
 }
 
-/* MOBILE */
+.markdown-wrapper ::ng-deep li {
+  margin-bottom: 8px;
+}
+
+/* ============================= */
+/* BLOCKQUOTE                 */
+/* ============================= */
+
+.markdown-wrapper ::ng-deep blockquote {
+  border-left: 3px solid #22d3ee;
+  padding-left: 14px;
+  color: #94a3b8;
+  margin: 20px 0;
+}
+
+/* ============================= */
+/* MOBILE FIXES               */
+/* ============================= */
 
 @media (max-width: 768px) {
 
-  .blog-hero {
-    padding-top: 40px;
-  }
-
   .blog-card {
-    border-radius: 18px;
-  }
-
-  .blog-card ::ng-deep pre {
     padding: 18px;
-    border-radius: 16px;
+    border-radius: 12px;
   }
 
-  .blog-card ::ng-deep p {
-    font-size: 1rem;
+  .title {
+    font-size: 1.6rem;
+  }
+
+  .markdown-wrapper ::ng-deep pre {
+    padding: 14px;
+  }
+
+  .markdown-wrapper ::ng-deep pre .copy-button {
+    top: 8px;
+    right: 8px;
   }
 }
