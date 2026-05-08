@@ -134,7 +134,13 @@ The ASP.NET Core backend was structured into:
 
 Authentication responsibilities were separated into dedicated services.
 
-![Architecture Example](assets/blogs/images/example.png)
+```csharp
+AuthController
+AuthService
+JwtTokenGenerator
+RefreshTokenService
+UserRepository
+```
 
 ### Authentication Flow
 
@@ -192,19 +198,106 @@ This approach minimizes risk while maintaining usability.
 
 The access token generation service:
 
-![JWT Token Generation](assets/blogs/images/jwt.png)
+```csharp
+public string GenerateAccessToken(ApplicationUser user, IList<string> roles)
+{
+    var claims = new List<Claim>
+    {
+        new Claim(JwtRegisteredClaimNames.Sub, user.Id),
+        new Claim(JwtRegisteredClaimNames.Email, user.Email),
+        new Claim(ClaimTypes.Name, user.UserName)
+    };
+
+    claims.AddRange(roles.Select(role => new Claim(ClaimTypes.Role, role)));
+
+    var key = new SymmetricSecurityKey(
+        Encoding.UTF8.GetBytes(_jwtSettings.Secret));
+
+    var credentials = new SigningCredentials(
+        key,
+        SecurityAlgorithms.HmacSha256);
+
+    var token = new JwtSecurityToken(
+        issuer: _jwtSettings.Issuer,
+        audience: _jwtSettings.Audience,
+        claims: claims,
+        expires: DateTime.UtcNow.AddMinutes(15),
+        signingCredentials: credentials);
+
+    return new JwtSecurityTokenHandler().WriteToken(token);
+}
+```
 
 ### Login Endpoint
 
 The authentication endpoint:
 
-![Login Endpoint](assets/blogs/images/login.png)
+```csharp
+[HttpPost("login")]
+public async Task<IActionResult> Login(LoginDto model)
+{
+    var user = await _userManager.FindByEmailAsync(model.Email);
+
+    if (user == null)
+        return Unauthorized();
+
+    var validPassword = await _userManager
+        .CheckPasswordAsync(user, model.Password);
+
+    if (!validPassword)
+        return Unauthorized();
+
+    var roles = await _userManager.GetRolesAsync(user);
+
+    var accessToken = _jwtService.GenerateAccessToken(user, roles);
+
+    var refreshToken = await _refreshTokenService
+        .CreateAsync(user.Id);
+
+    Response.Cookies.Append(
+        "refreshToken",
+        refreshToken.Token,
+        new CookieOptions
+        {
+            HttpOnly = true,
+            Secure = true,
+            SameSite = SameSiteMode.Strict
+        });
+
+    return Ok(new
+    {
+        accessToken
+    });
+}
+```
 
 ### Angular HTTP Interceptor
 
 Angular automatically attaches the JWT token to protected requests.
 
-![Angular Interceptor](assets/blogs/images/angular.png)
+```js
+@Injectable()
+export class AuthInterceptor implements HttpInterceptor {
+
+  intercept(
+    req: HttpRequest<any>,
+    next: HttpHandler
+  ): Observable<HttpEvent<any>> {
+
+    const token = localStorage.getItem('accessToken');
+
+    if (token) {
+      req = req.clone({
+        setHeaders: {
+          Authorization: `Bearer ${token}`
+        }
+      });
+    }
+
+    return next.handle(req);
+  }
+}
+```
 
 This keeps API communication centralized and clean.
 
@@ -212,7 +305,20 @@ This keeps API communication centralized and clean.
 
 Protected Angular routes:
 
-![Route Guard](assets/blogs/images/guard.png)
+```js
+export const authGuard: CanActivateFn = () => {
+
+  const authService = inject(AuthService);
+  const router = inject(Router);
+
+  if (authService.isAuthenticated()) {
+    return true;
+  }
+
+  router.navigate(['/login']);
+  return false;
+};
+```
 
 This prevents unauthorized navigation inside the frontend application.
 
@@ -299,7 +405,20 @@ Incorrect middleware ordering is one of the most common issues developers face.
 
 Correct configuration:
 
-![CORS Configuration](assets/blogs/images/cors.png)
+```js
+export const authGuard: CanActivateFn = () => {
+
+  const authService = inject(AuthService);
+  const router = inject(Router);
+
+  if (authService.isAuthenticated()) {
+    return true;
+  }
+
+  router.navigate(['/login']);
+  return false;
+};
+```
 
 ## Final Result
 
@@ -343,55 +462,19 @@ A secure authentication architecture improves:
 - user trust
 - long-term scalability
 
-## Subscribe to My Newsletter
-
-If you enjoyed this article and want more production-level content on:
-
-- ASP.NET Core
-- Angular
-- Clean Architecture
-- JWT Authentication
-- SQL Optimization
-- Scalable System Design
-- Full-Stack Development
-- Real-World Engineering Practices
-
-then subscribe to my newsletter.
-
-I write detailed technical articles focused on:
-
-- solving real engineering problems
-- writing maintainable production code
-- improving application performance
-- building secure backend systems
-- becoming a better software engineer
-
-Most tutorials on the internet stop at "it works."
-
-My goal is to explain:
-
-- why certain architectural decisions matter
-- what breaks in production
-- how experienced developers structure systems
-- what recruiters actually look for in engineers
-
-You'll receive:
-
-- in-depth technical breakdowns
-- practical backend/frontend strategies
-- reusable architecture patterns
-- performance optimization techniques
-- production-ready code examples
-
-No spam. Only high-quality engineering content.
-
 ---
 
-**Ali Ahsan**
+## Stay Connected
 
-Full-Stack Developer
-ASP.NET Core • Angular • SQL • Clean Architecture
+If you enjoy practical content on ASP.NET Core, Angular, Clean Architecture, and scalable system design, subscribe to my newsletter for production-level engineering insights.
 
-Building scalable, secure, and production-ready applications.
+### Ali Ahsan
 
-[Subscribe to Newsletter](/news)
+Full-Stack Developer • ASP.NET Core • Angular • SQL
+
+- [LinkedIn](https://www.linkedin.com/in/ali-ahsan-6895a9315/)
+- [GitHub](https://github.com/aliahsan9)
+- [Blogs](/blogs)
+- [Newsletter](/news)
+
+Building secure, scalable, and real-world applications.

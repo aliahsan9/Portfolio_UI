@@ -1,31 +1,36 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { MarkdownModule } from 'ngx-markdown';
 
 @Component({
   selector: 'app-blog-detail',
   standalone: true,
-  imports: [MarkdownModule, RouterModule, CommonModule],
+  imports: [
+    CommonModule,
+    RouterModule,
+    MarkdownModule
+  ],
   templateUrl: './blog-detail.component.html',
-  styleUrl: './blog-detail.component.scss'
+  styleUrls: ['./blog-detail.component.scss']
 })
-export class BlogDetailComponent {
+export class BlogDetailComponent implements OnInit {
 
-  slug: string | null = null;
-  title: string = '';
+  slug = '';
+  title = '';
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(
+    private route: ActivatedRoute
+  ) {}
 
-  ngOnInit() {
-    this.slug = this.route.snapshot.paramMap.get('slug');
+  ngOnInit(): void {
 
-    // Convert slug → title (simple UX upgrade)
-    if (this.slug) {
-      this.title = this.slug
-        .replace(/-/g, ' ')
-        .replace(/\b\w/g, l => l.toUpperCase());
-    }
+    this.slug =
+      this.route.snapshot.paramMap.get('slug') || '';
+
+    this.title = this.slug
+      .replace(/-/g, ' ')
+      .replace(/\b\w/g, char => char.toUpperCase());
   }
 
   get markdownPath(): string {

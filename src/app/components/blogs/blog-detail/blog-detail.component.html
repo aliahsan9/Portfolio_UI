@@ -1,21 +1,37 @@
 <div class="blog-page">
 
-  <!-- HERO HEADER -->
-  <div class="blog-hero">
-    <div class="container"> 
+  <!-- HERO -->
+  <section class="blog-hero">
 
-   </div>
-  </div>
+    <div class="container">
 
-  <!-- CONTENT -->
-  <div class="container blog-content-wrapper">
+      <a routerLink="/blogs" class="back-btn">
+        ← Back to Blogs
+      </a>
 
-    <div class="blog-card">
-
-      <markdown [src]="markdownPath"></markdown>
+      <h1 class="title">
+        {{ title }}
+      </h1>
 
     </div>
 
-  </div>
+  </section>
+
+  <!-- CONTENT -->
+  <section class="blog-content-wrapper">
+
+    <div class="container">
+
+      <article class="blog-card">
+
+        <markdown
+          [src]="markdownPath">
+        </markdown>
+
+      </article>
+
+    </div>
+
+  </section>
 
 </div>
