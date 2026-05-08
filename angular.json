@@ -2,116 +2,142 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
+
   "projects": {
     "portfolio-ui": {
       "projectType": "application",
+
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
         }
       },
+
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
+
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:application",
-            "options": {
+
+          "options": {
             "outputPath": "dist/portfolio-ui",
             "index": "src/index.html",
             "browser": "src/main.ts",
+
             "polyfills": [
               "zone.js"
             ],
+
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
+
             "assets": [
               {
-              "glob": "**/*",
-              "input": "public"
+                "glob": "**/*",
+                "input": "public",
+                "output": "/"
               }
             ],
+
             "styles": [
               "node_modules/aos/dist/aos.css",
-                "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
-              "src/styles.scss",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
-                "node_modules/bootstrap-icons/font/bootstrap-icons.css",
-                 "node_modules/highlight.js/styles/github-dark.css",
-                 "node_modules/prismjs/themes/prism-tomorrow.css"
+              "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
+              "node_modules/bootstrap-icons/font/bootstrap-icons.css",
+              "node_modules/highlight.js/styles/github-dark.css",
+              "node_modules/prismjs/themes/prism-tomorrow.css",
+              "src/styles.scss"
             ],
+
             "scripts": [
               "node_modules/aos/dist/aos.js",
-              "node_modules/@fortawesome/fontawesome-free/js/all.min.js"    ,
+              "node_modules/@fortawesome/fontawesome-free/js/all.min.js",
               "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
-        ]
-            },
+            ]
+          },
+
           "configurations": {
             "production": {
               "budgets": [
                 {
                   "type": "initial",
                   "maximumWarning": "3mb",
-                  "maximumError": "5MB"
+                  "maximumError": "5mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "10kB",
-                  "maximumError": "20kB"
+                  "maximumWarning": "10kb",
+                  "maximumError": "20kb"
                 }
               ],
+
               "outputHashing": "all"
             },
+
             "development": {
               "optimization": false,
               "extractLicenses": false,
               "sourceMap": true
             }
           },
+
           "defaultConfiguration": "production"
         },
+
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+
           "configurations": {
             "production": {
               "buildTarget": "portfolio-ui:build:production"
             },
+
             "development": {
               "buildTarget": "portfolio-ui:build:development"
             }
           },
+
           "defaultConfiguration": "development"
         },
+
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n"
         },
+
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
+
           "options": {
             "polyfills": [
               "zone.js",
               "zone.js/testing"
             ],
+
             "tsConfig": "tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
+
             "assets": [
               {
                 "glob": "**/*",
-                "input": "public"
+                "input": "public",
+                "output": "/"
               }
             ],
+
             "styles": [
               "src/styles.scss"
             ],
+
             "scripts": []
           }
         }
       }
     }
   },
+
   "cli": {
     "analytics": false
   }
 }
-  
