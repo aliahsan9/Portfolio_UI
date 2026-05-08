@@ -696,20 +696,18 @@ That is what makes architecture knowledge one of the strongest backend developer
 
 ---
 
-## Subscribe to My Newsletter
 
-If you enjoy detailed backend engineering content like this, subscribe to my newsletter.
+## Stay Connected
 
-I regularly write about:
+If you enjoy practical content on ASP.NET Core, Angular, Clean Architecture, and scalable system design, subscribe to my newsletter for production-level engineering insights.
 
-- ASP.NET Core
-- Angular
-- Clean Architecture
-- SQL Optimization
-- Authentication and Security
-- Scalable Backend Systems
-- Real Production Engineering
+### Ali Ahsan
 
-My goal is to share practical, production-focused knowledge that helps developers move beyond tutorial-level coding and start thinking like software engineers.
+Full-Stack Developer • ASP.NET Core • Angular • SQL
 
-**No spam. Only high-quality technical content.**
+- [LinkedIn](https://www.linkedin.com/in/ali-ahsan-6895a9315/)
+- [GitHub](https://github.com/aliahsan9)
+- [Blogs](/blogs)
+- [Newsletter](/news)
+
+Building secure, scalable, and real-world applications.high-quality technical content.**
