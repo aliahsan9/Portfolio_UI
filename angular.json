@@ -41,15 +41,15 @@
               }
             ],
 
-            "styles": [
-              "node_modules/aos/dist/aos.css",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
-              "node_modules/bootstrap-icons/font/bootstrap-icons.css",
-              "node_modules/highlight.js/styles/github-dark.css",
-              "node_modules/prismjs/themes/prism-tomorrow.css",
-              "src/styles.scss"
-            ],
+           "styles": [
+  "node_modules/aos/dist/aos.css",
+  "node_modules/bootstrap/dist/css/bootstrap.min.css",
+  "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
+  "node_modules/bootstrap-icons/font/bootstrap-icons.css",
+  "node_modules/highlight.js/styles/github-dark.css",
+  "node_modules/prismjs/themes/prism-tomorrow.css",
+  "src/styles.scss"
+],
 
             "scripts": [
               "node_modules/aos/dist/aos.js",
@@ -114,6 +114,7 @@
               "zone.js",
               "zone.js/testing"
             ],
+            
 
             "tsConfig": "tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
