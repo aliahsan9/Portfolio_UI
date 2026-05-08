@@ -2,7 +2,6 @@
 
   <!-- HERO -->
   <header class="blog-hero">
-
     <div class="container hero-container">
 
       <a
@@ -16,12 +15,10 @@
       </h1>
 
     </div>
-
   </header>
 
   <!-- CONTENT -->
   <main class="blog-main">
-
     <div class="container">
 
       <article class="blog-article">
@@ -31,7 +28,8 @@
           #markdownContainer>
 
           <markdown
-            [src]="markdownPath">
+            [src]="markdownPath"
+            (ready)="onMarkdownReady()">
           </markdown>
 
         </div>
@@ -39,7 +37,6 @@
       </article>
 
     </div>
-
   </main>
 
 </div>

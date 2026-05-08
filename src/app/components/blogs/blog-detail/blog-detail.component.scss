@@ -1,6 +1,6 @@
-/* ========================= */
-/* PAGE */
-/* ========================= */
+/* ======================================== */
+/* PAGE                                     */
+/* ======================================== */
 
 .blog-page {
   min-height: 100vh;
@@ -8,13 +8,13 @@
   color: #e2e8f0;
 }
 
-/* ========================= */
-/* HERO */
-/* ========================= */
+/* ======================================== */
+/* HERO                                     */
+/* ======================================== */
 
 .blog-hero {
   padding: 60px 0 30px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
 }
 
 .hero-container {
@@ -40,9 +40,9 @@
   transform: translateX(-4px);
 }
 
-/* ========================= */
-/* TITLE */
-/* ========================= */
+/* ======================================== */
+/* TITLE                                    */
+/* ======================================== */
 
 .blog-title {
   margin: 0;
@@ -54,9 +54,9 @@
   color: #ffffff;
 }
 
-/* ========================= */
-/* CONTENT */
-/* ========================= */
+/* ======================================== */
+/* CONTENT                                  */
+/* ======================================== */
 
 .blog-main {
   padding: 40px 0 80px;
@@ -65,7 +65,7 @@
 .blog-article {
   background: #0f172a;
 
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255,255,255,0.08);
 
   border-radius: 18px;
 
@@ -74,12 +74,12 @@
   overflow: hidden;
 
   box-shadow:
-    0 10px 40px rgba(0, 0, 0, 0.4);
+    0 10px 40px rgba(0,0,0,0.4);
 }
 
-/* ========================= */
-/* MARKDOWN */
-/* ========================= */
+/* ======================================== */
+/* MARKDOWN                                 */
+/* ======================================== */
 
 .markdown-body {
   line-height: 1.9;
@@ -133,24 +133,27 @@
   font-size: 0.92rem;
 }
 
-/* ========================= */
-/* CODE BLOCK */
-/* ========================= */
+/* ======================================== */
+/* CODE BLOCK                               */
+/* ======================================== */
 
 .markdown-body ::ng-deep pre {
   position: relative;
 
   margin: 28px 0;
 
-  padding: 60px 20px 20px;
+  padding:
+    64px 20px 20px;
 
   overflow-x: auto;
 
   border-radius: 16px;
 
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255,255,255,0.08);
 
-  background: #0b1120 !important;
+  background: #0b1120;
+
+  -webkit-overflow-scrolling: touch;
 }
 
 /* CODE */
@@ -158,11 +161,14 @@
 .markdown-body ::ng-deep pre code {
   display: block;
 
+  min-width: max-content;
+
   color: #e2e8f0;
 
-  background: transparent !important;
+  background: transparent;
 
   font-size: 14px;
+
   line-height: 1.8;
 
   font-family:
@@ -170,9 +176,9 @@
     monospace;
 }
 
-/* ========================= */
-/* COPY BUTTON */
-/* ========================= */
+/* ======================================== */
+/* COPY BUTTON                              */
+/* ======================================== */
 
 .markdown-body ::ng-deep .copy-btn {
   position: absolute;
@@ -184,56 +190,54 @@
   align-items: center;
   justify-content: center;
 
-  min-width: 72px;
-  height: 34px;
+  min-width: 78px;
+  height: 36px;
 
   padding: 0 14px;
 
-  border: 1px solid rgba(56, 189, 248, 0.3);
+  border: 1px solid rgba(56, 189, 248, 0.25);
 
   border-radius: 10px;
 
-  background: rgba(15, 23, 42, 0.95);
+  background: rgba(15, 23, 42, 0.96);
 
-  color: #38bdf8;
+  color: #22d3ee;
 
   font-size: 12px;
   font-weight: 700;
 
+  letter-spacing: 0.3px;
+
   cursor: pointer;
+
+  z-index: 10;
 
   transition:
     background 0.2s ease,
     color 0.2s ease,
-    transform 0.2s ease,
-    border-color 0.2s ease;
-
-  z-index: 10;
-
-  backdrop-filter: blur(10px);
+    border-color 0.2s ease,
+    transform 0.2s ease;
 }
 
 .markdown-body ::ng-deep .copy-btn:hover {
-  background: #38bdf8;
+  background: #22d3ee;
   color: #020617;
-  border-color: #38bdf8;
+  border-color: #22d3ee;
 }
 
 .markdown-body ::ng-deep .copy-btn:active {
   transform: scale(0.96);
 }
 
-.markdown-body ::ng-deep .copy-text.copied {
-  color: #22c55e;
+.markdown-body ::ng-deep .copy-btn.copied {
+  background: #10b981;
+  color: white;
+  border-color: #10b981;
 }
 
-.markdown-body ::ng-deep .copy-text.failed {
-  color: #ef4444;
-}
-
-/* ========================= */
-/* IMAGES */
-/* ========================= */
+/* ======================================== */
+/* IMAGES                                   */
+/* ======================================== */
 
 .markdown-body ::ng-deep img {
   width: 100%;
@@ -244,9 +248,9 @@
   margin: 28px 0;
 }
 
-/* ========================= */
-/* LISTS */
-/* ========================= */
+/* ======================================== */
+/* LISTS                                    */
+/* ======================================== */
 
 .markdown-body ::ng-deep ul,
 .markdown-body ::ng-deep ol {
@@ -258,9 +262,9 @@
   margin-bottom: 10px;
 }
 
-/* ========================= */
-/* BLOCKQUOTE */
-/* ========================= */
+/* ======================================== */
+/* BLOCKQUOTE                               */
+/* ======================================== */
 
 .markdown-body ::ng-deep blockquote {
   margin: 24px 0;
@@ -274,9 +278,9 @@
   font-style: italic;
 }
 
-/* ========================= */
-/* MOBILE */
-/* ========================= */
+/* ======================================== */
+/* MOBILE                                   */
+/* ======================================== */
 
 @media (max-width: 768px) {
 
@@ -294,18 +298,23 @@
   }
 
   .markdown-body ::ng-deep pre {
-    padding: 56px 16px 16px;
+    padding:
+      58px 16px 16px;
   }
 
   .markdown-body ::ng-deep .copy-btn {
     top: 10px;
     right: 10px;
 
-    min-width: 64px;
-    height: 30px;
+    min-width: 68px;
+    height: 32px;
 
     font-size: 11px;
 
-    padding: 0 10px;
+    border-radius: 8px;
+  }
+
+  .markdown-body ::ng-deep pre code {
+    font-size: 13px;
   }
 }

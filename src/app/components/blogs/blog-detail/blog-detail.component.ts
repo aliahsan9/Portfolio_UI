@@ -1,5 +1,4 @@
 import {
-  AfterViewInit,
   Component,
   ElementRef,
   OnInit,
@@ -7,7 +6,12 @@ import {
 } from '@angular/core';
 
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute, RouterModule } from '@angular/router';
+
+import {
+  ActivatedRoute,
+  RouterModule
+} from '@angular/router';
+
 import { MarkdownModule } from 'ngx-markdown';
 
 @Component({
@@ -21,8 +25,7 @@ import { MarkdownModule } from 'ngx-markdown';
   templateUrl: './blog-detail.component.html',
   styleUrls: ['./blog-detail.component.scss']
 })
-export class BlogDetailComponent
-  implements OnInit, AfterViewInit {
+export class BlogDetailComponent implements OnInit {
 
   slug = '';
   title = '';
@@ -44,11 +47,9 @@ export class BlogDetailComponent
       .replace(/\b\w/g, c => c.toUpperCase());
   }
 
-  ngAfterViewInit(): void {
+  onMarkdownReady(): void {
 
-    setTimeout(() => {
-      this.initializeCopyButtons();
-    }, 300);
+    this.initializeCopyButtons();
   }
 
   private initializeCopyButtons(): void {
@@ -56,34 +57,32 @@ export class BlogDetailComponent
     if (!this.markdownContainer) return;
 
     const preBlocks =
-      this.markdownContainer
-        .nativeElement
-        .querySelectorAll('pre');
+      this.markdownContainer.nativeElement.querySelectorAll('pre');
 
     preBlocks.forEach((pre: HTMLElement) => {
 
-      // prevent duplicate buttons
-      if (pre.dataset['copyInitialized']) {
-        return;
-      }
+      /*
+       Prevent duplicate buttons
+      */
+     if (pre.dataset['copyInitialized'] === 'true') {
+  return;
+}
 
-      pre.dataset['copyInitialized'] = 'true';
+pre.dataset['copyInitialized'] = 'true';
+
+      pre.classList.add('code-block');
 
       const code =
         pre.querySelector('code');
 
       if (!code) return;
 
-      // wrapper class
-      pre.classList.add('custom-code-block');
-
-      // create button
       const button =
         document.createElement('button');
 
       button.className = 'copy-btn';
-
       button.type = 'button';
+      button.setAttribute('aria-label', 'Copy code');
 
       button.innerHTML = `
         <span class="copy-text">Copy</span>
@@ -91,19 +90,20 @@ export class BlogDetailComponent
 
       button.addEventListener('click', async () => {
 
-        const codeText =
-          code.textContent || '';
-
         try {
 
-          await navigator
-            .clipboard
-            .writeText(codeText);
+          await navigator.clipboard.writeText(
+            code.textContent || ''
+          );
+
+          button.classList.add('copied');
 
           button.innerHTML =
-            `<span class="copy-text copied">Copied</span>`;
+            `<span class="copy-text">Copied!</span>`;
 
           setTimeout(() => {
+
+            button.classList.remove('copied');
 
             button.innerHTML =
               `<span class="copy-text">Copy</span>`;
@@ -113,7 +113,7 @@ export class BlogDetailComponent
         } catch {
 
           button.innerHTML =
-            `<span class="copy-text failed">Failed</span>`;
+            `<span class="copy-text">Failed</span>`;
 
           setTimeout(() => {
 
