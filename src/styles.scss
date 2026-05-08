@@ -3,3 +3,12 @@ markdown img {
   height: auto !important;
   max-width: 100%;
 }
+markdown pre {
+  position: relative;
+}
+
+markdown .copy-button {
+  position: absolute;
+  top: 12px;
+  right: 12px; 
+}
