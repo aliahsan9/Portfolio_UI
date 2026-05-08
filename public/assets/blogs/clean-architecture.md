@@ -1,15 +1,14 @@
 ![JWT Authentication](assets/blogs/images/clean-architecture.webp)
 
-
 # How I Structure Scalable .NET Applications Using Clean Architecture
 
 Modern applications are no longer simple CRUD systems.
 
 As projects grow, codebases become harder to maintain, features become tightly coupled, and introducing changes starts breaking unrelated functionality.
 
-One of the biggest differences between junior and senior backend developers is not writing APIs — it's designing systems that remain scalable, maintainable, and production-ready over time.
+One of the biggest differences between junior and senior backend developers is not writing APIs — it is designing systems that remain scalable, maintainable, and production-ready over time.
 
-In this article, I'll explain how I structure enterprise-grade ASP.NET Core applications using:
+In this article, I will explain how I structure enterprise-grade ASP.NET Core applications using:
 
 - Clean Architecture
 - CQRS
@@ -23,6 +22,8 @@ In this article, I'll explain how I structure enterprise-grade ASP.NET Core appl
 - Feature-Based Folder Structure
 
 This architecture is something I use for building scalable backend systems where maintainability and long-term growth matter.
+
+---
 
 ## The Problem
 
@@ -58,7 +59,9 @@ I needed a structure that:
 - Improves testing
 - Separates concerns properly
 
-That's when I moved to Clean Architecture.
+That is when I moved to Clean Architecture.
+
+---
 
 ## Why This Matters
 
@@ -82,6 +85,8 @@ A well-architected system allows:
 
 This is why enterprise companies heavily value developers who understand architecture properly.
 
+---
+
 ## What Is Clean Architecture?
 
 Clean Architecture is a way of structuring applications so that:
@@ -95,9 +100,11 @@ Clean Architecture is a way of structuring applications so that:
 
 > Business rules should not depend on frameworks, databases, or external services.
 
+---
+
 ## My Project Structure
 
-Here's the structure I commonly use in production applications:
+Here is the structure I commonly use in production applications:
 
 ```
 src/
@@ -120,9 +127,9 @@ The Domain layer contains:
 
 It should contain:
 
-- ❌ Zero database logic
-- ❌ Zero framework dependencies
-- ❌ Zero infrastructure concerns
+- Zero database logic
+- Zero framework dependencies
+- Zero infrastructure concerns
 
 **Example:**
 
@@ -156,12 +163,14 @@ This layer contains:
 
 This is where most business logic lives.
 
+---
+
 ## CQRS + MediatR
 
 I use CQRS to separate:
 
-- **Commands** → write operations
-- **Queries** → read operations
+- **Commands** — write operations
+- **Queries** — read operations
 
 **Example command:**
 
@@ -211,6 +220,8 @@ public class CreateProductCommandHandler
 - Cleaner testing
 - Maintainable code
 - Feature separation
+
+---
 
 ## Repository Pattern
 
@@ -263,6 +274,8 @@ This improves:
 - Testing
 - Maintainability
 
+---
+
 ## Unit of Work
 
 Instead of saving changes everywhere:
@@ -305,6 +318,8 @@ public class UnitOfWork : IUnitOfWork
 - Transaction consistency
 - Cleaner command handlers
 
+---
+
 ### Infrastructure Layer
 
 This layer contains:
@@ -320,6 +335,8 @@ This layer contains:
 **Infrastructure depends on Application — not the other way around.**
 
 This is one of the most important Clean Architecture rules.
+
+---
 
 ### API Layer
 
@@ -358,6 +375,8 @@ public class ProductsController : ControllerBase
 **No business logic inside controllers.**
 
 This keeps APIs extremely clean.
+
+---
 
 ## Validation Pipelines
 
@@ -405,6 +424,8 @@ public class ValidationBehavior<TRequest, TResponse>
 - Cleaner handlers
 - Reusable validation rules
 
+---
+
 ## Global Exception Handling Middleware
 
 Unhandled exceptions should never leak raw errors to users.
@@ -447,6 +468,8 @@ public class ExceptionMiddleware
 - Secure responses
 - Consistent API errors
 
+---
+
 ## Result Pattern
 
 Instead of throwing exceptions for everything:
@@ -481,6 +504,8 @@ public class Result
 - Cleaner error handling
 - Fewer exceptions
 
+---
+
 ## Dependency Injection
 
 I register dependencies centrally.
@@ -500,6 +525,8 @@ builder.Services.AddScoped<
 - Loose coupling
 - Testability
 - Scalability
+
+---
 
 ## Logging
 
@@ -521,6 +548,8 @@ _logger.LogInformation(
 ```
 
 Good logging makes debugging significantly easier.
+
+---
 
 ## Feature-Based Architecture
 
@@ -551,6 +580,8 @@ Features/
 
 This becomes extremely valuable in large applications.
 
+---
+
 ## Why This Architecture Works So Well
 
 This structure works because it enforces:
@@ -568,6 +599,8 @@ It also makes:
 - Scaling easier
 
 **The larger the application becomes, the more valuable architecture becomes.**
+
+---
 
 ## Common Mistakes Developers Make
 
@@ -593,7 +626,9 @@ Scattered validations lead to duplicated logic.
 
 Poor organization destroys maintainability as teams grow.
 
-## Performance & Scalability Improvements
+---
+
+## Performance and Scalability Improvements
 
 This architecture also improved:
 
@@ -604,6 +639,8 @@ This architecture also improved:
 - Debugging efficiency
 
 In larger applications, architecture quality directly affects development velocity.
+
+---
 
 ## Final Result
 
@@ -620,6 +657,8 @@ After implementing this architecture in my applications:
 
 > The application remained maintainable even as complexity increased.
 
+---
+
 ## Key Takeaways
 
 - Architecture matters more as projects scale
@@ -631,6 +670,8 @@ After implementing this architecture in my applications:
 - Infrastructure should never control business logic
 - Good architecture increases long-term development speed
 
+---
+
 ## Conclusion
 
 Most developers focus heavily on writing features.
@@ -639,7 +680,7 @@ Senior developers focus on designing systems that can survive growth.
 
 Clean Architecture is not about adding unnecessary complexity.
 
-**It's about creating applications that remain scalable, maintainable, testable, and production-ready over time.**
+**It is about creating applications that remain scalable, maintainable, testable, and production-ready over time.**
 
 When recruiters see developers who understand:
 
@@ -651,7 +692,7 @@ When recruiters see developers who understand:
 
 They immediately recognize engineering maturity.
 
-That's what makes architecture knowledge one of the strongest backend developer signals you can showcase in your portfolio.
+That is what makes architecture knowledge one of the strongest backend developer signals you can showcase in your portfolio.
 
 ---
 
@@ -665,7 +706,7 @@ I regularly write about:
 - Angular
 - Clean Architecture
 - SQL Optimization
-- Authentication & Security
+- Authentication and Security
 - Scalable Backend Systems
 - Real Production Engineering
 

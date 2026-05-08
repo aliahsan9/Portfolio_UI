@@ -17,7 +17,7 @@ export class BlogsComponent {
       slug: 'jwt-authentication',
       date: '2026-05-07',
       description: 'Authentication is one of the most critical parts of any modern web application...',
-      image: 'assets/blogs/images/jwt-thumbnail.webp'
+      image: 'assets/blogs/images/jwt.webp'
     },
     {
       title: 'SQL Performance Optimization Techniques I Use in Production Applications',
