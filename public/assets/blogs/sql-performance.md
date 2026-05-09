@@ -1,7 +1,6 @@
-![JWT Authentication](assets/blogs/images/sql-performance.webp)
-
 # From 6 Seconds to 300ms: SQL Performance Optimization in Production
 
+![JWT Authentication](assets/blogs/images/sql-performance.webp)
 
 ---
 
@@ -29,7 +28,7 @@ Then production traffic arrives, and everything changes.
 
 The system I inherited exhibited classic performance pathology:
 
-```
+```text
 Dashboard loading: 4-6 seconds
 API response times: Unpredictable, often timing out
 Database CPU usage: Consistently above 80%
@@ -73,11 +72,13 @@ For businesses, poor database performance translates to:
 ### The Engineering Differentiation
 
 Most developers can:
+
 - Create tables
 - Write basic CRUD operations
 - Connect APIs to databases
 
 Elite engineers understand:
+
 - Execution plan analysis
 - Strategic indexing
 - Query cost optimization
@@ -114,6 +115,7 @@ FROM Orders
 Without indexes, SQL Server performs expensive table scans instead of efficient index seeks.
 
 **The difference:**
+
 - Table scan: Reading every single row (catastrophic at scale)
 - Index seek: Jumping directly to relevant data (millisecond performance)
 
@@ -126,6 +128,7 @@ With millions of records, missing indexes can turn a 10ms query into a 10-second
 ORMs like Entity Framework are productivity multipliers, but they can generate horrifically inefficient SQL when misused.
 
 **Common traps:**
+
 - Loading entire entity graphs unnecessarily
 - Lazy loading abuse triggering query cascades
 - Change tracking on read-only operations
@@ -148,6 +151,7 @@ foreach (var order in orders)
 ```
 
 **What happens:**
+
 - 1 query fetches all orders
 - For 1,000 orders → 1,000 additional customer queries
 - Total: 1,001 database round trips
@@ -193,6 +197,7 @@ I developed a systematic approach focused on measurable improvements:
 The execution plan is your X-ray vision into SQL Server's brain.
 
 Execution plans reveal:
+
 - Table scans vs. index seeks
 - Expensive operations (sorts, joins, aggregations)
 - Missing index recommendations
@@ -270,6 +275,7 @@ INCLUDE (TotalAmount, CreatedAt, CustomerName)
 ```
 
 **What this does:**
+
 - Index contains both search columns AND display columns
 - SQL Server never needs to access the base table
 - Converts key lookups into pure index seeks
@@ -312,6 +318,7 @@ var products = await _context.Products
 ```
 
 **Why projections win:**
+
 - Loads only required columns
 - No change tracking overhead
 - Smaller memory footprint
@@ -355,6 +362,7 @@ var activeUsers = await _context.Users
 ```
 
 **The difference:**
+
 - Bad approach: Transfers 100,000 rows over network, filters in C#
 - Good approach: Database returns only 5,000 active users
 
@@ -375,6 +383,7 @@ protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 ```
 
 **My preference:**
+
 - Eager loading for predictable relationships
 - Projections for optimized responses
 - Avoid lazy loading (too unpredictable in production)
@@ -421,6 +430,7 @@ public async Task<List<Product>> GetProducts(int lastId, int pageSize)
 ```
 
 **Performance comparison:**
+
 - Page 1: OFFSET (12ms) vs Keyset (8ms)
 - Page 1000: OFFSET (2,400ms) vs Keyset (9ms)
 
@@ -458,6 +468,7 @@ END
 ```
 
 **Best use cases:**
+
 - Reporting and analytics
 - Heavy aggregations
 - Multi-step operations
@@ -534,6 +545,7 @@ SELECT * FROM Orders WHERE CustomerId = 123
 ### Key Metrics
 
 | Metric | What It Reveals |
+
 |--------|-----------------|
 | **Logical Reads** | Pages read from buffer cache (lower is better) |
 | **Physical Reads** | Pages read from disk (should be near zero) |
@@ -555,11 +567,13 @@ SELECT * FROM Orders WHERE CustomerId = 123
 ### Query Performance Improvements
 
 **Before Optimization:**
+
 - Dashboard load time: 4-6 seconds
 - Product search API: 2.8 seconds
 - Customer order history: 5.2 seconds
 
 **After Optimization:**
+
 - Dashboard load time: 280ms (95% improvement)
 - Product search API: 120ms (96% improvement)
 - Customer order history: 310ms (94% improvement)
@@ -569,6 +583,7 @@ SELECT * FROM Orders WHERE CustomerId = 123
 ### Database Resource Reduction
 
 | Metric | Before | After | Improvement |
+
 |--------|--------|-------|-------------|
 | Average CPU Usage | 78% | 32% | 59% reduction |
 | Logical Reads/Query | 3,200 | 180 | 94% reduction |
@@ -622,6 +637,7 @@ Database optimization is a force multiplier for backend engineers. Here is what 
 ### The Bottom Line
 
 Most developers focus on:
+
 - Learning frameworks
 - Building features
 - Shipping quickly
@@ -629,6 +645,7 @@ Most developers focus on:
 Elite engineers build systems that scale.
 
 Understanding SQL performance optimization means:
+
 - Your applications stay fast as data grows
 - Your infrastructure costs remain manageable
 - Your users have consistently excellent experiences
@@ -657,7 +674,6 @@ The techniques in this article transformed my understanding of production system
 If you are interested in discussing database optimization, I am always open to learning new approaches and sharing experiences.
 
 ---
-
 
 ## Stay Connected
 

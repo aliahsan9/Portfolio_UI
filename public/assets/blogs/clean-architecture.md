@@ -1,6 +1,6 @@
-![JWT Authentication](assets/blogs/images/clean-architecture.webp)
-
 # How I Structure Scalable .NET Applications Using Clean Architecture
+
+![JWT Authentication](assets/blogs/images/clean-architecture.webp)
 
 Modern applications are no longer simple CRUD systems.
 
@@ -29,7 +29,7 @@ This architecture is something I use for building scalable backend systems where
 
 Most developers start projects using a simple layered structure like:
 
-```
+```text
 Controllers/
 Services/
 Repositories/
@@ -106,7 +106,7 @@ Clean Architecture is a way of structuring applications so that:
 
 Here is the structure I commonly use in production applications:
 
-```
+```text
 src/
 ├── Api
 ├── Application
@@ -555,7 +555,7 @@ Good logging makes debugging significantly easier.
 
 Instead of grouping by technical folders:
 
-```
+```text
 Controllers/
 Services/
 Repositories/
@@ -563,7 +563,7 @@ Repositories/
 
 I prefer grouping by feature:
 
-```
+```text
 Features/
 ├── Products
 │   ├── Commands
@@ -695,7 +695,6 @@ They immediately recognize engineering maturity.
 That is what makes architecture knowledge one of the strongest backend developer signals you can showcase in your portfolio.
 
 ---
-
 
 ## Stay Connected
 
