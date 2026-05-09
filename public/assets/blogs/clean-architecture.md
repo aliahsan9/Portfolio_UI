@@ -522,7 +522,7 @@ If you enjoy practical content on ASP.NET Core, Angular, Clean Architecture, and
 
 ### Ali Ahsan
 
-Full-Stack Developer • ASP.NET Core • Angular • SQL
+Full-Stack Developer | ASP.NET Core | Angular | SQL
 
  [LinkedIn](https://www.linkedin.com/in/ali-ahsan-6895a9315/) | [GitHub](https://github.com/aliahsan9) |  [Blogs](/blogs) | [Newsletter](/news)
   
