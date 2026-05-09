@@ -361,12 +361,7 @@ Keyset pagination maintains consistent performance at any depth.
 
 ## 6. Stored Procedures for Complex Operations
 
-For computationally intensive queries, stored procedures offer:
-
-- Consistent execution plans
-- Query plan caching and reuse
-- Reduced network overhead
-- Centralized business logic
+For computationally intensive queries, stored procedures offer consistent execution plans, query plan caching and reuse, reduced network overhead and centralized business logic.
 
 ```sql
 CREATE PROCEDURE GetTopSellingProducts
@@ -388,25 +383,14 @@ BEGIN
 END
 ```
 
-**Best use cases:**
-
-- Reporting and analytics
-- Heavy aggregations
-- Multi-step operations
-- Performance-critical paths
+**Best use cases** are reporting and analytics, heavy aggregations, multi-step operations and  performance-critical paths.
 
 ---
 
 ## 7. Caching Strategy
 
 Not every request should hit the database.
-
-### What to Cache
-
-- Frequently accessed reference data
-- Dashboard aggregations
-- Lookup tables (categories, statuses, countries)
-- Rarely changing configuration data
+Cache only frequently accessed reference data, dashboard aggregations, lookup tables (categories, statuses, countries) and rarely changing configuration data.
 
 ### Implementation
 
@@ -433,7 +417,7 @@ public async Task<List<Category>> GetCategories()
 }
 ```
 
-### Technologies I Use
+### Technologies Should Use
 
 - **Redis** - Distributed caching for multi-instance deployments
 - **IMemoryCache** - In-memory caching for single instances
@@ -465,14 +449,11 @@ SELECT * FROM Orders WHERE CustomerId = 123
 
 ### Key Metrics
 
-| Metric | What It Reveals |
-
-|--------|-----------------|
-| **Logical Reads** | Pages read from buffer cache (lower is better) |
-| **Physical Reads** | Pages read from disk (should be near zero) |
-| **CPU Time** | Processor time consumed |
-| **Elapsed Time** | Total wall-clock time |
-| **Execution Plan** | Visual cost breakdown |
+Logical Reads represent the number of pages read from the buffer cache, and lower values indicate better performance because it means the system is efficiently reusing cached data instead of repeatedly fetching it from storage.
+Physical Reads indicate how many pages are read directly from disk, and this should ideally be near zero since frequent disk access slows down query performance.
+CPU Time measures the amount of processor time consumed during query execution, where higher values can suggest inefficient queries or missing optimizations.
+Elapsed Time is the total wall-clock time taken to complete a query, including CPU processing, I/O waits, and any delays from system resources.
+Execution Plan provides a visual breakdown of how a query is executed, showing operations, joins, scans, and cost distribution, which helps in identifying performance bottlenecks and optimization opportunities.
 
 ### SQL Server Tools
 
@@ -487,58 +468,41 @@ SELECT * FROM Orders WHERE CustomerId = 123
 
 ### Query Performance Improvements
 
-**Before Optimization:**
+**Before Optimization:** dashboard load time: 4-6 seconds, product search API: 2.8 seconds and customer order history: 5.2 seconds.
 
-- Dashboard load time: 4-6 seconds
-- Product search API: 2.8 seconds
-- Customer order history: 5.2 seconds
-
-**After Optimization:**
-
-- Dashboard load time: 280ms (95% improvement)
-- Product search API: 120ms (96% improvement)
-- Customer order history: 310ms (94% improvement)
+**After Optimization:** dashboard load time: 280ms (95% improvement), product search API: 120ms (96% improvement) and customer order history: 310ms (94% improvement).
 
 ---
 
 ### Database Resource Reduction
 
-| Metric | Before | After | Improvement |
+After optimization, several key performance metrics showed significant improvements.
 
-|--------|--------|-------|-------------|
-| Average CPU Usage | 78% | 32% | 59% reduction |
-| Logical Reads/Query | 3,200 | 180 | 94% reduction |
-| Memory Allocation | 1.2 GB | 420 MB | 65% reduction |
-| Concurrent Connections | 240 | 85 | 65% reduction |
+Average CPU Usage dropped from 78% to 32%, resulting in a 59% reduction, which indicates that the system is now using considerably fewer processor resources under the same workload.
+
+Logical Reads per query decreased from 3,200 to 180, achieving a 94% reduction. This shows that far fewer pages are being read from memory, meaning queries are much more efficient and better optimized.
+
+Memory Allocation improved from 1.2 GB down to 420 MB, a 65% reduction, reflecting a more efficient use of system memory and reduced overhead during query execution.
+
+Concurrent Connections handled by the system decreased from 240 to 85 for the same workload scenario, representing a 65% reduction in pressure on the database layer and improved request handling efficiency.
 
 ---
 
 ### Application Scalability
 
-The system now handles:
-
-- 3.5x larger datasets without performance degradation
-- 5x higher concurrent users with stable response times
-- Peak traffic loads during business hours without incidents
-- Production stability with zero timeout exceptions
+The system now handles 3.5x larger datasets without performance degradation, 5x higher concurrent users with stable response times, peak traffic loads during business hours without incidents and production stability with zero timeout exceptions.
 
 ---
 
 ### Cost Savings
 
-Optimized database performance delivered:
-
-- 40% reduction in database compute costs
-- 35% reduction in data transfer costs
-- Deferred expensive infrastructure scaling for 18+ months
+Optimized database performance delivered 40% reduction in database compute costs, 35% reduction in data transfer costs and deferred expensive infrastructure scaling for 18+ months.
 
 ---
 
-## Key Takeaways
+### Conclusion
 
 Database optimization is a force multiplier for backend engineers. Here is what transformed my approach:
-
-### Technical Insights
 
 1. **Indexes matter more than most developers realize** - They are the difference between milliseconds and minutes
 2. **ORMs require discipline** - Convenient but dangerous without understanding what SQL they generate
@@ -550,31 +514,12 @@ Database optimization is a force multiplier for backend engineers. Here is what 
 
 ### Process Changes
 
-- Performance analysis became part of code review
-- Execution plan checks before merging database queries
-- Automated performance regression testing
-- Database metrics in production dashboards
-
-### The Bottom Line
-
-Most developers focus on:
-
-- Learning frameworks
-- Building features
-- Shipping quickly
-
+ Performance analysis became part of code review, execution plan checks before merging database queries, automated performance regression testing, database metrics in production dashboards.
+Most developers focus on learning frameworks, building features, shipping quickly.
 Elite engineers build systems that scale.
-
-Understanding SQL performance optimization means:
-
-- Your applications stay fast as data grows
-- Your infrastructure costs remain manageable
-- Your users have consistently excellent experiences
-- Your systems handle success gracefully
+Understanding SQL performance optimization means your applications stay fast as data grows, your infrastructure costs remain manageable, your users have consistently excellent experiences and your systems handle success gracefully.
 
 ---
-
-## What's Next
 
 Database optimization is a continuous journey. Areas I am exploring next:
 
