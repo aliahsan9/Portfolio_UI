@@ -5,9 +5,7 @@
 /* SECTION */
 .newsletter-section {
   width: 100%;
-
   min-height: 100vh;
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -16,10 +14,7 @@
     140px 20px
     80px;
 
-  background:
-    radial-gradient(circle at top left,
-      #0f172a,
-      #020617);
+  background: radial-gradient(circle at top left, #091a32, #0b1f3a);
 
   overflow: hidden;
 }
