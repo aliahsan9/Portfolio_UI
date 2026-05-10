@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-// import AOS from 'aos';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { AboutComponent } from "../about/about.component";
@@ -17,7 +16,6 @@ import { NewsletterComponent } from '../newsletter/newsletter.component';
 })
 export class HomeComponent implements OnInit {
   ngOnInit(): void {
-    // AOS.init({ duration: 10, once: true });
     this.skills = [...this.skills, ...this.skills];
   }
     skills: string[] = [

@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-// import AOS from 'aos';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
@@ -14,7 +12,6 @@ import { RouterModule } from '@angular/router';
 export class PublicResumeComponent implements OnInit {
  
   ngOnInit(): void {
-    // AOS.init({ duration: 100 });
 
       }
 }

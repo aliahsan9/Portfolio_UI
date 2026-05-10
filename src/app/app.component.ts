@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd, RouterOutlet } from '@angular/router';
 import { NavbarComponent } from "./components/navbar/navbar.component";
 import { FooterComponent } from "./components/footer/footer.component";
-// import AOS from 'aos';
-// import 'aos/dist/aos.css';
 
 // Declare gtag for TypeScript
 declare let gtag: Function;
@@ -31,10 +29,6 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-  //   AOS.init({
-  //     duration: 10,
-  //     once: true,
-  //     easing: 'ease-in-out'
-  //   });
+ 
   }
 }
