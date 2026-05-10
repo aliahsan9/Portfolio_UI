@@ -14,7 +14,7 @@ import { BlogsComponent } from "../blogs/blogs/blogs.component";
   standalone: true,
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
-  imports: [CommonModule, RouterModule, AboutComponent, SkillsComponent, PublicProjectsComponent, ContactComponent, NewsletterComponent, BlogsComponent],
+  imports: [CommonModule, RouterModule],
 })
 export class HomeComponent implements OnInit {
   ngOnInit(): void {
