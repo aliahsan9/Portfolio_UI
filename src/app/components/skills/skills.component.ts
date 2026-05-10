@@ -16,7 +16,7 @@ export class SkillsComponent {
       percent: 92,
       color: 'bg-info',
       desc: 'Angular • TypeScript • SCSS • Bootstrap • Tailwind',
-      icon: 'assets/icons/angular.png',
+      icon: 'assets/icons/angular.avif',
       delay: 100
     },
     {
@@ -24,7 +24,7 @@ export class SkillsComponent {
       percent: 87,
       color: 'bg-success',
       desc: '.NET 8 • C# • SQL Server • REST APIs • JWT',
-      icon: 'assets/icons/dotnet.png',
+      icon: 'assets/icons/dotnet.avif',
       delay: 200 
     },
     {
@@ -32,7 +32,7 @@ export class SkillsComponent {
       percent: 90,
       color: 'bg-warning',
       desc: 'C++ • C# • TypeScript • Algorithm Design',
-      icon: 'assets/icons/leetcode.png',
+      icon: 'assets/icons/leetcode.avif',
       delay: 300
     },
     {
@@ -40,7 +40,7 @@ export class SkillsComponent {
       percent: 82,
       color: 'bg-danger',
       desc: 'Git • GitHub • Postman • Azure • Vercel',
-      icon: 'assets/icons/github.png',
+      icon: 'assets/icons/github.avif',
       delay: 400
     },
     {
@@ -48,7 +48,7 @@ export class SkillsComponent {
       percent: 95,
       color: 'bg-primary',
       desc: 'Agile • Leadership • Collaboration',
-      icon: 'assets/Images/leadership.png',
+      icon: 'assets/Images/leadership.avif',
       delay: 500
     },
     {
@@ -56,7 +56,7 @@ export class SkillsComponent {
       percent: 78,
       color: 'bg-pink',
       desc: 'Figma • Wireframing • Prototyping',
-      icon: 'assets/icons/figma.png',
+      icon: 'assets/icons/figma.avif',
       delay: 600
     }
   ];
