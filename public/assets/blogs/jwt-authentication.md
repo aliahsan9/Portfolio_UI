@@ -1,6 +1,6 @@
 # How I Built Production-Ready JWT Authentication in ASP.NET Core + Angular
 
-![JWT Authentication](assets/blogs/images/jwt.webp)
+![JWT Authentication](assets/blogs/images/jwt.avif)
 
 Authentication is one of the most critical parts of any modern web application. It protects user data, secures APIs, controls access to resources, and forms the foundation of application security.
 While building multiple full-stack applications using ASP.NET Core and Angular, I realized that many authentication implementations work fine in development but fail in real production environments due to poor security decisions, weak token handling, or incorrect architecture.
@@ -67,7 +67,7 @@ UserRepository
 
 ### Authentication Flow
 
-![JWT Authentication](assets/blogs/images/auth-flow.webp)
+![JWT Authentication](assets/blogs/images/auth-flow.avif)
 
 The login process works like user submits credentials, server validates user, access token is generated, refresh token is generated, Access token returned to Angular, Refresh token stored securely, Angular attaches JWT to protected requests, Expired tokens automatically refresh.
 This architecture provides, better security, cleaner session handling and smoother user experience.

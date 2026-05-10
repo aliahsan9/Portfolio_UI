@@ -1,6 +1,6 @@
 # How I Structure Scalable .NET Applications Using Clean Architecture
 
-![JWT Authentication](assets/blogs/images/clean-architecture.webp)
+![JWT Authentication](assets/blogs/images/clean-architecture.avif)
 
 Modern applications are no longer simple CRUD systems.
 As projects grow, codebases become harder to maintain, features become tightly coupled, and introducing changes starts breaking unrelated functionality.

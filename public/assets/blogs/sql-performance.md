@@ -1,6 +1,6 @@
 # From 6 Seconds to 300ms: SQL Performance Optimization in Production
 
-![JWT Authentication](assets/blogs/images/sql-performance.webp)
+![JWT Authentication](assets/blogs/images/sql-performance.avif)
 
 ---
 

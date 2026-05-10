@@ -17,21 +17,21 @@ export class BlogsComponent {
       slug: 'jwt-authentication',
       date: '2026-05-07',
       description: 'Authentication is one of the most critical parts of any modern web application...',
-      image: 'assets/blogs/images/jwt.webp'
+      image: 'assets/blogs/images/jwt.avif'
     },
     {
       title: 'SQL Performance Optimization Techniques I Use in Production Applications',
       slug: 'sql-performance',
       date: '2026-05-08',
       description: 'Building fast, scalable, and production-ready systems is where backend engineering becomes truly valuable...',
-      image: 'assets/blogs/images/sql-performance.webp'
+      image: 'assets/blogs/images/sql-performance.avif'
     },
     {
       title: 'How I Structure Scalable .NET Applications Using Clean Architecture',
       slug: 'clean-architecture',
       date: '2026-05-09',
       description: 'Modern applications are no longer simple CRUD systems...',
-      image: 'assets/blogs/images/clean-architecture.webp'
+      image: 'assets/blogs/images/clean-architecture.avif'
     },
   ];
 }
