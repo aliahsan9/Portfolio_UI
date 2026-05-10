@@ -5,7 +5,7 @@ import { FooterComponent } from "./components/footer/footer.component";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-// 👇 Declare gtag for TypeScript
+// Declare gtag for TypeScript
 declare let gtag: Function;
 
 @Component({

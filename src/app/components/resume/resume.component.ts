@@ -14,7 +14,7 @@ import { RouterModule } from '@angular/router';
 export class PublicResumeComponent implements OnInit {
  
   ngOnInit(): void {
-    AOS.init({ duration: 400 });
+    AOS.init({ duration: 100 });
 
       }
 }

@@ -18,7 +18,7 @@ import { BlogsComponent } from "../blogs/blogs/blogs.component";
 })
 export class HomeComponent implements OnInit {
   ngOnInit(): void {
-    AOS.init({ duration: 400, once: true });
+    AOS.init({ duration: 100, once: true });
     this.skills = [...this.skills, ...this.skills];
   }
     skills: string[] = [
