@@ -1,44 +1,83 @@
-<section id="skills" class="skills-section py-5 text-center">
-  <div class="container">
-    <!-- Section Title -->
-    <h1 class="fw-bold text-gradient mb-3" data-aos="fade-down">
-      Skills & Expertise  
-    </h1>
-    <p class="text-light mb-5" data-aos="fade-up">
-      Blending <strong>Frontend Elegance</strong>, <strong>Backend Strength</strong>, and 
-      <strong>Engineering Precision</strong>.
-    </p>
+<section id="skills" class="skills-section">
 
-    <!-- Skills Grid -->
-    <div class="row g-4 justify-content-center">
+  <div class="container">
+
+    <!-- Heading -->
+    <div class="section-header text-center" data-aos="fade-up">
+
+      <span class="section-label">EXPERTISE</span>
+
+      <h1 class="section-title">
+        Technical Skills &
+        Engineering Experience
+      </h1>
+
+      <p class="section-text">
+        Combining modern frontend engineering, scalable backend development,
+        cloud deployment workflows, and performance-focused architecture
+        to build reliable real-world applications.
+      </p>
+
+    </div>
+
+    <!-- Skills -->
+    <div class="skills-wrapper">
+
       <div
-        class="col-sm-6 col-md-4 col-lg-3 skill-card"
+        class="skill-card"
         *ngFor="let skill of skills"
         data-aos="fade-up"
         [attr.data-aos-delay]="skill.delay"
       >
-        <div class="d-flex align-items-center mb-2">
-          <img [src]="skill.icon" alt="{{skill.title}}" class="skill-icon me-2" />
-          <h5 class="fw-semibold text-white mb-0">{{ skill.title }}</h5>
+
+        <!-- Top -->
+        <div class="skill-top">
+
+          <div class="skill-title-wrapper">
+
+            <img
+              [src]="skill.icon"
+              [alt]="skill.title"
+              class="skill-icon"
+            />
+
+            <div>
+              <h4>{{ skill.title }}</h4>
+              <span>{{ skill.level }}</span>
+            </div>
+
+          </div>
+
+          <div class="skill-percent">
+            {{ skill.percent }}%
+          </div>
+
         </div>
 
-        <div class="progress skill-progress">
+        <!-- Progress -->
+        <div class="progress-track">
           <div
-            class="progress-bar"
-            role="progressbar"
-            [ngClass]="skill.color"
+            class="progress-fill"
             [style.width.%]="skill.percent"
-            [attr.aria-valuenow]="skill.percent"
-            [attr.aria-valuemin]="0"
-            [attr.aria-valuemax]="100"
           ></div>
         </div>
 
-        <div class="d-flex justify-content-between mt-1">
-          <small class="text-light">{{ skill.desc }}</small>
-          <small class="text-light">{{ skill.percent }}%</small>
+        <!-- Description -->
+        <p class="skill-description">
+          {{ skill.description }}
+        </p>
+
+        <!-- Technologies -->
+        <div class="tech-stack">
+          <span *ngFor="let tech of skill.technologies">
+            {{ tech }}
+          </span>
         </div>
+
       </div>
+
     </div>
+
   </div>
+
 </section>

@@ -10,54 +10,114 @@ import { RouterModule } from '@angular/router';
   styleUrls: ['./skills.component.scss']
 })
 export class SkillsComponent {
+
   skills = [
     {
-      title: 'Frontend Development',
+      title: 'Frontend Engineering',
+      level: 'Advanced',
       percent: 92,
-      color: 'bg-info',
-      desc: 'Angular • TypeScript • SCSS • Bootstrap • Tailwind',
       icon: 'assets/icons/angular.avif',
-      delay: 100
+      delay: 100,
+      technologies: [
+        'Angular',
+        'TypeScript',
+        'SCSS',
+        'Bootstrap',
+        'Responsive UI',
+        'Component Architecture'
+      ],
+      description:
+        'Focused on building modern, scalable, and responsive interfaces with clean component structure, smooth user experience, and performance-oriented frontend development.'
     },
+
     {
-      title: 'Backend Development',
-      percent: 87,
-      color: 'bg-success',
-      desc: '.NET 8 • C# • SQL Server • REST APIs • JWT',
+      title: 'Backend & API Development',
+      level: 'Advanced',
+      percent: 88,
       icon: 'assets/icons/dotnet.avif',
-      delay: 200 
+      delay: 200,
+      technologies: [
+        '.NET 8',
+        'C#',
+        'Entity Framework',
+        'REST APIs',
+        'JWT Authentication',
+        'SQL Server'
+      ],
+      description:
+        'Building secure and maintainable backend systems with clean architecture principles, optimized database design, authentication workflows, and scalable APIs.'
     },
+
     {
-      title: 'Programming & DSA',
-      percent: 90,
-      color: 'bg-warning',
-      desc: 'C++ • C# • TypeScript • Algorithm Design',
-      icon: 'assets/icons/leetcode.avif',
-      delay: 300
-    },
-    {
-      title: 'Dev Tools',
+      title: 'Cloud & DevOps',
+      level: 'Growing Expertise',
       percent: 82,
-      color: 'bg-danger',
-      desc: 'Git • GitHub • Postman • Azure • Vercel',
       icon: 'assets/icons/github.avif',
-      delay: 400
+      delay: 300,
+      technologies: [
+        'Microsoft Azure',
+        'GitHub Actions',
+        'CI/CD Pipelines',
+        'Azure App Services',
+        'Deployment Workflows',
+        'Git'
+      ],
+      description:
+        'Experience deploying applications using Azure cloud services and automating development workflows through CI/CD pipelines and version-controlled deployment strategies.'
     },
+
     {
-      title: 'Team & Communication',
-      percent: 95,
-      color: 'bg-primary',
-      desc: 'Agile • Leadership • Collaboration',
+      title: 'Database & Performance',
+      level: 'Advanced',
+      percent: 86,
+      icon: 'assets/icons/sql.avif',
+      delay: 400,
+      technologies: [
+        'SQL Server',
+        'Query Optimization',
+        'Stored Procedures',
+        'Indexing',
+        'Data Modeling',
+        'Performance Tuning'
+      ],
+      description:
+        'Strong understanding of relational database systems, query optimization, indexing strategies, and designing efficient data structures for scalable applications.'
+    },
+
+    {
+      title: 'Problem Solving & DSA',
+      level: 'Advanced',
+      percent: 90,
+      icon: 'assets/icons/leetcode.avif',
+      delay: 500,
+      technologies: [
+        'C++',
+        'C#',
+        'Algorithms',
+        'Data Structures',
+        'Logical Thinking',
+        'Optimization'
+      ],
+      description:
+        'Consistent practice in data structures and algorithms with emphasis on optimization, analytical thinking, and writing efficient, maintainable solutions.'
+    },
+
+    {
+      title: 'Collaboration & Workflow',
+      level: 'Professional',
+      percent: 94,
       icon: 'assets/Images/leadership.avif',
-      delay: 500
-    },
-    {
-      title: 'UI/UX Design',
-      percent: 78,
-      color: 'bg-pink',
-      desc: 'Figma • Wireframing • Prototyping',
-      icon: 'assets/icons/figma.avif',
-      delay: 600
+      delay: 600,
+      technologies: [
+        'Agile',
+        'Team Collaboration',
+        'Communication',
+        'Documentation',
+        'Project Planning',
+        'Code Reviews'
+      ],
+      description:
+        'Comfortable working in collaborative environments with strong communication, structured workflows, and focus on maintainable development practices.'
     }
   ];
 }
