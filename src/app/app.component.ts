@@ -4,6 +4,11 @@ import { NavbarComponent } from "./components/navbar/navbar.component";
 import { FooterComponent } from "./components/footer/footer.component";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { AboutComponent } from "./components/about/about.component";
+import { PublicProjectsComponent } from "./components/projects/projects.component";
+import { BlogsComponent } from "./components/blogs/blogs/blogs.component";
+import { NewsletterComponent } from './components/newsletter/newsletter.component';
+import { SkillsComponent } from './components/skills/skills.component';
 
 // Declare gtag for TypeScript
 declare let gtag: Function;
@@ -11,7 +16,7 @@ declare let gtag: Function;
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NavbarComponent, FooterComponent],
+  imports: [RouterOutlet, NavbarComponent, FooterComponent,AboutComponent, PublicProjectsComponent, BlogsComponent, NewsletterComponent, SkillsComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })

@@ -2,12 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import AOS from 'aos';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { AboutComponent } from "../about/about.component";
-import { SkillsComponent } from "../skills/skills.component";
-import { PublicProjectsComponent } from "../projects/projects.component";
-import { ContactComponent } from "../contact/contact.component";
-import { NewsletterComponent } from "../newsletter/newsletter.component";
-import { BlogsComponent } from "../blogs/blogs/blogs.component";
 
 @Component({
   selector: 'app-home',
