@@ -2,7 +2,7 @@
 
 ![JWT Authentication](assets/blogs/images/jwt.avif)
 
-Authentication is one of the most critical parts of any modern web application. It protects user data, secures APIs, controls access to resources, and forms the foundation of application security.
+[Authentication](https://aliahsan.vercel.app/blog/jwt-authentication) is one of the most critical parts of any modern web application. It protects user data, secures APIs, controls access to resources, and forms the foundation of application security.
 While building multiple full-stack applications using ASP.NET Core and Angular, I realized that many authentication implementations work fine in development but fail in real production environments due to poor security decisions, weak token handling, or incorrect architecture.
 
 In this article, I'll walk through how I designed and implemented a production-ready JWT authentication system using ASP.NET Core and Angular, including the architectural decisions, security improvements, common mistakes to avoid, and the patterns I use in real-world applications.
@@ -15,12 +15,12 @@ Most beginner authentication systems only focus on one thing:
 
 But production systems require much more than that and the challenge I wanted to solve was building an authentication system that was
  secure, scalable, maintainable frontend, friendly resistant to common vulnerabilities and easy to extend for enterprise applications.
-The application requirements included user registration and login, JWT access token authentication, refresh token mechanism, role-based authorization, secure API communication, Angular route protection, automatic token refresh, proper logout handling, scalable architecture.
+The application requirements included user registration and login, JWT access token authentication, refresh token mechanism, role-based authorization, secure API communication, Angular route protection, automatic token refresh, proper logout handling, [scalable architecture](https://aliahsan.vercel.app/blog/clean-architecture).
 I also wanted to avoid the common anti-patterns I often see in tutorial-based implementations.
 
-## Why This Matters
+## Auth Importance
 
-Authentication is directly tied to application trust and a weak authentication system can lead to account hijacking, token theft, Session abuse, unauthorized access, data breaches, poor user experience.
+Authentication is directly tied to application trust and a weak authentication system can lead to [account hijacking](https://www.vectra.ai/modern-attack/attack-techniques/account-hijacking), token theft, Session abuse, unauthorized access, data breaches, poor user experience.
 For businesses, authentication issues can become expensive very quickly.
 From a developer perspective, authentication is one of the fastest ways recruiters evaluate engineering maturity.
 A developer who understands token lifecycle management, API security, authorization architecture, refresh token strategies, frontend/backend integration
@@ -29,19 +29,19 @@ That's why I approached this implementation like a real production system instea
 
 ## Common Mistakes
 
-Before designing the architecture, I identified several mistakes that appear repeatedly in many authentication implementations.`Storing JWT Tokens in LocalStorage`
-This is one of the most common mistakes `LocalStorage` is vulnerable to XSS attacks. If malicious JavaScript executes inside the application, tokens can easily be stolen.
+Before designing the architecture, I identified several mistakes that appear repeatedly in many authentication implementations. [**Storing JWT Tokens in LocalStorage**](https://medium.com/kanlanc/heres-why-storing-jwt-in-local-storage-is-a-great-mistake-df01dad90f9e)
+This is one of the most common mistakes **LocalStorage** is vulnerable to XSS attacks. If malicious JavaScript executes inside the application, tokens can easily be stolen.
 Instead, I used secure HttpOnly cookies for refresh tokens.
 
 ### No Refresh Token Mechanism
 
 Many systems force users to log in repeatedly because access tokens expire without a refresh strategy.
 A production system should keep access tokens short-lived, refresh them securely and invalidate compromised sessions properly.
-`Weak Password Storage`
+**Weak Password Storage**
 Storing passwords incorrectly is catastrophic.
 Passwords should never, be encrypted manually, use SHA256 directly and be stored in plain text.
 I used ASP.NET Core Identity password hashing, which provides strong built-in protection.
-`Long-Lived Access Tokens`
+**Long-Lived Access Tokens**
 Keeping JWT access tokens valid for days or weeks increases security risk dramatically.
 I used short-lived access tokens, rotating refresh tokens, secure re-authentication flow.
 
@@ -74,9 +74,9 @@ This architecture provides, better security, cleaner session handling and smooth
 
 ### Token Strategy
 
-I used two different tokens.`Access Token` due to their authorize API requests
+I used two different tokens. **Access Token** due to their authorize API requests
 because it has short expiration time, stateless and attached to requests.
-`Refresh Token` Obtain new access tokens that are long-lived, securely stored, revocable and rotated periodically.
+**Refresh Token** Obtain new access tokens that are long-lived, securely stored, revocable and rotated periodically.
 This approach minimizes risk while maintaining usability.
 
 ## Code Examples
@@ -212,7 +212,7 @@ This prevents unauthorized navigation inside the frontend application.
 ## Performance/Security Improvements
 
 After the core implementation worked, I focused heavily on hardening security and improving reliability.
-`Refresh Token Rotation`
+**Refresh Token Rotation**
 Every refresh request generates new access token and new refresh token while
 Old refresh tokens are invalidated immediately.
 This prevents token replay attacks.
@@ -243,10 +243,10 @@ This ensures only authorized users can access sensitive operations.
 
 Authentication-related errors were handled through middleware instead of scattered try-catch blocks.
 This improved, maintainability, consistency and logging quality.
-`Token Expiration Strategy`
+**Token Expiration Strategy**
 I used 15-minute access tokens, 7-day refresh tokens.
 This creates a balance between, security, user experience.
-`Password Policies`
+**Password Policies**
 ASP.NET Core Identity password policies were configured to require uppercase letters, lowercase letters, numbers, minimum length, unique characters.
 This significantly improves account protection.
 
