@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import AOS from 'aos';
+// import AOS from 'aos';
 
 @Component({
   selector: 'app-about',
@@ -14,11 +14,11 @@ export class AboutComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    AOS.init({
-      duration: 100,
-      once: true,
-      easing: 'ease-in-out'
-    });
+    // AOS.init({
+      // duration: 100,
+      // once: true,
+      // easing: 'ease-in-out'
+    // });
   }
 
 }

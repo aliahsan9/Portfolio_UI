@@ -2,13 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd, RouterOutlet } from '@angular/router';
 import { NavbarComponent } from "./components/navbar/navbar.component";
 import { FooterComponent } from "./components/footer/footer.component";
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-import { AboutComponent } from "./components/about/about.component";
-import { PublicProjectsComponent } from "./components/projects/projects.component";
-import { BlogsComponent } from "./components/blogs/blogs/blogs.component";
-import { NewsletterComponent } from './components/newsletter/newsletter.component';
-import { SkillsComponent } from './components/skills/skills.component';
+// import AOS from 'aos';
+// import 'aos/dist/aos.css';
 
 // Declare gtag for TypeScript
 declare let gtag: Function;
@@ -16,7 +11,7 @@ declare let gtag: Function;
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NavbarComponent, FooterComponent,AboutComponent, PublicProjectsComponent, BlogsComponent, NewsletterComponent, SkillsComponent],
+  imports: [RouterOutlet, NavbarComponent, FooterComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
@@ -36,10 +31,10 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    AOS.init({
-      duration: 800,
-      once: true,
-      easing: 'ease-in-out'
-    });
+  //   AOS.init({
+  //     duration: 10,
+  //     once: true,
+  //     easing: 'ease-in-out'
+  //   });
   }
 }

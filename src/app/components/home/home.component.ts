@@ -1,18 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import AOS from 'aos';
+// import AOS from 'aos';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { AboutComponent } from "../about/about.component";
+import { SkillsComponent } from '../skills/skills.component';
+import { PublicProjectsComponent } from '../projects/projects.component';
+import { BlogsComponent } from '../blogs/blogs/blogs.component';
+import { NewsletterComponent } from '../newsletter/newsletter.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, AboutComponent, SkillsComponent, PublicProjectsComponent, BlogsComponent, NewsletterComponent],
 })
 export class HomeComponent implements OnInit {
   ngOnInit(): void {
-    AOS.init({ duration: 100, once: true });
+    // AOS.init({ duration: 10, once: true });
     this.skills = [...this.skills, ...this.skills];
   }
     skills: string[] = [
