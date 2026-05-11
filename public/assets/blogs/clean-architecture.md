@@ -240,7 +240,7 @@ public class UnitOfWork : IUnitOfWork
 
 ### Infrastructure Layer
 
-This layer contains EF Core, Database access, [JWT authentication](https://aliahsan.vercel.app/blog/jwt-authentication), Email services, External APIs, File storage, Repositories.
+This layer contains EF Core, Database access, [JWT authentication](https://aliahsan.tech/blog/jwt-authentication), Email services, External APIs, File storage, Repositories.
 **Infrastructure depends on Application — not the other way around.**
 This is one of the most important Clean Architecture rules.
 

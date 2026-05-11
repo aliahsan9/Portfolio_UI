@@ -2,7 +2,7 @@
 
 ![JWT Authentication](assets/blogs/images/jwt.avif)
 
-[Authentication](https://aliahsan.vercel.app/blog/jwt-authentication) is one of the most critical parts of any modern web application. It protects user data, secures APIs, controls access to resources, and forms the foundation of application security.
+[Authentication](https://aliahsan.tech/blog/jwt-authentication) is one of the most critical parts of any modern web application. It protects user data, secures APIs, controls access to resources, and forms the foundation of application security.
 While building multiple full-stack applications using ASP.NET Core and Angular, I realized that many authentication implementations work fine in development but fail in real production environments due to poor security decisions, weak token handling, or incorrect architecture.
 
 In this article, I'll walk through how I designed and implemented a production-ready JWT authentication system using ASP.NET Core and Angular, including the architectural decisions, security improvements, common mistakes to avoid, and the patterns I use in real-world applications.
@@ -15,7 +15,7 @@ Most beginner authentication systems only focus on one thing:
 
 But production systems require much more than that and the challenge I wanted to solve was building an authentication system that was
  secure, scalable, maintainable frontend, friendly resistant to common vulnerabilities and easy to extend for enterprise applications.
-The application requirements included user registration and login, JWT access token authentication, refresh token mechanism, role-based authorization, secure API communication, Angular route protection, automatic token refresh, proper logout handling, [scalable architecture](https://aliahsan.vercel.app/blog/clean-architecture).
+The application requirements included user registration and login, JWT access token authentication, refresh token mechanism, role-based authorization, secure API communication, Angular route protection, automatic token refresh, proper logout handling, [scalable architecture](https://aliahsan.tech/blog/clean-architecture).
 I also wanted to avoid the common anti-patterns I often see in tutorial-based implementations.
 
 ## Auth Importance
