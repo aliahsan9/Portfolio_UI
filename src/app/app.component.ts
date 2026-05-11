@@ -17,7 +17,6 @@ export class AppComponent implements OnInit {
 
   title = 'portfolio-ui';
 
-  // Constructor must be OUTSIDE ngOnInit
   constructor(private router: Router) {
     this.router.events.subscribe((event: any) => {
       if (event instanceof NavigationEnd) {

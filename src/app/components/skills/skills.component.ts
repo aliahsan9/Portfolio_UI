@@ -17,7 +17,6 @@ export class SkillsComponent {
       level: 'Advanced',
       percent: 92,
       icon: 'assets/icons/angular.avif',
-      delay: 100,
       technologies: [
         'Angular',
         'TypeScript',
@@ -35,7 +34,6 @@ export class SkillsComponent {
       level: 'Advanced',
       percent: 88,
       icon: 'assets/icons/dotnet.avif',
-      delay: 200,
       technologies: [
         '.NET 8',
         'C#',
@@ -53,7 +51,6 @@ export class SkillsComponent {
       level: 'Growing Expertise',
       percent: 82,
       icon: 'assets/icons/github.avif',
-      delay: 300,
       technologies: [
         'Microsoft Azure',
         'GitHub Actions',
@@ -71,7 +68,6 @@ export class SkillsComponent {
       level: 'Advanced',
       percent: 86,
       icon: 'assets/icons/sql.avif',
-      delay: 400,
       technologies: [
         'SQL Server',
         'Query Optimization',
@@ -89,7 +85,6 @@ export class SkillsComponent {
       level: 'Advanced',
       percent: 90,
       icon: 'assets/icons/leetcode.avif',
-      delay: 500,
       technologies: [
         'C++',
         'C#',
@@ -107,7 +102,6 @@ export class SkillsComponent {
       level: 'Professional',
       percent: 94,
       icon: 'assets/Images/leadership.avif',
-      delay: 600,
       technologies: [
         'Agile',
         'Team Collaboration',
