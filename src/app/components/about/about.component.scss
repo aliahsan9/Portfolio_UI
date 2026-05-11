@@ -31,10 +31,9 @@
 }
 
 .hero-title {
-  line-height: 1.15;
-  font-weight: 600;
-  color: #ffffff;
-  max-width: 850px;
+  padding-bottom: 28px;
+  margin-bottom: 28px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .hero-text {
@@ -103,6 +102,12 @@
 
 .panel-item p {
   color: #9fb0c7;
+  line-height: 1.8;
+  margin-bottom: 0;
+}
+.section-tag
+{
+    color: #9fb0c7;
   line-height: 1.8;
   margin-bottom: 0;
 }
