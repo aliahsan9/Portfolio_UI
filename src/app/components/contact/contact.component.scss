@@ -2,7 +2,16 @@
   background: radial-gradient(circle at top left, #091a32, #0b1f3a);
   text-align: center;
   
-
+/* Gradient heading text */
+.text-gradient {
+  background: linear-gradient(90deg, #00eaff, #4d9fff, #b14bff);
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-move 4s ease-in-out infinite;
+}
   .contact-info {
     padding: 0;
      margin-top: 20px;

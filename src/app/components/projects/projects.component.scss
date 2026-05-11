@@ -7,14 +7,15 @@
   padding-top: 100px;
 }
 
-/* Animated Gradient Title */
+/* Gradient heading text */
 .text-gradient {
-  background: linear-gradient(90deg, #00ffd0, #4f46e5, #00b4ff);
-  background-size: 300% auto;
+  background: linear-gradient(90deg, #00eaff, #4d9fff, #b14bff);
+  background-size: 200% auto;
   background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
   -webkit-text-fill-color: transparent;
-  animation: gradient-move 5s ease infinite;
-  font-weight: 700;
+  animation: gradient-move 4s ease-in-out infinite;
 }
 
 @keyframes gradient-move {

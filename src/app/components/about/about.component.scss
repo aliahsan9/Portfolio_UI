@@ -13,12 +13,15 @@
   position: relative;
 }
 
-/* Section Tag */
-.section-tag {
-  color: #00b4ff;
-  font-size: 0.8rem;
-  letter-spacing: 3px;
-  font-weight: 600;
+/* Gradient heading text */
+.text-gradient {
+  background: linear-gradient(90deg, #00eaff, #4d9fff, #b14bff);
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-move 4s ease-in-out infinite;
 }
 
 /* Hero */
