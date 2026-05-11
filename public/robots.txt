@@ -2,4 +2,4 @@ User-agent: *
 
 Allow: /
 
-Sitemap: https://aliahsan.vercel.app/sitemap.xml
+Sitemap: https://aliahsan.tech/sitemap.xml
