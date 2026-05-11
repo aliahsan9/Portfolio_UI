@@ -23,7 +23,7 @@ export class BlogsComponent {
       title: 'SQL Performance Optimization Techniques I Use in Production Applications',
       slug: 'sql-performance',
       date: '2026-05-08',
-      description: 'Building fast, scalable, and production-ready systems is where backend engineering becomes truly valuable...',
+      description: 'Building fast, scalable, and production-ready systems...',
       image: 'assets/blogs/images/sql-performance.avif'
     },
     {
