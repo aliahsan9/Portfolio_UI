@@ -1,7 +1,5 @@
 <nav
   class="navbar custom-navbar shadow-lg px-4"
-  data-aos="fade-down"
-  data-aos-duration="1000"
 >
   <div class="container-fluid d-flex align-items-center justify-content-between">
     <!-- Brand -->
@@ -27,9 +25,7 @@
         <li
           class="nav-item"
           *ngFor="let link of navLinks; let i = index"
-          [attr.data-aos]="'fade-right'"
-          [attr.data-aos-delay]="200 + (i * 100)"
-        >
+              >
           <a
             [routerLink]="link.path"
             routerLinkActive="active"

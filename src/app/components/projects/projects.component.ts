@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import 'aos/dist/aos.css';
-
 @Component({
   selector: 'app-public-projects',
   standalone: true,
