@@ -4,7 +4,7 @@
 
 There’s a point in software development where architecture stops helping and starts getting in the way.
 I learned that the hard way.
-Like many developers, I got fascinated by “perfect architecture.” I watched videos about scalable systems, read articles about enterprise patterns, explored Clean Architecture, CQRS, repositories, specifications, domain events, abstractions everywhere, and convinced myself that this was how real software should be built.
+Like many developers, I got fascinated by **perfect architecture.** I watched videos about scalable systems, read articles about enterprise patterns, explored [Clean Architecture](https://aliahsan.tech/blog/clean-architecture), CQRS, repositories, specifications, domain events, abstractions everywhere, and convinced myself that this was how real software should be built.
 At that time, I wasn’t building a massive SaaS platform with millions of users.
 I was building a school management system.
 But in my mind, I was preparing for Google-scale complexity before even validating the product itself.
@@ -14,7 +14,7 @@ And eventually, the project collapsed under its own architecture.
 
 ## Professional Architecture
 
-When I first started building a multi-tenant school management system, I wanted to do everything “the right way.”
+When I first started building a multi-tenant school management system, I wanted to do everything **the right way.**
 Not just working code but perfect code.
 I divided the solution into multiple layers. Separate projects for Domain, Application, Infrastructure, Persistence, and API. Then came repositories, services, DTOs, handlers, interfaces, specifications, unit of work, generic repositories, tenant providers, middleware pipelines, and custom abstractions for almost everything.
 
@@ -36,10 +36,10 @@ The architecture that was supposed to give flexibility was actually slowing ever
 One of the biggest mistake there was designing for imaginary future problems.
 I did exactly that.
 I kept thinking
-What if this app grows to thousands of schools?
-What if I need distributed services later?
-What if I need microservices in the future?
-What if tenants need custom workflows?
+what if this app grows to thousands of schools,
+what if I need distributed services later,
+what if I need microservices in the future and
+what if tenants need custom workflows...
 
 So I engineered solutions for problems that did not exist yet.
 The irony is that the application never even reached the point where those complexities became necessary.
@@ -52,7 +52,7 @@ You start serving the architecture.
 
 ## Clean Architecture
 
-Clean Architecture itself is not bad.
+[Clean Architecture](https://aliahsan.tech/blog/clean-architecture) itself is not bad.
 In fact, it solves real problems in large systems.
 The issue is blindly applying enterprise-level patterns to small or early-stage applications.
 There’s a huge difference between
@@ -112,9 +112,9 @@ Momentum disappears and once momentum disappears, motivation usually follows.
 
 ## The Day I Realized Simplicity Wins
 
-After struggling for a long time, I decided to restart.
-Not from scratch technically.
-But mentally I stopped trying to build the perfect architecture.
+After struggling for a long time, I decided to restart,
+not from scratch technically,
+but mentally I stopped trying to build the perfect architecture.
 Instead, I focused on building a working product. I moved toward a simpler modular monolith approach.
 Clear modules and simple services, direct EF Core usage where appropriate, manual mappings, minimal abstractions.
 
@@ -177,7 +177,7 @@ I definitely did.
 
 ## Conclusion
 
-I don’t regret learning Clean Architecture or advanced patterns.
+I don’t regret learning [Clean Architecture](https://aliahsan.tech/blog/clean-architecture) or advanced patterns.
 They taught me valuable concepts.
 But I regret believing that every project needed them from day one.
 Software engineering is not about adding layers endlessly.
