@@ -33,5 +33,26 @@ export class BlogsComponent {
       description: 'Modern applications are no longer simple CRUD systems...',
       image: 'assets/blogs/images/clean-architecture.avif'
     },
+    {
+      title: 'Overengineering Experience',
+      slug: 'over-engineering',
+      date: '2026-05-10',
+      description: 'There’s a point in software development where architecture stops...',
+      image: 'assets/blogs/images/over-engineering.avif'
+    },
+    {
+      title: 'AI Uniqueness',
+      slug: 'ai-uniqueness',
+      date: '2026-05-11',
+      description: 'why AI does not produce Unique response...',
+      image: 'assets/blogs/images/ai-uniqueness.avif'
+    },
+    {
+      title: 'Agentic AI',
+      slug: 'agentic-ai',
+      date: '2026-05-12',
+      description: 'Move from chatbots to agents that perform complex actions...',
+      image: 'assets/blogs/images/agentic-ai.avif'
+    },
   ];
 }
