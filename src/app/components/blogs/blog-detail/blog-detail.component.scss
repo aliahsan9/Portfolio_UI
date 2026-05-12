@@ -23,37 +23,6 @@
   gap: 16px;
 }
 
-.back-link {
-  width: fit-content;
-
-  color: #38bdf8;
-  text-decoration: none;
-
-  font-size: 14px;
-  font-weight: 500;
-
-  transition: 0.2s ease;
-}
-
-.back-link:hover {
-  color: #22d3ee;
-  transform: translateX(-4px);
-}
-
-/* ======================================== */
-/* TITLE                                    */
-/* ======================================== */
-
-.blog-title {
-  margin: 0;
-
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  line-height: 1.15;
-  font-weight: 800;
-
-  color: #ffffff;
-}
-
 /* ======================================== */
 /* CONTENT                                  */
 /* ======================================== */
@@ -190,10 +159,6 @@
   .blog-article {
     border-radius: 14px;
     padding: 18px;
-  }
-
-  .blog-title {
-    font-size: 2rem;
   }
 
   .markdown-body ::ng-deep pre {
