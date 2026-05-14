@@ -4,17 +4,23 @@
   padding: 80px 0;
 }
 
-/* HEADER */
-.title {
-  font-size: 2.3rem;
-  font-weight: 800;
+.text-gradient {
+  background: linear-gradient(90deg, #00eaff, #4d9fff, #b14bff);
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-move 4s ease-in-out infinite;
+  position: relative;
+  top: -5px;
 }
 
 .subtitle {
   color: #94a3b8;
   max-width: 600px;
   margin: 10px auto 0;
-}
+} 
 
 /* CARD */
 .skill-card {

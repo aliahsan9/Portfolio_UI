@@ -4,22 +4,28 @@
   padding: 80px 0;
 }
 
-/* HEADINGS */
-.section-tag {
-  color: #60a5fa;
-  letter-spacing: 2px;
-  font-size: 13px;
-  font-weight: 600;
+.text-gradient {
+  background: linear-gradient(90deg, #00eaff, #4d9fff, #b14bff);
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-move 4s ease-in-out infinite;
+  position: relative;
+  top: -5px;
 }
 
 .main-title {
   font-size: 2.4rem;
   font-weight: 800;
+  position: relative; 
+  top: -20px;
 }
 
 .sub-text {
   color: #94a3b8;
-  margin-top: 10px;
+  margin-top: -20px;
 }
 
 /* TEXT */

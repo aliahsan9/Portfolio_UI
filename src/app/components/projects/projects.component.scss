@@ -16,6 +16,12 @@
   color: transparent;
   -webkit-text-fill-color: transparent;
   animation: gradient-move 4s ease-in-out infinite;
+  position: relative;
+  top: -30px;
+}
+.lead{
+    position: relative;
+  top: -20px;
 }
 
 @keyframes gradient-move {
