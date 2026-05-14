@@ -10,6 +10,7 @@ import { BlogDetailComponent } from './components/blogs/blog-detail/blog-detail.
 import { BlogsComponent } from './components/blogs/blogs/blogs.component';
 import { NewsletterComponent } from './components/newsletter/newsletter.component';
 import { ServicesComponent } from './components/services/services.component';
+import { TestimonialComponent } from './components/testimonial/testimonial.component';
  
 export const routes: Routes = [    
   // Public Routes
@@ -20,6 +21,7 @@ export const routes: Routes = [
   { path: 'news', component: NewsletterComponent },
   { path: 'projects', component: PublicProjectsComponent },
   { path: 'skills', component: SkillsComponent },
+  { path: 'testimonials', component: TestimonialComponent},
   { path: 'resume', component: PublicResumeComponent},
   { path: 'blogs', component: BlogsComponent},
   { path: 'blog/:slug', component: BlogDetailComponent },

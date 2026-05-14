@@ -1,0 +1,53 @@
+<section class="testimonial-section">
+
+  <div class="container">
+
+    <!-- Heading -->
+    <div class="text-center mb-5">
+      <h2 class="title">What Clients Say</h2>
+      <p class="subtitle">
+        Real feedback from clients I’ve worked with on different projects.
+      </p>
+    </div>
+
+    <!-- Testimonials -->
+    <div class="row g-4">
+
+      <div class="col-lg-4 col-md-6" *ngFor="let t of testimonials">
+
+        <div class="testimonial-card h-100">
+
+          <!-- Avatar -->
+          <div class="d-flex align-items-center mb-3">
+
+            <img [src]="t.image" class="avatar" />
+
+            <div class="ms-3">
+              <h5 class="name">{{ t.name }}</h5>
+              <small class="role">{{ t.role }}</small>
+            </div>
+
+          </div>
+
+          <!-- Stars -->
+          <div class="stars mb-3">
+            <i
+              class="bi bi-star-fill"
+              *ngFor="let s of [].constructor(t.rating)"
+            ></i>
+          </div>
+
+          <!-- Message -->
+          <p class="message">
+            {{ t.message }}
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
