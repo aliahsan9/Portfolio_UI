@@ -1,75 +1,59 @@
-<section id="skills" class="skills-section">
+<section class="skills-section">
 
   <div class="container">
 
-    <!-- Heading -->
-    <div class="section-header text-center">
-
-      <span class="section-label text-gradient">EXPERTISE</span>
-
-      <h1 class="section-title text-gradient">
-        Technical Skills &
-        Engineering Experience
-      </h1>
-
-      <p class="section-text">
-        Combining modern frontend engineering, scalable backend development,
-        cloud deployment workflows, and performance-focused architecture
-        to build reliable real-world applications.
+    <!-- HEADER -->
+    <div class="text-center mb-5">
+      <h2 class="title">Skills & Expertise</h2>
+      <p class="subtitle">
+        A quick overview of my technical stack and core development strengths.
       </p>
-
     </div>
 
-    <!-- Skills -->
-    <div class="skills-wrapper">
+    <!-- GRID -->
+    <div class="row g-4">
 
-      <div
-        class="skill-card"
-        *ngFor="let skill of skills"
-      >
+      <div class="col-lg-6" *ngFor="let skill of skills">
 
-        <!-- Top -->
-        <div class="skill-top">
+        <div class="skill-card">
 
-          <div class="skill-title-wrapper">
+          <!-- TOP -->
+          <div class="d-flex justify-content-between align-items-center">
 
-            <img
-              [src]="skill.icon"
-              [alt]="skill.title"
-              class="skill-icon"
-            />
+            <div class="d-flex align-items-center gap-3">
 
-            <div>
-              <h3>{{ skill.title }}</h3>
-              <span>{{ skill.level }}</span>
+              <img [src]="skill.icon" class="icon" />
+
+              <div>
+                <h5 class="mb-0">{{ skill.title }}</h5>
+                <small class="level">{{ skill.level }}</small>
+              </div>
+
+            </div>
+
+            <div class="percent">
+              {{ skill.percent }}%
             </div>
 
           </div>
 
-          <div class="skill-percent">
-            {{ skill.percent }}%
+          <!-- PROGRESS -->
+          <div class="progress mt-3">
+            <div class="progress-bar" [style.width.%]="skill.percent"></div>
           </div>
 
-        </div>
+          <!-- DESCRIPTION -->
+          <p class="desc mt-3">
+            {{ skill.description }}
+          </p>
 
-        <!-- Progress -->
-        <div class="progress-track">
-          <div
-            class="progress-fill"
-            [style.width.%]="skill.percent"
-          ></div>
-        </div>
+          <!-- TAGS -->
+          <div class="tags">
+            <span *ngFor="let tech of skill.technologies">
+              {{ tech }}
+            </span>
+          </div>
 
-        <!-- Description -->
-        <p class="skill-description">
-          {{ skill.description }}
-        </p>
-
-        <!-- Technologies -->
-        <div class="tech-stack">
-          <span *ngFor="let tech of skill.technologies">
-            {{ tech }}
-          </span>
         </div>
 
       </div>
