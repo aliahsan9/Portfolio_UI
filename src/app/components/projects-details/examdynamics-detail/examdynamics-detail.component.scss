@@ -1,0 +1,349 @@
+:host {
+  display: block;
+}
+
+/* PAGE */
+
+.project-page {
+  min-height: 100vh;
+  padding: 100px 0;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at top left, #18345d 0%, #081221 45%),
+    linear-gradient(to bottom, #081221, #0c1728);
+  color: white;
+}
+
+/* HERO */
+
+.hero-section {
+  padding-bottom: 110px;
+}
+
+.case-study-label {
+  display: inline-block;
+  padding: 8px 18px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.08);
+  color: #b8d4ff;
+  font-size: 12px;
+  letter-spacing: 1.4px;
+  margin-bottom: 24px;
+}
+
+.project-title {
+  // font-size: clamp(3.2rem, 8vw, 6rem);
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 24px;
+  letter-spacing: -2px;
+}
+
+.project-description {
+  color: rgba(255,255,255,0.72);
+  line-height: 1.9;
+  font-size: 17px;
+  max-width: 580px;
+}
+
+.project-buttons {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+
+.custom-btn {
+  padding: 14px 24px;
+  border-radius: 14px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: 0.3s ease;
+}
+
+.custom-btn:hover {
+  transform: translateY(-3px);
+}
+
+/* MACBOOK */
+
+.macbook-wrapper {
+  width: 100%;
+  border-radius: 28px;
+  overflow: hidden;
+  background: #111827;
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow:
+    0 30px 80px rgba(0,0,0,0.45),
+    0 0 0 1px rgba(255,255,255,0.04);
+  transition: 0.4s ease;
+}
+
+.macbook-wrapper:hover {
+  transform: translateY(-8px);
+}
+
+.macbook-topbar {
+  height: 52px;
+  padding: 0 22px;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(to bottom, #2d3748, #1f2937);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  position: relative;
+}
+
+.window-title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255,255,255,0.55);
+  font-size: 14px;
+}
+
+.dots {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dot {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+}
+
+.red {
+  background: #ff5f57;
+}
+
+.yellow {
+  background: #febc2e;
+}
+
+.green {
+  background: #28c840;
+}
+
+.macbook-screen {
+  width: 100%;
+  background: #000;
+}
+
+.macbook-screen img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* CONTENT */
+
+.content-section {
+  padding: 100px 0;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.section-title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+.content-section p {
+  color: rgba(255,255,255,0.72);
+  line-height: 1.9;
+  font-size: 16px;
+}
+
+/* META */
+
+.project-meta {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 24px;
+  padding: 32px;
+  backdrop-filter: blur(10px);
+}
+
+.meta-item {
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.meta-item:last-child {
+  border-bottom: none;
+}
+
+.meta-item span {
+  display: block;
+  margin-bottom: 8px;
+  color: #8fa8c5;
+  font-size: 14px;
+}
+
+.meta-item strong {
+  font-size: 19px;
+  font-weight: 600;
+}
+
+/* PROBLEM CARD */
+
+.problem-card {
+  height: 100%;
+  padding: 32px;
+  border-radius: 24px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.06);
+  backdrop-filter: blur(14px);
+  transition: 0.35s ease;
+}
+
+.problem-card:hover {
+  transform: translateY(-6px);
+  background: rgba(255,255,255,0.06);
+}
+
+.problem-icon {
+  margin-bottom: 20px;
+}
+
+.problem-icon i {
+  font-size: 30px;
+  color: #7cb7ff;
+}
+
+.problem-card h3 {
+  font-size: 23px;
+  margin-bottom: 16px;
+}
+
+.problem-card p {
+  margin: 0;
+}
+
+/* MINI MACBOOKS */
+
+.macbook-mini {
+  border-radius: 22px;
+  overflow: hidden;
+  background: #111827;
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: 0.35s ease;
+  height: 100%;
+}
+
+.macbook-mini:hover {
+  transform: translateY(-5px);
+}
+
+.macbook-topbar.small {
+  height: 42px;
+}
+
+.mini-screen {
+  background: #000;
+}
+
+.mini-screen img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* TECH STACK */
+
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.tech-item {
+  padding: 13px 22px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.92);
+  transition: 0.3s ease;
+}
+
+.tech-item:hover {
+  transform: translateY(-3px);
+  background: rgba(255,255,255,0.08);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 992px) {
+
+  .hero-section {
+    padding-bottom: 70px;
+  }
+
+  .content-section {
+    padding: 70px 0;
+  }
+
+  .project-title {
+    font-size: 4rem;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  .project-page {
+    padding: 70px 0;
+  }
+
+  .project-title {
+    font-size: 3rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .project-description {
+    font-size: 15px;
+  }
+
+  .custom-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .macbook-wrapper {
+    border-radius: 22px;
+  }
+
+  .macbook-topbar {
+    height: 46px;
+  }
+
+  .window-title {
+    font-size: 12px;
+  }
+
+}
+
+@media (max-width: 576px) {
+
+  .project-title {
+    font-size: 2.5rem;
+  }
+
+  .project-meta {
+    padding: 24px;
+  }
+
+  .problem-card {
+    padding: 26px;
+  }
+
+}

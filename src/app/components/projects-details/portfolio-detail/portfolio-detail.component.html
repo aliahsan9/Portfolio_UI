@@ -1,0 +1,255 @@
+<section class="project-page">
+
+  <div class="container">
+
+    <!-- HERO -->
+
+    <div class="hero-section">
+
+      <div class="row align-items-center gy-5">
+
+        <!-- LEFT -->
+
+        <div class="col-lg-5">
+
+          <span class="case-study-label">
+            FRONTEND CASE STUDY
+          </span>
+
+          <h1 class="project-title">
+            Portfolio Website
+          </h1>
+
+          <p class="project-description">
+            A premium personal portfolio website designed and developed
+            entirely in Angular with modern UI aesthetics, responsive layouts,
+            smooth sections, and elegant user experience.
+          </p>
+
+          <div class="project-buttons">
+
+            <a
+              href="https://github.com/yourusername/portfolio"
+              target="_blank"
+              class="btn btn-light custom-btn"
+            >
+              <i class="bi bi-github"></i>
+              GitHub
+            </a>
+
+            <a
+              href="https://portfolio-demo.vercel.app"
+              target="_blank"
+              class="btn btn-outline-light custom-btn"
+            >
+              Live Preview
+            </a>
+
+          </div>
+
+        </div>
+
+        <!-- RIGHT -->
+
+        <div class="col-lg-7">
+
+          <div class="macbook-wrapper">
+
+            <div class="macbook-topbar">
+
+              <div class="dots">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+              </div>
+
+              <div class="window-title">
+                portfolio.vercel.app
+              </div>
+
+            </div>
+
+            <div class="macbook-screen">
+
+              <img
+                src="assets/projects/portfolio1.avif"
+                alt="Portfolio Preview"
+              />
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ABOUT -->
+
+    <div class="content-section">
+
+      <div class="row gy-5">
+
+        <div class="col-lg-7">
+
+          <h2 class="section-title">
+            About The Project
+          </h2>
+
+          <p>
+            This portfolio project was built to showcase projects,
+            frontend skills, UI design capabilities, and modern web experiences
+            using Angular standalone architecture.
+          </p>
+
+          <p>
+            The focus was to create a highly responsive and visually premium
+            interface inspired by modern SaaS landing pages and developer portfolios.
+          </p>
+
+          <p>
+            Every section was carefully designed with spacing, typography,
+            gradients, animations, and reusable layouts for maximum visual impact.
+          </p>
+
+        </div>
+
+        <div class="col-lg-5">
+
+          <div class="project-meta">
+
+            <div class="meta-item">
+              <span>Framework</span>
+              <strong>Angular</strong>
+            </div>
+
+            <div class="meta-item">
+              <span>Styling</span>
+              <strong>SCSS + Bootstrap</strong>
+            </div>
+
+            <div class="meta-item">
+              <span>Type</span>
+              <strong>Frontend Project</strong>
+            </div>
+
+            <div class="meta-item">
+              <span>Deployment</span>
+              <strong>Vercel</strong>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- FEATURES -->
+
+    <div class="content-section">
+
+      <h2 class="section-title mb-5">
+        Features & Highlights
+      </h2>
+
+      <div class="row g-4">
+
+        <div
+          class="col-md-6"
+          *ngFor="let item of features"
+        >
+
+          <div class="feature-card">
+
+            <div class="feature-icon">
+              <i class="bi bi-stars"></i>
+            </div>
+
+            <h3>
+              {{ item.title }}
+            </h3>
+
+            <p>
+              {{ item.description }}
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- SCREENSHOTS -->
+
+    <div class="content-section">
+
+      <h2 class="section-title mb-5">
+        Project Screenshots
+      </h2>
+
+      <div class="row g-4">
+
+        <div
+          class="col-lg-4 col-md-6"
+          *ngFor="let image of screenshots"
+        >
+
+          <div class="macbook-mini">
+
+            <div class="macbook-topbar small">
+
+              <div class="dots">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+              </div>
+
+            </div>
+
+            <div class="mini-screen">
+
+              <img
+                [src]="image"
+                alt="Portfolio Screenshot"
+              />
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- TECH STACK -->
+
+    <div class="content-section pb-0">
+
+      <h2 class="section-title mb-4">
+        Tech Stack
+      </h2>
+
+      <div class="tech-stack">
+
+        <span
+          class="tech-item"
+          *ngFor="let tech of techStack"
+        >
+          {{ tech }}
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>

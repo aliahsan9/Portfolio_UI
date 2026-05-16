@@ -134,12 +134,31 @@ code[class*="language-"] {
 /* styles.css */
 
 /* Hide scrollbar completely */
+// ::-webkit-scrollbar {
+//   width: 0px;
+//   background: transparent;
+// }
+
+// /* Firefox */
+// html {
+//   scrollbar-width: none;
+// }
+/* Thin scrollbar */
 ::-webkit-scrollbar {
-  width: 0px;
-  background: transparent;
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a192f;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #00d9ff;
+  border-radius: 10px;
 }
 
 /* Firefox */
 html {
-  scrollbar-width: none;
+  scrollbar-width: thin;
+  scrollbar-color: #00d9ff #0a192f;
 }

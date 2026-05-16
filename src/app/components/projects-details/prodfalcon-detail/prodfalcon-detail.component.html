@@ -1,0 +1,256 @@
+<section class="project-page">
+
+  <div class="container">
+
+    <!-- HERO -->
+
+    <div class="hero-section">
+
+      <div class="row align-items-center gy-5">
+
+        <!-- LEFT -->
+
+        <div class="col-lg-5">
+
+          <span class="case-study-label">
+            FULL STACK SaaS CASE STUDY
+          </span>
+
+          <h1 class="project-title">
+            ProdFalcon
+          </h1>
+
+          <p class="project-description">
+            ProdFalcon is a modern AI-powered product analysis platform
+            developed using Angular, .NET Web API, SQL Server, and
+            Entity Framework Core with Code First architecture.
+          </p>
+
+          <div class="project-buttons">
+
+            <a
+              href="https://github.com/yourusername/prodfalcon"
+              target="_blank"
+              class="btn btn-light custom-btn"
+            >
+              <i class="bi bi-github"></i>
+              GitHub
+            </a>
+
+            <a
+              href="https://prodfalcon.vercel.app"
+              target="_blank"
+              class="btn btn-outline-light custom-btn"
+            >
+              Live Preview
+            </a>
+
+          </div>
+
+        </div>
+
+        <!-- RIGHT -->
+
+        <div class="col-lg-7">
+
+          <div class="macbook-wrapper">
+
+            <div class="macbook-topbar">
+
+              <div class="dots">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+              </div>
+
+              <div class="window-title">
+                app.prodfalcon.ai
+              </div>
+
+            </div>
+
+            <div class="macbook-screen">
+
+              <img
+                src="assets/projects/prodfalcon-hero.avif"
+                alt="ProdFalcon Dashboard"
+              />
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ABOUT -->
+
+    <div class="content-section">
+
+      <div class="row gy-5">
+
+        <div class="col-lg-7">
+
+          <h2 class="section-title">
+            About The Project
+          </h2>
+
+          <p>
+            ProdFalcon was developed as a modern SaaS platform focused on
+            product analysis, insights, and intelligent dashboard experiences.
+          </p>
+
+          <p>
+            The frontend was built entirely in Angular with SCSS and Bootstrap,
+            while the backend was powered using .NET 8 Web API with
+            Entity Framework Core and SQL Server.
+          </p>
+
+          <p>
+            The system follows Code First development with scalable Clean
+            Architecture principles, reusable services, optimized APIs,
+            and secure authentication workflows.
+          </p>
+
+        </div>
+
+        <div class="col-lg-5">
+
+          <div class="project-meta">
+
+            <div class="meta-item">
+              <span>Frontend</span>
+              <strong>Angular + SCSS</strong>
+            </div>
+
+            <div class="meta-item">
+              <span>Backend</span>
+              <strong>.NET 8 Web API</strong>
+            </div>
+
+            <div class="meta-item">
+              <span>Database</span>
+              <strong>SQL Server</strong>
+            </div>
+
+            <div class="meta-item">
+              <span>ORM</span>
+              <strong>EF Core Code First</strong>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- FEATURES -->
+
+    <div class="content-section">
+
+      <h2 class="section-title mb-5">
+        Features & Highlights
+      </h2>
+
+      <div class="row g-4">
+
+        <div
+          class="col-md-6"
+          *ngFor="let item of features"
+        >
+
+          <div class="feature-card">
+
+            <div class="feature-icon">
+              <i class="bi bi-lightning-charge-fill"></i>
+            </div>
+
+            <h3>
+              {{ item.title }}
+            </h3>
+
+            <p>
+              {{ item.description }}
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- SCREENSHOTS -->
+
+    <div class="content-section">
+
+      <h2 class="section-title mb-5">
+        Dashboard Screenshots
+      </h2>
+
+      <div class="row g-4">
+
+        <div
+          class="col-lg-4 col-md-6"
+          *ngFor="let image of screenshots"
+        >
+
+          <div class="macbook-mini">
+
+            <div class="macbook-topbar small">
+
+              <div class="dots">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+              </div>
+
+            </div>
+
+            <div class="mini-screen">
+
+              <img
+                [src]="image"
+                alt="ProdFalcon Screenshot"
+              />
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- TECH STACK -->
+
+    <div class="content-section pb-0">
+
+      <h2 class="section-title mb-4">
+        Tech Stack
+      </h2>
+
+      <div class="tech-stack">
+
+        <span
+          class="tech-item"
+          *ngFor="let tech of techStack"
+        >
+          {{ tech }}
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
