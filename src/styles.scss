@@ -131,3 +131,15 @@ code[class*="language-"] {
     right: 10px;
   }
 }
+/* styles.css */
+
+/* Hide scrollbar completely */
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+/* Firefox */
+html {
+  scrollbar-width: none;
+}
