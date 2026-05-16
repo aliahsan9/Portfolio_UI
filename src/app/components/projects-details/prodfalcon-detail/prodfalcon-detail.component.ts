@@ -35,9 +35,9 @@ export class ProdfalconDetailComponent {
   ];
 
   screenshots = [
-    'assets/projects/prodfalcon-1.avif',
-    'assets/projects/prodfalcon-2.avif',
-    'assets/projects/prodfalcon-3.avif'
+    'assets/projects/prodfalcon1.avif',
+    'assets/projects/prodfalcon2.avif',
+    'assets/projects/prodfalcon3.avif'
   ];
 
   techStack = [
