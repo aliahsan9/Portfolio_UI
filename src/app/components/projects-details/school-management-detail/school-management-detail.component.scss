@@ -137,12 +137,15 @@
 }
 
 .meta-item span {
+  display: block;
+  margin-bottom: 8px;
   color: #8fa8c5;
   font-size: 14px;
 }
 
 .meta-item strong {
-  font-size: 18px;
+  font-size: 19px;
+  font-weight: 600;
 }
 
 /* CARDS */

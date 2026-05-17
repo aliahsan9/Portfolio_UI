@@ -25,7 +25,7 @@ export class ServicesComponent {
         'API Integration'
       ],
 
-      price: 'Starting at $300'
+      price: 'Flexible Pricing'
     },
 
     {
@@ -42,7 +42,7 @@ export class ServicesComponent {
         'SQL Server Integration'
       ],
 
-      price: 'Starting at $150'
+      price: 'Flexible Pricing'
     },
 
     {
@@ -59,7 +59,7 @@ export class ServicesComponent {
         'Interactive Dashboards'
       ],
 
-      price: 'Starting at $200'
+      price: 'Flexible Pricing'
     },
 
     {
@@ -76,7 +76,7 @@ export class ServicesComponent {
         'Code Refactoring'
       ],
 
-      price: 'Starting at $80'
+      price: 'Flexible Pricing'
     },
 
     {
@@ -93,7 +93,7 @@ export class ServicesComponent {
         'Cross-Browser Support'
       ],
 
-      price: 'Starting at $120'
+      price: 'Flexible Pricing'
     },
 
     {
@@ -110,7 +110,7 @@ export class ServicesComponent {
         'Performance Tuning'
       ],
 
-      price: 'Starting at $100'
+      price: 'Flexible Pricing'
     }
   ];
 
