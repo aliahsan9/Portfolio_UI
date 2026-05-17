@@ -4,9 +4,11 @@
 
     <!-- HEADER -->
     <div class="text-center mb-5">
-            <h1 class="fw-bold text-gradient mb-3">Skills & Expertise</h1>
+      <h1 class="fw-bold text-gradient mb-3">Skills & Engineering Practices</h1>
+
       <p class="subtitle">
-        A quick overview of my technical stack and core development strengths.
+        A combination of full-stack development skills and real-world engineering workflows
+        including Agile, Jira-based project management, and production-style development practices.
       </p>
     </div>
 
@@ -45,6 +47,11 @@
           <!-- DESCRIPTION -->
           <p class="desc mt-3">
             {{ skill.description }}
+          </p>
+
+          <!-- AGILE / WORKFLOW CONTEXT (NEW) -->
+          <p class="workflow-note" *ngIf="skill.workflow">
+            {{ skill.workflow }}
           </p>
 
           <!-- TAGS -->
