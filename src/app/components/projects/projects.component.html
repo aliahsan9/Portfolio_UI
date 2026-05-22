@@ -1,101 +1,87 @@
-<section class="projects py-5" id="projects">
+<section class="projects-section" id="projects">
+
   <div class="container">
 
-    <!-- Section Header -->
+    <!-- HEADER -->
     <div class="text-center mb-5">
-      <h1 class="fw-bold text-gradient mb-3">My Projects</h1>
-      <p class="lead text-light">
-        A showcase of my top full-stack creations — built with passion, precision, and performance.
+      <span class="badge-glow">Featured Work</span>
+
+      <h1 class="display-title mt-3">
+        Selected Projects
+      </h1>
+
+      <p class="section-desc">
+        Real-world full-stack applications with modern architecture and premium UI experience.
       </p>
     </div>
 
-    <!-- Projects Grid -->
-    <div class="row gy-4 justify-content-center">
+    <!-- GRID -->
+    <div class="row g-4">
 
-      <!-- Project 1 -->
-      <div class="col-sm-10 col-md-6 col-lg-5">
-        <div class="project-card">
-          <img src="assets/projects/examdynamics.avif" alt="ExamDynamics Platform" class="project-img" />
-          <div class="project-overlay">
-            <div class="overlay-content">
-              <h3 class="fw-bold mb-2">ExamDynamics Platform</h3>
-              <p>
-                Full-stack <strong>Angular + .NET</strong> platform for online exams with JWT Auth & Admin Dashboard.
-              </p>
-              <div class="tech-tags mb-3">
-                <span>Angular</span><span>.NET</span><span>SQL</span>
-              </div>
-              <a routerLink="/examdynamics-detail" class="btn btn-outline-light btn-sm">
-                <i class="bi bi-box-arrow-up-right me-1"></i> View Details
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
+      <div class="col-12 col-md-6"
+           *ngFor="let project of projects; let i = index">
 
-      <!-- Project 2 -->
-      <div class="col-sm-10 col-md-6 col-lg-5">
-        <div class="project-card">
-          <img src="assets/projects/prodfalcon1.avif" alt="Calculator Website" class="project-img" />
-          <div class="project-overlay">
-            <div class="overlay-content">
-              <h3 class="fw-bold mb-2">ProdFalcon</h3>
-              <p>
-                Clean UI <strong>.Net Core</strong> backend, Angular frontned and responsive design.
-              </p>
-              <div class="tech-tags mb-3">
-                <span>.Net Core</span><span>Angular</span><span>SQL</span>
-              </div>
-              <a routerLink="/prodfalcon-detail" class="btn btn-outline-light btn-sm">
-                <i class="bi bi-box-arrow-up-right me-1"></i> View Details
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
+        <!-- CARD -->
+        <div class="project-card"
+             (mouseenter)="hoveredIndex = i"
+             (mouseleave)="hoveredIndex = null">
 
-      <!-- Project 3 -->
-      <div class="col-sm-10 col-md-6 col-lg-5">
-        <div class="project-card">
-          <img src="assets/projects/portfolio.avif" alt="Portfolio Website" class="project-img" />
-          <div class="project-overlay">
-            <div class="overlay-content">
-              <h3 class="fw-bold mb-2">Portfolio Website</h3>
-              <p>
-                My personal <strong>Angular + Bootstrap</strong> portfolio showcasing my work and skills.
-              </p>
-              <div class="tech-tags mb-3">
-                <span>Angular</span><span>Bootstrap</span><span>SCSS</span>
-              </div>
-              <a routerLink="/portfolio-detail" class="btn btn-outline-light btn-sm">
-                <i class="bi bi-box-arrow-up-right me-1"></i> View Details
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
+          <!-- MONITOR FRAME -->
+          <div class="monitor">
 
-      <!-- Project 4 -->
-      <div class="col-sm-10 col-md-6 col-lg-5">
-        <div class="project-card">
-          <img src="assets/projects/schoolfish.avif" alt="Weather App" class="project-img" />
-          <div class="project-overlay">
-            <div class="overlay-content">
-              <h3 class="fw-bold mb-2">SchoolFish</h3>
-              <p>
-                School Management System using <strong>.net core and Angular</strong>, built with modern TypeScript.
-              </p>
-              <div class="tech-tags mb-3">
-                <span>API</span><span>Bootstrap</span><span>JavaScript</span>
-              </div>
-              <a routerLink="/school-management-detail" class="btn btn-outline-light btn-sm">
-                <i class="bi bi-box-arrow-up-right me-1"></i> View Details
-              </a>
+            <div class="screen">
+
+              <img [src]="project.image"
+                   [alt]="project.title"
+                   [class.scroll-effect]="hoveredIndex === i">
+
             </div>
+
+            <img class="frame"
+                 src="assets/Images/monitor-frame.avif"
+                 alt="monitor frame">
+
           </div>
+
+          <!-- CONTENT -->
+          <div class="content">
+
+            <div class="d-flex align-items-center gap-3 mb-2">
+
+              <div class="icon-box">
+                <i [class]="project.icon"></i>
+              </div>
+
+              <h2 class="title">
+                {{ project.title }}
+              </h2>
+
+            </div>
+
+            <p class="desc">
+              {{ project.description }}
+            </p>
+
+            <!-- TECH -->
+            <div class="tech">
+              <span class="pill"
+                    *ngFor="let tech of project.technologies">
+                {{ tech }}
+              </span>
+            </div>
+
+            <a [routerLink]="project.route" class="btn-glow">
+              View Project <i class="bi bi-arrow-up-right"></i>
+            </a>
+
+          </div>
+
         </div>
+
       </div>
 
     </div>
+
   </div>
+
 </section>
