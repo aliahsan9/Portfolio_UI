@@ -12,9 +12,9 @@ import { NewsletterComponent } from './components/newsletter/newsletter.componen
 import { ServicesComponent } from './components/services/services.component';
 import { TestimonialComponent } from './components/testimonial/testimonial.component';
 import { ExamdynamicsDetailComponent } from './components/projects-details/examdynamics-detail/examdynamics-detail.component';
-import { SchoolManagementDetailComponent } from './components/projects-details/school-management-detail/school-management-detail.component';
 import { PortfolioDetailComponent } from './components/projects-details/portfolio-detail/portfolio-detail.component';
 import { ProdfalconDetailComponent } from './components/projects-details/prodfalcon-detail/prodfalcon-detail.component';
+import { Medical } from './components/projects-details/medical/medical.component';
  
 export const routes: Routes = [    
   // Public Routes
@@ -26,7 +26,7 @@ export const routes: Routes = [
   { path: 'projects', component: PublicProjectsComponent },
   // Projects Detailes
   { path: 'examdynamics-detail', component: ExamdynamicsDetailComponent },
-  { path: 'school-management-detail', component: SchoolManagementDetailComponent },
+  { path: 'medical-detail', component: Medical },
   { path: 'portfolio-detail', component: PortfolioDetailComponent },
   { path: 'prodfalcon-detail', component: ProdfalconDetailComponent },
   { path: 'skills', component: SkillsComponent },

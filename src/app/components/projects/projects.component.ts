@@ -46,20 +46,20 @@ export class PublicProjectsComponent {
       title: 'ProdFalcon',
       description:
         'Powerful ERP and inventory management platform designed for scalability, reporting and enterprise workflows.',
-      image: 'assets/projects/prodfalcon1.avif',
+      image: 'assets/projects/prodfalcon.avif',
       technologies: ['Angular', '.NET API', 'Bootstrap'],
       route: '/prodfalcon-detail',
       icon: 'bi bi-box-seam-fill',
       accent: '#8b5cf6'
     },
     {
-      title: 'SchoolFish',
+      title: 'MedicalERP',
       description:
-        'Complete school management system with attendance, fees, administration and student records.',
-      image: 'assets/projects/schoolfish.avif',
+        'Modern medical ERP and pharmacy management system with inventory tracking, billing, sales, purchases and responsive admin dashboard.',
+      image: 'assets/projects/medical.avif',
       technologies: ['Angular', '.NET', 'SQL'],
-      route: '/school-management-detail',
-      icon: 'bi bi-building-fill',
+      route: '/medical-detail',
+      icon: 'bi bi-prescription2',
       accent: '#0ea5e9'
     }
   ];

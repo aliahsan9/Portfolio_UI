@@ -2,7 +2,7 @@
 
   <div class="container">
 
-    <!-- HERO SECTION -->
+    <!-- HERO -->
     <div class="hero-section">
 
       <div class="row align-items-center gy-5">
@@ -11,28 +11,37 @@
         <div class="col-lg-5">
 
           <span class="case-study-label">
-            ENTERPRISE EDUCATION PLATFORM
+            ENTERPRISE MEDICAL ERP
           </span>
 
           <h1 class="project-title">
-            School Management System
+            Medical ERP & Pharmacy System
           </h1>
 
           <p class="project-description">
-            A complete full-stack School Management System built to digitize school operations,
-            including students, teachers, attendance, exams, fees, and administration with a
-            scalable clean architecture.
+            A scalable medical ERP and pharmacy management platform designed
+            for inventory control, billing, purchases, sales and healthcare operations
+            with a modern responsive dashboard experience.
           </p>
 
           <div class="project-buttons">
 
-            <a href="https://github.com/aliahsan9/school-api" class="btn btn-light custom-btn" target="_blank">
+            <a
+              href="https://github.com/aliahsan9"
+              class="btn btn-light custom-btn"
+              target="_blank">
+
               <i class="bi bi-github"></i>
               GitHub
+
             </a>
 
-            <a href="https://schoolfish.vercel.app" class="btn btn-outline-light custom-btn" target="_blank">
+            <a
+              href="#"
+              class="btn btn-outline-light custom-btn">
+
               Live Preview
+
             </a>
 
           </div>
@@ -42,9 +51,9 @@
         <!-- RIGHT -->
         <div class="col-lg-7">
 
-          <div class="macbook-wrapper">
+          <div class="dashboard-wrapper">
 
-            <div class="macbook-topbar">
+            <div class="dashboard-topbar">
 
               <div class="dots">
                 <span class="dot red"></span>
@@ -53,17 +62,16 @@
               </div>
 
               <div class="window-title">
-                School Management
+                Medical ERP Dashboard
               </div>
 
             </div>
 
-            <div class="macbook-screen">
+            <div class="dashboard-screen">
 
               <img
-                src="assets/projects/school1.avif"
-                alt="School Management Dashboard"
-              />
+                src="assets/projects/medical1.avif"
+                alt="Medical ERP Dashboard">
 
             </div>
 
@@ -82,24 +90,29 @@
 
         <div class="col-lg-7">
 
-          <h2 class="section-title">About The Project</h2>
+          <h2 class="section-title">
+            About The Project
+          </h2>
 
           <p>
-            This system replaces traditional school management with a modern digital platform.
-            It provides centralized control over academic and administrative operations.
+            This Medical ERP system was developed to modernize pharmacy and healthcare
+            operations through a centralized digital platform.
           </p>
 
           <p>
-            Built using Clean Architecture, the system ensures scalability, maintainability,
-            and high performance across all modules.
+            The platform manages medicines, suppliers, purchases, sales,
+            invoices and inventory tracking while maintaining scalability
+            and clean architecture principles.
           </p>
 
           <p>
-            Focus was placed on security, responsiveness, and modular design for long-term growth.
+            Strong focus was placed on performance, security, responsive design
+            and enterprise-grade user experience.
           </p>
 
         </div>
 
+        <!-- META -->
         <div class="col-lg-5">
 
           <div class="project-meta">
@@ -135,20 +148,29 @@
     <!-- FEATURES -->
     <div class="content-section">
 
-      <h2 class="section-title mb-5">Core Modules</h2>
+      <h2 class="section-title mb-5">
+        Core Features
+      </h2>
 
       <div class="row g-4">
 
-        <div class="col-md-4" *ngFor="let f of features">
+        <div
+          class="col-md-6 col-lg-4"
+          *ngFor="let f of features">
 
-          <div class="problem-card">
+          <div class="feature-card">
 
-            <div class="problem-icon">
-              <i class="bi bi-grid-1x2-fill"></i>
+            <div class="feature-icon">
+              <i class="bi bi-hospital-fill"></i>
             </div>
 
-            <h3>{{ f.title }}</h3>
-            <p>{{ f.description }}</p>
+            <h3>
+              {{ f.title }}
+            </h3>
+
+            <p>
+              {{ f.description }}
+            </p>
 
           </div>
 
@@ -161,27 +183,21 @@
     <!-- SCREENSHOTS -->
     <div class="content-section">
 
-      <h2 class="section-title mb-5">Screenshots</h2>
+      <h2 class="section-title mb-5">
+        Dashboard Screens
+      </h2>
 
       <div class="row g-4">
 
-        <div class="col-lg-4 col-md-6" *ngFor="let img of screenshots">
+        <div
+          class="col-lg-4 col-md-6"
+          *ngFor="let img of screenshots">
 
-          <div class="macbook-mini">
+          <div class="screen-card">
 
-            <div class="macbook-topbar small">
-
-              <div class="dots">
-                <span class="dot red"></span>
-                <span class="dot yellow"></span>
-                <span class="dot green"></span>
-              </div>
-
-            </div>
-
-            <div class="mini-screen">
-              <img [src]="img" alt="Screenshot" />
-            </div>
+            <img
+              [src]="img"
+              alt="Medical Dashboard Screenshot">
 
           </div>
 
@@ -194,12 +210,18 @@
     <!-- TECH STACK -->
     <div class="content-section pb-0">
 
-      <h2 class="section-title mb-4">Tech Stack</h2>
+      <h2 class="section-title mb-4">
+        Tech Stack
+      </h2>
 
       <div class="tech-stack">
 
-        <span class="tech-item" *ngFor="let tech of techStack">
+        <span
+          class="tech-item"
+          *ngFor="let tech of techStack">
+
           {{ tech }}
+
         </span>
 
       </div>
