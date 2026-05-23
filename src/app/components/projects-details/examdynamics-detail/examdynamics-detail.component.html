@@ -2,13 +2,13 @@
 
   <div class="container">
 
-    <!-- HERO SECTION -->
+    <!-- HERO -->
 
-    <div class="hero-section">
+    <section class="hero-section">
 
       <div class="row align-items-center gy-5">
 
-        <!-- LEFT -->
+        <!-- LEFT CONTENT -->
 
         <div class="col-lg-5">
 
@@ -20,10 +20,17 @@
             ExamDynamics
           </h1>
 
-          <p class="project-description">
-            A modern examination management platform designed to automate
-            workflows, simplify administration, and provide a premium user
-            experience across all devices.
+          <p class="hero-text">
+            ExamDynamics is a complete examination management platform that I
+            designed and developed to modernize the traditional exam workflow
+            used in schools and institutions.
+          </p>
+
+          <p class="hero-text">
+            The project focuses on creating a smooth experience for students,
+            teachers, and administrators by automating exam scheduling,
+            authentication, result management, dashboards, and academic
+            operations inside one scalable platform.
           </p>
 
           <div class="project-buttons">
@@ -34,7 +41,7 @@
               class="btn btn-light custom-btn"
             >
               <i class="bi bi-github"></i>
-              GitHub
+              View Source
             </a>
 
             <a
@@ -53,26 +60,23 @@
 
         <div class="col-lg-7">
 
-          <div class="macbook-wrapper">
+          <div class="device-wrapper">
 
-            <!-- TOP BAR -->
-
-            <div class="macbook-topbar">
+            <div class="device-topbar">
 
               <div class="dots">
                 <span class="dot red"></span>
                 <span class="dot yellow"></span>
                 <span class="dot green"></span>
               </div>
+
             </div>
 
-            <!-- SCREEN -->
-
-            <div class="macbook-screen">
+            <div class="device-screen">
 
               <img
                 src="assets/projects/examdynamics1.avif"
-                alt="ExamDynamics Dashboard"
+                alt="ExamDynamics"
               />
 
             </div>
@@ -83,60 +87,90 @@
 
       </div>
 
-    </div>
+    </section>
 
-    <!-- ABOUT -->
+    <!-- STORY SECTION -->
 
-    <div class="content-section">
+    <section class="story-section">
 
-      <div class="row gy-5 align-items-start">
+      <div class="row gy-5">
 
         <div class="col-lg-7">
 
+          <span class="section-subtitle">
+            PROJECT OVERVIEW
+          </span>
+
           <h2 class="section-title">
-            About The Project
+            Building a modern examination experience from scratch
           </h2>
 
           <p>
-            ExamDynamics was developed to modernize traditional examination systems
-            by replacing outdated workflows with a clean and scalable architecture.
+            While working on ExamDynamics, my goal was not only to build a
+            management system, but to create a complete real-world full stack
+            application with scalable architecture, secure authentication,
+            reusable frontend modules, and a professional user experience.
           </p>
 
           <p>
-            The platform includes secure authentication, role management,
-            exam scheduling, analytics dashboards, result processing,
-            and responsive interfaces for all users.
+            I started the project by planning the backend structure using
+            Clean Architecture principles in .NET Web API. The API was divided
+            into separate layers for better maintainability, validation,
+            scalability, and future expansion.
           </p>
 
           <p>
-            The primary development focus was performance, maintainability,
-            responsiveness, scalability, and an elegant modern UI experience.
+            On the frontend side, I developed the interface using Angular and
+            Bootstrap with a strong focus on responsiveness, performance, and
+            smooth interactions. Every page was designed to feel modern and
+            lightweight while still handling complex academic workflows.
+          </p>
+
+          <p>
+            One of the biggest challenges during development was connecting
+            multiple modules together in a clean and manageable way. I worked
+            on secure JWT authentication, role-based authorization, dynamic
+            dashboards, result processing, student management, and reusable
+            components to keep the project scalable.
+          </p>
+
+          <p>
+            I also optimized the application for different devices including
+            desktops, tablets, and mobile screens to ensure a seamless
+            experience across all platforms.
           </p>
 
         </div>
+
+        <!-- RIGHT SIDE -->
 
         <div class="col-lg-5">
 
-          <div class="project-meta">
+          <div class="project-details">
 
-            <div class="meta-item">
+            <div class="detail-item">
               <span>Frontend</span>
-              <strong>Angular</strong>
+              <h4>Angular + Bootstrap</h4>
             </div>
 
-            <div class="meta-item">
+            <div class="detail-item">
               <span>Backend</span>
-              <strong>.NET Web API</strong>
+              <h4>.NET 8 Web API</h4>
             </div>
 
-            <div class="meta-item">
+            <div class="detail-item">
               <span>Architecture</span>
-              <strong>Clean Architecture</strong>
+              <h4>Clean Architecture</h4>
             </div>
 
-            <div class="meta-item">
+            <div class="detail-item">
               <span>Database</span>
-              <strong>SQL Server</strong>
+              <h4>SQL Server</h4>
+            </div>
+
+            <div class="detail-item">
+              <span>Authentication</span>
+              <h4>JWT + Role Management</h4>
             </div>
 
           </div>
@@ -145,52 +179,76 @@
 
       </div>
 
-    </div>
+    </section>
 
-    <!-- PROBLEMS -->
+    <!-- DEVELOPMENT JOURNEY -->
 
-    <div class="content-section">
+    <section class="journey-section">
 
-      <h2 class="section-title mb-5">
-        Problems Solved
-      </h2>
+      <div class="row align-items-center gy-5">
 
-      <div class="row g-4">
+        <div class="col-lg-6">
 
-        <div
-          class="col-md-6"
-          *ngFor="let item of problemsSolved"
-        >
+          <div class="image-card">
 
-          <div class="problem-card">
-
-            <div class="problem-icon">
-              <i class="bi bi-check2-circle"></i>
-            </div>
-
-            <h3>
-              {{ item.title }}
-            </h3>
-
-            <p>
-              {{ item.description }}
-            </p>
+            <img
+              src="assets/projects/examdynamics2.avif"
+              alt="ExamDynamics Dashboard"
+            />
 
           </div>
 
         </div>
 
+        <div class="col-lg-6">
+
+          <span class="section-subtitle">
+            DEVELOPMENT JOURNEY
+          </span>
+
+          <h2 class="section-title">
+            How the system evolved during development
+          </h2>
+
+          <p>
+            During the development process, I continuously improved both the
+            UI and backend architecture to make the platform feel closer to a
+            real production-level application.
+          </p>
+
+          <p>
+            I implemented reusable Angular components, optimized API
+            communication, structured database relationships, and improved
+            overall application performance for large academic datasets.
+          </p>
+
+          <p>
+            Special attention was given to dashboard design, navigation flow,
+            responsive layouts, and user accessibility so administrators and
+            students could use the platform comfortably without confusion.
+          </p>
+
+        </div>
+
       </div>
 
-    </div>
+    </section>
 
     <!-- SCREENSHOTS -->
 
-    <div class="content-section">
+    <section class="screenshots-section">
 
-      <h2 class="section-title mb-5">
-        Project Screenshots
-      </h2>
+      <div class="section-heading">
+
+        <span class="section-subtitle">
+          APPLICATION PREVIEW
+        </span>
+
+        <h2 class="section-title">
+          Interface Screens
+        </h2>
+
+      </div>
 
       <div class="row g-4">
 
@@ -199,26 +257,12 @@
           *ngFor="let image of screenshots"
         >
 
-          <div class="macbook-mini">
+          <div class="preview-card">
 
-            <div class="macbook-topbar small">
-
-              <div class="dots">
-                <span class="dot red"></span>
-                <span class="dot yellow"></span>
-                <span class="dot green"></span>
-              </div>
-
-            </div>
-
-            <div class="mini-screen">
-
-              <img
-                [src]="image"
-                alt="Project Screenshot"
-              />
-
-            </div>
+            <img
+              [src]="image"
+              alt="ExamDynamics Screenshot"
+            />
 
           </div>
 
@@ -226,14 +270,18 @@
 
       </div>
 
-    </div>
+    </section>
 
     <!-- TECH STACK -->
 
-    <div class="content-section pb-0">
+    <section class="tech-section">
 
-      <h2 class="section-title mb-4">
-        Tech Stack
+      <span class="section-subtitle">
+        TECHNOLOGIES
+      </span>
+
+      <h2 class="section-title">
+        Tools & Technologies Used
       </h2>
 
       <div class="tech-stack">
@@ -247,7 +295,7 @@
 
       </div>
 
-    </div>
+    </section>
 
   </div>
 
