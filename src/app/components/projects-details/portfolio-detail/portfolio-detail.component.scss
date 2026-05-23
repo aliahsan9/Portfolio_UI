@@ -31,11 +31,9 @@
 }
 
 .project-title {
-  // font-size: clamp(3rem, 8vw, 6rem);
   font-weight: 800;
   line-height: 1;
   margin-bottom: 24px;
-  letter-spacing: -2px;
 }
 
 .project-description {
@@ -85,21 +83,13 @@
 }
 
 .macbook-topbar {
-  height: 52px;
+  height: 22px;
   padding: 0 22px;
   display: flex;
   align-items: center;
   background: linear-gradient(to bottom, #2d3748, #1f2937);
   border-bottom: 1px solid rgba(255,255,255,0.06);
   position: relative;
-}
-
-.window-title {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  color: rgba(255,255,255,0.55);
-  font-size: 14px;
 }
 
 .dots {
@@ -145,7 +135,6 @@
 }
 
 .section-title {
-  font-size: clamp(2rem, 5vw, 3rem);
   font-weight: 700;
   margin-bottom: 24px;
 }

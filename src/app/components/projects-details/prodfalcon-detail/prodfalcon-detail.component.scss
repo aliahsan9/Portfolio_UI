@@ -94,14 +94,6 @@
   position: relative;
 }
 
-.window-title {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  color: rgba(255,255,255,0.55);
-  font-size: 14px;
-}
-
 .dots {
   display: flex;
   align-items: center;

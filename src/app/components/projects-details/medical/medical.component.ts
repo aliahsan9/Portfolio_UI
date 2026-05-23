@@ -53,7 +53,7 @@ export class Medical {
 
   techStack = [
     'Angular',
-    '.NET 8 Web API',
+    '.NET 8 Web API', 
     'SQL Server',
     'Entity Framework Core',
     'Bootstrap',

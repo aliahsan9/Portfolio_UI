@@ -36,14 +36,13 @@
   letter-spacing: 1.5px;
   color: #9bc2ff;
   margin-bottom: 26px;
+  height: 30px;
 }
 
 .project-title {
-  font-size: clamp(3.2rem, 8vw, 2rem);
   font-weight: 800;
   line-height: 0.95;
   margin-bottom: 30px;
-  letter-spacing: -3px;
 }
 
 .hero-text {
@@ -150,7 +149,7 @@ section {
 }
 
 .section-title {
-  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-size: clamp(2rem, 5vw, 1.2rem);
   line-height: 1.1;
   font-weight: 700;
   margin-bottom: 30px;
@@ -238,7 +237,7 @@ p {
 }
 
 .tech-item {
-  padding: 14px 22px;
+  padding: 10px 12px;
   border-radius: 999px;
   background: rgba(255,255,255,0.05);
   border: 1px solid rgba(255,255,255,0.08);
@@ -311,14 +310,15 @@ p {
   }
 
   .project-title {
-    font-size: 2.7rem;
-    letter-spacing: -2px;
+    font-size: 2rem;
+    position: relative;
+    top: 20px;
   }
   .case-study-label
   {
     height: 30px;
     position: relative;
-    top: 20px;
+    top: 30px;
   }
 
   .section-title {
