@@ -3,75 +3,92 @@
   <div class="container">
 
     <!-- HEADER -->
-    <div class="text-center mb-5">
-      <span class="badge-glow">Featured Work</span>
+    <div class="section-header text-center">
 
-      <h1 class="display-title mt-3">
-        Selected Projects
+      <span class="section-badge">
+        Featured Projects
+      </span>
+
+      <h1 class="section-title">
+        Crafted Full Stack Experiences
       </h1>
 
-      <p class="section-desc">
-        Real-world full-stack applications with modern architecture and premium UI experience.
+      <p class="section-subtitle">
+        Real-world applications engineered with scalable architecture,
+        premium UI design and modern technologies.
       </p>
+
     </div>
 
-    <!-- GRID -->
+    <!-- PROJECT GRID -->
     <div class="row g-4">
 
-      <div class="col-12 col-md-6"
-           *ngFor="let project of projects; let i = index">
+      <div class="col-12 col-lg-6"
+           *ngFor="let project of projects">
 
-        <!-- CARD -->
-        <div class="project-card"
-             (mouseenter)="hoveredIndex = i"
-             (mouseleave)="hoveredIndex = null">
+        <div class="project-card">
 
-          <!-- MONITOR FRAME -->
-          <div class="monitor">
+          <!-- THUMBNAIL -->
+          <div class="thumbnail-wrapper">
 
-            <div class="screen">
+            <img
+              [src]="project.image"
+              [alt]="project.title"
+              class="thumbnail">
 
-              <img [src]="project.image"
-                   [alt]="project.title"
-                   [class.scroll-effect]="hoveredIndex === i">
-
-            </div>
-
-            <img class="frame"
-                 src="assets/Images/monitor-frame.avif"
-                 alt="monitor frame">
+            <div class="thumbnail-overlay"></div>
 
           </div>
 
           <!-- CONTENT -->
-          <div class="content">
+          <div class="project-content">
 
-            <div class="d-flex align-items-center gap-3 mb-2">
+            <!-- TOP -->
+            <div class="project-top">
 
-              <div class="icon-box">
+              <div class="icon-box"
+                   [style.background]="project.accent">
+
                 <i [class]="project.icon"></i>
+
               </div>
 
-              <h2 class="title">
-                {{ project.title }}
-              </h2>
+              <div>
+
+                <h2 class="project-title">
+                  {{ project.title }}
+                </h2>
+
+              </div>
 
             </div>
 
-            <p class="desc">
+            <!-- DESCRIPTION -->
+            <p class="project-description">
               {{ project.description }}
             </p>
 
             <!-- TECH -->
-            <div class="tech">
-              <span class="pill"
+            <div class="tech-stack">
+
+              <span class="tech-pill"
                     *ngFor="let tech of project.technologies">
+
                 {{ tech }}
+
               </span>
+
             </div>
 
-            <a [routerLink]="project.route" class="btn-glow">
-              View Project <i class="bi bi-arrow-up-right"></i>
+            <!-- BUTTON -->
+            <a
+              [routerLink]="project.route"
+              class="project-btn">
+
+              View Project
+
+              <i class="bi bi-arrow-up-right"></i>
+
             </a>
 
           </div>
