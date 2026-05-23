@@ -1,78 +1,159 @@
 <section class="about-section" id="about">
-
   <div class="container">
 
-    <!-- HEADER -->
-    <div class="text-center mb-5">
-      <h1 class="fw-bold text-gradient mb-3">About Me</h1>
+    <div class="row align-items-center intro-row g-5">
+      <div class="col-lg-5 col-md-6 text-center text-md-start position-relative d-flex justify-content-center">
+        <div class="lanyard-container">
+          <div class="lanyard-strap"></div>
+          <div class="lanyard-clip"></div>
+          <div class="lanyard-card">
+            <span class="card-brand">DEV//2026</span>
+            <div class="avatar-placeholder">
+              <img src="assets/profile/profile.avif" alt="Ali Ahsan" onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=600'"/>
+            </div>
+            <div class="card-details">
+              <h3>Ali Ahsan</h3>
+              <p>Full-Stack Engineer</p>
+            </div>
+          </div>
+        </div>
+      </div>
 
-      <h2 class="main-title mt-3">
-        I build clean, scalable web applications
-      </h2>
-
-      <p class="sub-text">
-        Full-Stack Developer focused on Angular, .NET, and SQL Server.
-      </p>
-    </div>
-
-    <!-- MAIN CONTENT -->
-    <div class="row align-items-center">
-
-      <!-- LEFT -->
-      <div class="col-lg-7 mb-4">
-
-        <p class="text">
-          I’m <strong>Ali Ahsan</strong>, a Full-Stack Developer who enjoys turning ideas into real, working applications.
-          I focus on building clean, maintainable systems using Angular on the frontend and .NET on the backend.
+      <div class="col-lg-7 col-md-6">
+        <span class="section-label">INTRODUCTION</span>
+        <h1 class="hero-text mt-3">
+          I'm a Full-Stack <span class="highlight">Developer</span>, Tech Founder, and System <span class="highlight">Architect</span>.
+        </h1>
+        
+        <p class="desc-text mt-4">
+          I build products that solve real problems for real people. Whether it's high-throughput secure firewalls or interactive learning platforms, I focus on creating tools that make complex tasks completely intuitive and incredibly fast.
+        </p>
+        <p class="desc-text">
+          My work centers around bridging beautiful frontends built with <strong>Angular</strong> with highly optimized backends engineered in <strong>.NET Core</strong> and <strong>SQL Server</strong>.
         </p>
 
-        <p class="text">
-          My work is centered around real-world problems — APIs, dashboards, authentication systems, and database-driven applications.
-          I prefer writing code that is simple, structured, and easy to scale.
-        </p>
-
-        <p class="text">
-          Recently, I’ve been working more with cloud deployment and CI/CD pipelines to make applications production-ready and easier to maintain.
-        </p>
-
-        <!-- SKILLS -->
-        <div class="skills">
-          <span>Angular</span>
+        <div class="tech-tags mt-4">
           <span>.NET Core</span>
+          <span>Angular</span>
           <span>SQL Server</span>
           <span>REST APIs</span>
-          <span>Bootstrap</span>
           <span>Azure</span>
+          <span>Bootstrap</span>
+        </div>
+      </div>
+    </div>
+
+    <hr class="section-divider my-5">
+
+    <div class="experience-section">
+      <span class="section-label">EXPERIENCE</span>
+      
+      <div class="row g-5 mt-2">
+        <div class="col-lg-5 d-flex flex-column gap-5">
+          
+          <div class="exp-item" (mouseenter)="setActiveProject(0)" [class.active]="activeProjectIndex === 0">
+            <div class="exp-icon bg-dotnet">
+              <i class="bi bi-shield-lock-fill"></i>
+            </div>
+            <div class="exp-details">
+              <h4>Founder & Architect</h4>
+              <h5>Falcon AI Safety Firewall · <span class="type-badge">SaaS</span></h5>
+              <p class="date">Dec 2025 - Present</p>
+              <p class="summary">Architected a production-ready system protecting AI models from injection vulnerabilities, toxic queries, and malicious misuse using high-frequency filters.</p>
+            </div>
+          </div>
+
+          <div class="exp-item" (mouseenter)="setActiveProject(1)" [class.active]="activeProjectIndex === 1">
+            <div class="exp-icon bg-angular">
+              <i class="bi bi-keyboard-fill"></i>
+            </div>
+            <div class="exp-details">
+              <h4>Lead Full-Stack Dev</h4>
+              <h5>TypeDynamics · <span class="type-badge">Web Application</span></h5>
+              <p class="date">Mar 2026 - Present</p>
+              <p class="summary">Engineering a responsive, real-time typing assessment engine with interactive learning curves, detailed analytical telemetry graphs, and ultra-low input latency.</p>
+            </div>
+          </div>
+
+          <div class="exp-item" (mouseenter)="setActiveProject(2)" [class.active]="activeProjectIndex === 2">
+            <div class="exp-icon bg-sql">
+              <i class="bi bi-journal-text"></i>
+            </div>
+            <div class="exp-details">
+              <h4>Core Platform Engineer</h4>
+              <h5>ExamDynamics · <span class="type-badge">API Ecosystem</span></h5>
+              <p class="date">Mar 2026 - Present</p>
+              <p class="summary">Designed secure relational schemas and optimized REST endpoints capable of delivering high-concurrency examination states cleanly under demanding production contexts.</p>
+            </div>
+          </div>
+
         </div>
 
+        <div class="col-lg-7 d-none d-md-block sticky-card-container">
+          <div class="preview-card-display">
+            <div class="interactive-preview" [class.visible]="activeProjectIndex === 0">
+              <img src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?q=80&w=1000" alt="Falcon AI Firewall Preview">
+              <div class="preview-overlay">
+                <h6>Falcon AI Safety Firewall</h6>
+                <p>Clean Dashboard Layout · Neon Blue Highlights</p>
+              </div>
+            </div>
+
+            <div class="interactive-preview" [class.visible]="activeProjectIndex === 1">
+              <img src="https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?q=80&w=1000" alt="TypeDynamics Preview">
+              <div class="preview-overlay">
+                <h6>TypeDynamics App</h6>
+                <p>Interactive Minimal Typetest Dashboard</p>
+              </div>
+            </div>
+
+            <div class="interactive-preview" [class.visible]="activeProjectIndex === 2">
+              <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000" alt="ExamDynamics Preview">
+              <div class="preview-overlay">
+                <h6>ExamDynamics Architecture</h6>
+                <p>High-Throughput Relational Framework & API Engine</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+    </div>
 
-      <!-- RIGHT CARD -->
-      <div class="col-lg-5">
+    <hr class="section-divider my-5">
 
-        <div class="info-card">
-
-          <div class="item">
-            <h5>Focus</h5>
-            <p>Full-Stack Web Development</p>
+    <div class="education-section pb-4">
+      <span class="section-label">EDUCATION</span>
+      
+      <div class="row g-4 mt-2 align-items-center">
+        <div class="col-lg-6">
+          <div class="edu-card">
+            <h2 class="edu-university">Computer Science & Software Systems</h2>
+            <h4 class="edu-degree">Specialization Track — Full-Stack Architecture</h4>
+            <p class="edu-date"><i class="bi bi-calendar3 me-2"></i> Continuous Mastery & Applied Theory</p>
+            
+            <div class="edu-details-list mt-4">
+              <div class="edu-detail-item">
+                <strong>Core Focus:</strong> Data Structures & Algorithms, Systems Architecture, Relational Schema Management.
+              </div>
+              <div class="edu-detail-item mt-2">
+                <strong>Practicals:</strong> Advanced Design Patterns, Dynamic Frontend Micro-apps, Scalable REST Handlers.
+              </div>
+            </div>
           </div>
-
-          <div class="item">
-            <h5>Strength</h5>
-            <p>Backend + API + Database Design</p>
-          </div>
-
-          <div class="item">
-            <h5>Goal</h5>
-            <p>Build real-world scalable products</p>
-          </div>
-
         </div>
 
+        <div class="col-lg-6">
+          <div class="edu-graphic-card">
+           <div class="decorative-code">
+  <span class="keyword">public class</span> <span class="class-name">Developer</span> {{ '{' }} <br>
+  &nbsp;&nbsp;<span class="keyword">public bool</span> ReadyToScale => <span class="value">true</span>;<br>
+  {{ '}' }}
+</div>
+            <p class="graphic-quote">"Simplicity is the ultimate sophistication. Clean backends and responsive frontends always win."</p>
+          </div>
+        </div>
       </div>
-
     </div>
 
   </div>
-
 </section>

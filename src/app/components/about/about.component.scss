@@ -1,99 +1,399 @@
+// Theme Tokens
+$bg-main: #0A1A3F;       // Deep Blue
+$accent-neon: #3ABDF8;   // Neon Blue Accent
+$text-light: #f8fafc;
+$text-muted: #94a3b8;
+$card-bg: rgba(15, 23, 42, 0.45);
+$border-color: rgba(255, 255, 255, 0.08);
+
 .about-section {
-  background: radial-gradient(circle at top left, #091a32, #0b1f3a);
-  color: #dbe7f5;
-  padding: 80px 0;
+  background: radial-gradient(circle at 50% 0%, #11224d 0%, $bg-main 70%);
+  color: $text-light;
+  padding: 100px 0 60px 0;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  overflow: hidden;
 }
 
-.text-gradient {
-  background: linear-gradient(90deg, #00eaff, #4d9fff, #b14bff);
-  background-size: 200% auto;
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  -webkit-text-fill-color: transparent;
-  animation: gradient-move 4s ease-in-out infinite;
-  position: relative;
-  top: -5px;
-}
-
-.main-title {
-  font-size: 2.4rem;
+// Labels
+.section-label {
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  color: $accent-neon;
   font-weight: 700;
-  position: relative; 
-  top: -20px;
+  text-transform: uppercase;
 }
 
-.sub-text {
-  color: #94a3b8;
-  margin-top: -20px;
+// Divider Line
+.section-divider {
+  border-top: 1px solid $border-color;
+  opacity: 1;
 }
 
-/* TEXT */
-.text {
-  color: #cbd5e1;
-  line-height: 1.8;
-  margin-bottom: 15px;
+/* --- SECTION 1: LANYARD GRAPHIC & HERO --- */
+.hero-text {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  
+  .highlight {
+    background: linear-gradient(120deg, #3abdf8, #6366f1);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 }
 
-/* SKILLS */
-.skills {
+.desc-text {
+  color: $text-muted;
+  font-size: 1.1rem;
+  line-height: 1.75;
+}
+
+// Interactive Lanyard Concept
+.lanyard-container {
+  width: 280px;
+  perspective: 1000px;
+  margin-bottom: 2rem;
+
+  &:hover .lanyard-card {
+    transform: rotateY(8deg) rotateX(4deg) translateY(-5px);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(58, 189, 248, 0.15);
+  }
+}
+
+.lanyard-strap {
+  width: 24px;
+  height: 60px;
+  background: #1e293b;
+  margin: 0 auto;
+  border-radius: 4px;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.lanyard-clip {
+  width: 14px;
+  height: 14px;
+  background: #64748b;
+  margin: -4px auto 0 auto;
+  border-radius: 50%;
+  position: relative;
+  z-index: 2;
+}
+
+.lanyard-card {
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.9) 0%, rgba(15, 23, 42, 0.95) 100%);
+  border: 1px solid $border-color;
+  border-radius: 20px;
+  padding: 24px;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+  transform-style: preserve-3d;
+
+  .card-brand {
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.3em;
+    color: #475569;
+    display: block;
+    margin-bottom: 15px;
+  }
+
+  .avatar-placeholder {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 20px auto;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    background: #0f172a;
+    
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: scale 0.5s ease;
+    }
+  }
+
+  .card-details {
+    h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+      color: $text-light;
+    }
+    p {
+      font-size: 0.85rem;
+      color: $accent-neon;
+      margin: 0;
+      font-weight: 500;
+    }
+  }
+}
+
+// Tech Badges
+.tech-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 20px;
+  gap: 8px;
+
+  span {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    padding: 6px 14px;
+    border-radius: 100px;
+    font-size: 0.85rem;
+    color: #cbd5e1;
+    font-weight: 500;
+    transition: all 0.25s ease;
+
+    &:hover {
+      background: rgba(58, 189, 248, 0.08);
+      border-color: rgba(58, 189, 248, 0.3);
+      color: $accent-neon;
+      transform: translateY(-2px);
+    }
+  }
 }
 
-.skills span {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 8px 14px;
-  border-radius: 20px;
-  font-size: 13px;
-  color: #cbd5e1;
+
+/* --- SECTION 2: INTERACTIVE EXPERIENCE GRID --- */
+.sticky-card-container {
+  position: relative;
 }
 
-/* INFO CARD */
-.info-card {
-  background: rgba(16, 28, 57, 0.75);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+.preview-card-display {
+  position: sticky;
+  top: 100px;
+  width: 100%;
+  height: 380px;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.4);
+  background: #0f172a;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.interactive-preview {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transform: scale(1.05) translateY(10px);
+  transition: opacity 0.45s ease, transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  z-index: 1;
+
+  &.visible {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    pointer-events: auto;
+    z-index: 2;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .preview-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 30px;
+    background: linear-gradient(to top, rgba(10, 26, 63, 0.95) 20%, rgba(10, 26, 63, 0));
+    
+    h6 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+      color: #fff;
+    }
+    p {
+      font-size: 0.9rem;
+      color: $accent-neon;
+      margin: 0;
+    }
+  }
+}
+
+// Experience Row Left Items
+.exp-item {
+  display: flex;
+  gap: 20px;
+  padding: 24px;
   border-radius: 16px;
-  padding: 25px;
-}
+  background: transparent;
+  border: 1px solid transparent;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
 
-.item {
-  margin-bottom: 20px;
-  padding-bottom: 15px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
+  &.active, &:hover {
+    background: rgba(255, 255, 255, 0.02);
+    border-color: rgba(255, 255, 255, 0.06);
+    transform: translateX(8px);
 
-.item:last-child {
-  border-bottom: none;
-  margin-bottom: 0;
-}
-
-.item h5 {
-  color: #60a5fa;
-  font-size: 14px;
-  margin-bottom: 5px;
-}
-
-.item p {
-  margin: 0;
-  color: #e2e8f0;
-}
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  .main-title {
-    font-size: 1.4rem;
-  }
-  .sub-text
-  {
-    position: relative;
-    top: 10px;
+    .exp-icon {
+      transform: scale(1.1);
+      box-shadow: 0 0 20px rgba(58, 189, 248, 0.2);
+    }
   }
 
-  .info-card {
+  .exp-icon {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    color: #fff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
+    &.bg-dotnet { background: linear-gradient(135deg, #512bd4, #7950f2); }
+    &.bg-angular { background: linear-gradient(135deg, #e23237, #b52e31); }
+    &.bg-sql { background: linear-gradient(135deg, #00758f, #005f73); }
+  }
+
+  .exp-details {
+    h4 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+      color: $text-light;
+    }
+    h5 {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: #cbd5e1;
+      margin-bottom: 6px;
+
+      .type-badge {
+        color: $accent-neon;
+        font-size: 0.85rem;
+        font-weight: 400;
+      }
+    }
+    .date {
+      font-size: 0.8rem;
+      color: $text-muted;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    .summary {
+      font-size: 0.95rem;
+      color: $text-muted;
+      line-height: 1.6;
+      margin: 0;
+    }
+  }
+}
+
+
+/* --- SECTION 3: EDUCATION GRID --- */
+.edu-card {
+  background: $card-bg;
+  border: 1px solid $border-color;
+  border-radius: 24px;
+  padding: 40px;
+  backdrop-filter: blur(12px);
+
+  .edu-university {
+    font-size: 1.6rem;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    color: #fff;
+  }
+  .edu-degree {
+    font-size: 1.05rem;
+    color: $accent-neon;
+    font-weight: 500;
+    margin-top: 8px;
+  }
+  .edu-date {
+    font-size: 0.9rem;
+    color: $text-muted;
+    margin-top: 4px;
+  }
+
+  .edu-details-list {
+    font-size: 0.95rem;
+    color: #cbd5e1;
+    line-height: 1.6;
+  }
+}
+
+.edu-graphic-card {
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.6) 0%, rgba(30, 41, 59, 0.3) 100%);
+  border: 1px solid $border-color;
+  border-radius: 24px;
+  padding: 40px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .decorative-code {
+    font-family: 'Fira Code', 'Courier New', monospace;
+    font-size: 0.9rem;
+    color: #94a3b8;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    border-radius: 12px;
+    border-left: 3px solid $accent-neon;
+    margin-bottom: 24px;
+
+    .keyword { color: #f43f5e; }
+    .class-name { color: #f59e0b; }
+    .value { color: #10b981; }
+  }
+
+  .graphic-quote {
+    font-style: italic;
+    color: $text-muted;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+}
+
+
+/* --- RESPONSIVE MEDIA BREAKPOINTS --- */
+@media (max-width: 991px) {
+  .intro-row {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+  
+  .tech-tags {
+    justify-content: center;
+  }
+
+  .exp-item {
+    &.active, &:hover {
+      transform: none; // Disable sideways shift on touch screens
+    }
+  }
+
+  .edu-graphic-card {
     margin-top: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .about-section {
+    padding: 60px 0;
+  }
+  .lanyard-container {
+    width: 240px;
+  }
+  .edu-card {
+    padding: 24px;
   }
 }
