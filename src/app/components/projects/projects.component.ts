@@ -32,6 +32,16 @@ export class PublicProjectsComponent {
       icon: 'bi bi-mortarboard-fill',
       accent: '#38bdf8'
     },
+     {
+      title: 'Portfolio Website',
+      description:
+        'Modern developer portfolio crafted with premium UI animations, responsive layouts and interactive sections.',
+      image: 'assets/projects/portfolio.avif',
+      technologies: ['Angular', 'SCSS', 'Bootstrap'],
+      route: '/portfolio-detail',
+      icon: 'bi bi-person-badge-fill',
+      accent: '#06b6d4'
+    },
     {
       title: 'ProdFalcon',
       description:
@@ -41,16 +51,6 @@ export class PublicProjectsComponent {
       route: '/prodfalcon-detail',
       icon: 'bi bi-box-seam-fill',
       accent: '#8b5cf6'
-    },
-    {
-      title: 'Portfolio Website',
-      description:
-        'Modern developer portfolio crafted with premium UI animations, responsive layouts and interactive sections.',
-      image: 'assets/projects/portfolio.avif',
-      technologies: ['Angular', 'SCSS', 'Bootstrap'],
-      route: '/portfolio-detail',
-      icon: 'bi bi-person-badge-fill',
-      accent: '#06b6d4'
     },
     {
       title: 'SchoolFish',
