@@ -1,25 +1,38 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component
+} from '@angular/core';
+
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { AboutComponent } from "../about/about.component";
+
+import { AboutComponent } from '../about/about.component';
 import { SkillsComponent } from '../skills/skills.component';
 import { PublicProjectsComponent } from '../projects/projects.component';
 import { ServicesComponent } from '../services/services.component';
 import { TestimonialComponent } from '../testimonial/testimonial.component';
-import { ContactComponent } from "../contact/contact.component";
+import { ContactComponent } from '../contact/contact.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
+  imports: [
+    CommonModule,
+    RouterModule,
+    ServicesComponent,
+    AboutComponent,
+    SkillsComponent,
+    PublicProjectsComponent,
+    TestimonialComponent,
+    ContactComponent
+  ],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
-  imports: [CommonModule, RouterModule, ServicesComponent, AboutComponent, SkillsComponent, PublicProjectsComponent, TestimonialComponent, ContactComponent],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class HomeComponent implements OnInit {
-  ngOnInit(): void {
-    this.skills = [...this.skills, ...this.skills];
-  }
-    skills: string[] = [
+export class HomeComponent {
+
+  readonly skills: readonly string[] = [
     'assets/icons/angular.avif',
     'assets/icons/dotnet.avif',
     'assets/icons/sql.avif',
@@ -34,5 +47,13 @@ export class HomeComponent implements OnInit {
     'assets/icons/ts.avif',
     'assets/icons/figma.avif',
   ];
+
+  readonly duplicatedSkills = [
+    ...this.skills,
+    ...this.skills
+  ];
+
+  trackBySkill(index: number, item: string): string {
+    return item;
+  }
 }
- 
