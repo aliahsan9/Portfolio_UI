@@ -15,7 +15,7 @@
   -webkit-text-fill-color: transparent;
   animation: gradient-move 4s ease-in-out infinite;
   position: relative;
-  top: -5px;
+  top: 10px;
 }
 
 .subtitle {
@@ -26,14 +26,14 @@
 }
 
 .contact-form {
-  background: rgba(22, 41, 84, 0.75);
+  background: rgba(14, 32, 77, 0.75);
   padding: 30px;
   border-radius: 15px;
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .form-control {
-  background: rgba(36, 64, 130, 0.75);
+  background: rgba(15, 32, 70, 0.75);
   border: 1px solid rgba(122, 119, 119, 0.1);
   color: white;
 }
