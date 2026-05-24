@@ -1,51 +1,62 @@
 <section class="services-section">
-  <div class="container">
+  <!-- Subtle ambient background gradients managed safely by CSS -->
+  <div class="ambient-glow glow-top-right"></div>
+  <div class="ambient-glow glow-bottom-left"></div>
 
-    <!-- Heading -->
-    <div class="text-center mb-5">
-      <h1 class="fw-bold text-gradient mb-3">Services</h1>
+  <div class="container py-5 position-relative">
 
-      <h2 class="section-title mt-4">
-        Premium Development Services
-      </h2>
-
-      <p class="section-subtitle mx-auto">
-        I help startups, businesses, and individuals build scalable web applications,
-        secure APIs, modern dashboards, and high-performance digital solutions.
+    <!-- Header Section -->
+    <div class="text-center section-header mx-auto">
+      <span class="badge-accent">Expertise & Offerings</span>
+      <h2 class="section-title fw-bold mt-2">Engineered Solutions. Clean Code.</h2>
+      <p class="section-subtitle mt-3">
+        I engineer robust, production-grade web systems, secure APIs, and responsive UI layers. No shortcuts, no boilerplate templates—just bespoke, highly maintainable code tailored to your exact business specifications.
       </p>
     </div>
 
-    <!-- Services Grid -->
-    <div class="row g-4">
+    <!-- Interactive Grid -->
+    <div class="row g-4 mt-4">
       <div class="col-lg-4 col-md-6" *ngFor="let service of services">
-
-        <div class="service-card h-100">
-
-          <div class="service-icon">
-            <i [class]="service.icon"></i>
+        <div class="service-card d-flex flex-column h-100">
+          
+          <!-- Card Header Tags -->
+          <div class="card-top-meta d-flex justify-content-between align-items-center mb-3">
+            <div class="service-icon">
+              <i [class]="service.icon"></i>
+            </div>
+            <span *ngIf="service.badge" class="service-badge" [ngClass]="{'badge-critical': service.badge === 'Critical Support'}">
+              {{ service.badge }}
+            </span>
           </div>
 
-          <h3 class="service-title">
-            {{ service.title }}
-          </h3>
+          <!-- Content Area -->
+          <div class="card-body-content flex-grow-1">
+            <h3 class="service-card-title">{{ service.title }}</h3>
+            <p class="service-card-description">{{ service.description }}</p>
 
-          <p class="service-description">
-            {{ service.description }}
-          </p>
+            <h4 class="features-header-text">What's Included:</h4>
+            <ul class="service-features-list">
+              <li *ngFor="let feature of service.features">
+                <i class="bi bi-patch-check-fill feature-check"></i>
+                <span>{{ feature }}</span>
+              </li>
+            </ul>
+          </div>
 
-          <ul class="service-features">
-            <li *ngFor="let feature of service.features">
-              <i class="bi bi-check-circle-fill text-primary"></i>
-              {{ feature }}
-            </li>
-          </ul> 
-
-          <div class="service-footer">
-            <span class="price">{{ service.price }}</span>
-
-            <!-- FIXED ROUTER LINK -->
-            <button class="btn service-btn" [routerLink]="['/resume']">
-              Hire Me
+          <!-- Meta Footer Area -->
+          <div class="service-card-footer mt-4 pt-3 border-top border-secondary-subtle">
+            <div class="meta-metrics d-flex justify-content-between mb-3 text-muted">
+              <div>
+                <small class="d-block label">Investment</small>
+                <span class="val fw-semibold text-white">{{ service.priceEstimate }}</span>
+              </div>
+              <div class="text-end">
+                <small class="d-block label">Timeline</small>
+                <span class="val fw-semibold text-white">{{ service.deliveryTime }}</span>
+              </div>
+            </div>
+            <button class="btn service-action-btn w-100" [routerLink]="['/contact']">
+              Discuss This Project <i class="bi bi-arrow-right ms-1"></i>
             </button>
           </div>
 
@@ -53,19 +64,21 @@
       </div>
     </div>
 
-    <!-- CTA -->
-    <div class="cta-box mt-3 mb-3 text-center">
-
-      <h3>Have a project in mind?</h3>
-
-      <p>
-        Let’s build something powerful, scalable, and visually impressive together.
-      </p>
-
-      <button class="btn cta-btn" [routerLink]="['/contact']">
-        Start Your Project
-      </button>
-
+    <!-- Human Trust & Consultation Block -->
+    <div class="consultation-cta-box mt-5 p-4 p-md-5 text-center text-md-start">
+      <div class="row align-items-center">
+        <div class="col-lg-8">
+          <h3 class="fw-bold mb-2">Have a highly custom project or architectural hurdle?</h3>
+          <p class="mb-0 text-muted-custom">
+            Let’s jump on a technical scoping call. We can break down your architectural blockages, discuss data structures, and establish a clear execution plan.
+          </p>
+        </div>
+        <div class="col-lg-4 text-md-end mt-4 lg-0">
+          <button class="btn dynamic-cta-button" [routerLink]="['/contact']">
+            Schedule Code Consultation <i class="bi bi-calendar3 ms-2"></i>
+          </button>
+        </div>
+      </div>
     </div>
 
   </div>
