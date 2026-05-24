@@ -1,64 +1,137 @@
 <section class="contact-section">
-  <div class="container">
+  <div class="ambient-glow glow-top-left"></div>
+  <div class="ambient-glow glow-bottom-right"></div>
 
-    <div class="text-center mb-5">
-            <h1 class="fw-bold text-gradient">Contact Me</h1>
-      <p class="subtitle">
-        Let’s discuss your project. I usually reply within 24 hours.
-      </p>
-    </div>
+  <div class="container position-relative">
+    <div class="row g-5 align-items-center justify-content-center">
+      
+      <div class="col-xl-5 col-lg-6">
+        <div class="info-block">
+          <span class="badge-accent">Get in Touch</span>
+          <h1 class="fw-bold section-title mt-2">Let’s build something definitive.</h1>
+          <p class="section-subtitle mt-3">
+            Have a system architecture to design, an API layer to secure, or a sluggish SQL database that needs optimization? Drop a line with your project requirements.
+          </p>
 
-    <div class="row justify-content-center">
+          <div class="trust-metrics mt-4 pt-3">
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <div class="metric-icon"><i class="bi bi-clock-history"></i></div>
+              <div>
+                <h6 class="mb-0 fw-semibold">Expected Response</h6>
+                <p class="mb-0 text-muted-custom">Technical review & reply within 24 business hours.</p>
+              </div>
+            </div>
+            
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <div class="metric-icon"><i class="bi bi-shield-check"></i></div>
+              <div>
+                <h6 class="mb-0 fw-semibold">NDA & Privacy</h6>
+                <p class="mb-0 text-muted-custom">All initial concept disclosures remain strictly confidential.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-      <div class="col-lg-6">
-
-        <form #form="ngForm" (ngSubmit)="sendEmail(form)" class="contact-form">
-
-          <div class="mb-3">
-            <label>Name</label>
-            <input
-              type="text"
-              name="name"
-              ngModel
-              class="form-control"
-              required
-              placeholder="Your Name"
-            />
+      <div class="col-xl-6 col-lg-6">
+        <div class="contact-card">
+          
+          <div *ngIf="submitSuccess" class="status-banner success mb-4 d-flex align-items-start gap-3">
+            <i class="bi bi-check-circle-fill banner-icon"></i>
+            <div>
+              <h6 class="mb-1 fw-bold">Message Transmitted Successfully</h6>
+              <p class="mb-0 text-sm">Thank you. The request has been routed directly to my secure inbox. I will review the scope shortly.</p>
+            </div>
           </div>
 
-          <div class="mb-3">
-            <label>Email</label>
-            <input
-              type="email"
-              name="email"
-              ngModel
-              class="form-control"
-              required
-              placeholder="Your Email"
-            />
+          <div *ngIf="submitError" class="status-banner error mb-4 d-flex align-items-start gap-3">
+            <i class="bi bi-exclamation-triangle-fill banner-icon"></i>
+            <div>
+              <h6 class="mb-1 fw-bold">Transmission Interrupted</h6>
+              <p class="mb-0 text-sm">Failed to connect to the email relay node. Please try again or reach out directly.</p>
+            </div>
           </div>
 
-          <div class="mb-3">
-            <label>Message</label>
-            <textarea
-              name="message"
-              ngModel
-              class="form-control"
-              rows="5"
-              required
-              placeholder="Your Message"
-            ></textarea>
-          </div>
+          <form #form="ngForm" (ngSubmit)="sendEmail(form)" autocomplete="off">
+            
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="name" class="form-label-custom">Your Name <span class="req">*</span></label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  [(ngModel)]="form.value.name"
+                  #name="ngModel"
+                  class="form-input-custom"
+                  [class.is-invalid-custom]="name.invalid && name.touched"
+                  required
+                  placeholder="e.g. Alexander Wright"
+                />
+              </div>
 
-          <button type="submit" class="btn submit-btn w-100">
-            Send Message
-          </button>
+              <div class="col-md-6 mb-3">
+                <label for="email" class="form-label-custom">Email Address <span class="req">*</span></label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  [(ngModel)]="form.value.email"
+                  #email="ngModel"
+                  class="form-input-custom"
+                  [class.is-invalid-custom]="email.invalid && email.touched"
+                  required
+                  email
+                  placeholder="name@company.com"
+                />
+              </div>
+            </div>
 
-        </form>
+            <div class="mb-3">
+              <label for="projectType" class="form-label-custom">Project Scope / Category <span class="optional">(Optional)</span></label>
+              <select
+                id="projectType"
+                name="projectType"
+                [(ngModel)]="selectedType"
+                class="form-input-custom format-select"
+              >
+                <option value="" disabled selected hidden>Select architecture type...</option>
+                <option *ngFor="let type of projectTypes" [value]="type">{{ type }}</option>
+              </select>
+            </div>
 
+            <div class="mb-4">
+              <label for="message" class="form-label-custom">Project Overview & Details <span class="req">*</span></label>
+              <textarea
+                id="message"
+                name="message"
+                [(ngModel)]="form.value.message"
+                #message="ngModel"
+                class="form-input-custom"
+                [class.is-invalid-custom]="message.invalid && message.touched"
+                rows="5"
+                required
+                placeholder="Describe your product architecture, specific tech constraints, or project objectives..."
+              ></textarea>
+            </div>
+
+            <button 
+              type="submit" 
+              class="btn professional-submit-btn w-100 d-flex align-items-center justify-content-center gap-2"
+              [disabled]="form.invalid || isSubmitting"
+            >
+              <span *ngIf="!isSubmitting">Initiate Inquiry <i class="bi bi-send-fill text-sm"></i></span>
+              <span *ngIf="isSubmitting" class="d-flex align-items-center gap-2">
+                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                Processing Secure Dispatch...
+              </span>
+            </button>
+
+          </form>
+
+        </div>
       </div>
 
     </div>
-
   </div>
 </section>

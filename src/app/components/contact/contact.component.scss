@@ -1,68 +1,211 @@
+$bg-main: #071126;
+$bg-card-surface: rgba(17, 34, 77, 0.65);
+$accent-cyan: #3ABDF8;
+$text-bright: #F8FAFC;
+$text-slate: #94A3B8;
+$input-border: rgba(255, 255, 255, 0.08);
+
 .contact-section {
   min-height: 100vh;
-  background: radial-gradient(circle at top left, #091a32, #0b1f3a);
-  color: white;
+  background-color: $bg-main;
+  color: $text-bright;
   display: flex;
   align-items: center;
-  padding: 80px 0;
-}
-.text-gradient {
-  background: linear-gradient(90deg, #00eaff, #4d9fff, #b14bff);
-  background-size: 200% auto;
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  -webkit-text-fill-color: transparent;
-  animation: gradient-move 4s ease-in-out infinite;
+  padding: 100px 0;
   position: relative;
-  top: 10px;
+  overflow: hidden;
+  font-family: 'Inter', system-ui, sans-serif;
 }
 
-.subtitle {
-  color: #94a3b8;
-  margin-top: 10px;
-  position: relative;
-  top: 10px;
+/* Background Ambient Elements */
+.ambient-glow {
+  position: absolute;
+  pointer-events: none;
+  border-radius: 50%;
+  filter: blur(150px);
+  z-index: 0;
+  opacity: 0.35;
+}
+.glow-top-left {
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, #3ABDF8 0%, transparent 70%);
+  top: -100px;
+  left: -150px;
+}
+.glow-bottom-right {
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, #8B5CF6 0%, transparent 70%);
+  bottom: -150px;
+  right: -100px;
 }
 
-.contact-form {
-  background: rgba(14, 32, 77, 0.75);
-  padding: 30px;
-  border-radius: 15px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.form-control {
-  background: rgba(15, 32, 70, 0.75);
-  border: 1px solid rgba(122, 119, 119, 0.1);
-  color: white;
-}
-
-.form-control:focus {
-  color: white;
-  border-color: #2563eb;
-  box-shadow: none;
-}
-
-label {
-  margin-bottom: 5px;
-  font-size: 14px;
-  color: #ffffff;
-}
-::placeholder
-{
-  color: rgb(139, 137, 137);
-}
-
-.submit-btn {
-  background: #2563eb;
-  color: white;
-  padding: 10px;
+/* Accent Badges & Layout Headers */
+.badge-accent {
+  background: rgba(58, 189, 248, 0.1);
+  color: $accent-cyan;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.8rem;
   font-weight: 600;
-  border-radius: 10px;
-  border: none;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border: 1px solid rgba(58, 189, 248, 0.2);
+  display: inline-block;
 }
 
-.submit-btn:hover {
-  background: #1d4ed8;
+.section-title {
+  font-size: 2.6rem;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #FFFFFF 0%, #CBD5E1 100%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.section-subtitle {
+  color: $text-slate;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+/* Trust Indicators Layout Left side */
+.metric-icon {
+  width: 42px;
+  height: 42px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $accent-cyan;
+  font-size: 1.15rem;
+  flex-shrink: 0;
+}
+
+.text-muted-custom {
+  color: $text-slate;
+  font-size: 0.88rem;
+}
+
+/* Premium Form Card Engineering */
+.contact-card {
+  background: $bg-card-surface;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid $input-border;
+  padding: 40px;
+  border-radius: 24px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+  z-index: 2;
+  position: relative;
+}
+
+/* Form Custom Control Configurations */
+.form-label-custom {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #E2E8F0;
+  margin-bottom: 6px;
+  display: block;
+
+  .req { color: #F87171; margin-left: 2px; }
+  .optional { color: #64748B; font-size: 0.75rem; font-weight: 400; }
+}
+
+.form-input-custom {
+  width: 100%;
+  background: rgba(11, 22, 49, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 12px 16px;
+  color: #F8FAFC;
+  font-size: 0.95rem;
+  outline: none;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+
+  &::placeholder {
+    color: #475569;
+  }
+
+  &:focus {
+    border-color: rgba(58, 189, 248, 0.5);
+    background: rgba(9, 19, 43, 0.95);
+    box-shadow: 0 0 0 3px rgba(58, 189, 248, 0.08);
+  }
+
+  &.is-invalid-custom {
+    border-color: rgba(239, 68, 68, 0.4);
+    &:focus {
+      box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.08);
+    }
+  }
+}
+
+/* Fix dropdown option appearance styled consistently */
+.format-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%2394a3b8'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  background-size: 12px;
+  padding-right: 40px;
+  
+  option {
+    background-color: #0B1631;
+    color: #F8FAFC;
+  }
+}
+
+/* Action Execution Button */
+.professional-submit-btn {
+  background: linear-gradient(135deg, $accent-cyan 0%, #0284C7 100%);
+  color: #FFFFFF;
+  font-weight: 600;
+  padding: 14px;
+  border-radius: 12px;
+  border: none;
+  box-shadow: 0 4px 14px rgba(58, 189, 248, 0.2);
+  transition: all 0.2s ease;
+
+  &:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(58, 189, 248, 0.35);
+  }
+
+  &:disabled {
+    background: #1E293B;
+    color: #64748B;
+    box-shadow: none;
+    cursor: not-allowed;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+  }
+}
+
+/* Inline Dynamic Status Banners */
+.status-banner {
+  padding: 16px;
+  border-radius: 14px;
+  font-size: 0.88rem;
+  line-height: 1.4;
+
+  .banner-icon {
+    font-size: 1.2rem;
+    flex-shrink: 0;
+  }
+
+  &.success {
+    background: rgba(16, 185, 129, 0.08);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    color: #A7F3D0;
+    .banner-icon { color: #34D399; }
+  }
+
+  &.error {
+    background: rgba(239, 68, 68, 0.08);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    color: #FCA5A5;
+    .banner-icon { color: #F87171; }
+  }
 }
