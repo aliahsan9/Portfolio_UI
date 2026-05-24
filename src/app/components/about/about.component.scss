@@ -49,11 +49,10 @@ $border-color: rgba(255, 255, 255, 0.08);
   line-height: 1.75;
 }
 
-// Interactive Lanyard Concept
 .lanyard-container {
   width: 280px;
   perspective: 1000px;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 
   &:hover .lanyard-card {
     transform: rotateY(8deg) rotateX(4deg) translateY(-5px);
@@ -112,7 +111,6 @@ $border-color: rgba(255, 255, 255, 0.08);
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: scale 0.5s ease;
     }
   }
 
@@ -132,7 +130,6 @@ $border-color: rgba(255, 255, 255, 0.08);
   }
 }
 
-// Tech Badges
 .tech-tags {
   display: flex;
   flex-wrap: wrap;
@@ -158,46 +155,91 @@ $border-color: rgba(255, 255, 255, 0.08);
 }
 
 
-/* --- SECTION 2: INTERACTIVE EXPERIENCE GRID --- */
-.sticky-card-container {
+/* --- SECTION 2: FLATTENED STATIC EXPERIENCE GRID --- */
+.exp-row-item {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  padding-bottom: 2rem;
+
+  &:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+}
+
+.exp-card {
+  padding: 10px 0;
+}
+
+.exp-icon {
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  color: #fff;
+  
+  &.bg-dotnet { background: linear-gradient(135deg, #512bd4, #7950f2); }
+  &.bg-angular { background: linear-gradient(135deg, #e23237, #b52e31); }
+  &.bg-sql { background: linear-gradient(135deg, #00758f, #005f73); }
+}
+
+.exp-details {
+  h4 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+    color: $text-light;
+  }
+  h5 {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #cbd5e1;
+    margin-bottom: 6px;
+
+    .type-badge {
+      color: $accent-neon;
+      font-size: 0.85rem;
+      font-weight: 400;
+    }
+  }
+  .date {
+    font-size: 0.8rem;
+    color: $text-muted;
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+  .summary {
+    font-size: 0.95rem;
+    color: $text-muted;
+    line-height: 1.6;
+    margin: 0;
+  }
+}
+
+// Side-by-side Project Mockup Container
+.project-img-wrapper {
   position: relative;
-}
-
-.preview-card-display {
-  position: sticky;
-  top: 100px;
-  width: 100%;
-  height: 380px;
-  border-radius: 24px;
+  border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.4);
-  background: #0f172a;
   border: 1px solid rgba(255, 255, 255, 0.05);
-}
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  background: #0f172a;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 
-.interactive-preview {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  transform: scale(1.05) translateY(10px);
-  transition: opacity 0.45s ease, transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
-  pointer-events: none;
-  z-index: 1;
-
-  &.visible {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-    pointer-events: auto;
-    z-index: 2;
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4), 0 0 30px rgba(58, 189, 248, 0.05);
   }
 
-  img {
+  .project-display-img {
     width: 100%;
-    height: 100%;
+    height: auto;
+    max-height: 280px;
     object-fit: cover;
+    display: block;
   }
 
   .preview-overlay {
@@ -205,98 +247,24 @@ $border-color: rgba(255, 255, 255, 0.08);
     bottom: 0;
     left: 0;
     right: 0;
-    padding: 30px;
-    background: linear-gradient(to top, rgba(10, 26, 63, 0.95) 20%, rgba(10, 26, 63, 0));
+    padding: 20px;
+    background: linear-gradient(to top, rgba(10, 26, 63, 0.95) 40%, rgba(10, 26, 63, 0));
     
     h6 {
-      font-size: 1.25rem;
+      font-size: 1.1rem;
       font-weight: 700;
-      margin-bottom: 4px;
+      margin-bottom: 2px;
       color: #fff;
     }
     p {
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       color: $accent-neon;
       margin: 0;
     }
   }
 }
 
-// Experience Row Left Items
-.exp-item {
-  display: flex;
-  gap: 20px;
-  padding: 24px;
-  border-radius: 16px;
-  background: transparent;
-  border: 1px solid transparent;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  cursor: pointer;
-
-  &.active, &:hover {
-    background: rgba(255, 255, 255, 0.02);
-    border-color: rgba(255, 255, 255, 0.06);
-    transform: translateX(8px);
-
-    .exp-icon {
-      transform: scale(1.1);
-      box-shadow: 0 0 20px rgba(58, 189, 248, 0.2);
-    }
-  }
-
-  .exp-icon {
-    width: 48px;
-    height: 48px;
-    min-width: 48px;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.25rem;
-    color: #fff;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    
-    &.bg-dotnet { background: linear-gradient(135deg, #512bd4, #7950f2); }
-    &.bg-angular { background: linear-gradient(135deg, #e23237, #b52e31); }
-    &.bg-sql { background: linear-gradient(135deg, #00758f, #005f73); }
-  }
-
-  .exp-details {
-    h4 {
-      font-size: 1.2rem;
-      font-weight: 700;
-      margin-bottom: 4px;
-      color: $text-light;
-    }
-    h5 {
-      font-size: 0.95rem;
-      font-weight: 500;
-      color: #cbd5e1;
-      margin-bottom: 6px;
-
-      .type-badge {
-        color: $accent-neon;
-        font-size: 0.85rem;
-        font-weight: 400;
-      }
-    }
-    .date {
-      font-size: 0.8rem;
-      color: $text-muted;
-      font-weight: 600;
-      margin-bottom: 10px;
-    }
-    .summary {
-      font-size: 0.95rem;
-      color: $text-muted;
-      line-height: 1.6;
-      margin: 0;
-    }
-  }
-}
-
-
-/* --- SECTION 3: EDUCATION GRID --- */
+/* --- SECTION 3: EDUCATION --- */
 .edu-card {
   background: $card-bg;
   border: 1px solid $border-color;
@@ -307,7 +275,6 @@ $border-color: rgba(255, 255, 255, 0.08);
   .edu-university {
     font-size: 1.6rem;
     font-weight: 800;
-    letter-spacing: -0.01em;
     color: #fff;
   }
   .edu-degree {
@@ -321,7 +288,6 @@ $border-color: rgba(255, 255, 255, 0.08);
     color: $text-muted;
     margin-top: 4px;
   }
-
   .edu-details-list {
     font-size: 0.95rem;
     color: #cbd5e1;
@@ -358,31 +324,32 @@ $border-color: rgba(255, 255, 255, 0.08);
     font-style: italic;
     color: $text-muted;
     font-size: 1.05rem;
-    line-height: 1.6;
     margin: 0;
   }
 }
 
-
 /* --- RESPONSIVE MEDIA BREAKPOINTS --- */
 @media (max-width: 991px) {
+  .about-section {
+    padding: 80px 0 40px 0;
+  }
   .intro-row {
-    flex-direction: column-reverse;
     text-align: center;
   }
-  
   .tech-tags {
     justify-content: center;
   }
-
-  .exp-item {
-    &.active, &:hover {
-      transform: none; // Disable sideways shift on touch screens
-    }
+  .project-img-wrapper {
+    margin-top: 0.5rem;
   }
-
   .edu-graphic-card {
     margin-top: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-text {
+    font-size: 2.2rem;
   }
 }
 
@@ -391,7 +358,7 @@ $border-color: rgba(255, 255, 255, 0.08);
     padding: 60px 0;
   }
   .lanyard-container {
-    width: 240px;
+    width: 250px;
   }
   .edu-card {
     padding: 24px;

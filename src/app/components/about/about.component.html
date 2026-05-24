@@ -1,8 +1,9 @@
 <section class="about-section" id="about">
   <div class="container">
 
+    <!-- Introduction Row -->
     <div class="row align-items-center intro-row g-5">
-      <div class="col-lg-5 col-md-6 text-center text-md-start position-relative d-flex justify-content-center">
+      <div class="col-lg-5 col-md-6 d-flex justify-content-center order-2 order-md-1">
         <div class="lanyard-container">
           <div class="lanyard-strap"></div>
           <div class="lanyard-clip"></div>
@@ -19,7 +20,7 @@
         </div>
       </div>
 
-      <div class="col-lg-7 col-md-6">
+      <div class="col-lg-7 col-md-6 order-1 order-md-2">
         <span class="section-label">INTRODUCTION</span>
         <h1 class="hero-text mt-3">
           I'm a Full-Stack <span class="highlight">Developer</span>, Tech Founder, and System <span class="highlight">Architect</span>.
@@ -45,70 +46,32 @@
 
     <hr class="section-divider my-5">
 
+    <!-- Experience Grid Section -->
     <div class="experience-section">
-      <span class="section-label">EXPERIENCE</span>
+      <span class="section-label d-block mb-4">EXPERIENCE</span>
       
-      <div class="row g-5 mt-2">
-        <div class="col-lg-5 d-flex flex-column gap-5">
-          
-          <div class="exp-item" (mouseenter)="setActiveProject(0)" [class.active]="activeProjectIndex === 0">
-            <div class="exp-icon bg-dotnet">
-              <i class="bi bi-shield-lock-fill"></i>
-            </div>
-            <div class="exp-details">
-              <h4>Founder & Architect</h4>
-              <h5>Falcon AI Safety Firewall · <span class="type-badge">SaaS</span></h5>
-              <p class="date">Dec 2025 - Present</p>
-              <p class="summary">Architected a production-ready system protecting AI models from injection vulnerabilities, toxic queries, and malicious misuse using high-frequency filters.</p>
-            </div>
-          </div>
-
-          <div class="exp-item" (mouseenter)="setActiveProject(1)" [class.active]="activeProjectIndex === 1">
-            <div class="exp-icon bg-angular">
-              <i class="bi bi-keyboard-fill"></i>
-            </div>
-            <div class="exp-details">
-              <h4>Lead Full-Stack Dev</h4>
-              <h5>TypeDynamics · <span class="type-badge">Web Application</span></h5>
-              <p class="date">Mar 2026 - Present</p>
-              <p class="summary">Engineering a responsive, real-time typing assessment engine with interactive learning curves, detailed analytical telemetry graphs, and ultra-low input latency.</p>
-            </div>
-          </div>
-
-          <div class="exp-item" (mouseenter)="setActiveProject(2)" [class.active]="activeProjectIndex === 2">
-            <div class="exp-icon bg-sql">
-              <i class="bi bi-journal-text"></i>
-            </div>
-            <div class="exp-details">
-              <h4>Core Platform Engineer</h4>
-              <h5>ExamDynamics · <span class="type-badge">API Ecosystem</span></h5>
-              <p class="date">Mar 2026 - Present</p>
-              <p class="summary">Designed secure relational schemas and optimized REST endpoints capable of delivering high-concurrency examination states cleanly under demanding production contexts.</p>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="col-lg-7 d-none d-md-block sticky-card-container">
-          <div class="preview-card-display">
-            <div class="interactive-preview" [class.visible]="activeProjectIndex === 0">
-              <img src="assets/projects/prodfalcon.avif" alt="Falcon AI Firewall Preview">
-              <div class="preview-overlay">
-                <h6>Falcon AI Safety Firewall</h6>
-                <p>Clean Dashboard Layout · Neon Blue Highlights</p>
+      <div class="d-flex flex-column gap-5 mt-2">
+        
+          <!-- Project 1: ExamDynamics -->
+        <div class="row g-4 align-items-center exp-row-item">
+          <div class="col-lg-5">
+            <div class="exp-card">
+              <div class="d-flex gap-3">
+                <div class="exp-icon bg-sql">
+                  <i class="bi bi-journal-text"></i>
+                </div>
+                <div class="exp-details">
+                  <h4>Core Platform Engineer</h4>
+                  <h5>ExamDynamics · <span class="type-badge">API Ecosystem</span></h5>
+                  <p class="date">Mar 2026 - Present</p>
+                  <p class="summary">Designed secure relational schemas and optimized REST endpoints capable of delivering high-concurrency examination states cleanly under demanding production contexts.</p>
+                </div>
               </div>
             </div>
-
-            <div class="interactive-preview" [class.visible]="activeProjectIndex === 1">
-              <img src="assets/projects/examdynamics.avif" alt="TypeDynamics Preview">
-              <div class="preview-overlay">
-                <h6>TypeDynamics App</h6>
-                <p>Interactive Minimal Typetest Dashboard</p>
-              </div>
-            </div>
-
-            <div class="interactive-preview" [class.visible]="activeProjectIndex === 2">
-              <img src="assets/projects/examdynamics.avif" alt="ExamDynamics Preview">
+          </div>
+          <div class="col-lg-7">
+            <div class="project-img-wrapper">
+              <img src="assets/projects/examdynamics.avif" alt="ExamDynamics Preview" class="img-fluid project-display-img">
               <div class="preview-overlay">
                 <h6>ExamDynamics Architecture</h6>
                 <p>High-Throughput Relational Framework & API Engine</p>
@@ -116,11 +79,68 @@
             </div>
           </div>
         </div>
+
       </div>
     </div>
+        <!-- Project 2: Falcon AI -->
+        <div class="row g-4 align-items-center exp-row-item">
+          <div class="col-lg-5">
+            <div class="exp-card">
+              <div class="d-flex gap-3">
+                <div class="exp-icon bg-dotnet">
+                  <i class="bi bi-shield-lock-fill"></i>
+                </div>
+                <div class="exp-details">
+                  <h4>Founder & Architect</h4>
+                  <h5>Falcon AI Safety Firewall · <span class="type-badge">SaaS</span></h5>
+                  <p class="date">Dec 2025 - Present</p>
+                  <p class="summary">Architected a production-ready system protecting AI models from injection vulnerabilities, toxic queries, and malicious misuse using high-frequency filters.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="project-img-wrapper">
+              <img src="assets/projects/prodfalcon.avif" alt="Falcon AI Firewall Preview" class="img-fluid project-display-img">
+              <div class="preview-overlay">
+                <h6>Falcon AI Safety Firewall</h6>
+                <p>Clean Dashboard Layout · Neon Blue Highlights</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3: MedicalERP -->
+        <div class="row g-4 align-items-center exp-row-item">
+          <div class="col-lg-5">
+            <div class="exp-card">
+              <div class="d-flex gap-3">
+                <div class="exp-icon bg-angular">
+                  <i class="bi bi-heart-pulse-fill"></i>
+                </div>
+                <div class="exp-details">
+                  <h4>Lead Full-Stack Dev</h4>
+                  <h5>MedicalERP · <span class="type-badge">Enterprise Platform</span></h5>
+                  <p class="date">Jan 2026 - Present</p>
+                  <p class="summary">Developing a comprehensive healthcare management platform featuring automated patient scheduling, electronic health records (EHR) synchronization, and secure diagnostic workflow coordination.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="project-img-wrapper">
+              <img src="assets/projects/medical.avif" alt="MedicalERP Preview" class="img-fluid project-display-img">
+              <div class="preview-overlay">
+                <h6>MedicalERP Ecosystem</h6>
+                <p>Clinical Intelligence Dashboard & Patient Care Portal</p>
+              </div>
+            </div>
+          </div>
+        </div>
 
     <hr class="section-divider my-5">
 
+    <!-- Education Section -->
     <div class="education-section pb-4">
       <span class="section-label">EDUCATION</span>
       
@@ -144,11 +164,11 @@
 
         <div class="col-lg-6">
           <div class="edu-graphic-card">
-           <div class="decorative-code">
-  <span class="keyword">public class</span> <span class="class-name">Developer</span> {{ '{' }} <br>
-  &nbsp;&nbsp;<span class="keyword">public bool</span> ReadyToScale => <span class="value">true</span>;<br>
-  {{ '}' }}
-</div>
+            <div class="decorative-code">
+              <span class="keyword">public class</span> <span class="class-name">Developer</span> {{ '{' }} <br>
+              &nbsp;&nbsp;<span class="keyword">public bool</span> ReadyToScale => <span class="value">true</span>;<br>
+              {{ '}' }}
+            </div>
             <p class="graphic-quote">"Simplicity is the ultimate sophistication. Clean backends and responsive frontends always win."</p>
           </div>
         </div>
