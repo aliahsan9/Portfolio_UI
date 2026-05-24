@@ -354,6 +354,22 @@ $border-color: rgba(255, 255, 255, 0.08);
 }
 
 @media (max-width: 576px) {
+  .section-label{
+    position: relative;
+    top: 30px;
+  }
+  .hero-text{
+    position: relative;
+    top: 30px;
+  }
+  .desc-text{
+    position: relative;
+    top: 30px;
+  }
+  .tech-tags{
+    position: relative;
+    top: 30px;
+  }
   .about-section {
     padding: 60px 0;
   }
