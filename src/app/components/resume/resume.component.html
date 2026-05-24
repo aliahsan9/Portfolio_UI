@@ -1,10 +1,10 @@
 <section id="resume" class="resume-section py-5 text-center">
   <div class="container">
-    <h1 class="fw-bold text-gradient mb-2">My Resume</h1>
-    <p class="text-light-muted mb-4">View, download, or open my full resume in a new tab.</p>
-
-    <!-- Action Buttons -->
-    <div class="d-flex flex-wrap justify-content-center gap-3 mb-4">
+    <h1 class="fw-bold text-gradient mb-3">My Resume</h1>
+    <p class="text-light mb-4">View or download my full resume below</p>
+    
+    <!-- Button Group -->
+    <div class="button-group mb-4">
       <a href="assets/resume/Ali_Ahsan_Resume.pdf" download class="btn btn-gradient">
         <i class="bi bi-download me-2"></i> Download Resume
       </a>
@@ -12,18 +12,15 @@
         <i class="bi bi-box-arrow-up-right me-2"></i> Open in New Tab
       </a>
     </div>
-
+    
     <!-- Resume Viewer -->
     <div class="resume-viewer glass-card">
       <iframe 
         src="assets/resume/Ali_Ahsan_Resume.pdf#toolbar=0" 
         frameborder="0"
         title="Ali Ahsan Resume"
+        loading="lazy"
       ></iframe>
-      <!-- UI Helper for mobile devices where iframes sometimes struggle -->
-      <div class="mobile-viewer-fallback d-none p-3 text-center">
-        <p class="mb-0 text-muted">Using a mobile device? <a href="assets/resume/Ali_Ahsan_Resume.pdf" target="_blank" class="text-info">Click here to view the PDF full screen.</a></p>
-      </div>
     </div>
   </div>
 </section>

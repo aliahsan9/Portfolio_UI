@@ -17,55 +17,81 @@
   -webkit-text-fill-color: transparent;
   animation: gradient-move 4s ease-in-out infinite;
 }
-
-.text-light-muted {
-  color: rgba(255, 255, 255, 0.7);
-}
-
+ 
 @keyframes gradient-move {
   0% { background-position: 0%; }
   50% { background-position: 100%; }
   100% { background-position: 0%; }
 }
 
-/* Buttons Base & Interaction */
-.btn-gradient, .btn-outline-gradient {
-  font-weight: 500;
-  padding: 10px 22px;
-  border-radius: 8px;
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  display: inline-flex;
-  align-items: center;
+/* Button Group Container */
+.button-group {
+  display: flex;
+  gap: 15px;
   justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
-/* Primary Download button */
+/* Gradient button (filled) */
 .btn-gradient {
   background: linear-gradient(90deg, #00eaff, #4d9fff, #b14bff);
+  background-size: 200% auto;
   color: #fff;
   border: none;
+  font-weight: 500;
+  padding: 12px 24px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  animation: gradient-move 4s ease-in-out infinite;
 }
 
 .btn-gradient:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(77, 159, 255, 0.5);
+  color: #fff;
+}
+
+/* Outline gradient button */
+.btn-outline-gradient {
+  background: transparent;
+  color: #00eaff;
+  border: 2px solid;
+  border-image: linear-gradient(90deg, #00eaff, #4d9fff, #b14bff) 1;
+  font-weight: 500;
+  padding: 10px 22px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-outline-gradient::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: linear-gradient(90deg, #00eaff, #4d9fff, #b14bff);
+  transition: width 0.3s ease;
+  z-index: -1;
+}
+
+.btn-outline-gradient:hover {
   color: #fff;
   transform: translateY(-3px);
   box-shadow: 0 6px 20px rgba(0, 234, 255, 0.4);
 }
 
-/* New Open in New Tab Button (Outline style matching the palette) */
-.btn-outline-gradient {
-  background: rgba(255, 255, 255, 0.03);
-  color: #00eaff;
-  border: 1px solid rgba(0, 234, 255, 0.4);
-  backdrop-filter: blur(4px);
-}
-
-.btn-outline-gradient:hover {
-  background: linear-gradient(90deg, rgba(0, 234, 255, 0.1), rgba(77, 159, 255, 0.1));
-  color: #ffffff;
-  border-color: #4d9fff;
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(77, 159, 255, 0.15);
+.btn-outline-gradient:hover::before {
+  width: 100%;
 }
 
 /* Resume viewer container */
@@ -73,57 +99,57 @@
   width: 100%;
   max-width: 850px;
   margin: 30px auto;
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
 
-  iframe {
-    width: 100%;
-    height: 85vh;
-    border: none;
-    display: block;
-  }
+.resume-viewer iframe {
+  width: 100%;
+  height: 90vh;
+  border: none;
+  display: block;
 }
 
 .resume-viewer:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 40px rgba(0, 234, 255, 0.1);
-  border-color: rgba(0, 234, 255, 0.2);
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(77, 159, 255, 0.3);
 }
 
-/* Responsive design adjustments */
+/* Responsive design */
 @media (max-width: 992px) {
   .resume-viewer iframe {
     height: 75vh;
   }
   h1 {
-    font-size: 2.2rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .mobile-viewer-fallback {
-    display: block !important;
-    background: rgba(0, 0, 0, 0.2);
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 2rem;
   }
 }
 
 @media (max-width: 576px) {
   .resume-viewer iframe {
-    height: 60vh;
+    height: 65vh;
   }
-  .btn-gradient, .btn-outline-gradient {
-    padding: 10px 16px;
+  
+  .button-group {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .btn-gradient,
+  .btn-outline-gradient {
+    padding: 10px 20px;
     font-size: 0.9rem;
-    width: 100%; /* Stack smoothly on ultra-small mobile displays */
+    width: 100%;
+    max-width: 250px;
+    justify-content: center;
   }
+  
   h1 {
-    font-size: 1.8rem;
+    font-size: 1.75rem;
   }
 }
