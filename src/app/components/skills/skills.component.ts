@@ -87,7 +87,7 @@ export class SkillsComponent {
       percent: 94,
       icon: 'assets/Images/leadership.avif',
       description:
-        'Practical experience simulating real-world Agile workflows using Jira Scrum boards, sprint planning, story estimation, and backlog grooming.',
+        'Practical Agile experience with Jira, Scrum boards, sprint planning, story estimation, and backlog grooming.',
 
       workflow:
         'Projects are managed like production systems using Epics, Stories, Sprints, and GitHub-integrated development cycles.',
