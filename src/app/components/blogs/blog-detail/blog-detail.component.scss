@@ -9,111 +9,124 @@
 }
 
 /* ======================================== */
-/* HERO                                     */
-/* ======================================== */
-
-.blog-hero {
-  padding: 60px 0 30px;
-  border-bottom: 1px solid rgba(255,255,255,0.06);
-}
-
-.hero-container {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-/* ======================================== */
 /* CONTENT                                  */
 /* ======================================== */
 
 .blog-main {
-  padding: 40px 0 80px;
+  padding: 50px 0 80px;
 }
 
 .blog-article {
   background: #0f172a;
-
-  border: 1px solid rgba(255,255,255,0.08);
-
-  border-radius: 18px;
-
-  padding: clamp(20px, 4vw, 42px);
-
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  padding: clamp(24px, 4vw, 48px);
   overflow: hidden;
 
   box-shadow:
-    0 10px 40px rgba(0,0,0,0.4);
+    0 20px 60px rgba(0, 0, 0, 0.35),
+    0 0 0 1px rgba(255, 255, 255, 0.02);
 }
 
 /* ======================================== */
-/* MARKDOWN                                 */
+/* MARKDOWN BODY                            */
 /* ======================================== */
 
 .markdown-body {
   line-height: 1.9;
+  font-size: 1.05rem;
 }
 
-/* HEADINGS */
+/* ======================================== */
+/* HEADINGS                                 */
+/* ======================================== */
 
 .markdown-body ::ng-deep h1,
 .markdown-body ::ng-deep h2,
 .markdown-body ::ng-deep h3,
-.markdown-body ::ng-deep h4 {
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-
+.markdown-body ::ng-deep h4,
+.markdown-body ::ng-deep h5,
+.markdown-body ::ng-deep h6 {
   color: #38bdf8;
-
+  margin-top: 2.2rem;
+  margin-bottom: 1rem;
   line-height: 1.3;
+  font-weight: 700;
 }
 
-/* PARAGRAPHS */
+.markdown-body ::ng-deep h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.markdown-body ::ng-deep h2 {
+  font-size: clamp(1.6rem, 3vw, 2.3rem);
+}
+
+/* ======================================== */
+/* PARAGRAPHS                               */
+/* ======================================== */
 
 .markdown-body ::ng-deep p {
-  margin-bottom: 1.4rem;
-
   color: #cbd5e1;
-
-  font-size: 1.05rem;
+  margin-bottom: 1.5rem;
 }
 
-/* LINKS */
+/* ======================================== */
+/* LINKS                                    */
+/* ======================================== */
 
 .markdown-body ::ng-deep a {
   color: #22d3ee;
+  transition: 0.3s ease;
 }
 
 .markdown-body ::ng-deep a:hover {
+  color: #67e8f9;
   text-decoration: underline;
 }
 
-/* INLINE CODE */
+/* ======================================== */
+/* IMAGES (FIXED)                           */
+/* ======================================== */
 
-.markdown-body ::ng-deep :not(pre) > code {
-  background: #111827;
-
-  color: #22d3ee;
-
-  padding: 3px 7px;
-
-  border-radius: 6px;
-
-  font-size: 0.92rem;
+.markdown-body ::ng-deep p:has(img) {
+  text-align: center;
 }
 
-
-/* ======================================== */
-/* IMAGES                                   */
-/* ======================================== */
-
 .markdown-body ::ng-deep img {
-  width: 100%;
-  max-width: 100%;
+  display: block;
 
-  border-radius: 14px;
+  width: auto;
+  height: auto;
 
-  margin: 28px 0;
+  max-width: 80%;
+  max-height: 650px;
+
+  margin: 40px auto;
+
+  object-fit: contain;
+
+  border-radius: 20px;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  background: #0b1120;
+
+  box-shadow:
+    0 15px 40px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.02);
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.markdown-body ::ng-deep img:hover {
+  transform: translateY(-5px);
+
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.5),
+    0 0 30px rgba(56, 189, 248, 0.15);
 }
 
 /* ======================================== */
@@ -122,12 +135,13 @@
 
 .markdown-body ::ng-deep ul,
 .markdown-body ::ng-deep ol {
-  padding-left: 24px;
-  margin-bottom: 20px;
+  padding-left: 28px;
+  margin-bottom: 24px;
 }
 
 .markdown-body ::ng-deep li {
   margin-bottom: 10px;
+  color: #cbd5e1;
 }
 
 /* ======================================== */
@@ -135,11 +149,14 @@
 /* ======================================== */
 
 .markdown-body ::ng-deep blockquote {
-  margin: 24px 0;
-
-  padding-left: 18px;
+  margin: 28px 0;
+  padding: 18px 24px;
 
   border-left: 4px solid #38bdf8;
+
+  background: rgba(255, 255, 255, 0.03);
+
+  border-radius: 0 12px 12px 0;
 
   color: #94a3b8;
 
@@ -147,26 +164,82 @@
 }
 
 /* ======================================== */
+/* INLINE CODE                              */
+/* ======================================== */
+
+.markdown-body ::ng-deep :not(pre) > code {
+  background: #111827;
+  color: #22d3ee;
+
+  padding: 4px 8px;
+
+  border-radius: 6px;
+
+  font-size: 0.92rem;
+}
+
+/* ======================================== */
+/* TABLES                                   */
+/* ======================================== */
+
+.markdown-body ::ng-deep table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 30px 0;
+}
+
+.markdown-body ::ng-deep th,
+.markdown-body ::ng-deep td {
+  padding: 14px;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.markdown-body ::ng-deep th {
+  background: #111827;
+  color: #38bdf8;
+}
+
+.markdown-body ::ng-deep td {
+  color: #cbd5e1;
+}
+
+/* ======================================== */
+/* HORIZONTAL RULE                          */
+/* ======================================== */
+
+.markdown-body ::ng-deep hr {
+  border: none;
+  height: 1px;
+
+  background: rgba(255,255,255,0.08);
+
+  margin: 40px 0;
+}
+
+/* ======================================== */
 /* MOBILE                                   */
 /* ======================================== */
 
+@media (max-width: 992px) {
+  .markdown-body ::ng-deep img {
+    max-width: 92%;
+  }
+}
+
 @media (max-width: 768px) {
 
-  .blog-hero {
-    padding-top: 40px;
+  .blog-main {
+    padding: 30px 0 60px;
   }
 
   .blog-article {
+    padding: 20px;
+    border-radius: 18px;
+  }
+
+  .markdown-body ::ng-deep img {
+    max-width: 100%;
+    margin: 24px auto;
     border-radius: 14px;
-    padding: 18px;
-  }
-
-  .markdown-body ::ng-deep pre {
-    padding:
-      58px 16px 16px;
-  }
-
-  .markdown-body ::ng-deep pre code {
-    font-size: 13px;
   }
 }
