@@ -47,7 +47,7 @@ export class PublicProjectsComponent {
       description:
         'Powerful ERP and inventory management platform designed for scalability, reporting and enterprise workflows.',
       image: 'assets/projects/prodfalcon.avif',
-      technologies: ['Angular', '.NET API', 'Bootstrap'],
+      technologies: ['Angular', '.NET API', 'SQL Server'],
       route: '/prodfalcon-detail',
       icon: 'bi bi-box-seam-fill',
       accent: '#8b5cf6'
@@ -57,7 +57,7 @@ export class PublicProjectsComponent {
       description:
         'Modern medical ERP and pharmacy management system with inventory tracking, billing, sales, purchases and responsive admin dashboard.',
       image: 'assets/projects/medical.avif',
-      technologies: ['Angular', '.NET', 'SQL'],
+      technologies: ['Angular', '.NET', 'SQL Server'],
       route: '/medical-detail',
       icon: 'bi bi-prescription2',
       accent: '#0ea5e9'

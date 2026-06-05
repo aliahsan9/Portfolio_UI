@@ -46,7 +46,7 @@
 
 .project-title {
   font-size:
-    clamp(2.7rem, 6vw, 5rem);
+    clamp(2rem, vw, 3rem);
 
   font-weight: 800;
 
@@ -185,7 +185,7 @@
 
 .section-title {
   font-size:
-    clamp(2rem, 5vw, 3rem);
+    clamp(2rem, 5vw, 1rem);
 
   font-weight: 700;
 
@@ -326,7 +326,7 @@
 
 .tech-item {
   padding:
-    13px 22px;
+    5px 12px;
 
   border-radius: 999px;
 
