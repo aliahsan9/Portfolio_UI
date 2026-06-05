@@ -35,8 +35,8 @@ export class ContactComponent {
     this.submitError = false;
 
     emailjs.send(
-      'service_5kj01gi',       // Service ID
-      'template_jtloyfa',      // Template ID
+      'service_5kj01gi',       // Service ID Here
+      'template_jtloyfa',      // Template ID Here
       {
         name: form.value.name,
         email: form.value.email,
