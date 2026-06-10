@@ -16,15 +16,6 @@ export class ContactComponent {
   submitSuccess = false;
   submitError = false;
 
-  // Real clients appreciate choosing scopes immediately
-  projectTypes = [
-    'Full-Stack Web App (.NET + Angular)',
-    'ASP.NET Core API Integration',
-    'Angular Frontend Development',
-    'Database Design / SQL Optimization',
-    'Other / Bug Fixing'
-  ];
-
   selectedType = '';
 
   sendEmail(form: NgForm) {

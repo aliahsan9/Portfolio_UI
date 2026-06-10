@@ -66,7 +66,7 @@
                   class="form-input-custom"
                   [class.is-invalid-custom]="name.invalid && name.touched"
                   required
-                  placeholder="e.g. Alexander Wright"
+                  placeholder="Enter name"
                 />
               </div>
 
@@ -82,22 +82,9 @@
                   [class.is-invalid-custom]="email.invalid && email.touched"
                   required
                   email
-                  placeholder="name@company.com"
+                  placeholder="Enter your email"
                 />
               </div>
-            </div>
-
-            <div class="mb-3">
-              <label for="projectType" class="form-label-custom">Project Scope / Category <span class="optional">(Optional)</span></label>
-              <select
-                id="projectType"
-                name="projectType"
-                [(ngModel)]="selectedType"
-                class="form-input-custom format-select"
-              >
-                <option value="" disabled selected hidden>Select architecture type...</option>
-                <option *ngFor="let type of projectTypes" [value]="type">{{ type }}</option>
-              </select>
             </div>
 
             <div class="mb-4">
