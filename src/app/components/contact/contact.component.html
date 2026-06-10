@@ -66,7 +66,7 @@
                   class="form-input-custom"
                   [class.is-invalid-custom]="name.invalid && name.touched"
                   required
-                  placeholder="Enter name"
+                  placeholder="Enter your full name"
                 />
               </div>
 
@@ -82,13 +82,13 @@
                   [class.is-invalid-custom]="email.invalid && email.touched"
                   required
                   email
-                  placeholder="Enter your email"
+                  placeholder="Enter your email address"
                 />
               </div>
             </div>
 
             <div class="mb-4">
-              <label for="message" class="form-label-custom">Project Overview & Details <span class="req">*</span></label>
+              <label for="message" class="form-label-custom">Tell us more <span class="req">*</span></label>
               <textarea
                 id="message"
                 name="message"
@@ -107,7 +107,7 @@
               class="btn professional-submit-btn w-100 d-flex align-items-center justify-content-center gap-2"
               [disabled]="form.invalid || isSubmitting"
             >
-              <span *ngIf="!isSubmitting">Initiate Inquiry <i class="bi bi-send-fill text-sm"></i></span>
+              <span *ngIf="!isSubmitting">Send Message <i class="bi bi-send-fill text-sm"></i></span>
               <span *ngIf="isSubmitting" class="d-flex align-items-center gap-2">
                 <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                 Processing Secure Dispatch...
