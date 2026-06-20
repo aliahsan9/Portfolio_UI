@@ -45,7 +45,7 @@ export class ServicesComponent {
         'Entity Framework Core optimization & lazy loading',
         'Fully documented Swagger / OpenAPI schemas'
       ],
-      priceEstimate: 'Starting from $600',
+      priceEstimate: 'Custom Milestone Based',
       deliveryTime: '1-2 weeks'
     },
     {
@@ -58,7 +58,7 @@ export class ServicesComponent {
         'Reusable component libraries & dynamic forms',
         'Cross-browser performance tuning'
       ],
-      priceEstimate: 'Starting from $500',
+      priceEstimate: 'Custom Milestone Based',
       deliveryTime: '1-3 weeks'
     },
     {
@@ -85,7 +85,7 @@ export class ServicesComponent {
         'Accessible, screen-reader-friendly markup',
         'Interactive custom micro-animations'
       ],
-      priceEstimate: 'Starting from $300',
+      priceEstimate: 'Custom Milestone Based',
       deliveryTime: '3-7 days'
     },
     {
@@ -98,7 +98,7 @@ export class ServicesComponent {
         'Data backup scripts & automation tasks',
         'Advanced Query execution analysis'
       ],
-      priceEstimate: 'Starting from $400',
+      priceEstimate: 'Custom Milestone Based',
       deliveryTime: '4-10 days'
     }
   ];
