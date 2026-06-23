@@ -1,53 +1,77 @@
 .custom-footer {
-  background: linear-gradient(135deg, #0b1f3a, #081529);
-  color: #fff;
-  font-family: 'Segoe UI', sans-serif;
+  background: radial-gradient(circle at top, #0f2a4a, #070f1d);
+  color: #ffffff;
+  font-family: "Segoe UI", sans-serif;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 
   h5 {
-    font-size: 1.25rem;
-    color: #00d9ff;
-    margin-bottom: 0.8rem;
+    color: #4ddcff;
     font-weight: 600;
+    margin-bottom: 1rem;
+    letter-spacing: 0.5px;
   }
 
   p {
+    color: rgba(255, 255, 255, 0.75);
     font-size: 0.95rem;
-    color: #ffffffcc;
-    margin-bottom: 0.5rem;
   }
 
+  hr {
+    border-color: rgba(255, 255, 255, 0.1);
+    margin: 2rem 0;
+  }
+
+  .small {
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  /* SOCIAL ICONS */
   .social-icons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 10px;
+
     a {
+      width: 42px;
+      height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(10px);
+
       color: #ffffffcc;
-      font-size: 1.4rem;
-      margin-right: 0.7rem;
-      transition: 0.3s;
+      transition: all 0.3s ease;
+      text-decoration: none;
+
+      i {
+        font-size: 20px;
+      }
+
+      svg {
+        width: 20px;
+        height: 20px;
+        fill: currentColor;
+      }
+
       &:hover {
-        color: #00d9ff;
-        transform: scale(1.2);
+        transform: translateY(-4px) scale(1.08);
+        color: #4ddcff;
+        background: rgba(77, 220, 255, 0.15);
+        box-shadow: 0 10px 25px rgba(77, 220, 255, 0.2);
       }
     }
   }
 
-  hr {
-    border-color: #ffffff22;
-    margin: 1.5rem 0;
-  }
-
-  .small {
-    color: #ffffff88;
-    font-size: 0.85rem;
-  }
-
+  /* MOBILE */
   @media (max-width: 768px) {
     text-align: center;
 
     .social-icons {
       justify-content: center;
-      a { margin-right: 0.5rem; font-size: 1.2rem; }
     }
-
-    h5 { font-size: 1.1rem; }
-    p { font-size: 0.9rem; }
   }
 }
