@@ -226,7 +226,7 @@ $font-body: 'Inter', sans-serif;
     position: absolute;
     inset: -12px;
     border-radius: 50%;
-    background: linear-gradient(135deg, rgba($primary, 0.4), rgba($accent, 0.3));
+    // background: linear-gradient(135deg, rgba($primary, 0.4), rgba($accent, 0.3));
     filter: blur(20px);
     opacity: 0.7;
     z-index: 0;
@@ -287,7 +287,7 @@ $font-body: 'Inter', sans-serif;
 
 .orbit-badge-0 {
   top: 6%;
-  right: -6%;
+  right: -1%;
   animation-delay: 0s;
 }
 

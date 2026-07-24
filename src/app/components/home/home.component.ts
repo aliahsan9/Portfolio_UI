@@ -56,8 +56,8 @@ export class HomeComponent implements OnInit {
 
   // Update these hrefs to your real profiles
   socialLinks: SocialLink[] = [
-    { icon: 'bi-github', url: 'https://github.com/', label: 'GitHub' },
-    { icon: 'bi-linkedin', url: 'https://linkedin.com/', label: 'LinkedIn' },
-    { icon: 'bi-envelope-fill', url: 'mailto:you@example.com', label: 'Email' },
+    { icon: 'bi-github', url: 'https://github.com/aliahsan9', label: 'GitHub' },
+    { icon: 'bi-linkedin', url: 'https://www.linkedin.com/in/ali-ahsan-6895a9315', label: 'LinkedIn' },
+    { icon: 'bi-envelope-fill', url: 'mailto:aliahsan.dev1@gmail.com', label: 'Email' },
   ];
 }
