@@ -21,7 +21,24 @@ interface Project {
 })
 export class PublicProjectsComponent {
 
-  projects: Project[] = [
+  projects: Project[] = [ {
+  title: 'BusinessOS',
+  description:
+    'Enterprise-grade AI-powered Business Operating System (BusinessOS) built for SMEs. Features secure authentication, multi-tenancy, inventory management, sales, purchases, analytics, reporting, and a scalable clean architecture.',
+  image: 'assets/projects/erp.avif',
+  technologies: [
+    'Angular',
+    '.NET 10',
+    'SQL Server',
+    'EF Core',
+    'JWT',
+    'Clean Architecture',
+    'Serilog'
+  ],
+  route: '/erp-detail',
+  icon: 'bi bi-building-gear',
+  accent: '#2563eb'
+},
     {
       title: 'ExamDynamics',
       description:
@@ -52,23 +69,6 @@ export class PublicProjectsComponent {
       icon: 'bi bi-box-seam-fill',
       accent: '#8b5cf6'
     },
-   {
-  title: 'BusinessOS',
-  description:
-    'Enterprise-grade AI-powered Business Operating System (BusinessOS) built for SMEs. Features secure authentication, multi-tenancy, inventory management, sales, purchases, analytics, reporting, and a scalable clean architecture.',
-  image: 'assets/projects/erp.avif',
-  technologies: [
-    'Angular',
-    '.NET 10',
-    'SQL Server',
-    'EF Core',
-    'JWT',
-    'Clean Architecture',
-    'Serilog'
-  ],
-  route: '/erp-detail',
-  icon: 'bi bi-building-gear',
-  accent: '#2563eb'
-}
+  
   ];
 }

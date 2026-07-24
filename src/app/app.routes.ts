@@ -14,7 +14,6 @@ import { TestimonialComponent } from './components/testimonial/testimonial.compo
 import { ExamdynamicsDetailComponent } from './components/projects-details/examdynamics-detail/examdynamics-detail.component';
 import { PortfolioDetailComponent } from './components/projects-details/portfolio-detail/portfolio-detail.component';
 import { ProdfalconDetailComponent } from './components/projects-details/prodfalcon-detail/prodfalcon-detail.component';
-import { Medical } from './components/projects-details/medical/medical.component';
 import { ErpDetail } from './components/projects-details/erp-detail/erp-detail.component';
  
 export const routes: Routes = [    
@@ -27,7 +26,6 @@ export const routes: Routes = [
   { path: 'projects', component: PublicProjectsComponent },
   // Projects Detailes
   { path: 'examdynamics-detail', component: ExamdynamicsDetailComponent },
-  { path: 'medical-detail', component: Medical },
   { path: 'erp-detail', component: ErpDetail },
   { path: 'portfolio-detail', component: PortfolioDetailComponent },
   { path: 'prodfalcon-detail', component: ProdfalconDetailComponent },
