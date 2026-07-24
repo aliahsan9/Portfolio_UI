@@ -1,52 +1,98 @@
 <section class="hero-section">
-  <div class="container d-flex flex-column flex-lg-row align-items-center justify-content-between">
-    
-    <!-- ===== Left: Hero Content ===== -->
-    <div class="hero-content text-center text-lg-start">
-      <h1>Hi, I'm <span>Ali Ahsan</span></h1>
-      <h2>Full Stack Developer</h2>
-      <p>
-       I build fast, responsive, and scalable web applications with Angular, .NET, 
-       and SQL Server — focused on clean design and seamless user experiences.
-      </p>
-      <div class="btn-group">
-        <button class="btn btn-primary" routerLink="/resume">Hire Me</button>
-        <button class="btn btn-outline-primary" routerLink="/contact">Let's Talk</button>
+  <div class="container position-relative">
+
+    <div class="d-flex flex-column flex-lg-row align-items-center justify-content-between gap-5">
+
+      <!-- ===== Left: Hero Content ===== -->
+      <div class="hero-content text-center text-lg-start">
+
+        <div class="status-pill d-inline-flex align-items-center gap-2 mb-4">
+          <span class="pulse-dot"></span>
+          <span>Available for opportunities</span>
+        </div>
+
+        <h1>Hi, I'm <span>Ali Ahsan</span></h1>
+        <h2><i class="bi bi-code-slash"></i> Full Stack Developer</h2>
+
+        <p>
+          I build fast, responsive, and scalable web applications with Angular, .NET,
+          and SQL Server — focused on clean design and seamless user experiences.
+        </p>
+
+        <div class="btn-group">
+          <button class="btn btn-primary" routerLink="/resume">
+            Hire Me <i class="bi bi-arrow-right ms-1"></i>
+          </button>
+          <button class="btn btn-outline-primary" routerLink="/contact">Let's Talk</button>
+        </div>
+
+        <!-- ===== Social Links ===== -->
+        <div class="social-links d-flex justify-content-center justify-content-lg-start gap-3 mt-4">
+          <a *ngFor="let social of socialLinks"
+             [href]="social.url"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="social-icon"
+             [attr.aria-label]="social.label">
+            <i class="bi" [ngClass]="social.icon"></i>
+          </a>
+        </div>
       </div>
+
+      <!-- ===== Right: Profile Image (Glassmorphic Frame + Orbit Badges) ===== -->
+      <div class="hero-image mt-4 mt-lg-0">
+        <div class="glass-frame">
+          <img
+            src="assets/profile/profile.png"
+            fetchpriority="high"
+            loading="lazy"
+            decoding="async"
+            width="400"
+            height="400"
+            alt="Ali Ahsan Profile"
+          />
+
+          <!-- Orbiting tech badges -->
+          <div class="orbit-ring" aria-hidden="true">
+            <span
+              class="orbit-badge"
+              *ngFor="let badge of orbitBadges; let i = index"
+              [ngClass]="'orbit-badge-' + i"
+            >
+              <i class="bi" [ngClass]="badge.icon"></i>
+              <span class="orbit-label">{{ badge.label }}</span>
+            </span>
+          </div>
+        </div>
+      </div>
+
     </div>
 
-    <!-- ===== Right: Profile Image (Glassmorphic Frame) ===== -->
-    <div class="hero-image mt-4 mt-lg-0">
-      <div class="glass-frame">
-          <img
-              src="assets/profile/profile.png"
-              fetchpriority="high"
-              loading="lazy"
-              decoding="async"
-              width="400"
-              height="400" 
-              alt="Ali Ahsan Profile"
-            />
+    <!-- ===== Skills Section ===== -->
+    <section class="skills-section">
+      <div class="skills-panel">
+        <p class="skills-eyebrow">
+          <i class="bi bi-stars"></i> Tech Stack
+        </p>
+        <div class="skills-slider overflow-hidden">
+          <div class="skills-track d-flex align-items-center">
+            <img *ngFor="let skill of skills" [src]="skill" alt="Skill Logo" class="skill-logo mx-3" />
+          </div>
+        </div>
       </div>
+    </section>
+
+    <!-- ===== Scroll Cue ===== -->
+    <div class="scroll-cue" aria-hidden="true">
+      <i class="bi bi-chevron-down"></i>
     </div>
 
   </div>
+</section>
 
-  <!-- ===== Skills Section ===== -->
-  <section class="skills-section py-2">
-    <div class="container text-center">
-      <div class="skills-slider overflow-hidden">
-        <div class="skills-track d-flex align-items-center">
-          <img *ngFor="let skill of skills" [src]="skill" alt="Skill Logo" class="skill-logo mx-3" />
-        </div>
-      </div>
-    </div>
-
-  </section>
-</section>   
- <app-public-projects></app-public-projects>
-    <app-services></app-services>
-    <app-about></app-about>
-    <app-skills></app-skills>
-    <app-testimonial></app-testimonial>
-  <app-contact></app-contact>
+<app-public-projects></app-public-projects>
+<app-services></app-services>
+<app-about></app-about>
+<app-skills></app-skills>
+<app-testimonial></app-testimonial>
+<app-contact></app-contact>
