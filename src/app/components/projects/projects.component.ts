@@ -52,15 +52,23 @@ export class PublicProjectsComponent {
       icon: 'bi bi-box-seam-fill',
       accent: '#8b5cf6'
     },
-    {
-      title: 'MedicalERP',
-      description:
-        'Modern medical ERP and pharmacy management system with inventory tracking, billing, sales, purchases and responsive admin dashboard.',
-      image: 'assets/projects/medical.avif',
-      technologies: ['Angular', '.NET', 'SQL Server'],
-      route: '/medical-detail',
-      icon: 'bi bi-prescription2',
-      accent: '#0ea5e9'
-    }
+   {
+  title: 'BusinessOS',
+  description:
+    'Enterprise-grade AI-powered Business Operating System (BusinessOS) built for SMEs. Features secure authentication, multi-tenancy, inventory management, sales, purchases, analytics, reporting, and a scalable clean architecture.',
+  image: 'assets/projects/erp.avif',
+  technologies: [
+    'Angular',
+    '.NET 10',
+    'SQL Server',
+    'EF Core',
+    'JWT',
+    'Clean Architecture',
+    'Serilog'
+  ],
+  route: '/erp-detail',
+  icon: 'bi bi-building-gear',
+  accent: '#2563eb'
+}
   ];
 }
