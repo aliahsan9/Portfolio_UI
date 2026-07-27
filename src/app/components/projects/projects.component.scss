@@ -1,8 +1,8 @@
 :host {
   display: block;
-  background: radial-gradient(circle at top left, #091a32, #0b1f3a);
+  background: var(--gradient-bg);
 
-  color: white;
+  color: var(--text-primary);
 }
 
 /* ========================================= */
@@ -33,12 +33,12 @@
   border-radius: 999px;
 
   background:
-    rgba(255,255,255,0.05);
+    var(--bg-tag);
 
   border:
-    1px solid rgba(255,255,255,0.08);
+    1px solid var(--border);
 
-  color: #7dd3fc;
+  color: var(--accent-soft);
 
   font-size: 0.9rem;
   font-weight: 600;
@@ -52,12 +52,7 @@
   line-height: 1.1;
 
   background:
-    linear-gradient(
-      90deg,
-      #ffffff,
-      #7dd3fc,
-      #38bdf8
-    );
+    var(--gradient-title);
 
    background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -69,7 +64,7 @@
   margin:
     22px auto 0;
 
-  color: #94a3b8;
+  color: var(--text-muted);
 
   font-size: 1.05rem;
   line-height: 1.8;
@@ -83,10 +78,10 @@
   height: 100%;
 
   background:
-    rgba(255,255,255,0.04);
+    var(--bg-card-soft);
 
   border:
-    1px solid rgba(255,255,255,0.08);
+    1px solid var(--border);
 
   border-radius: 28px;
 
@@ -126,7 +121,7 @@
 
   overflow: hidden;
 
-  background: #0f172a;
+  background: var(--bg-surface);
 }
 
 .thumbnail {
@@ -150,7 +145,7 @@
   background:
     linear-gradient(
       to top,
-      rgba(2,6,23,0.8),
+      color-mix(in srgb, var(--bg-body) 85%, transparent),
       transparent 60%
     );
 }
@@ -187,7 +182,7 @@
 
   font-size: 1.3rem;
 
-  color: white;
+  color: var(--text-primary);
 
   box-shadow:
     0 10px 25px rgba(0,0,0,0.3);
@@ -208,7 +203,7 @@
   margin:
     20px 0;
 
-  color: #94a3b8;
+  color: var(--text-muted);
 
   line-height: 1.8;
 
@@ -232,12 +227,12 @@
   border-radius: 999px;
 
   background:
-    rgba(255,255,255,0.05);
+    var(--bg-tag);
 
   border:
-    1px solid rgba(255,255,255,0.06);
+    1px solid var(--bg-glass-strong);
 
-  color: #cbd5e1;
+  color: var(--text-soft);
 
   font-size: 0.82rem;
   font-weight: 500;
@@ -259,29 +254,23 @@
 
   border-radius: 14px;
 
-  background:
-    linear-gradient(
-      135deg,
-      #ffffff,
-      #dbeafe
-    );
+  background: var(--accent-cyan);
 
-  color: #020617;
+  color: #ffffff;
 
   font-weight: 700;
   text-decoration: none;
 
   transition:
     transform 0.3s ease,
-    box-shadow 0.3s ease;
-}
+    box-shadow 0.3s ease,
+    background 0.3s ease;
 
-.project-btn:hover {
-  transform:
-    translateY(-4px);
-
-  box-shadow:
-    0 10px 30px rgba(255,255,255,0.15);
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px var(--shadow-accent);
+    color: #ffffff;
+  }
 }
 
 /* ========================================= */

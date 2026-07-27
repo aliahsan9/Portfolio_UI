@@ -1,15 +1,15 @@
 :host {
   display: block;
-  background: radial-gradient(circle at top left, #091a32, #0b1f3a);
+  background: var(--gradient-bg);
   min-height: 100vh;
   font-family: 'Poppins', sans-serif;
   padding-top: 90px;
-  color: #ffffff;
+  color: var(--text-primary);
 }
 
 /* Gradient heading text */
 .text-gradient {
-  background: linear-gradient(90deg, #00eaff, #4d9fff, #b14bff);
+  background: var(--gradient-text);
   background-size: 200% auto;
   background-clip: text;
   -webkit-background-clip: text;
@@ -24,6 +24,10 @@
   100% { background-position: 0%; }
 }
 
+.resume-subtitle {
+  color: var(--text-soft);
+}
+
 /* Button Group Container */
 .button-group {
   display: flex;
@@ -35,9 +39,9 @@
 
 /* Gradient button (filled) */
 .btn-gradient {
-  background: linear-gradient(90deg, #00eaff, #4d9fff, #b14bff);
+  background: var(--gradient-text);
   background-size: 200% auto;
-  color: #fff;
+  color: #ffffff;
   border: none;
   font-weight: 500;
   padding: 12px 24px;
@@ -52,15 +56,15 @@
 .btn-gradient:hover {
   transform: translateY(-3px);
   box-shadow: 0 6px 20px rgba(77, 159, 255, 0.5);
-  color: #fff;
+  color: var(--text-primary);
 }
 
 /* Outline gradient button */
 .btn-outline-gradient {
   background: transparent;
-  color: #00eaff;
+  color: var(--accent-bright);
   border: 2px solid;
-  border-image: linear-gradient(90deg, #00eaff, #4d9fff, #b14bff) 1;
+  border-image: var(--gradient-text) 1;
   font-weight: 500;
   padding: 10px 22px;
   border-radius: 8px;
@@ -79,13 +83,13 @@
   left: 0;
   width: 0;
   height: 100%;
-  background: linear-gradient(90deg, #00eaff, #4d9fff, #b14bff);
+  background: var(--gradient-text);
   transition: width 0.3s ease;
   z-index: -1;
 }
 
 .btn-outline-gradient:hover {
-  color: #fff;
+  color: var(--text-primary);
   transform: translateY(-3px);
   box-shadow: 0 6px 20px rgba(0, 234, 255, 0.4);
 }
@@ -100,11 +104,11 @@
   max-width: 850px;
   margin: 30px auto;
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--bg-tag);
   backdrop-filter: blur(10px);
   overflow: hidden;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--border-strong);
   transition: all 0.3s ease;
 }
 

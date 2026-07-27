@@ -1,31 +1,17 @@
 <nav
   class="navbar custom-navbar shadow-lg px-4"
 >
-  <div class="container-fluid d-flex align-items-center justify-content-between">
+  <div class="container-fluid d-flex align-items-center">
     <!-- Brand -->
-    <div class="d-flex align-items-center gap-2">
-      <a class="navbar-brand text-glow fw-bold fs-4" routerLink="/">Ali Ahsan</a>
-    </div>
-
-    <!-- Hamburger -->
-    <button
-      class="navbar-toggler"
-      type="button"
-      (click)="toggleSidebar()"
-      [attr.aria-expanded]="isSidebarOpen"
-      aria-label="Toggle navigation"
-      [class.open]="isSidebarOpen"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
+    <a class="navbar-brand text-glow fw-bold fs-4 me-auto" routerLink="/">Ali Ahsan</a>
 
     <!-- Sidebar / desktop menu -->
     <div class="navbar-sidebar" id="sidebar" [class.active]="isSidebarOpen">
       <ul class="navbar-nav gap-3">
         <li
           class="nav-item"
-          *ngFor="let link of navLinks; let i = index"
-              >
+          *ngFor="let link of navLinks"
+        >
           <a
             [routerLink]="link.path"
             routerLinkActive="active"
@@ -37,6 +23,34 @@
           </a>
         </li>
       </ul>
+    </div>
+
+    <div class="nav-actions d-flex align-items-center gap-2">
+      <button
+        type="button"
+        class="theme-toggle"
+        (click)="toggleTheme()"
+        [attr.aria-label]="themeService.theme() === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'"
+        [title]="themeService.theme() === 'dark' ? 'Light mode' : 'Dark mode'"
+      >
+        <i
+          class="bi"
+          [class.bi-sun-fill]="themeService.theme() === 'dark'"
+          [class.bi-moon-stars-fill]="themeService.theme() === 'light'"
+          aria-hidden="true"
+        ></i>
+      </button>
+
+      <button
+        class="navbar-toggler"
+        type="button"
+        (click)="toggleSidebar()"
+        [attr.aria-expanded]="isSidebarOpen"
+        aria-label="Toggle navigation"
+        [class.open]="isSidebarOpen"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
     </div>
   </div>
 </nav>

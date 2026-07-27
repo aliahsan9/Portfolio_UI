@@ -1,26 +1,61 @@
 .custom-navbar {
-  background: linear-gradient(135deg, #0b1f3a, #081529);
+  background: var(--gradient-navbar);
   padding: 1rem 2rem;
-  box-shadow: 0 4px 15px rgba(0, 238, 255, 0.15);
-  z-index: 1300; /* higher so navbar sits above page */
+  box-shadow: 0 4px 15px var(--shadow-accent);
+  z-index: 1300;
   position: fixed;
   width: 100%;
-  transition: all 0.35s ease-in-out;
+  transition: background 0.35s ease-in-out, box-shadow 0.35s ease-in-out;
 
   .navbar-brand {
-    color: #0ef !important;
+    color: var(--accent-bright) !important;
     font-size: 1.4rem;
     letter-spacing: 1px;
-    text-shadow: 0 0 8px #0ef8;
-    transition: transform 0.25s ease, text-shadow 0.25s ease;
+    text-shadow: 0 0 8px color-mix(in srgb, var(--accent-bright) 50%, transparent);
+    transition: transform 0.25s ease, text-shadow 0.25s ease, color 0.25s ease;
 
     &:hover {
       transform: scale(1.06);
-      text-shadow: 0 0 16px #0ef;
+      text-shadow: 0 0 16px var(--accent-bright);
     }
   }
 
-  /* Hamburger */
+  .nav-actions {
+    position: relative;
+    z-index: 1301;
+  }
+
+  .theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    background: var(--bg-glass-strong);
+    color: var(--accent-bright);
+    cursor: pointer;
+    transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+
+    i {
+      font-size: 1.15rem;
+      line-height: 1;
+    }
+
+    &:hover {
+      transform: scale(1.08);
+      background: var(--badge-bg);
+      box-shadow: 0 0 12px var(--shadow-accent);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--accent-cyan);
+      outline-offset: 2px;
+    }
+  }
+
   .navbar-toggler {
     background: transparent;
     border: none;
@@ -34,7 +69,7 @@
     .navbar-toggler-icon {
       width: 28px;
       height: 2px;
-      background: #0ef;
+      background: var(--accent-bright);
       display: block;
       position: relative;
       border-radius: 2px;
@@ -48,7 +83,7 @@
       left: 0;
       width: 28px;
       height: 2px;
-      background: #0ef;
+      background: var(--accent-bright);
       border-radius: 2px;
       transition: transform 0.25s ease, top 0.25s ease, opacity 0.25s ease;
     }
@@ -61,7 +96,6 @@
       top: 8px;
     }
 
-    /* open state (button gets .open class via Angular binding) */
     &.open {
       .navbar-toggler-icon {
         background: transparent;
@@ -77,18 +111,17 @@
     }
   }
 
-  /* Sidebar (mobile) */
   .navbar-sidebar {
     position: fixed;
     top: 0;
     left: -280px;
     width: 260px;
     height: 100vh;
-    background: linear-gradient(135deg, #081529, #0b1f3a);
+    background: var(--gradient-navbar);
     padding: 4rem 1.5rem;
-    box-shadow: 4px 0 20px rgba(0, 238, 255, 0.18);
+    box-shadow: 4px 0 20px var(--shadow-accent);
     transition: left 0.35s cubic-bezier(.2,.9,.3,1);
-    z-index: 1299; /* above backdrop, below navbar if desired */
+    z-index: 1299;
 
     .navbar-nav {
       display: flex;
@@ -99,14 +132,13 @@
     .nav-link {
       font-size: 1.05rem;
       font-weight: 600;
-      // text-transform: lowercase;
-      color: #ffffffd1 !important;
+      color: var(--text-nav) !important;
       position: relative;
       transition: color 0.25s, transform 0.25s;
 
       &.active {
-        color: #0ef !important;
-        text-shadow: 0 0 8px #0ef;
+        color: var(--accent-bright) !important;
+        text-shadow: 0 0 8px color-mix(in srgb, var(--accent-bright) 50%, transparent);
       }
 
       &::after {
@@ -116,12 +148,12 @@
         left: 0;
         width: 0;
         height: 2px;
-        background: #0ef;
+        background: var(--accent-bright);
         transition: width 0.35s;
       }
 
       &:hover {
-        color: #0ef !important;
+        color: var(--accent-bright) !important;
       }
 
       &:hover::after {
@@ -134,32 +166,23 @@
     left: 0;
   }
 
-  /* Backdrop (when sidebar open) */
-  .sidebar-backdrop {
-    position: fixed;
-    inset: 0;
-    width: 100%;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.45);
-    z-index: 1280; /* below sidebar (1299) and below navbar (1300) */
-  }
-
-  /* On scroll */
   &.scrolled {
-    background: rgba(11, 31, 58, 0.95);
+    background: var(--navbar-scrolled);
     backdrop-filter: blur(6px);
-    box-shadow: 0 2px 16px rgba(0, 238, 255, 0.2);
+    box-shadow: 0 2px 16px var(--shadow-accent);
   }
 
   @media (min-width: 769px) {
     .navbar-toggler {
       display: none;
     }
+
     .navbar-sidebar {
       position: static;
       width: auto;
       height: auto;
       padding: 0;
+      margin-right: 1rem;
       box-shadow: none;
       background: transparent;
       display: flex;
@@ -170,9 +193,18 @@
         gap: 1.5rem;
       }
     }
+  }
+}
 
-    .sidebar-backdrop {
-      display: none;
-    }
+.sidebar-backdrop {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100vh;
+  background: var(--backdrop);
+  z-index: 1280;
+
+  @media (min-width: 769px) {
+    display: none;
   }
 }

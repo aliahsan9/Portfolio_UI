@@ -8,8 +8,8 @@
   min-height: 100vh;
   padding: 100px 0;
   overflow: hidden;
-  background: radial-gradient(circle at top left, #091a32, #0b1f3a);
-  color: white;
+  background: var(--gradient-bg);
+  color: var(--text-primary);
 }
 
 /* HERO */
@@ -22,9 +22,9 @@
   display: inline-block;
   padding: 8px 18px;
   border-radius: 999px;
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.08);
-  color: #b8d4ff;
+  background: var(--border);
+  border: 1px solid var(--border);
+  color: var(--text-link-soft);
   font-size: 12px;
   letter-spacing: 1.5px;
   margin-bottom: 24px;
@@ -36,10 +36,11 @@
   line-height: 1;
   margin-bottom: 24px;
   letter-spacing: -2px;
+  color: var(--text-primary);
 }
 
 .project-description {
-  color: rgba(255,255,255,0.72);
+  color: var(--text-faint);
   line-height: 1.9;
   font-size: 17px;
   max-width: 580px;
@@ -72,11 +73,11 @@
   width: 100%;
   border-radius: 28px;
   overflow: hidden;
-  background: #111827;
-  border: 1px solid rgba(255,255,255,0.08);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
   box-shadow:
     0 30px 80px rgba(0,0,0,0.45),
-    0 0 0 1px rgba(255,255,255,0.04);
+    0 0 0 1px var(--bg-card-soft);
   transition: 0.4s ease;
 }
 
@@ -89,8 +90,8 @@
   padding: 0 22px;
   display: flex;
   align-items: center;
-  background: linear-gradient(to bottom, #2d3748, #1f2937);
-  border-bottom: 1px solid rgba(255,255,255,0.06);
+  background: linear-gradient(to bottom, var(--bg-window), var(--bg-window-end));
+  border-bottom: 1px solid var(--bg-glass-strong);
   position: relative;
 }
 
@@ -133,17 +134,18 @@
 
 .content-section {
   padding: 100px 0;
-  border-top: 1px solid rgba(255,255,255,0.06);
+  border-top: 1px solid var(--bg-glass-strong);
 }
 
 .section-title {
   font-size: clamp(2rem, 5vw, 1rem);
   font-weight: 700;
   margin-bottom: 24px;
+  color: var(--text-primary);
 }
 
 .content-section p {
-  color: rgba(255,255,255,0.72);
+  color: var(--text-faint);
   line-height: 1.9;
   font-size: 16px;
 }
@@ -151,8 +153,8 @@
 /* META */
 
 .project-meta {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.06);
+  background: var(--bg-card-soft);
+  border: 1px solid var(--bg-glass-strong);
   border-radius: 24px;
   padding: 32px;
   backdrop-filter: blur(10px);
@@ -160,7 +162,7 @@
 
 .meta-item {
   padding: 18px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+  border-bottom: 1px solid var(--border);
 }
 
 .meta-item:last-child {
@@ -170,13 +172,14 @@
 .meta-item span {
   display: block;
   margin-bottom: 8px;
-  color: #8fa8c5;
+  color: var(--text-meta);
   font-size: 14px;
 }
 
 .meta-item strong {
   font-size: 19px;
   font-weight: 600;
+  color: var(--text-primary);
 }
 
 /* FEATURE CARD */
@@ -185,15 +188,15 @@
   height: 100%;
   padding: 32px;
   border-radius: 24px;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.06);
+  background: var(--bg-card-soft);
+  border: 1px solid var(--bg-glass-strong);
   backdrop-filter: blur(14px);
   transition: 0.35s ease;
 }
 
 .feature-card:hover {
   transform: translateY(-6px);
-  background: rgba(255,255,255,0.06);
+  background: var(--bg-glass-strong);
 }
 
 .feature-icon {
@@ -202,12 +205,13 @@
 
 .feature-icon i {
   font-size: 30px;
-  color: #7cb7ff;
+  color: var(--text-link);
 }
 
 .feature-card h3 {
   font-size: 23px;
   margin-bottom: 16px;
+  color: var(--text-primary);
 }
 
 .feature-card p {
@@ -219,8 +223,8 @@
 .macbook-mini {
   border-radius: 22px;
   overflow: hidden;
-  background: #111827;
-  border: 1px solid rgba(255,255,255,0.08);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
   transition: 0.35s ease;
 }
 
@@ -254,15 +258,15 @@
 .tech-item {
   padding: 5px 12px;
   border-radius: 999px;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.08);
-  color: rgba(255,255,255,0.92);
+  background: var(--bg-tag);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
   transition: 0.3s ease;
 }
 
 .tech-item:hover {
   transform: translateY(-3px);
-  background: rgba(255,255,255,0.08);
+  background: var(--border);
 }
 
 /* RESPONSIVE */

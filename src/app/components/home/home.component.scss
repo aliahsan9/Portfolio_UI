@@ -1,14 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap');
 
 /* ===== Variables ===== */
-$primary: #00b4ff;
-$accent: #00ffd0;
-$bg-dark: #091a32;
-$bg-gradient: radial-gradient(circle at top left, #091a32, #0b1f3a);
-$text-light: #cbd5e1;
-$white: #fff;
-$glass-border: rgba(255, 255, 255, 0.08);
-$glass-bg: rgba(255, 255, 255, 0.03);
+$primary: var(--accent);
+$accent: var(--accent-teal);
+$bg-dark: var(--bg-primary);
+$bg-gradient: var(--gradient-bg);
+$text-light: var(--text-soft);
+$white: var(--text-primary);
+$glass-border: var(--border);
+$glass-bg: var(--bg-glass);
 
 $font-display: 'Space Grotesk', sans-serif;
 $font-body: 'Inter', sans-serif;
@@ -50,7 +50,7 @@ $font-body: 'Inter', sans-serif;
     inset: 0;
     background-image: radial-gradient(
       circle,
-      rgba($primary, 0.18) 1px,
+      var(--dot-grid) 1px,
       transparent 1px
     );
     background-size: 70px 70px;
@@ -76,15 +76,15 @@ $font-body: 'Inter', sans-serif;
   height: 8px;
   border-radius: 50%;
   background: $accent;
-  box-shadow: 0 0 0 rgba($accent, 0.6);
+  box-shadow: 0 0 0 color-mix(in srgb, var(--accent-teal) 60%, transparent);
   animation: pulse 2s infinite;
   flex-shrink: 0;
 }
 
 @keyframes pulse {
-  0% { box-shadow: 0 0 0 0 rgba($accent, 0.5); }
-  70% { box-shadow: 0 0 0 8px rgba($accent, 0); }
-  100% { box-shadow: 0 0 0 0 rgba($accent, 0); }
+  0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent-teal) 50%, transparent); }
+  70% { box-shadow: 0 0 0 8px transparent; }
+  100% { box-shadow: 0 0 0 0 transparent; }
 }
 
 /* ===== Hero Content ===== */
@@ -101,7 +101,7 @@ $font-body: 'Inter', sans-serif;
     color: $white;
 
     span {
-      background: linear-gradient(90deg, $accent, $primary);
+      background: var(--gradient-accent);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
@@ -160,24 +160,24 @@ $font-body: 'Inter', sans-serif;
 
   .btn-primary {
     border: none;
-    background: linear-gradient(90deg, $primary, $accent);
-    color: $bg-dark;
-    box-shadow: 0 10px 30px rgba($primary, 0.25);
+    background: var(--gradient-btn);
+    color: var(--text-on-accent);
+    box-shadow: 0 10px 30px var(--shadow-primary);
 
     &:hover {
-      box-shadow: 0 14px 36px rgba($primary, 0.35);
+      box-shadow: 0 14px 36px var(--shadow-primary);
       opacity: 0.95;
     }
   }
 
   .btn-outline-primary {
-    border: 2px solid rgba($primary, 0.7);
+    border: 2px solid color-mix(in srgb, var(--accent) 70%, transparent);
     color: $primary;
     background: transparent;
 
     &:hover {
       background: $primary;
-      color: $white;
+      color: var(--text-on-accent);
     }
   }
 }
@@ -203,7 +203,7 @@ $font-body: 'Inter', sans-serif;
   &:hover {
     transform: translateY(-3px);
     color: $accent;
-    border-color: rgba($accent, 0.5);
+    border-color: color-mix(in srgb, var(--accent-teal) 50%, transparent);
   }
 }
 
@@ -237,7 +237,7 @@ $font-body: 'Inter', sans-serif;
     position: absolute;
     inset: 10%;
     border-radius: 50%;
-    background: linear-gradient(160deg, rgba(255,255,255,0.08), transparent 40%);
+    background: linear-gradient(160deg, var(--border), transparent 40%);
     z-index: 2;
     pointer-events: none;
   }
@@ -249,8 +249,8 @@ $font-body: 'Inter', sans-serif;
     border-radius: 50%;
     position: relative;
     z-index: 1;
-    border: 4px solid rgba(255,255,255,0.1);
-    box-shadow: 0 15px 50px rgba(0,0,0,0.4), 0 0 30px rgba($primary, 0.2);
+    border: 4px solid var(--image-border);
+    box-shadow: 0 15px 50px var(--shadow), 0 0 30px var(--shadow-primary);
     will-change: transform;
     backface-visibility: hidden;
   }
@@ -345,12 +345,12 @@ $font-body: 'Inter', sans-serif;
 
   &::before {
     left: 0;
-    background: linear-gradient(to right, rgba(9, 26, 50, 0.6), transparent);
+    background: linear-gradient(to right, var(--fade-edge), transparent);
   }
 
   &::after {
     right: 0;
-    background: linear-gradient(to left, rgba(9, 26, 50, 0.6), transparent);
+    background: linear-gradient(to left, var(--fade-edge), transparent);
   }
 }
 
@@ -386,7 +386,7 @@ $font-body: 'Inter', sans-serif;
   display: flex;
   justify-content: center;
   margin-top: 50px;
-  color: rgba($primary, 0.6);
+  color: color-mix(in srgb, var(--accent) 60%, transparent);
   font-size: 1.3rem;
   animation: bounce 2s infinite;
 }

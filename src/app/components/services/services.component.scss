@@ -1,15 +1,15 @@
 // Color Schema Definitions
-$bg-primary: #0A1A3F;       // Deep Blue deep layer
-$bg-card: #11224D;          // Matte dark slate
-$accent-neon: #3ABDF8;      // Crisp Neon Blue
-$accent-purple: #8B5CF6;    // Subtle luxury purple 
-$text-muted: #94A3B8;       // Soft silver slate
-$border-tint: rgba(255, 255, 255, 0.07);
+$bg-primary: var(--bg-tertiary);
+$bg-card: var(--bg-about-mid);
+$accent-neon: var(--accent-cyan);
+$accent-purple: var(--accent-purple);
+$text-muted: var(--text-muted);
+$border-tint: var(--border);
 
 .services-section {
-  background-color: #071126;
+  background-color: var(--bg-deep);
   min-height: 100vh;
-  color: #F8FAFC;
+  color: var(--text-primary);
   position: relative;
   overflow: hidden;
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
@@ -58,7 +58,7 @@ $border-tint: rgba(255, 255, 255, 0.07);
   .section-title {
     font-size: 2.5rem;
     letter-spacing: -0.02em;
-    background: linear-gradient(135deg, #FFFFFF 0%, #CBD5E1 100%);
+    background: var(--gradient-title);
     background-clip: text;
     -webkit-text-fill-color: transparent;
   }
@@ -71,7 +71,7 @@ $border-tint: rgba(255, 255, 255, 0.07);
 
 /* Premium Engineered Cards */
 .service-card {
-  background: rgba(17, 34, 77, 0.6);
+  background: var(--bg-input);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid $border-tint;
@@ -101,9 +101,9 @@ $border-tint: rgba(255, 255, 255, 0.07);
 .service-icon {
   width: 52px;
   height: 52px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: #E2E8F0;
+  background: var(--bg-glass);
+  border: 1px solid var(--border-strong);
+  color: var(--text-secondary);
   font-size: 1.5rem;
   display: flex;
   align-items: center;
@@ -123,7 +123,7 @@ $border-tint: rgba(255, 255, 255, 0.07);
   
   &.badge-critical {
     background: rgba(239, 68, 68, 0.1);
-    color: #FCA5A5;
+    color: #ef4444;
     border-color: rgba(239, 68, 68, 0.25);
   }
 }
@@ -132,7 +132,7 @@ $border-tint: rgba(255, 255, 255, 0.07);
 .service-card-title {
   font-size: 1.25rem;
   font-weight: 600;
-  color: #F8FAFC;
+  color: var(--text-primary);
   margin-bottom: 12px;
 }
 
@@ -147,7 +147,7 @@ $border-tint: rgba(255, 255, 255, 0.07);
   font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: #E2E8F0;
+  color: var(--text-secondary);
   font-weight: 600;
   margin-bottom: 12px;
 }
@@ -159,7 +159,7 @@ $border-tint: rgba(255, 255, 255, 0.07);
 
   li {
     font-size: 0.9rem;
-    color: #CBD5E1;
+    color: var(--text-soft);
     display: flex;
     align-items: flex-start;
     gap: 10px;
@@ -177,46 +177,47 @@ $border-tint: rgba(255, 255, 255, 0.07);
 
 /* Card Custom Metrics Footer */
 .service-card-footer {
-  border-top: 1px solid rgba(255, 255, 255, 0.06) !important;
+  border-top: 1px solid var(--bg-glass-strong) !important;
   
   .label {
     font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.02em;
-    color: #64748B;
+    color: var(--text-muted);
   }
   .val {
     font-size: 0.9rem;
+    color: var(--text-primary);
   }
 }
 
 .service-action-btn {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: #F1F5F9;
+  background: var(--bg-card-soft);
+  border: 1px solid var(--border-strong);
+  color: var(--text-primary);
   font-weight: 500;
   padding: 10px;
   border-radius: 10px;
   transition: all 0.2s ease;
 
   &:hover {
-    background: #FFFFFF;
-    color: #071126;
-    border-color: #FFFFFF;
+    background: var(--accent-cyan);
+    color: #ffffff;
+    border-color: var(--accent-cyan);
   }
 }
 
 /* Premium Consultation Trust Box */
 .consultation-cta-box {
-  background: linear-gradient(135deg, rgba(17, 34, 77, 0.8) 0%, rgba(10, 26, 63, 0.8) 100%);
-  border: 1px solid rgba(58, 189, 248, 0.15);
+  background: var(--bg-card);
+  border: 1px solid var(--border-accent);
   border-radius: 24px;
   position: relative;
   z-index: 2;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 20px 40px var(--shadow);
 
   .text-muted-custom {
-    color: #94A3B8;
+    color: var(--text-muted);
     font-size: 1rem;
     max-width: 680px;
   }
@@ -224,7 +225,7 @@ $border-tint: rgba(255, 255, 255, 0.07);
 
 .dynamic-cta-button {
   background: linear-gradient(135deg, $accent-neon 0%, #0284C7 100%);
-  color: #FFFFFF;
+  color: #ffffff;
   font-weight: 600;
   padding: 14px 28px;
   border-radius: 12px;
@@ -235,6 +236,6 @@ $border-tint: rgba(255, 255, 255, 0.07);
   &:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(58, 189, 248, 0.4);
-    color: #FFFFFF;
+    color: #ffffff;
   }
 }

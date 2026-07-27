@@ -14,7 +14,7 @@
     140px 20px
     80px;
 
-  background: radial-gradient(circle at top left, #091a32, #0b1f3a);
+  background: var(--gradient-bg);
 
   overflow: hidden;
 }
@@ -29,10 +29,10 @@
   border-radius: 28px;
 
   background:
-    rgba(255,255,255,0.05);
+    var(--bg-tag);
 
   border:
-    1px solid rgba(255,255,255,0.08);
+    1px solid var(--border);
 
   backdrop-filter: blur(14px);
 
@@ -53,9 +53,9 @@
   border-radius: 999px;
 
   background:
-    rgba(255,255,255,0.08);
+    var(--border);
 
-  color: #cbd5e1;
+  color: var(--text-soft);
 
   font-size: 13px;
   font-weight: 500;
@@ -65,7 +65,7 @@
 
 /* TITLE */
 .newsletter-title {
-  color: #ffffff;
+  color: var(--text-primary);
 
   font-size: 38px;
   font-weight: 700;
@@ -83,7 +83,7 @@
   margin:
     0 auto 36px;
 
-  color: #cbd5e1;
+  color: var(--text-soft);
 
   font-size: 17px;
   line-height: 1.8;
@@ -115,12 +115,12 @@
   border-radius: 16px;
 
   border:
-    1px solid rgba(255,255,255,0.1);
+    1px solid var(--border-strong);
 
   background:
-    rgba(255,255,255,0.06);
+    var(--bg-glass-strong);
 
-  color: white;
+  color: var(--text-primary);
 
   font-size: 15px;
 
@@ -130,7 +130,7 @@
 }
 
 .newsletter-form input::placeholder {
-  color: #94a3b8;
+  color: var(--text-muted);
 
   font-size: 15px;
 }
@@ -161,7 +161,7 @@
       #0ea5e9
     );
 
-  color: white;
+  color: #ffffff;
 
   font-size: 15px;
   font-weight: 600;
@@ -187,7 +187,7 @@
 
   gap: 14px;
 
-  color: #94a3b8;
+  color: var(--text-muted);
 
   font-size: 13px;
 }
