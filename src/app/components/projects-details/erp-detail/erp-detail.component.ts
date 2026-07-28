@@ -46,9 +46,9 @@ export class ErpDetail {
   ];
 
   screenshots = [
+    'assets/projects/erp1.avif',
     'assets/projects/erp2.avif',
-    'assets/projects/erp3.avif',
-    'assets/projects/erp4.avif'
+    'assets/projects/erp3.avif'
   ];
 
   techStack = [
