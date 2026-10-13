@@ -33,7 +33,10 @@ export class PublicProjectsComponent {
     'EF Core',
     'JWT',
     'Clean Architecture',
-    'Serilog'
+    'Serilog',
+    'AI',
+    'RAG',
+    'Qdrant'
   ],
   route: '/erp-detail',
   icon: 'bi bi-building-gear',
@@ -44,7 +47,16 @@ export class PublicProjectsComponent {
       description:
         'Advanced online examination platform with secure authentication, analytics dashboard, student management and modern UI.',
       image: 'assets/projects/examdynamics.avif',
-      technologies: ['Angular', '.NET Core', 'SQL Server'],
+      technologies: ['Angular',
+                     '.NET Core', 
+                     'SQL Server',
+                      'EF Core',
+                      'JWT',
+                      'Clean Architecture',
+                      'Serilog',
+                      'AI',
+                      'Identity framework'
+                    ],
       route: '/examdynamics-detail',
       icon: 'bi bi-mortarboard-fill',
       accent: '#38bdf8'
