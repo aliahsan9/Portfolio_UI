@@ -1,250 +1,417 @@
 <section class="project-page">
-
   <div class="container">
 
     <!-- HERO -->
-
-    <div class="hero-section">
-
+    <header class="hero-section">
       <div class="row align-items-center gy-5">
 
-        <!-- LEFT -->
-
         <div class="col-lg-5">
-
-          <span class="case-study-label">
-            FRONTEND CASE STUDY
-          </span>
+          <span class="case-study-label">FRONTEND ENGINEERING CASE STUDY</span>
 
           <h1 class="project-title">
-            Portfolio Website
+            More than a portfolio.
+            <span>A record of engineering work.</span>
           </h1>
 
           <p class="project-description">
-            A premium personal portfolio website designed and developed
-            entirely in Angular with modern UI aesthetics, responsive layouts,
-            smooth sections, and elegant user experience.
+            I built this portfolio to turn my projects, technical decisions,
+            and learning into an accessible public record of my work.
+            It gives recruiters, developers, and potential collaborators
+            a clear way to understand what I build, how I approach problems,
+            and where they can explore the implementation.
+          </p>
+
+          <p class="hero-supporting-text">
+            Built with Angular, TypeScript, SCSS, and Bootstrap, then
+            deployed as a live website.
           </p>
 
           <div class="project-buttons">
-
             <a
-              href="https://github.com/aliahsan9/Portfolio_UI"
+              [href]="repositoryUrl"
               target="_blank"
+              rel="noopener noreferrer"
               class="btn btn-theme-solid custom-btn"
+              aria-label="View Portfolio source code on GitHub"
             >
-              <i class="bi bi-github"></i>
-              GitHub
+              <i class="bi bi-github" aria-hidden="true"></i>
+              View source code
+              <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
             </a>
 
             <a
-              href="https://aliahsan.tech"
+              [href]="liveUrl"
               target="_blank"
+              rel="noopener noreferrer"
               class="btn btn-theme-outline custom-btn"
+              aria-label="Visit the live portfolio website"
             >
-              Live Preview
+              Live website
+              <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
             </a>
-
           </div>
 
+          <div class="hero-highlights">
+            <div>
+              <strong>01</strong>
+              <span>Purposeful presentation</span>
+            </div>
+            <div>
+              <strong>02</strong>
+              <span>Reusable components</span>
+            </div>
+            <div>
+              <strong>03</strong>
+              <span>Live deployment</span>
+            </div>
+          </div>
         </div>
 
-        <!-- RIGHT -->
-
         <div class="col-lg-7">
-
-          <div class="macbook-wrapper">
-
-            <div class="macbook-topbar">
-
-              <div class="dots">
+          <div class="preview-shell">
+            <div class="preview-topbar">
+              <div class="dots" aria-hidden="true">
                 <span class="dot red"></span>
                 <span class="dot yellow"></span>
                 <span class="dot green"></span>
               </div>
+
+              <span class="preview-address">aliahsan.tech</span>
+              <span class="preview-status">
+                <span></span>
+                Live website
+              </span>
             </div>
 
-            <div class="macbook-screen"> 
-
+            <div class="preview-screen">
               <img
                 src="assets/projects/portfolio.avif"
-                alt="Portfolio Preview"
+                alt="Preview of the live developer portfolio website"
+                fetchpriority="high"
               />
-
             </div>
 
+            <div class="preview-caption">
+              <span>PERSONAL DEVELOPER PORTFOLIO</span>
+              <span>Angular · TypeScript · SCSS</span>
+            </div>
           </div>
-
         </div>
 
       </div>
+    </header>
 
-    </div>
-
-    <!-- ABOUT -->
-
-    <div class="content-section">
-
-      <div class="row gy-5">
+    <!-- PROJECT PURPOSE -->
+    <section class="content-section">
+      <div class="row gy-5 align-items-start">
 
         <div class="col-lg-7">
+          <span class="section-eyebrow">THE PURPOSE</span>
 
           <h2 class="section-title">
-            About The Project
+            Make the work understandable, not just visible.
           </h2>
 
-          <p>
-            This portfolio project was built to showcase projects,
-            frontend skills, UI design capabilities, and modern web experiences
-            using Angular standalone architecture.
-          </p>
+          <div class="section-copy">
+            <p>
+              A GitHub repository can demonstrate implementation, but it
+              doesn't always explain why a project exists, which problem it
+              addresses, or what engineering decisions shaped it. A list of
+              skills has the same limitation: it tells visitors what a
+              developer knows, not how that knowledge is applied.
+            </p>
 
-          <p>
-            The focus was to create a highly responsive and visually premium
-            interface inspired by modern SaaS landing pages and developer portfolios.
-          </p>
+            <p>
+              I built this portfolio to bridge that gap. It brings project
+              explanations, technology choices, source code, live demos,
+              and contact options into one place.
+            </p>
 
-          <p>
-            Every section was carefully designed with spacing, typography,
-            gradients, animations, and reusable layouts for maximum visual impact.
-          </p>
-
+            <p>
+              The portfolio is also a frontend engineering project in its
+              own right. Its structure, responsiveness, content hierarchy,
+              visual consistency, and deployment all contribute to the
+              experience—not just the appearance of the homepage.
+            </p>
+          </div>
         </div>
 
         <div class="col-lg-5">
-
-          <div class="project-meta">
-
-            <div class="meta-item">
-              <span>Framework</span>
-              <strong>Angular</strong>
+          <aside class="project-facts">
+            <div class="facts-heading">
+              <span class="section-eyebrow">PROJECT DETAILS</span>
+              <h3>Built for real visitors</h3>
             </div>
 
-            <div class="meta-item">
-              <span>Styling</span>
-              <strong>SCSS + Bootstrap</strong>
+            <div
+              class="fact-item"
+              *ngFor="let fact of projectFacts"
+            >
+              <span>{{ fact.label }}</span>
+              <strong>{{ fact.value }}</strong>
             </div>
-
-            <div class="meta-item">
-              <span>Type</span>
-              <strong>Frontend Project</strong>
-            </div>
-
-            <div class="meta-item">
-              <span>Deployment</span>
-              <strong>Vercel</strong>
-            </div>
-
-          </div>
-
+          </aside>
         </div>
 
       </div>
+    </section>
 
-    </div>
+    <!-- PROBLEMS -->
+    <section class="content-section">
+      <div class="section-heading">
+        <span class="section-eyebrow">THE PROBLEMS</span>
+        <h2 class="section-title">
+          What this project is designed to solve
+        </h2>
+        <p class="section-intro">
+          The objective was to make technical work easier to discover,
+          understand, evaluate, and follow up on.
+        </p>
+      </div>
 
-    <!-- FEATURES -->
-
-    <div class="content-section">
-
-      <h2 class="section-title mb-5">
-        Features & Highlights
-      </h2>
-
-      <div class="row g-4">
-
-        <div
-          class="col-md-6"
-          *ngFor="let item of features"
+      <div class="problem-grid">
+        <article
+          class="problem-item"
+          *ngFor="let problem of problems"
         >
+          <span class="item-number">{{ problem.number }}</span>
 
-          <div class="feature-card">
+          <h3>{{ problem.title }}</h3>
 
-            <div class="feature-icon">
-              <i class="bi bi-stars"></i>
-            </div>
+          <p>{{ problem.description }}</p>
 
-            <h3>
-              {{ item.title }}
-            </h3>
-
-            <p>
-              {{ item.description }}
-            </p>
-
+          <div class="problem-outcome">
+            <i class="bi bi-arrow-right" aria-hidden="true"></i>
+            <span>{{ problem.outcome }}</span>
           </div>
+        </article>
+      </div>
+    </section>
 
-        </div>
-
+    <!-- VISITOR JOURNEY -->
+    <section class="content-section">
+      <div class="section-heading">
+        <span class="section-eyebrow">USER EXPERIENCE</span>
+        <h2 class="section-title">
+          Designed around the visitor's next step
+        </h2>
+        <p class="section-intro">
+          The site should help a visitor move from an initial impression
+          to evidence of the work, without making them search for the
+          important information.
+        </p>
       </div>
 
-    </div>
+      <div class="journey-grid">
+        <article
+          class="journey-item"
+          *ngFor="let step of visitorJourney"
+        >
+          <div class="journey-topline">
+            <span class="journey-number">{{ step.number }}</span>
+            <i [class]="step.icon" aria-hidden="true"></i>
+          </div>
+
+          <h3>{{ step.title }}</h3>
+          <p>{{ step.description }}</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ENGINEERING DECISIONS -->
+    <section class="content-section">
+      <div class="section-heading">
+        <span class="section-eyebrow">ENGINEERING DECISIONS</span>
+        <h2 class="section-title">
+          How I approached the implementation
+        </h2>
+        <p class="section-intro">
+          Each choice supports a practical goal: maintainable code,
+          responsive interfaces, accessible content, or reliable delivery.
+        </p>
+      </div>
+
+      <div class="engineering-list">
+        <article
+          class="engineering-item"
+          *ngFor="let decision of engineeringDecisions"
+        >
+          <div class="engineering-number">
+            {{ decision.number }}
+          </div>
+
+          <div class="engineering-content">
+            <span class="engineering-category">
+              {{ decision.category }}
+            </span>
+
+            <h3>{{ decision.title }}</h3>
+            <p>{{ decision.description }}</p>
+
+            <div class="engineering-benefit">
+              <span>WHY IT MATTERS</span>
+              <p>{{ decision.benefit }}</p>
+            </div>
+
+            <div class="engineering-tags">
+              <span *ngFor="let technology of decision.technologies">
+                {{ technology }}
+              </span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- IMPLEMENTATION FLOW -->
+    <section class="content-section">
+      <div class="section-heading">
+        <span class="section-eyebrow">IMPLEMENTATION</span>
+        <h2 class="section-title">
+          From a browser request to a usable page
+        </h2>
+        <p class="section-intro">
+          A simplified view of how the deployed frontend comes together.
+          This describes the presentation flow, not a backend API architecture.
+        </p>
+      </div>
+
+      <div class="implementation-flow">
+        <article
+          class="flow-step"
+          *ngFor="let step of requestFlow"
+        >
+          <span class="flow-number">{{ step.number }}</span>
+
+          <div class="flow-content">
+            <h3>{{ step.title }}</h3>
+            <p>{{ step.description }}</p>
+          </div>
+        </article>
+      </div>
+
+      <p class="flow-note">
+        The portfolio is primarily a frontend application. Its external
+        destinations, such as GitHub and the live project demos, are links
+        to the corresponding resources rather than internal backend layers.
+      </p>
+    </section>
 
     <!-- SCREENSHOTS -->
+    <section class="content-section">
+      <div class="section-heading">
+        <span class="section-eyebrow">THE RESULT</span>
+        <h2 class="section-title">
+          The interface in practice
+        </h2>
+        <p class="section-intro">
+          A closer look at the actual website and the way its content is presented.
+        </p>
+      </div>
 
-    <div class="content-section">
-
-      <h2 class="section-title mb-5">
-        Project Screenshots
-      </h2>
-
-      <div class="row g-4">
-
-        <div
-          class="col-lg-4 col-md-6"
-          *ngFor="let image of screenshots"
+      <div class="screenshots-grid">
+        <article
+          class="screenshot-card"
+          *ngFor="let screenshot of screenshots"
         >
-
-          <div class="macbook-mini">
-
-            <div class="macbook-topbar small">
-
-              <div class="dots">
+          <div class="screenshot-window">
+            <div class="screenshot-topbar">
+              <div class="dots" aria-hidden="true">
                 <span class="dot red"></span>
                 <span class="dot yellow"></span>
                 <span class="dot green"></span>
               </div>
 
+              <span>aliahsan.tech</span>
             </div>
 
-            <div class="mini-screen">
-
-              <img
-                [src]="image"
-                alt="Portfolio Screenshot"
-              />
-
-            </div>
-
+            <img
+              [src]="screenshot.src"
+              [alt]="screenshot.alt"
+              loading="lazy"
+              decoding="async"
+            />
           </div>
 
-        </div>
-
+          <div class="screenshot-caption">
+            <h3>{{ screenshot.label }}</h3>
+            <p>{{ screenshot.description }}</p>
+          </div>
+        </article>
       </div>
-
-    </div>
+    </section>
 
     <!-- TECH STACK -->
-
-    <div class="content-section pb-0">
-
-      <h2 class="section-title mb-4">
-        Tech Stack
-      </h2>
-
-      <div class="tech-stack">
-
-        <span
-          class="tech-item"
-          *ngFor="let tech of techStack"
-        >
-          {{ tech }}
-        </span>
-
+    <section class="content-section">
+      <div class="section-heading">
+        <span class="section-eyebrow">TECHNOLOGY</span>
+        <h2 class="section-title">
+          Tools used to build and deliver it
+        </h2>
+        <p class="section-intro">
+          Each group represents a different part of the frontend development
+          and delivery process.
+        </p>
       </div>
 
-    </div>
+      <div class="technology-groups">
+        <article
+          class="technology-group"
+          *ngFor="let group of technologyGroups"
+        >
+          <div class="technology-heading">
+            <h3>{{ group.category }}</h3>
+            <p>{{ group.description }}</p>
+          </div>
+
+          <div class="tech-stack">
+            <span
+              class="tech-item"
+              *ngFor="let technology of group.items"
+            >
+              {{ technology }}
+            </span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- CLOSING -->
+    <section class="project-closing">
+      <span class="section-eyebrow">EXPLORE THE IMPLEMENTATION</span>
+
+      <h2>
+        Don't just read about the work.
+        <span>Explore it.</span>
+      </h2>
+
+      <p>
+        Visit the live portfolio to experience the interface, or inspect
+        the source code to explore the implementation.
+      </p>
+
+      <div class="project-buttons">
+        <a
+          [href]="repositoryUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-theme-solid custom-btn"
+        >
+          <i class="bi bi-github" aria-hidden="true"></i>
+          Explore on GitHub
+        </a>
+
+        <a
+          [href]="liveUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-theme-outline custom-btn"
+        >
+          Visit live website
+          <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+        </a>
+      </div>
+    </section>
 
   </div>
-
 </section>
