@@ -24,7 +24,7 @@ export class PublicProjectsComponent {
   projects: Project[] = [ {
   title: 'BusinessOS',
   description:
-    'Enterprise-grade AI-powered Business Operating System (BusinessOS) built for SMEs. Features secure authentication, multi-tenancy, inventory management, sales, purchases, analytics, reporting, and a scalable clean architecture.',
+    'AI-powered, multi-tenant ERP for SMEs, streamlining inventory, sales, purchasing, analytics, and reporting with secure authentication and scalable architecture.',
   image: 'assets/projects/erp.avif',
   technologies: [
     'Angular',
