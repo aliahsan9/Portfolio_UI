@@ -1,17 +1,24 @@
-<nav
-  class="navbar custom-navbar shadow-lg px-4"
->
+<nav class="navbar custom-navbar shadow-sm" aria-label="Main navigation">
   <div class="container-fluid d-flex align-items-center">
-    <!-- Brand -->
-    <a class="navbar-brand text-glow fw-bold fs-4 me-auto" routerLink="/">Ali Ahsan</a>
 
-    <!-- Sidebar / desktop menu -->
-    <div class="navbar-sidebar" id="sidebar" [class.active]="isSidebarOpen">
-      <ul class="navbar-nav gap-3">
-        <li
-          class="nav-item"
-          *ngFor="let link of navLinks"
-        >
+    <!-- Brand -->
+    <a
+      class="navbar-brand text-glow fw-bold me-auto"
+      routerLink="/"
+      aria-label="Ali Ahsan - Home"
+      (click)="closeSidebar()"
+    >
+      Ali Ahsan
+    </a>
+
+    <!-- Navigation links -->
+    <div
+      class="navbar-sidebar"
+      id="sidebar"
+      [class.active]="isSidebarOpen"
+    >
+      <ul class="navbar-nav">
+        <li class="nav-item" *ngFor="let link of navLinks">
           <a
             [routerLink]="link.path"
             routerLinkActive="active"
@@ -25,13 +32,22 @@
       </ul>
     </div>
 
-    <div class="nav-actions d-flex align-items-center gap-2">
+    <!-- Theme and mobile navigation controls -->
+    <div class="nav-actions d-flex align-items-center">
       <button
         type="button"
         class="theme-toggle"
         (click)="toggleTheme()"
-        [attr.aria-label]="themeService.theme() === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'"
-        [title]="themeService.theme() === 'dark' ? 'Light mode' : 'Dark mode'"
+        [attr.aria-label]="
+          themeService.theme() === 'dark'
+            ? 'Switch to light theme'
+            : 'Switch to dark theme'
+        "
+        [title]="
+          themeService.theme() === 'dark'
+            ? 'Light mode'
+            : 'Dark mode'
+        "
       >
         <i
           class="bi"
@@ -46,16 +62,18 @@
         type="button"
         (click)="toggleSidebar()"
         [attr.aria-expanded]="isSidebarOpen"
+        aria-controls="sidebar"
         aria-label="Toggle navigation"
         [class.open]="isSidebarOpen"
       >
         <span class="navbar-toggler-icon"></span>
       </button>
     </div>
+
   </div>
 </nav>
 
-<!-- Backdrop that closes the sidebar when clicking outside -->
+<!-- Mobile sidebar backdrop -->
 <div
   class="sidebar-backdrop"
   *ngIf="isSidebarOpen"

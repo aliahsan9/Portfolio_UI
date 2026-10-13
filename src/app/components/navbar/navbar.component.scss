@@ -1,210 +1,532 @@
+:host {
+  display: block;
+}
+
+// ========================================
+// Main Navbar
+// ========================================
+
 .custom-navbar {
-  background: var(--gradient-navbar);
-  padding: 1rem 2rem;
-  box-shadow: 0 4px 15px var(--shadow-accent);
-  z-index: 1300;
+  --navbar-height: 56px;
+
   position: fixed;
+  inset: 0 0 auto;
+  z-index: 1300;
+
   width: 100%;
-  transition: background 0.35s ease-in-out, box-shadow 0.35s ease-in-out;
+  height: var(--navbar-height);
+  padding: 0 1.5rem;
+
+  background: var(--gradient-navbar);
+  box-shadow: 0 2px 12px var(--shadow-accent);
+
+  transition:
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+
+  .container-fluid {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    height: 100%;
+    padding: 0;
+  }
+
+  // ========================================
+  // Brand
+  // ========================================
 
   .navbar-brand {
+    flex-shrink: 0;
+
+    margin: 0;
+    padding: 0;
+
     color: var(--accent-bright) !important;
-    font-size: 1.4rem;
-    letter-spacing: 1px;
-    text-shadow: 0 0 8px color-mix(in srgb, var(--accent-bright) 50%, transparent);
-    transition: transform 0.25s ease, text-shadow 0.25s ease, color 0.25s ease;
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 0.15px;
+    line-height: 1.2;
+    white-space: nowrap;
+
+    text-decoration: none;
+
+    transition:
+      color 0.2s ease,
+      opacity 0.2s ease;
 
     &:hover {
-      transform: scale(1.06);
-      text-shadow: 0 0 16px var(--accent-bright);
+      color: var(--accent-cyan) !important;
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--accent-cyan);
+      outline-offset: 4px;
+      border-radius: 3px;
     }
   }
 
+  // ========================================
+  // Right-side Actions
+  // ========================================
+
   .nav-actions {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    gap: 0.55rem;
+
     position: relative;
     z-index: 1301;
   }
+
+  // ========================================
+  // Theme Toggle
+  // ========================================
 
   .theme-toggle {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
+    flex-shrink: 0;
+
+    width: 36px;
+    height: 36px;
     padding: 0;
+
     border: 1px solid var(--border);
     border-radius: 50%;
+
     background: var(--bg-glass-strong);
     color: var(--accent-bright);
+
     cursor: pointer;
-    transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+
+    transition:
+      background 0.2s ease,
+      border-color 0.2s ease,
+      color 0.2s ease;
 
     i {
-      font-size: 1.15rem;
+      font-size: 1rem;
       line-height: 1;
     }
 
     &:hover {
-      transform: scale(1.08);
       background: var(--badge-bg);
-      box-shadow: 0 0 12px var(--shadow-accent);
+      border-color: var(--accent-bright);
     }
 
     &:focus-visible {
       outline: 2px solid var(--accent-cyan);
-      outline-offset: 2px;
+      outline-offset: 3px;
     }
   }
 
+  // ========================================
+  // Mobile Menu Toggle
+  // ========================================
+
   .navbar-toggler {
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 6px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    transition: transform 0.25s ease;
+    flex-shrink: 0;
+
+    width: 36px;
+    height: 36px;
+    padding: 8px;
+
+    border: 1px solid var(--border);
+    border-radius: 7px;
+
+    background: transparent;
+    cursor: pointer;
+
+    &:focus-visible {
+      outline: 2px solid var(--accent-cyan);
+      outline-offset: 2px;
+      box-shadow: none;
+    }
 
     .navbar-toggler-icon {
-      width: 28px;
-      height: 2px;
-      background: var(--accent-bright);
-      display: block;
       position: relative;
-      border-radius: 2px;
-      transition: background 0.25s ease, transform 0.25s ease;
-    }
+      display: block;
 
-    .navbar-toggler-icon::before,
-    .navbar-toggler-icon::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      width: 28px;
+      width: 18px;
       height: 2px;
-      background: var(--accent-bright);
+
       border-radius: 2px;
-      transition: transform 0.25s ease, top 0.25s ease, opacity 0.25s ease;
-    }
+      background: var(--accent-bright);
 
-    .navbar-toggler-icon::before {
-      top: -8px;
-    }
+      transition: background 0.2s ease;
 
-    .navbar-toggler-icon::after {
-      top: 8px;
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+
+        width: 18px;
+        height: 2px;
+
+        border-radius: 2px;
+        background: var(--accent-bright);
+
+        transition:
+          top 0.2s ease,
+          transform 0.2s ease;
+      }
+
+      &::before {
+        top: -6px;
+      }
+
+      &::after {
+        top: 6px;
+      }
     }
 
     &.open {
       .navbar-toggler-icon {
         background: transparent;
-      }
-      .navbar-toggler-icon::before {
-        transform: rotate(45deg);
-        top: 0;
-      }
-      .navbar-toggler-icon::after {
-        transform: rotate(-45deg);
-        top: 0;
+
+        &::before {
+          top: 0;
+          transform: rotate(45deg);
+        }
+
+        &::after {
+          top: 0;
+          transform: rotate(-45deg);
+        }
       }
     }
   }
 
+  // ========================================
+  // Navigation Sidebar: Mobile / Tablet
+  // ========================================
+
   .navbar-sidebar {
     position: fixed;
-    top: 0;
-    left: -280px;
-    width: 260px;
-    height: 100vh;
+    top: var(--navbar-height);
+    left: 0;
+
+    width: min(290px, 86vw);
+    height: calc(100vh - var(--navbar-height));
+    height: calc(100dvh - var(--navbar-height));
+
+    padding: 1.1rem 1rem 1.5rem;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+
     background: var(--gradient-navbar);
-    padding: 4rem 1.5rem;
-    box-shadow: 4px 0 20px var(--shadow-accent);
-    transition: left 0.35s cubic-bezier(.2,.9,.3,1);
+    border-right: 1px solid var(--border);
+    box-shadow: 5px 10px 24px var(--shadow-accent);
+
+    transform: translateX(-105%);
+    visibility: hidden;
+    pointer-events: none;
+
+    transition:
+      transform 0.25s ease,
+      visibility 0.25s ease;
+
     z-index: 1299;
 
     .navbar-nav {
       display: flex;
       flex-direction: column;
-      gap: 1.25rem;
+      align-items: stretch;
+      gap: 0.35rem;
+
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-item {
+      width: 100%;
     }
 
     .nav-link {
-      font-size: 1.05rem;
-      font-weight: 600;
-      color: var(--text-nav) !important;
       position: relative;
-      transition: color 0.25s, transform 0.25s;
 
-      &.active {
-        color: var(--accent-bright) !important;
-        text-shadow: 0 0 8px color-mix(in srgb, var(--accent-bright) 50%, transparent);
-      }
+      display: flex;
+      align-items: center;
+
+      width: 100%;
+      min-height: 44px;
+      padding: 0.7rem 0.85rem;
+
+      border-radius: 7px;
+
+      color: var(--text-nav) !important;
+
+      font-size: 0.98rem;
+      font-weight: 500;
+      line-height: 1.4;
+      letter-spacing: 0.1px;
+
+      text-decoration: none;
+
+      transition:
+        color 0.2s ease,
+        background 0.2s ease;
 
       &::after {
         content: '';
         position: absolute;
-        bottom: -6px;
+
+        top: 25%;
+        bottom: 25%;
         left: 0;
-        width: 0;
-        height: 2px;
+
+        width: 3px;
+
+        border-radius: 3px;
         background: var(--accent-bright);
-        transition: width 0.35s;
+
+        transform: scaleY(0);
+        transition: transform 0.2s ease;
       }
 
-      &:hover {
+      &:hover,
+      &.active {
         color: var(--accent-bright) !important;
+        background: var(--bg-glass-strong);
       }
 
-      &:hover::after {
-        width: 100%;
+      &.active {
+        font-weight: 600;
+
+        &::after {
+          transform: scaleY(1);
+        }
       }
+
+      &:focus-visible {
+        outline: 2px solid var(--accent-cyan);
+        outline-offset: 2px;
+      }
+    }
+
+    &.active {
+      transform: translateX(0);
+      visibility: visible;
+      pointer-events: auto;
     }
   }
 
-  .navbar-sidebar.active {
-    left: 0;
-  }
+  // ========================================
+  // Desktop Navigation
+  // ========================================
 
-  &.scrolled {
-    background: var(--navbar-scrolled);
-    backdrop-filter: blur(6px);
-    box-shadow: 0 2px 16px var(--shadow-accent);
-  }
-
-  @media (min-width: 769px) {
+  @media (min-width: 1024px) {
     .navbar-toggler {
       display: none;
     }
 
     .navbar-sidebar {
       position: static;
-      width: auto;
-      height: auto;
-      padding: 0;
-      margin-right: 1rem;
-      box-shadow: none;
-      background: transparent;
+
       display: flex;
       align-items: center;
+      flex: 0 1 auto;
+
+      width: auto;
+      height: auto;
+      max-height: none;
+      min-width: 0;
+
+      margin-left: auto;
+      padding: 0;
+
+      overflow: visible;
+
+      background: transparent;
+      border: none;
+      box-shadow: none;
+
+      transform: none;
+      visibility: visible;
+      pointer-events: auto;
 
       .navbar-nav {
         flex-direction: row;
-        gap: 1.5rem;
+        align-items: center;
+        justify-content: flex-end;
+
+        gap: clamp(0.45rem, 0.8vw, 0.85rem);
+
+        width: 100%;
       }
+
+      .nav-item {
+        width: auto;
+      }
+
+      .nav-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        width: auto;
+        min-height: 38px;
+
+        padding: 0.45rem 0.4rem;
+
+        border-radius: 5px;
+
+        font-size: 0.92rem;
+        font-weight: 500;
+        line-height: 1.2;
+        letter-spacing: 0;
+
+        white-space: nowrap;
+
+        &::after {
+          top: auto;
+          bottom: 1px;
+          left: 15%;
+
+          width: 70%;
+          height: 2px;
+
+          transform: scaleX(0);
+          transform-origin: center;
+        }
+
+        &:hover,
+        &.active {
+          background: transparent;
+          color: var(--accent-bright) !important;
+        }
+
+        &:hover::after,
+        &.active::after {
+          transform: scaleX(1);
+        }
+
+        &.active {
+          font-weight: 600;
+        }
+      }
+    }
+  }
+
+  // ========================================
+  // Large Desktop
+  // ========================================
+
+  @media (min-width: 1200px) {
+    padding-right: 1.75rem;
+    padding-left: 1.75rem;
+
+    .container-fluid {
+      gap: 1.25rem;
+    }
+
+    .navbar-brand {
+      font-size: 1.25rem;
+    }
+
+    .navbar-sidebar .navbar-nav {
+      gap: clamp(0.6rem, 0.9vw, 1rem);
+    }
+
+    .navbar-sidebar .nav-link {
+      padding-right: 0.45rem;
+      padding-left: 0.45rem;
+      font-size: 0.95rem;
+    }
+  }
+
+  // ========================================
+  // Scrolled State
+  // ========================================
+
+  &.scrolled {
+    background: var(--navbar-scrolled);
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    box-shadow: 0 2px 14px var(--shadow-accent);
+  }
+}
+
+// ========================================
+// Sidebar Backdrop
+// ========================================
+
+.sidebar-backdrop {
+  position: fixed;
+  top: 56px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  background: var(--backdrop);
+  z-index: 1280;
+
+  @media (min-width: 1024px) {
+    display: none;
+  }
+}
+
+// ========================================
+// Small Phones
+// ========================================
+
+@media (max-width: 380px) {
+  .custom-navbar {
+    padding-right: 0.65rem;
+    padding-left: 0.65rem;
+
+    .container-fluid {
+      gap: 0.5rem;
+    }
+
+    .navbar-brand {
+      font-size: 1rem;
+    }
+
+    .nav-actions {
+      gap: 0.3rem;
+    }
+
+    .theme-toggle,
+    .navbar-toggler {
+      width: 32px;
+      height: 32px;
     }
   }
 }
 
-.sidebar-backdrop {
-  position: fixed;
-  inset: 0;
-  width: 100%;
-  height: 100vh;
-  background: var(--backdrop);
-  z-index: 1280;
+// ========================================
+// Tablet and Compact Laptop Spacing
+// ========================================
 
-  @media (min-width: 769px) {
-    display: none;
+@media (min-width: 768px) and (max-width: 1023.98px) {
+  .custom-navbar {
+    padding-right: 1.25rem;
+    padding-left: 1.25rem;
+  }
+}
+
+// ========================================
+// Reduced Motion
+// ========================================
+
+@media (prefers-reduced-motion: reduce) {
+  .custom-navbar,
+  .custom-navbar *,
+  .sidebar-backdrop {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
   }
 }

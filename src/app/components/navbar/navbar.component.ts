@@ -1,5 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnDestroy, OnInit, inject } from '@angular/core';
+import {
+  Component,
+  OnDestroy,
+  OnInit,
+  inject
+} from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ThemeService } from '../../services/theme.service';
 
@@ -27,14 +32,40 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   isSidebarOpen = false;
 
-  private boundOnScroll = this.onScroll.bind(this);
+  private readonly desktopQuery =
+    window.matchMedia('(min-width: 769px)');
+
+  private readonly boundOnScroll = this.onScroll.bind(this);
+
+  private readonly boundOnResize = (
+    event: MediaQueryListEvent
+  ): void => {
+    if (event.matches) {
+      this.closeSidebar();
+    }
+  };
 
   ngOnInit(): void {
-    window.addEventListener('scroll', this.boundOnScroll);
+    window.addEventListener('scroll', this.boundOnScroll, {
+      passive: true
+    });
+
+    this.desktopQuery.addEventListener(
+      'change',
+      this.boundOnResize
+    );
   }
 
   ngOnDestroy(): void {
-    window.removeEventListener('scroll', this.boundOnScroll);
+    window.removeEventListener(
+      'scroll',
+      this.boundOnScroll
+    );
+
+    this.desktopQuery.removeEventListener(
+      'change',
+      this.boundOnResize
+    );
   }
 
   toggleTheme(): void {
@@ -51,10 +82,10 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   onScroll(): void {
     const navbar = document.querySelector('.custom-navbar');
-    if (window.scrollY > 10) {
-      navbar?.classList.add('scrolled');
-    } else {
-      navbar?.classList.remove('scrolled');
-    }
+
+    navbar?.classList.toggle(
+      'scrolled',
+      window.scrollY > 10
+    );
   }
 }
