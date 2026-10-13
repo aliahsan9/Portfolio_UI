@@ -1,12 +1,68 @@
-<div class="blog-page">
-  <!-- CONTENT -->
+ <div class="blog-page">
   <main class="blog-main">
-    <div class="container">
+    <div class="container blog-container">
       <article class="blog-article">
-        <div class="markdown-body" #markdownContainer>
-          <markdown [src]="markdownPath"></markdown>
+        <!-- Article header -->
+        <header class="blog-header">
+          <a class="blog-back-link" routerLink="/blogs">
+            <i class="bi bi-arrow-left" aria-hidden="true"></i>
+            <span>All articles</span>
+          </a>
+
+          <div class="blog-header-divider"></div>
+
+          <div class="blog-category">
+            <span class="category-dot"></span>
+            Engineering & Development
+          </div>
+
+          <h1 class="blog-title">{{ title }}</h1>
+
+          <p class="blog-description">
+            Practical insights, implementation details, and engineering
+            concepts explained with clarity.
+          </p>
+
+          <div class="blog-meta">
+            <span>
+              <i class="bi bi-journal-text" aria-hidden="true"></i>
+              Technical Article
+            </span>
+
+            <span class="meta-separator"></span>
+
+            <span>
+              <i class="bi bi-code-slash" aria-hidden="true"></i>
+              Software Engineering
+            </span>
+          </div>
+        </header>
+
+        <!-- Reading progress is optional; article styling works without it -->
+        <div class="article-divider"></div>
+
+        <!-- Markdown content -->
+        <div class="blog-content">
+          <div class="markdown-body" #markdownContainer>
+            <markdown [src]="markdownPath"></markdown>
+          </div>
         </div>
+
+        <!-- Article footer -->
+        <footer class="blog-footer">
+          <div class="footer-line"></div>
+
+          <p class="footer-message">
+            <i class="bi bi-bookmark-check" aria-hidden="true"></i>
+            <span>Keep learning. Keep building.</span>
+          </p>
+
+          <a class="blog-back-link footer-back-link" routerLink="/blogs">
+            <i class="bi bi-arrow-left" aria-hidden="true"></i>
+            <span>Explore more articles</span>
+          </a>
+        </footer>
       </article>
     </div>
   </main>
-</div> 
+</div>

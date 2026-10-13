@@ -1,45 +1,195 @@
-/* ======================================== */
-/* PAGE                                     */
-/* ======================================== */
+/* =========================================================
+   BLOG DETAIL — EDITORIAL READING EXPERIENCE
+   ========================================================= */
 
-.blog-page {
-  min-height: 100vh;
-  background: var(--bg-body);
-  color: var(--text-secondary);
+:host {
+  display: block;
+  min-width: 0;
 }
 
-/* ======================================== */
-/* CONTENT                                  */
-/* ======================================== */
+.blog-page {
+  --blog-accent: #38bdf8;
+  --blog-accent-strong: #0ea5e9;
+  --blog-reading-width: 780px;
+
+  min-height: 100vh;
+  background: var(--bg-body, #0b1120);
+  color: var(--text-primary, #e5e7eb);
+}
+
+/* =========================================================
+   PAGE LAYOUT
+   ========================================================= */
 
 .blog-main {
-  padding: 50px 0 80px;
+  padding: clamp(32px, 5vw, 68px) 0 80px;
+}
+
+.blog-container {
+  max-width: 1080px;
 }
 
 .blog-article {
-  background: var(--bg-surface);
-  border: 1px solid var(--border);
-  border-radius: 24px;
-  padding: clamp(24px, 4vw, 48px);
-  overflow: hidden;
-
-  box-shadow:
-    0 20px 60px rgba(0, 0, 0, 0.35),
-    0 0 0 1px rgba(255, 255, 255, 0.02);
+  width: 100%;
+  max-width: 100%;
+  margin-inline: auto;
+  min-width: 0;
 }
 
-/* ======================================== */
-/* MARKDOWN BODY                            */
-/* ======================================== */
+/* =========================================================
+   ARTICLE HEADER
+   ========================================================= */
+
+.blog-header {
+  max-width: var(--blog-reading-width);
+  margin: 0 auto;
+  padding: 0 clamp(0px, 1vw, 12px);
+}
+
+.blog-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--text-muted, #94a3b8);
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 180ms ease, gap 180ms ease;
+}
+
+.blog-back-link:hover {
+  color: var(--blog-accent);
+  gap: 13px;
+}
+
+.blog-back-link i {
+  font-size: 1rem;
+}
+
+.blog-header-divider {
+  height: 1px;
+  margin: 25px 0 30px;
+  background: var(--border, rgba(148, 163, 184, 0.17));
+}
+
+.blog-category {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 20px;
+  color: var(--blog-accent);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.095em;
+  line-height: 1.6;
+  text-transform: uppercase;
+}
+
+.category-dot {
+  width: 7px;
+  height: 7px;
+  flex: 0 0 7px;
+  border-radius: 50%;
+  background: var(--blog-accent);
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.3);
+}
+
+.blog-title {
+  max-width: 850px;
+  margin: 0 0 22px;
+  color: var(--text-primary, #f1f5f9);
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+  font-size: clamp(2.15rem, 5vw, 3.7rem);
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  line-height: 1.13;
+  overflow-wrap: anywhere;
+  text-wrap: balance;
+}
+
+.blog-description {
+  max-width: 680px;
+  margin: 0 0 27px;
+  color: var(--text-secondary, #aab6c8);
+  font-size: clamp(1rem, 1.5vw, 1.14rem);
+  font-weight: 400;
+  line-height: 1.85;
+}
+
+.blog-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 13px;
+  color: var(--text-muted, #94a3b8);
+  font-size: 0.83rem;
+  line-height: 1.8;
+}
+
+.blog-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.blog-meta i {
+  color: var(--blog-accent);
+  font-size: 0.95rem;
+}
+
+.blog-meta .meta-separator {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--text-muted, #64748b);
+}
+
+/* =========================================================
+   CONTENT WIDTH AND SEPARATION
+   ========================================================= */
+
+.article-divider {
+  width: 100%;
+  max-width: var(--blog-reading-width);
+  height: 1px;
+  margin: 35px auto 40px;
+  background: var(--border, rgba(148, 163, 184, 0.17));
+}
+
+.blog-content {
+  width: 100%;
+  max-width: var(--blog-reading-width);
+  margin-inline: auto;
+  padding-inline: clamp(0px, 1vw, 12px);
+  min-width: 0;
+}
+
+/* =========================================================
+   MARKDOWN — TYPOGRAPHY
+   ========================================================= */
 
 .markdown-body {
+  min-width: 0;
+  color: var(--text-secondary, #cbd5e1);
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+  font-size: 1.04rem;
+  font-weight: 400;
   line-height: 1.9;
-  font-size: 1.05rem;
+  overflow-wrap: break-word;
+  word-break: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
-/* ======================================== */
-/* HEADINGS                                 */
-/* ======================================== */
+.markdown-body ::ng-deep > :first-child {
+  margin-top: 0;
+}
+
+.markdown-body ::ng-deep > :last-child {
+  margin-bottom: 0;
+}
+
+/* Headings */
 
 .markdown-body ::ng-deep h1,
 .markdown-body ::ng-deep h2,
@@ -47,199 +197,471 @@
 .markdown-body ::ng-deep h4,
 .markdown-body ::ng-deep h5,
 .markdown-body ::ng-deep h6 {
-  color: var(--accent-cyan);
-  margin-top: 2.2rem;
-  margin-bottom: 1rem;
-  line-height: 1.3;
-  font-weight: 700;
+  color: var(--text-primary, #f1f5f9);
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+  font-weight: 750;
+  letter-spacing: -0.027em;
+  line-height: 1.35;
+  text-wrap: pretty;
+  overflow-wrap: anywhere;
 }
 
 .markdown-body ::ng-deep h1 {
-  font-size: clamp(2rem, 4vw, 3rem);
+  margin: 0 0 1.4rem;
+  font-size: clamp(2rem, 4.5vw, 2.8rem);
+  letter-spacing: -0.04em;
+  line-height: 1.2;
 }
 
 .markdown-body ::ng-deep h2 {
-  font-size: clamp(1.6rem, 3vw, 2.3rem);
+  margin: 3.1rem 0 1.15rem;
+  padding-bottom: 0.65rem;
+  border-bottom: 1px solid var(--border, rgba(148, 163, 184, 0.18));
+  font-size: clamp(1.55rem, 3vw, 2rem);
 }
 
-/* ======================================== */
-/* PARAGRAPHS                               */
-/* ======================================== */
+.markdown-body ::ng-deep h3 {
+  margin: 2.3rem 0 0.9rem;
+  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+}
+
+.markdown-body ::ng-deep h4 {
+  margin: 1.9rem 0 0.75rem;
+  font-size: 1.13rem;
+}
+
+.markdown-body ::ng-deep h5,
+.markdown-body ::ng-deep h6 {
+  margin: 1.5rem 0 0.7rem;
+  font-size: 1rem;
+}
+
+/* Paragraphs */
 
 .markdown-body ::ng-deep p {
-  color: var(--text-soft);
-  margin-bottom: 1.5rem;
+  margin: 0 0 1.5rem;
+  color: var(--text-secondary, #cbd5e1);
+  font-size: inherit;
+  line-height: inherit;
 }
 
-/* ======================================== */
-/* LINKS                                    */
-/* ======================================== */
+.markdown-body ::ng-deep strong,
+.markdown-body ::ng-deep b {
+  color: var(--text-primary, #f1f5f9);
+  font-weight: 700;
+}
+
+.markdown-body ::ng-deep em {
+  color: var(--text-primary, #e2e8f0);
+}
+
+/* =========================================================
+   LINKS
+   ========================================================= */
 
 .markdown-body ::ng-deep a {
-  color: var(--text-code);
-  transition: 0.3s ease;
+  color: var(--blog-accent);
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-color: rgba(56, 189, 248, 0.4);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+  overflow-wrap: anywhere;
+  transition: color 180ms ease, text-decoration-color 180ms ease;
 }
 
 .markdown-body ::ng-deep a:hover {
-  color: var(--accent-glow);
-  text-decoration: underline;
+  color: #7dd3fc;
+  text-decoration-color: currentColor;
 }
 
-/* ======================================== */
-/* IMAGES (FIXED)                           */
-/* ======================================== */
-
-.markdown-body ::ng-deep p:has(img) {
-  text-align: center;
+.markdown-body ::ng-deep a:focus-visible {
+  outline: 2px solid var(--blog-accent);
+  outline-offset: 4px;
+  border-radius: 2px;
 }
 
-.markdown-body ::ng-deep img {
-  display: block;
-
-  width: auto;
-  height: auto;
-
-  max-width: 80%;
-  max-height: 650px;
-
-  margin: 40px auto;
-
-  object-fit: contain;
-
-  border-radius: 20px;
-
-  border: 1px solid var(--border);
-
-  background: var(--bg-code);
-
-  box-shadow:
-    0 15px 40px rgba(0, 0, 0, 0.4),
-    0 0 0 1px rgba(255, 255, 255, 0.02);
-
-  transition:
-    transform 0.35s ease,
-    box-shadow 0.35s ease;
-}
-
-.markdown-body ::ng-deep img:hover {
-  transform: translateY(-5px);
-
-  box-shadow:
-    0 25px 60px rgba(0, 0, 0, 0.5),
-    0 0 30px rgba(56, 189, 248, 0.15);
-}
-
-/* ======================================== */
-/* LISTS                                    */
-/* ======================================== */
+/* =========================================================
+   LISTS
+   ========================================================= */
 
 .markdown-body ::ng-deep ul,
 .markdown-body ::ng-deep ol {
-  padding-left: 28px;
-  margin-bottom: 24px;
+  margin: 0 0 1.65rem;
+  padding-left: 1.65rem;
+}
+
+.markdown-body ::ng-deep ul {
+  list-style-type: disc;
+}
+
+.markdown-body ::ng-deep ul ul {
+  list-style-type: circle;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.markdown-body ::ng-deep ol {
+  list-style-type: decimal;
 }
 
 .markdown-body ::ng-deep li {
-  margin-bottom: 10px;
-  color: var(--text-soft);
+  padding-left: 0.25rem;
+  margin-bottom: 0.55rem;
+  color: var(--text-secondary, #cbd5e1);
+  line-height: 1.85;
 }
 
-/* ======================================== */
-/* BLOCKQUOTE                               */
-/* ======================================== */
+.markdown-body ::ng-deep li::marker {
+  color: var(--blog-accent);
+}
+
+.markdown-body ::ng-deep li > p {
+  margin-bottom: 0.65rem;
+}
+
+.markdown-body ::ng-deep li > ul,
+.markdown-body ::ng-deep li > ol {
+  margin-top: 0.65rem;
+}
+
+/* =========================================================
+   BLOCKQUOTES
+   ========================================================= */
 
 .markdown-body ::ng-deep blockquote {
-  margin: 28px 0;
-  padding: 18px 24px;
-
-  border-left: 4px solid #38bdf8;
-
-  background: var(--bg-glass);
-
-  border-radius: 0 12px 12px 0;
-
-  color: var(--text-muted);
-
-  font-style: italic;
+  margin: 2rem 0;
+  padding: 1.2rem 1.45rem;
+  border: 1px solid var(--border, rgba(148, 163, 184, 0.17));
+  border-left: 3px solid var(--blog-accent);
+  border-radius: 0 10px 10px 0;
+  background: var(--bg-surface, rgba(148, 163, 184, 0.045));
 }
 
-/* ======================================== */
-/* INLINE CODE                              */
-/* ======================================== */
+.markdown-body ::ng-deep blockquote p {
+  margin-bottom: 0.65rem;
+  color: var(--text-secondary, #cbd5e1);
+}
+
+.markdown-body ::ng-deep blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+/* =========================================================
+   INLINE CODE
+   ========================================================= */
 
 .markdown-body ::ng-deep :not(pre) > code {
-  background: var(--bg-elevated);
-  color: var(--text-code);
-
-  padding: 4px 8px;
-
-  border-radius: 6px;
-
-  font-size: 0.92rem;
+  padding: 0.17rem 0.42rem;
+  border: 1px solid var(--border, rgba(148, 163, 184, 0.17));
+  border-radius: 5px;
+  background: var(--bg-code, #111827);
+  color: #7dd3fc;
+  font-family: "Cascadia Code", Consolas, "Courier New", monospace;
+  font-size: 0.86em;
+  font-weight: 500;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
 }
 
-/* ======================================== */
-/* TABLES                                   */
-/* ======================================== */
+/* =========================================================
+   CODE BLOCKS
+   ========================================================= */
+
+.markdown-body ::ng-deep pre {
+  max-width: 100%;
+  margin: 1.8rem 0 2rem;
+  padding: 1.35rem 1.45rem;
+  overflow-x: auto;
+  border: 1px solid var(--border, rgba(148, 163, 184, 0.18));
+  border-radius: 12px;
+  background: var(--bg-code, #0f172a);
+  color: #e2e8f0;
+  font-family: "Cascadia Code", Consolas, "Courier New", monospace;
+  font-size: 0.85rem;
+  line-height: 1.85;
+  tab-size: 4;
+  scrollbar-width: thin;
+  scrollbar-color: #475569 transparent;
+}
+
+.markdown-body ::ng-deep pre code {
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: 400;
+  line-height: inherit;
+  white-space: pre;
+  overflow-wrap: normal;
+}
+
+.markdown-body ::ng-deep pre::-webkit-scrollbar {
+  height: 7px;
+}
+
+.markdown-body ::ng-deep pre::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: #475569;
+}
+
+/* =========================================================
+   TABLES
+   ========================================================= */
 
 .markdown-body ::ng-deep table {
+  display: block;
   width: 100%;
-  border-collapse: collapse;
-  margin: 30px 0;
+  max-width: 100%;
+  margin: 2rem 0;
+  overflow-x: auto;
+  border: 1px solid var(--border, rgba(148, 163, 184, 0.18));
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 10px;
+  background: var(--bg-surface, transparent);
+  font-size: 0.92rem;
+  line-height: 1.7;
+  scrollbar-width: thin;
 }
 
 .markdown-body ::ng-deep th,
 .markdown-body ::ng-deep td {
-  padding: 14px;
-  border: 1px solid var(--border);
+  min-width: 115px;
+  padding: 0.85rem 1rem;
+  border-right: 1px solid var(--border, rgba(148, 163, 184, 0.14));
+  border-bottom: 1px solid var(--border, rgba(148, 163, 184, 0.14));
+  text-align: left;
+  vertical-align: top;
+}
+
+.markdown-body ::ng-deep th:last-child,
+.markdown-body ::ng-deep td:last-child {
+  border-right: 0;
+}
+
+.markdown-body ::ng-deep tbody tr:last-child td {
+  border-bottom: 0;
 }
 
 .markdown-body ::ng-deep th {
-  background: var(--bg-elevated);
-  color: var(--accent-cyan);
+  background: var(--bg-elevated, rgba(148, 163, 184, 0.08));
+  color: var(--text-primary, #f1f5f9);
+  font-size: 0.84rem;
+  font-weight: 700;
 }
 
 .markdown-body ::ng-deep td {
-  color: var(--text-soft);
+  color: var(--text-secondary, #cbd5e1);
 }
 
-/* ======================================== */
-/* HORIZONTAL RULE                          */
-/* ======================================== */
+/* =========================================================
+   IMAGES
+   ========================================================= */
+
+.markdown-body ::ng-deep img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 680px;
+  margin: 2.2rem auto;
+  border: 1px solid var(--border, rgba(148, 163, 184, 0.2));
+  border-radius: 12px;
+  background: var(--bg-surface, #111827);
+  object-fit: contain;
+}
+
+.markdown-body ::ng-deep figure {
+  max-width: 100%;
+  margin: 2rem 0;
+}
+
+.markdown-body ::ng-deep figure img {
+  margin: 0 auto;
+}
+
+.markdown-body ::ng-deep figcaption {
+  margin-top: 0.8rem;
+  color: var(--text-muted, #94a3b8);
+  font-size: 0.85rem;
+  line-height: 1.7;
+  text-align: center;
+}
+
+/* =========================================================
+   HORIZONTAL RULES
+   ========================================================= */
 
 .markdown-body ::ng-deep hr {
-  border: none;
   height: 1px;
-
-  background: var(--border);
-
-  margin: 40px 0;
+  margin: 2.8rem 0;
+  border: 0;
+  background: var(--border, rgba(148, 163, 184, 0.18));
 }
 
-/* ======================================== */
-/* MOBILE                                   */
-/* ======================================== */
+/* =========================================================
+   TASK LISTS
+   ========================================================= */
 
-@media (max-width: 992px) {
-  .markdown-body ::ng-deep img {
-    max-width: 92%;
-  }
+.markdown-body ::ng-deep input[type="checkbox"] {
+  margin-right: 0.6rem;
+  accent-color: var(--blog-accent-strong);
 }
 
-@media (max-width: 768px) {
+/* =========================================================
+   FOOTER
+   ========================================================= */
 
+.blog-footer {
+  max-width: var(--blog-reading-width);
+  margin: 4rem auto 0;
+  padding-inline: clamp(0px, 1vw, 12px);
+}
+
+.footer-line {
+  height: 1px;
+  margin-bottom: 1.7rem;
+  background: var(--border, rgba(148, 163, 184, 0.18));
+}
+
+.footer-message {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 1.7rem;
+  color: var(--text-muted, #94a3b8);
+  font-size: 0.9rem;
+}
+
+.footer-message i {
+  color: var(--blog-accent);
+  font-size: 1.05rem;
+}
+
+.footer-back-link {
+  font-size: 0.88rem;
+}
+
+/* =========================================================
+   RESPONSIVE DESIGN
+   ========================================================= */
+
+@media (max-width: 767.98px) {
   .blog-main {
-    padding: 30px 0 60px;
+    padding: 28px 0 52px;
   }
 
-  .blog-article {
-    padding: 20px;
-    border-radius: 18px;
+  .blog-container {
+    padding-inline: 22px;
+  }
+
+  .blog-header-divider {
+    margin: 21px 0 25px;
+  }
+
+  .blog-category {
+    margin-bottom: 15px;
+    font-size: 0.7rem;
+  }
+
+  .blog-title {
+    margin-bottom: 17px;
+    font-size: clamp(2rem, 8vw, 2.8rem);
+    letter-spacing: -0.035em;
+    line-height: 1.18;
+  }
+
+  .blog-description {
+    margin-bottom: 21px;
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+
+  .blog-meta {
+    gap: 9px 12px;
+    font-size: 0.78rem;
+  }
+
+  .article-divider {
+    margin: 28px auto 30px;
+  }
+
+  .markdown-body {
+    font-size: 1rem;
+    line-height: 1.85;
+  }
+
+  .markdown-body ::ng-deep h2 {
+    margin-top: 2.5rem;
+  }
+
+  .markdown-body ::ng-deep h3 {
+    margin-top: 2rem;
+  }
+
+  .markdown-body ::ng-deep pre {
+    padding: 1rem;
+    border-radius: 9px;
+    font-size: 0.79rem;
+  }
+
+  .markdown-body ::ng-deep blockquote {
+    padding: 1rem 1.05rem;
+  }
+
+  .markdown-body ::ng-deep th,
+  .markdown-body ::ng-deep td {
+    padding: 0.7rem 0.8rem;
   }
 
   .markdown-body ::ng-deep img {
-    max-width: 100%;
-    margin: 24px auto;
-    border-radius: 14px;
+    margin: 1.7rem auto;
+    border-radius: 9px;
+  }
+
+  .blog-footer {
+    margin-top: 3rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .blog-container {
+    padding-inline: 17px;
+  }
+
+  .blog-title {
+    font-size: 1.9rem;
+  }
+
+  .blog-meta .meta-separator {
+    display: none;
+  }
+
+  .blog-meta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .markdown-body {
+    font-size: 0.97rem;
+  }
+
+  .markdown-body ::ng-deep pre {
+    font-size: 0.75rem;
+  }
+}
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .blog-back-link,
+  .markdown-body ::ng-deep a {
+    transition: none;
   }
 }

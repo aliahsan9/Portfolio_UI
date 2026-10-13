@@ -1,17 +1,6 @@
-import {
-  Component,
-  ElementRef,
-  OnInit,
-  ViewChild
-} from '@angular/core';
-
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
- 
-import {
-  ActivatedRoute,
-  RouterModule
-} from '@angular/router';
-
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { MarkdownModule } from 'ngx-markdown';
 
 @Component({
@@ -25,31 +14,26 @@ import { MarkdownModule } from 'ngx-markdown';
   templateUrl: './blog-detail.component.html',
   styleUrls: ['./blog-detail.component.scss']
 })
-export class BlogDetailComponent implements OnInit {
-
+export class BlogDetailComponent {
   slug = '';
   title = '';
 
-  @ViewChild('markdownContainer')
-  markdownContainer!: ElementRef<HTMLDivElement>;
-
-  constructor(
-    private route: ActivatedRoute
-  ) {}
-
-  ngOnInit(): void {
-
-    this.slug =
-      this.route.snapshot.paramMap.get('slug') || '';
-
-    this.title = this.slug
-      .replace(/-/g, ' ')
-      .replace(/\b\w/g, c => c.toUpperCase());
+  constructor(private readonly route: ActivatedRoute) {
+    this.route.paramMap.subscribe(params => {
+      this.slug = params.get('slug') ?? '';
+      this.title = this.formatTitle(this.slug);
+    });
   }
-
 
   get markdownPath(): string {
-
     return `assets/blogs/${this.slug}.md`;
   }
+
+  private formatTitle(slug: string): string {
+    return slug
+      .replace(/[-_]+/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim()
+      .replace(/\b[a-z]/g, character => character.toUpperCase());
   }
+}
