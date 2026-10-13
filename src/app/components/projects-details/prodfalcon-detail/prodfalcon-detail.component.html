@@ -1,251 +1,423 @@
 <section class="project-page">
-
   <div class="container">
 
     <!-- HERO -->
-
-    <div class="hero-section">
-
+    <header class="hero-section">
       <div class="row align-items-center gy-5">
 
-        <!-- LEFT -->
-
         <div class="col-lg-5">
-
           <span class="case-study-label">
-            FULL STACK SaaS CASE STUDY
+            AI-ASSISTED CODE ANALYSIS
           </span>
 
           <h1 class="project-title">
             ProdFalcon
+            <span>Find risks. Understand code. Improve with confidence.</span>
           </h1>
 
           <p class="project-description">
-            ProdFalcon is a modern AI-powered product analysis platform
-            developed using Angular, .NET Web API, SQL Server, and
-            Entity Framework Core with Code First architecture.
+            ProdFalcon is a code analysis platform designed to help developers
+            inspect a codebase for potentially risky patterns. It combines
+            rule-based checks with AI-assisted explanations and suggestions,
+            giving developers a starting point for investigating issues
+            such as potential SQL injection and exposed secrets.
+          </p>
+
+          <p class="hero-supporting-text">
+            Built with Angular, ASP.NET Core Web API, SQL Server,
+            Entity Framework Core, and AI-assisted analysis.
           </p>
 
           <div class="project-buttons">
-
             <a
-              href="https://github.com/aliahsan9/ProdFalcon"
+              [href]="repositoryUrl"
               target="_blank"
+              rel="noopener noreferrer"
               class="btn btn-theme-solid custom-btn"
+              aria-label="Explore ProdFalcon source code on GitHub"
             >
-              <i class="bi bi-github"></i>
-              GitHub
+              <i class="bi bi-github" aria-hidden="true"></i>
+              Explore source code
+              <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
             </a>
-
-            <!-- <a
-              href="https://prodfalcon.vercel.app/dashboard"
-              target="_blank"
-              class="btn btn-theme-outline custom-btn"
-            >
-              Live Preview
-            </a> -->
-
           </div>
 
+          <div class="hero-highlights">
+            <div>
+              <strong>01</strong>
+              <span>Source code scanning</span>
+            </div>
+
+            <div>
+              <strong>02</strong>
+              <span>Rule-based checks</span>
+            </div>
+
+            <div>
+              <strong>03</strong>
+              <span>AI-assisted guidance</span>
+            </div>
+          </div>
         </div>
 
-        <!-- RIGHT -->
-
         <div class="col-lg-7">
-
-          <div class="macbook-wrapper">
-
-            <div class="macbook-topbar">
-
-              <div class="dots">
+          <div class="preview-shell">
+            <div class="preview-topbar">
+              <div class="dots" aria-hidden="true">
                 <span class="dot red"></span>
                 <span class="dot yellow"></span>
                 <span class="dot green"></span>
               </div>
+
+              <span class="preview-address">ProdFalcon / Code Analysis</span>
+
+              <span class="preview-status">
+                <span></span>
+                Project preview
+              </span>
             </div>
 
-            <div class="macbook-screen">
-
+            <div class="preview-screen">
               <img
                 src="assets/projects/prodfalcon.avif"
-                alt="ProdFalcon Dashboard"
+                alt="ProdFalcon code analysis application preview"
+                fetchpriority="high"
               />
-
             </div>
 
+            <div class="preview-caption">
+              <span>AI-ASSISTED CODE ANALYSIS</span>
+              <span>Angular · .NET · SQL Server</span>
+            </div>
           </div>
-
         </div>
 
       </div>
+    </header>
 
-    </div>
-
-    <!-- ABOUT -->
-
-    <div class="content-section">
-
-      <div class="row gy-5">
+    <!-- PURPOSE -->
+    <section class="content-section">
+      <div class="row gy-5 align-items-start">
 
         <div class="col-lg-7">
+          <span class="section-eyebrow">THE PROBLEM</span>
 
           <h2 class="section-title">
-            About The Project
+            Finding risky code should not begin and end with manual searching.
           </h2>
 
-          <p>
-            ProdFalcon was developed as a modern SaaS platform focused on
-            product analysis, insights, and intelligent dashboard experiences.
-          </p>
+          <div class="section-copy">
+            <p>
+              Developers work across repositories containing application logic,
+              database access, configuration, and dependencies. Potentially
+              unsafe patterns—such as SQL queries built from untrusted input
+              or credentials accidentally committed to source control—can be
+              difficult to spot during routine development.
+            </p>
 
-          <p>
-            The frontend was built entirely in Angular with SCSS and Bootstrap,
-            while the backend was powered using .NET 8 Web API with
-            Entity Framework Core and SQL Server.
-          </p>
+            <p>
+              ProdFalcon explores how this first-pass review can be made more
+              systematic. A developer provides a supported codebase, the
+              application evaluates source files using configured checks,
+              and AI-assisted guidance can help explain findings and suggest
+              possible remediation steps.
+            </p>
 
-          <p>
-            The system follows Code First development with scalable Clean
-            Architecture principles, reusable services, optimized APIs,
-            and secure authentication workflows.
-          </p>
-
+            <p>
+              The goal is not to claim that a scan proves a project is secure.
+              It is to help developers identify areas that deserve attention
+              and make the investigation process more approachable.
+            </p>
+          </div>
         </div>
 
         <div class="col-lg-5">
-
-          <div class="project-meta">
-
-            <div class="meta-item">
-              <span>Frontend</span>
-              <strong>Angular + SCSS</strong>
+          <aside class="project-facts">
+            <div class="facts-heading">
+              <span class="section-eyebrow">PROJECT DETAILS</span>
+              <h3>At a glance</h3>
             </div>
 
-            <div class="meta-item">
-              <span>Backend</span>
-              <strong>.NET 8 Web API</strong>
+            <div
+              class="fact-item"
+              *ngFor="let fact of projectFacts"
+            >
+              <span>{{ fact.label }}</span>
+              <strong>{{ fact.value }}</strong>
             </div>
-
-            <div class="meta-item">
-              <span>Database</span>
-              <strong>SQL Server</strong>
-            </div>
-
-            <div class="meta-item">
-              <span>ORM</span>
-              <strong>EF Core Code First</strong>
-            </div>
-
-          </div>
-
+          </aside>
         </div>
 
       </div>
+    </section>
 
-    </div>
+    <!-- PROBLEMS SOLVED -->
+    <section class="content-section">
+      <div class="section-heading">
+        <span class="section-eyebrow">WHY PRODFALCON</span>
 
-    <!-- FEATURES -->
+        <h2 class="section-title">
+          Four problems behind the product
+        </h2>
 
-    <div class="content-section">
+        <p class="section-intro">
+          The project focuses on helping developers move from searching
+          source files manually to reviewing structured signals and
+          understanding what to investigate.
+        </p>
+      </div>
 
-      <h2 class="section-title mb-5">
-        Features & Highlights
-      </h2>
-
-      <div class="row g-4">
-
-        <div
-          class="col-md-6"
-          *ngFor="let item of features"
+      <div class="problem-grid">
+        <article
+          class="problem-item"
+          *ngFor="let problem of problems"
         >
+          <span class="item-number">{{ problem.number }}</span>
 
-          <div class="feature-card">
+          <h3>{{ problem.title }}</h3>
 
-            <div class="feature-icon">
-              <i class="bi bi-lightning-charge-fill"></i>
-            </div>
+          <p>{{ problem.description }}</p>
 
-            <h3>
-              {{ item.title }}
-            </h3>
-
-            <p>
-              {{ item.description }}
-            </p>
-
+          <div class="problem-outcome">
+            <i class="bi bi-arrow-right" aria-hidden="true"></i>
+            <span>{{ problem.outcome }}</span>
           </div>
+        </article>
+      </div>
+    </section>
 
-        </div>
+    <!-- SCAN WORKFLOW -->
+    <section class="content-section">
+      <div class="section-heading">
+        <span class="section-eyebrow">HOW IT WORKS</span>
 
+        <h2 class="section-title">
+          From source code to actionable review
+        </h2>
+
+        <p class="section-intro">
+          A conceptual view of the scanning workflow, from providing a
+          project to reviewing potential findings.
+        </p>
       </div>
 
-    </div>
+      <div class="workflow-list">
+        <article
+          class="workflow-step"
+          *ngFor="let step of scanWorkflow"
+        >
+          <div class="workflow-icon">
+            <i [class]="step.icon" aria-hidden="true"></i>
+          </div>
+
+          <div class="workflow-content">
+            <span class="workflow-number">STEP {{ step.number }}</span>
+            <h3>{{ step.title }}</h3>
+            <p>{{ step.description }}</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="workflow-note">
+        <i class="bi bi-info-circle" aria-hidden="true"></i>
+        <p>
+          The exact findings depend on the configured rules, source files,
+          and analysis capabilities. A pattern match is a reason to
+          investigate, not automatic proof that a vulnerability is exploitable.
+        </p>
+      </div>
+    </section>
+
+    <!-- ENGINEERING DECISIONS -->
+    <section class="content-section">
+      <div class="section-heading">
+        <span class="section-eyebrow">ENGINEERING DECISIONS</span>
+
+        <h2 class="section-title">
+          How the product is put together
+        </h2>
+
+        <p class="section-intro">
+          The implementation brings together source processing, backend
+          orchestration, data persistence, and a frontend designed to
+          present analysis results clearly.
+        </p>
+      </div>
+
+      <div class="engineering-list">
+        <article
+          class="engineering-item"
+          *ngFor="let decision of engineeringDecisions"
+        >
+          <div class="engineering-number">
+            {{ decision.number }}
+          </div>
+
+          <div class="engineering-content">
+            <span class="engineering-category">
+              {{ decision.category }}
+            </span>
+
+            <h3>{{ decision.title }}</h3>
+
+            <p>{{ decision.description }}</p>
+
+            <div class="engineering-benefit">
+              <span>ENGINEERING VALUE</span>
+              <p>{{ decision.benefit }}</p>
+            </div>
+
+            <div class="engineering-tags">
+              <span *ngFor="let technology of decision.technologies">
+                {{ technology }}
+              </span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ANALYSIS PRINCIPLES -->
+    <section class="content-section">
+      <div class="section-heading">
+        <span class="section-eyebrow">RESPONSIBLE ANALYSIS</span>
+
+        <h2 class="section-title">
+          Detection is not the same as verification
+        </h2>
+
+        <p class="section-intro">
+          A useful code analysis tool should help developers reason about
+          potential risks without presenting uncertain results as facts.
+        </p>
+      </div>
+
+      <div class="principles-grid">
+        <article
+          class="principle-item"
+          *ngFor="let principle of analysisPrinciples"
+        >
+          <span class="principle-number">{{ principle.number }}</span>
+
+          <h3>{{ principle.title }}</h3>
+
+          <p>{{ principle.description }}</p>
+        </article>
+      </div>
+    </section>
 
     <!-- SCREENSHOTS -->
+    <section class="content-section">
+      <div class="section-heading">
+        <span class="section-eyebrow">PRODUCT INTERFACE</span>
 
-    <div class="content-section">
+        <h2 class="section-title">
+          The application in practice
+        </h2>
 
-      <h2 class="section-title mb-5">
-        Dashboard Screenshots
-      </h2>
+        <p class="section-intro">
+          Explore screenshots of the actual ProdFalcon interface.
+          Each view should help visitors understand the product beyond
+          its underlying technology stack.
+        </p>
+      </div>
 
-      <div class="row g-4">
-
-        <div
-          class="col-lg-4 col-md-6"
-          *ngFor="let image of screenshots"
+      <div class="screenshots-grid">
+        <article
+          class="screenshot-card"
+          *ngFor="let screenshot of screenshots"
         >
-
-          <div class="macbook-mini">
-
-            <div class="macbook-topbar small">
-
-              <div class="dots">
+          <div class="screenshot-window">
+            <div class="screenshot-topbar">
+              <div class="dots" aria-hidden="true">
                 <span class="dot red"></span>
                 <span class="dot yellow"></span>
                 <span class="dot green"></span>
               </div>
 
+              <span>ProdFalcon</span>
             </div>
 
-            <div class="mini-screen">
-
-              <img
-                [src]="image"
-                alt="ProdFalcon Screenshot"
-              />
-
-            </div>
-
+            <img
+              [src]="screenshot.src"
+              [alt]="screenshot.alt"
+              loading="lazy"
+              decoding="async"
+            />
           </div>
 
-        </div>
-
+          <div class="screenshot-caption">
+            <h3>{{ screenshot.label }}</h3>
+            <p>{{ screenshot.description }}</p>
+          </div>
+        </article>
       </div>
-
-    </div>
+    </section>
 
     <!-- TECH STACK -->
+    <section class="content-section">
+      <div class="section-heading">
+        <span class="section-eyebrow">TECHNOLOGY</span>
 
-    <div class="content-section pb-0">
+        <h2 class="section-title">
+          The tools behind the implementation
+        </h2>
 
-      <h2 class="section-title mb-4">
-        Tech Stack
-      </h2>
-
-      <div class="tech-stack">
-
-        <span
-          class="tech-item"
-          *ngFor="let tech of techStack"
-        >
-          {{ tech }}
-        </span>
-
+        <p class="section-intro">
+          Technologies grouped by their role in the application rather
+          than presented as an undifferentiated list.
+        </p>
       </div>
 
-    </div>
+      <div class="technology-groups">
+        <article
+          class="technology-group"
+          *ngFor="let group of technologyGroups"
+        >
+          <div class="technology-heading">
+            <h3>{{ group.category }}</h3>
+            <p>{{ group.description }}</p>
+          </div>
+
+          <div class="tech-stack">
+            <span
+              class="tech-item"
+              *ngFor="let technology of group.items"
+            >
+              {{ technology }}
+            </span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- CLOSING -->
+    <section class="project-closing">
+      <span class="section-eyebrow">EXPLORE THE PROJECT</span>
+
+      <h2>
+        See the implementation.
+        <span>Inspect the code.</span>
+      </h2>
+
+      <p>
+        Explore the repository to review the project structure, implementation,
+        and the engineering decisions behind ProdFalcon.
+      </p>
+
+      <div class="project-buttons">
+        <a
+          [href]="repositoryUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-theme-solid custom-btn"
+        >
+          <i class="bi bi-github" aria-hidden="true"></i>
+          Explore ProdFalcon on GitHub
+          <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+        </a>
+      </div>
+    </section>
 
   </div>
-
 </section>
