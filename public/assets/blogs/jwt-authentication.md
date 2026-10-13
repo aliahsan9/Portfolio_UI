@@ -1,299 +1,416 @@
-# How I Built Production-Ready JWT Authentication in ASP.NET Core + Angular
+# Production-Ready JWT Authentication in ASP.NET Core and Angular
 
 ![JWT Authentication](assets/blogs/images/jwt.avif)
 
-[Authentication](https://aliahsan.tech/blog/jwt-authentication) is one of the most critical parts of any modern web application. It protects user data, secures APIs, controls access to resources, and forms the foundation of application security.
-While building multiple full-stack applications using ASP.NET Core and Angular, I realized that many authentication implementations work fine in development but fail in real production environments due to poor security decisions, weak token handling, or incorrect architecture.
+Most JWT tutorials stop at "the user can log in." Production fails at everything after that: where the token lives, what happens when it expires, and what happens when it's stolen.
 
-In this article, I'll walk through how I designed and implemented a production-ready JWT authentication system using ASP.NET Core and Angular, including the architectural decisions, security improvements, common mistakes to avoid, and the patterns I use in real-world applications.
+This post covers the system I use in my full-stack projects: short-lived access tokens, rotating refresh tokens in HttpOnly cookies, reuse detection, role-based authorization, and an Angular client that refreshes silently. Every decision comes with the attack it defends against.
 
-## Problem
+**Stack:** ASP.NET Core Web API, ASP.NET Core Identity, EF Core, Angular (standalone APIs, signals).
 
-Most beginner authentication systems only focus on one thing:
+## Requirements
 
-> "Can the user log in successfully?"
+- Register and log in
+- Short-lived JWT access tokens
+- Refresh tokens that rotate and can be revoked
+- Role- and policy-based authorization
+- Silent refresh and route protection in Angular
+- Proper logout
 
-But production systems require much more than that and the challenge I wanted to solve was building an authentication system that was
- secure, scalable, maintainable frontend, friendly resistant to common vulnerabilities and easy to extend for enterprise applications.
-The application requirements included user registration and login, JWT access token authentication, refresh token mechanism, role-based authorization, secure API communication, Angular route protection, automatic token refresh, proper logout handling, [scalable architecture](https://aliahsan.tech/blog/clean-architecture).
-I also wanted to avoid the common anti-patterns I often see in tutorial-based implementations.
+## Architecture at a glance
 
-## Auth Importance
+![Authentication flow](assets/blogs/images/auth-flow.avif)
 
-Authentication is directly tied to application trust and a weak authentication system can lead to [account hijacking](https://www.vectra.ai/modern-attack/attack-techniques/account-hijacking), token theft, Session abuse, unauthorized access, data breaches, poor user experience.
-For businesses, authentication issues can become expensive very quickly.
-From a developer perspective, authentication is one of the fastest ways recruiters evaluate engineering maturity.
-A developer who understands token lifecycle management, API security, authorization architecture, refresh token strategies, frontend/backend integration
-is immediately seen differently from someone who only knows basic CRUD operations.
-That's why I approached this implementation like a real production system instead of a tutorial project.
+| Token | Lifetime | Stored in | Purpose |
+|---|---|---|---|
+| Access token (JWT) | 15 min | Angular memory | Authorizes API calls |
+| Refresh token (opaque random string) | 7 days | HttpOnly cookie, hash in DB | Gets a new access token |
 
-## Common Mistakes
+1. The user logs in. The API returns the access token in the JSON body and sets the refresh token as a cookie.
+2. Angular keeps the access token in memory and attaches it to API requests.
+3. On a `401`, Angular calls `/auth/refresh`. The browser sends the cookie automatically, and the server rotates the refresh token.
+4. On logout, the server revokes the token and clears the cookie.
 
-Before designing the architecture, I identified several mistakes that appear repeatedly in many authentication implementations. [**Storing JWT Tokens in LocalStorage**](https://medium.com/kanlanc/heres-why-storing-jwt-in-local-storage-is-a-great-mistake-df01dad90f9e)
-This is one of the most common mistakes **LocalStorage** is vulnerable to XSS attacks. If malicious JavaScript executes inside the application, tokens can easily be stolen.
-Instead, I used secure HttpOnly cookies for refresh tokens.
+The refresh token is a random string, not a JWT. It carries no data and only needs to be looked up, so it is easy to revoke.
 
-### No Refresh Token Mechanism
+## Mistakes this design avoids
 
-Many systems force users to log in repeatedly because access tokens expire without a refresh strategy.
-A production system should keep access tokens short-lived, refresh them securely and invalidate compromised sessions properly.
-**Weak Password Storage**
-Storing passwords incorrectly is catastrophic.
-Passwords should never, be encrypted manually, use SHA256 directly and be stored in plain text.
-I used ASP.NET Core Identity password hashing, which provides strong built-in protection.
-**Long-Lived Access Tokens**
-Keeping JWT access tokens valid for days or weeks increases security risk dramatically.
-I used short-lived access tokens, rotating refresh tokens, secure re-authentication flow.
+**1. Tokens in `localStorage`.** Any XSS payload can read it. OWASP's guidance is to avoid storing tokens where JavaScript can read them. Here the refresh token is in an HttpOnly cookie, which JS cannot read, and the access token lives only in memory. It disappears on page reload and is restored by a silent refresh.
 
-### Missing Authorization Layers
+**2. Long-lived access tokens.** A JWT can't be revoked before it expires unless you add server-side state. Keep it short (15 minutes) and put long-lived state in the refresh token.
 
-Authentication verifies identity.
-Authorization verifies permissions.
-Many applications authenticate users correctly but fail to implement proper role or policy-based access control. But
-I designed the system using a layered architecture to keep authentication isolated, scalable, and maintainable.
+**3. Storing refresh tokens in plain text.** If the database leaks, plaintext refresh tokens become instant sessions. Store only a SHA-256 hash. The token is high-entropy random data, so a fast hash is fine here, unlike passwords.
 
-### Backend Architecture
+**4. Rotation without reuse detection.** If an attacker replays an old, already-rotated refresh token and you just return `401`, the attacker's stolen chain stays alive. The fix is to revoke the whole token family when a rotated token is reused.
 
-The ASP.NET Core backend was structured into, API Layer, Application Layer, Infrastructure Layer and Domain Layer.
-Authentication responsibilities were separated into dedicated services.
+**5. Skipping validation parameters.** Not validating issuer, audience, lifetime, and signing key means accepting tokens you never meant to trust. See RFC 8725.
 
-```csharp
-AuthController
-AuthService
-JwtTokenGenerator
-RefreshTokenService
-UserRepository
+**6. Wrong middleware order.** `UseCors` → `UseAuthentication` → `UseAuthorization`. Get this wrong and you get mysterious 401s or missing CORS headers.
+
+## Backend
+
+### Project structure
+
+```text
+Api/             AuthController
+Application/     IAuthService, DTOs
+Infrastructure/  JwtTokenGenerator, RefreshTokenService, AppDbContext
+Domain/          ApplicationUser, RefreshToken
 ```
 
-### Authentication Flow
-
-![JWT Authentication](assets/blogs/images/auth-flow.avif)
-
-The login process works like user submits credentials, server validates user, access token is generated, refresh token is generated, Access token returned to Angular, Refresh token stored securely, Angular attaches JWT to protected requests, Expired tokens automatically refresh.
-This architecture provides, better security, cleaner session handling and smoother user experience.
-
-### Token Strategy
-
-I used two different tokens. **Access Token** due to their authorize API requests
-because it has short expiration time, stateless and attached to requests.
-**Refresh Token** Obtain new access tokens that are long-lived, securely stored, revocable and rotated periodically.
-This approach minimizes risk while maintaining usability.
-
-## Code Examples
-
-### JWT Token Generation
-
-The access token generation service:
+### JWT configuration
 
 ```csharp
-public string GenerateAccessToken(ApplicationUser user, IList<string> roles)
+// Program.cs
+builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection("Jwt"));
+var jwt = builder.Configuration.GetSection("Jwt").Get<JwtSettings>()!;
+
+builder.Services
+    .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            ValidIssuer = jwt.Issuer,
+            ValidateAudience = true,
+            ValidAudience = jwt.Audience,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true,
+            IssuerSigningKey = new SymmetricSecurityKey(
+                Encoding.UTF8.GetBytes(jwt.Secret)),
+            ClockSkew = TimeSpan.FromSeconds(30) // default is 5 minutes
+        };
+    });
+
+builder.Services.AddAuthorizationBuilder()
+    .AddPolicy("AdminOnly", p => p.RequireRole("Admin"));
+```
+
+Two notes:
+
+- `ClockSkew` defaults to 5 minutes, which silently stretches your 15-minute token to 20. Tighten it.
+- Load `Jwt:Secret` from user-secrets, environment variables, or a vault, never from a committed `appsettings.json`. Use at least 256 bits for HS256.
+
+### Generating the access token
+
+```csharp
+public string GenerateAccessToken(ApplicationUser user, IEnumerable<string> roles)
 {
     var claims = new List<Claim>
     {
-        new Claim(JwtRegisteredClaimNames.Sub, user.Id),
-        new Claim(JwtRegisteredClaimNames.Email, user.Email),
-        new Claim(ClaimTypes.Name, user.UserName)
+        new(JwtRegisteredClaimNames.Sub, user.Id),
+        new(JwtRegisteredClaimNames.Email, user.Email!),
+        new(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
     };
+    claims.AddRange(roles.Select(r => new Claim(ClaimTypes.Role, r)));
 
-    claims.AddRange(roles.Select(role => new Claim(ClaimTypes.Role, role)));
-
-    var key = new SymmetricSecurityKey(
-        Encoding.UTF8.GetBytes(_jwtSettings.Secret));
-
-    var credentials = new SigningCredentials(
-        key,
-        SecurityAlgorithms.HmacSha256);
-
+    var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwt.Secret));
     var token = new JwtSecurityToken(
-        issuer: _jwtSettings.Issuer,
-        audience: _jwtSettings.Audience,
+        issuer: _jwt.Issuer,
+        audience: _jwt.Audience,
         claims: claims,
         expires: DateTime.UtcNow.AddMinutes(15),
-        signingCredentials: credentials);
+        signingCredentials: new SigningCredentials(key, SecurityAlgorithms.HmacSha256));
 
     return new JwtSecurityTokenHandler().WriteToken(token);
 }
 ```
 
-### Login Endpoint
+A JWT is signed, not encrypted. Anyone can decode the payload, so don't put secrets or sensitive personal data in claims.
 
-The authentication endpoint:
+### The refresh token entity
+
+```csharp
+public class RefreshToken
+{
+    public int Id { get; set; }
+    public string UserId { get; set; } = default!;
+    public string TokenHash { get; set; } = default!;
+    public Guid FamilyId { get; set; }          // one family per login session
+    public DateTime CreatedAt { get; set; }
+    public DateTime ExpiresAt { get; set; }
+    public DateTime? RevokedAt { get; set; }
+    public string? ReplacedByHash { get; set; }
+}
+```
+
+### Issuing and rotating refresh tokens
+
+```csharp
+public async Task<(string Raw, DateTime Expires)> CreateAsync(string userId, Guid? familyId = null)
+{
+    var raw = Convert.ToBase64String(RandomNumberGenerator.GetBytes(64));
+    var entity = new RefreshToken
+    {
+        UserId = userId,
+        TokenHash = Hash(raw),
+        FamilyId = familyId ?? Guid.NewGuid(),
+        CreatedAt = DateTime.UtcNow,
+        ExpiresAt = DateTime.UtcNow.AddDays(7)
+    };
+    _db.RefreshTokens.Add(entity);
+    await _db.SaveChangesAsync();
+    return (raw, entity.ExpiresAt);
+}
+
+public async Task<RotationResult?> RotateAsync(string raw)
+{
+    var stored = await _db.RefreshTokens.SingleOrDefaultAsync(t => t.TokenHash == Hash(raw));
+    if (stored is null) return null;
+
+    // A rotated (revoked) token was presented again: assume theft, kill the family.
+    if (stored.RevokedAt is not null)
+    {
+        await _db.RefreshTokens
+            .Where(t => t.FamilyId == stored.FamilyId && t.RevokedAt == null)
+            .ExecuteUpdateAsync(s => s.SetProperty(t => t.RevokedAt, DateTime.UtcNow));
+        return null;
+    }
+
+    if (stored.ExpiresAt <= DateTime.UtcNow) return null;
+
+    var (newRaw, expires) = await CreateAsync(stored.UserId, stored.FamilyId);
+    stored.RevokedAt = DateTime.UtcNow;
+    stored.ReplacedByHash = Hash(newRaw);
+    await _db.SaveChangesAsync();
+
+    return new RotationResult(stored.UserId, newRaw, expires);
+}
+
+private static string Hash(string raw) =>
+    Convert.ToHexString(SHA256.HashData(Encoding.UTF8.GetBytes(raw)));
+```
+
+### Auth endpoints
 
 ```csharp
 [HttpPost("login")]
 public async Task<IActionResult> Login(LoginDto model)
 {
     var user = await _userManager.FindByEmailAsync(model.Email);
-
-    if (user == null)
-        return Unauthorized();
-
-    var validPassword = await _userManager
-        .CheckPasswordAsync(user, model.Password);
-
-    if (!validPassword)
-        return Unauthorized();
+    if (user is null || !await _userManager.CheckPasswordAsync(user, model.Password))
+        return Unauthorized(); // same response for both cases: no user enumeration
 
     var roles = await _userManager.GetRolesAsync(user);
+    var (refresh, expires) = await _refreshTokens.CreateAsync(user.Id);
 
-    var accessToken = _jwtService.GenerateAccessToken(user, roles);
-
-    var refreshToken = await _refreshTokenService
-        .CreateAsync(user.Id);
-
-    Response.Cookies.Append(
-        "refreshToken",
-        refreshToken.Token,
-        new CookieOptions
-        {
-            HttpOnly = true,
-            Secure = true,
-            SameSite = SameSiteMode.Strict
-        });
-
-    return Ok(new
-    {
-        accessToken
-    });
+    SetRefreshCookie(refresh, expires);
+    return Ok(new { accessToken = _jwt.GenerateAccessToken(user, roles) });
 }
-```
 
-### Angular HTTP Interceptor
+[HttpPost("refresh")]
+public async Task<IActionResult> Refresh()
+{
+    var raw = Request.Cookies["refreshToken"];
+    if (string.IsNullOrEmpty(raw)) return Unauthorized();
 
-Angular automatically attaches the JWT token to protected requests.
-
-```js
-@Injectable()
-export class AuthInterceptor implements HttpInterceptor {
-
-  intercept(
-    req: HttpRequest<any>,
-    next: HttpHandler
-  ): Observable<HttpEvent<any>> {
-
-    const token = localStorage.getItem('accessToken');
-
-    if (token) {
-      req = req.clone({
-        setHeaders: {
-          Authorization: `Bearer ${token}`
-        }
-      });
+    var result = await _refreshTokens.RotateAsync(raw);
+    if (result is null)
+    {
+        Response.Cookies.Delete("refreshToken", new CookieOptions { Path = "/api/auth" });
+        return Unauthorized();
     }
 
-    return next.handle(req);
+    var user = await _userManager.FindByIdAsync(result.UserId);
+    var roles = await _userManager.GetRolesAsync(user!);
+
+    SetRefreshCookie(result.RawToken, result.Expires);
+    return Ok(new { accessToken = _jwt.GenerateAccessToken(user!, roles) });
+}
+
+[HttpPost("logout")]
+public async Task<IActionResult> Logout()
+{
+    if (Request.Cookies["refreshToken"] is { } raw)
+        await _refreshTokens.RevokeAsync(raw);
+
+    Response.Cookies.Delete("refreshToken", new CookieOptions { Path = "/api/auth" });
+    return NoContent();
+}
+
+private void SetRefreshCookie(string token, DateTime expires) =>
+    Response.Cookies.Append("refreshToken", token, new CookieOptions
+    {
+        HttpOnly = true,
+        Secure = true,
+        SameSite = SameSiteMode.Strict,
+        Path = "/api/auth",   // only sent to auth endpoints
+        Expires = expires
+    });
+```
+
+What each cookie flag does:
+
+- `HttpOnly` blocks JavaScript access, which stops token theft via XSS.
+- `Secure` sends the cookie over HTTPS only.
+- `SameSite=Strict` blocks cross-site sends, which is a strong CSRF defense.
+- `Path` limits the cookie to auth endpoints, so it isn't attached to every API call.
+
+> **Gotcha:** `SameSite=Strict` requires the Angular app and API to be *same-site* (e.g. `app.example.com` and `api.example.com`). Different registrable domains means the cookie won't be sent. Then you need `SameSite=None` plus explicit CSRF protection.
+
+### CORS, middleware order, and authorization
+
+```csharp
+builder.Services.AddCors(o => o.AddPolicy("spa", p => p
+    .WithOrigins("https://app.example.com")   // never "*" with credentials
+    .AllowAnyHeader()
+    .AllowAnyMethod()
+    .AllowCredentials()));
+
+var app = builder.Build();
+
+app.UseHttpsRedirection();
+app.UseCors("spa");
+app.UseAuthentication();
+app.UseAuthorization();
+app.MapControllers();
+```
+
+```csharp
+[Authorize(Policy = "AdminOnly")]
+[HttpDelete("users/{id}")]
+public IActionResult DeleteUser(string id) { /* ... */ }
+```
+
+Authentication verifies who you are. Authorization verifies what you may do. Prefer policies over scattered role strings, because rules like "Admin or the resource owner" are easier to evolve that way.
+
+## Frontend (Angular)
+
+### Auth service: in-memory token and single-flight refresh
+
+```ts
+@Injectable({ providedIn: 'root' })
+export class AuthService {
+  private http = inject(HttpClient);
+  private router = inject(Router);
+
+  private readonly _token = signal<string | null>(null);
+  readonly accessToken = this._token.asReadonly();
+  readonly isAuthenticated = computed(() => !!this._token());
+
+  private refresh$?: Observable<string>;
+
+  login(dto: LoginDto) {
+    return this.http
+      .post<{ accessToken: string }>(`${API}/auth/login`, dto, { withCredentials: true })
+      .pipe(tap(r => this._token.set(r.accessToken)));
+  }
+
+  /** Concurrent callers share one refresh request. */
+  refresh(): Observable<string> {
+    this.refresh$ ??= this.http
+      .post<{ accessToken: string }>(`${API}/auth/refresh`, {}, { withCredentials: true })
+      .pipe(
+        map(r => r.accessToken),
+        tap(t => this._token.set(t)),
+        finalize(() => (this.refresh$ = undefined)),
+        shareReplay(1)
+      );
+    return this.refresh$;
+  }
+
+  logout() {
+    this.http.post(`${API}/auth/logout`, {}, { withCredentials: true }).subscribe();
+    this._token.set(null);
+    this.router.navigate(['/login']);
   }
 }
 ```
 
-This keeps API communication centralized and clean.
+The single-flight part matters. Without it, five parallel requests that hit a 401 fire five refresh calls. The second one presents an already-rotated token, trips reuse detection, and logs the user out.
 
-### Route Protection
+### Interceptor: attach the token and retry once on 401
 
-Protected Angular routes:
+```ts
+export const authInterceptor: HttpInterceptorFn = (req, next) => {
+  const auth = inject(AuthService);
+  const isAuthCall = req.url.includes('/auth/');
 
-```js
+  const withToken = (r: HttpRequest<unknown>, token: string | null) =>
+    token ? r.clone({ setHeaders: { Authorization: `Bearer ${token}` } }) : r;
+
+  return next(isAuthCall ? req : withToken(req, auth.accessToken())).pipe(
+    catchError((err: HttpErrorResponse) => {
+      if (err.status !== 401 || isAuthCall) return throwError(() => err);
+
+      return auth.refresh().pipe(
+        switchMap(token => next(withToken(req, token))),
+        catchError(e => { auth.logout(); return throwError(() => e); })
+      );
+    })
+  );
+};
+
+// app.config.ts
+provideHttpClient(withInterceptors([authInterceptor])),
+provideAppInitializer(() =>
+  firstValueFrom(inject(AuthService).refresh().pipe(catchError(() => of(null))))
+),
+```
+
+The initializer restores the session after a page reload by using the cookie to get a fresh access token before the app renders.
+
+### Route guard
+
+```ts
 export const authGuard: CanActivateFn = () => {
-
-  const authService = inject(AuthService);
+  const auth = inject(AuthService);
   const router = inject(Router);
 
-  if (authService.isAuthenticated()) {
-    return true;
-  }
-
-  router.navigate(['/login']);
-  return false;
+  return auth.isAuthenticated()
+    ? true
+    : auth.refresh().pipe(
+        map(() => true),
+        catchError(() => of(router.createUrlTree(['/login'])))
+      );
 };
 ```
 
-This prevents unauthorized navigation inside the frontend application.
+> **Important:** a guard is UX, not security. Anyone can bypass client-side checks, so the API's `[Authorize]` attributes are the real enforcement.
 
-## Performance/Security Improvements
+## Security checklist
 
-After the core implementation worked, I focused heavily on hardening security and improving reliability.
-**Refresh Token Rotation**
-Every refresh request generates new access token and new refresh token while
-Old refresh tokens are invalidated immediately.
-This prevents token replay attacks.
+- [ ] HTTPS everywhere, with HSTS
+- [ ] Access token ≤ 15 min; refresh token ≤ 7 days
+- [ ] Refresh tokens hashed in DB, rotated on every use, with family revocation on reuse
+- [ ] Refresh cookie: `HttpOnly; Secure; SameSite=Strict`, Path scoped
+- [ ] Issuer, audience, lifetime, and signature validated; small `ClockSkew`
+- [ ] Secret from a vault or environment, never from source control
+- [ ] CORS limited to known origins
+- [ ] Rate limiting and lockout on `/login` (`AddRateLimiter`, Identity lockout)
+- [ ] Strict CSP on the Angular app to reduce XSS
+- [ ] Generic login errors (no user enumeration)
+- [ ] Revoke all refresh tokens on password change
 
-### Secure Cookie Configuration
+## Trade-offs
 
-Refresh tokens were stored using:
-
-```csharp
-HttpOnly = true
-Secure = true
-SameSite = Strict
-```
-
-This protects against XSS, CSRF, client-side token access.
-
-### Role-Based Authorization
-
-Protected endpoints use authorization attributes:
-
-```csharp
-[Authorize(Roles = "Admin")]
-```
-
-This ensures only authorized users can access sensitive operations.
-
-### Centralized Exception Handling
-
-Authentication-related errors were handled through middleware instead of scattered try-catch blocks.
-This improved, maintainability, consistency and logging quality.
-**Token Expiration Strategy**
-I used 15-minute access tokens, 7-day refresh tokens.
-This creates a balance between, security, user experience.
-**Password Policies**
-ASP.NET Core Identity password policies were configured to require uppercase letters, lowercase letters, numbers, minimum length, unique characters.
-This significantly improves account protection.
-
-### CORS Configuration
-
-CORS was configured carefully to avoid common frontend authentication failures.
-Incorrect middleware ordering is one of the most common issues developers face. Here is correct configuration:
-
-```js
-export const authGuard: CanActivateFn = () => {
-
-  const authService = inject(AuthService);
-  const router = inject(Router);
-
-  if (authService.isAuthenticated()) {
-    return true;
-  }
-
-  router.navigate(['/login']);
-  return false;
-};
-```
-
-## Final Result
-
-The final authentication system provided, secure JWT authentication, automatic token refresh, scalable architecture, role-based access control, clean Angular integration, better API security, improved user experience and production-level session management etc.
-The implementation became reusable across multiple projects and significantly reduced authentication-related bugs.
-More importantly, the architecture remained maintainable as the application grew.
+- **In-memory access tokens don't make XSS harmless.** An attacker running script in your page can still call your API as the user. They just can't steal a long-lived credential. A strong CSP and Angular's built-in output sanitization are your first line of defense.
+- **Stateless JWTs and instant revocation conflict.** A stolen access token works until it expires. The 15-minute lifetime caps the damage. If you need immediate kill switches, add a token blacklist or a per-user security stamp check.
+- **HS256 shares one secret** between signer and validator. If multiple services validate tokens, use asymmetric keys (RS256/ES256) so only the auth service holds the private key.
 
 ## Conclusion
 
-Building authentication correctly requires much more than generating JWT tokens.
-A production-ready authentication system should focus on security first, token lifecycle management, scalable architecture, proper authorization, frontend/backend coordination, session protection and maintainability etc.
-One of the biggest lessons I learned is that authentication is not just a backend concern.
-Frontend handling, API structure, token storage strategy, middleware configuration, and security policies all work together as a complete system.
-A secure authentication architecture improves developer confidence, application stability, user trust, long-term scalability
+Secure authentication is a system, not a token. The backend, the storage strategy, the cookie flags, middleware order, and the client's refresh logic all have to agree. The core ideas that matter most: short-lived access tokens, hashed and rotating refresh tokens with reuse detection, HttpOnly cookies, and server-side enforcement of every rule.
+
+## References
+
+1. [RFC 7519: JSON Web Token (JWT)](https://datatracker.ietf.org/doc/html/rfc7519)
+2. [RFC 8725: JSON Web Token Best Current Practices](https://datatracker.ietf.org/doc/html/rfc8725)
+3. [RFC 9700: Best Current Practice for OAuth 2.0 Security](https://datatracker.ietf.org/doc/html/rfc9700) (refresh token rotation and reuse detection)
+4. [OWASP: JSON Web Token Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/JSON_Web_Token_for_Java_Cheat_Sheet.html) (token storage and sidejacking)
+5. [OWASP: Cross-Site Request Forgery Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html)
+6. [OWASP: Session Management Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html)
+7. [Microsoft Learn: ASP.NET Core Security and Identity](https://learn.microsoft.com/en-us/aspnet/core/security/)
+8. [Microsoft Learn: Policy-based authorization in ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/security/authorization/policies)
+9. [Microsoft Learn: Enable CORS in ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/security/cors)
+10. [Microsoft Learn: ASP.NET Core Middleware (ordering)](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/middleware/)
+11. [Angular: HTTP interceptors](https://angular.dev/guide/http/interceptors)
+12. [Angular: Route guards](https://angular.dev/guide/routing/route-guards)
+13. [MDN: Set-Cookie header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie)
 
 ---
 
-## Stay Connected
+*Ali Ahsan, Full-Stack Developer | ASP.NET Core | Angular | SQL*
 
-If you enjoy practical content on ASP.NET Core, Angular, Clean Architecture, and scalable system design, subscribe to my newsletter for production-level engineering insights.
-
-### Ali Ahsan
-
-Full-Stack Developer | ASP.NET Core | Angular | SQL
-
- [LinkedIn](https://www.linkedin.com/in/ali-ahsan-6895a9315/) | [GitHub](https://github.com/aliahsan9) |  [Blogs](/blogs) | [Newsletter](/news)
-  
-Building secure, scalable, and real-world applications.
+[LinkedIn](https://www.linkedin.com/in/ali-ahsan-6895a9315/) | [GitHub](https://github.com/aliahsan9) | [Blogs](/blogs) | [Newsletter](/news)
