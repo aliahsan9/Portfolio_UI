@@ -486,11 +486,11 @@ $font-body: 'Inter', sans-serif;
   .orbit-badge-2 { display: none; } // avoid overlap at very small sizes
 }
 
-/* ===== Reduced Motion ===== */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation: none !important;
-    transition: none !important;
-    scroll-behavior: auto !important;
-  }
-}
+// /* ===== Reduced Motion ===== */
+// @media (prefers-reduced-motion: reduce) {
+//   * {
+//     animation: none !important;
+//     transition: none !important;
+//     scroll-behavior: auto !important;
+//   }
+// }
