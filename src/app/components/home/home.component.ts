@@ -58,5 +58,6 @@ export class HomeComponent implements OnInit {
   socialLinks: SocialLink[] = [
     { icon: 'bi-github', url: 'https://github.com/aliahsan9', label: 'GitHub' },
     { icon: 'bi-linkedin', url: 'https://www.linkedin.com/in/ali-ahsan-6895a9315', label: 'LinkedIn' },
-    { icon: 'bi-envelope-fill', url: '/contact', label: 'Contact' },  ];
+    { icon: 'bi-envelope-fill', url: 'https://mail.google.com/mail/?view=cm&fs=1&to=aliahsan.dev1@gmail.com', label: 'Email Me' }
+  ];
 }
