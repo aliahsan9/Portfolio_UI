@@ -18,12 +18,48 @@
           Building scalable web applications with ASP.NET Core, Angular, Azure, and AI—designed for real-world business needs.
         </p>
 
-        <div class="btn-group">
-          <button class="btn btn-primary" routerLink="/resume">
-            Hire Me <i class="bi bi-arrow-right ms-1"></i>
-          </button>
-          <button class="btn btn-outline-primary" routerLink="/contact">Let's Talk</button>
-        </div>
+        
+<div class="hero-actions d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start gap-3">
+
+  <a class="btn btn-primary hero-btn"
+     routerLink="/resume">
+    Hire Me
+    <i class="bi bi-arrow-up-right ms-1" aria-hidden="true"></i>
+  </a>
+
+  <a class="btn btn-consultation hero-btn"
+     [href]="calendlyUrl"
+     target="_blank"
+     rel="noopener noreferrer"
+     aria-label="Book a free consultation in Calendly">
+    <i class="bi bi-calendar2-check me-2" aria-hidden="true"></i>
+    Book a Free Consultation
+  </a>
+
+  <a class="btn btn-outline-primary hero-btn"
+     href="#projects">
+    View Projects
+    <i class="bi bi-arrow-down-right ms-1" aria-hidden="true"></i>
+  </a>
+
+</div>
+
+<!-- Consultation details -->
+<div class="consultation-note mt-4">
+  <span class="consultation-icon" aria-hidden="true">
+    <i class="bi bi-camera-video"></i>
+  </span>
+
+  <div class="consultation-copy">
+    <span class="consultation-title">Have a project in mind?</span>
+    <span class="consultation-description">
+      Let's discuss your idea in a free 20-minute call.
+    </span>
+  </div>
+
+  <span class="consultation-duration">20 min · Online</span>
+</div>
+
 
         <!-- ===== Social Links ===== -->
         <div class="social-links d-flex justify-content-center justify-content-lg-start gap-3 mt-4">
@@ -86,7 +122,7 @@
   </div>
 </section>
 
-<app-public-projects></app-public-projects>
+<app-public-projects id="projects"></app-public-projects>
 <app-services></app-services>
 <app-about></app-about>
 <app-skills></app-skills>

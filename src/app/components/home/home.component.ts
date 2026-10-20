@@ -30,7 +30,9 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.skills = [...this.skills, ...this.skills];
   }
-
+ // Replace this placeholder with your actual Calendly event URL.
+  readonly calendlyUrl =
+  'https://calendly.com/aliahsan8751/free-discovery-call-web-software-projects';
   skills: string[] = [
     'assets/icons/angular.avif',
     'assets/icons/dotnet.avif',
@@ -60,4 +62,5 @@ export class HomeComponent implements OnInit {
     { icon: 'bi-linkedin', url: 'https://www.linkedin.com/in/ali-ahsan-6895a9315', label: 'LinkedIn' },
     { icon: 'bi-envelope-fill', url: 'https://mail.google.com/mail/?view=cm&fs=1&to=aliahsan.dev1@gmail.com', label: 'Email Me' }
   ];
+ 
 }
