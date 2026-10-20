@@ -1,68 +1,212 @@
-<footer class="custom-footer py-5">
-  <div class="container">
 
-    <div class="row g-4 text-center text-md-start">
+<footer class="custom-footer" id="site-footer">
+  <div class="container footer-container">
 
-      <!-- About -->
-      <div class="col-md-4">
-        <h5>About Me</h5>
-        <p>
-          Building scalable, AI-powered web applications with Angular, ASP.NET Core, C#, SQL Server, and Retrieval-Augmented Generation (RAG).
+    <!-- Main content -->
+    <div class="footer-grid">
+
+      <!-- Brand and introduction -->
+      <section class="footer-section footer-about" aria-labelledby="footer-brand">
+        <a
+          routerLink="/"
+          class="footer-brand"
+          id="footer-brand"
+          aria-label="Ali Ahsan — Home"
+        >
+          <span class="brand-mark">A</span>
+          <span>Ali Ahsan<span class="brand-dot">.</span></span>
+        </a>
+
+        <h2 class="footer-heading">
+          Engineering solutions for real-world problems.
+        </h2>
+
+        <p class="footer-description">
+          Building reliable web applications with ASP.NET Core, Angular,
+          SQL Server, and AI-powered technologies.
         </p>
-      </div>
+
+        <div class="footer-status">
+          <span class="status-dot" aria-hidden="true"></span>
+          <span>Open to opportunities</span>
+        </div>
+      </section>
+
+      <!-- Navigation -->
+      <nav
+        class="footer-section footer-navigation"
+        aria-labelledby="footer-explore"
+      >
+        <h3 class="footer-title" id="footer-explore">Explore</h3>
+
+        <ul class="footer-link-list">
+          <li *ngFor="let link of navLinks">
+            <a
+              [routerLink]="link.path"
+              routerLinkActive="footer-link-active"
+              [routerLinkActiveOptions]="{ exact: true }"
+            >
+              <span>{{ link.label }}</span>
+              <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+            </a>
+          </li>
+        </ul>
+      </nav>
 
       <!-- Contact -->
-      <div class="col-md-4">
-        <h5>Contact</h5>
+      <section
+        class="footer-section footer-contact"
+        aria-labelledby="footer-connect"
+      >
+        <h3 class="footer-title" id="footer-connect">Get in touch</h3>
 
-        <p><i class="bi bi-envelope me-2"></i> aliahsan.dev1&#64;gmail.com</p>
-        <p><i class="bi bi-telephone me-2"></i> +92-314-1710751</p>
-        <p><i class="bi bi-geo-alt me-2"></i> Lahore, Pakistan</p>
-      </div>
+        <a
+          class="footer-contact-link"
+          href="https://mail.google.com/mail/?view=cm&fs=1&to=aliahsan.dev1%40gmail.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Email Ali Ahsan using Gmail"
+        >
+          <span class="contact-icon" aria-hidden="true">
+            <i class="bi bi-envelope"></i>
+          </span>
 
-      <!-- Social -->
-      <div class="col-md-4">
-        <h5>Follow Me</h5>
+          <span class="contact-text">
+            <small>Email</small>
+            <span class="contact-value">aliahsan.dev1&#64;gmail.com</span>
+          </span>
+
+          <i class="bi bi-arrow-up-right contact-arrow" aria-hidden="true"></i>
+        </a>
+
+        <a
+          class="footer-contact-link"
+          href="https://www.google.com/maps/search/?api=1&query=Lahore%2C+Pakistan"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span class="contact-icon" aria-hidden="true">
+            <i class="bi bi-geo-alt"></i>
+          </span>
+
+          <span class="contact-text">
+            <small>Location</small>
+            <span class="contact-value">Lahore, Pakistan</span>
+          </span>
+
+          <i class="bi bi-arrow-up-right contact-arrow" aria-hidden="true"></i>
+        </a>
+
+        <a
+          class="footer-consultation-link"
+          href="https://calendly.com/aliahsan8751/free-discovery-call-web-software-projects"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span class="consultation-icon" aria-hidden="true">
+            <i class="bi bi-calendar2-check"></i>
+          </span>
+
+          <span class="consultation-copy">
+            <strong>Book a consultation</strong>
+            <small>Discuss your project with me</small>
+          </span>
+
+          <i class="bi bi-arrow-up-right consultation-arrow" aria-hidden="true"></i>
+        </a>
+      </section>
+
+      <!-- Social links -->
+      <section
+        class="footer-section footer-social"
+        aria-labelledby="footer-social-title"
+      >
+        <h3 class="footer-title" id="footer-social-title">Connect with me</h3>
+
+        <p class="footer-description social-description">
+          Explore my work, follow my journey, and connect professionally.
+        </p>
 
         <div class="social-icons">
-
-          <!-- GitHub -->
-          <a href="https://github.com/aliahsan9" target="_blank" aria-label="GitHub">
-            <i class="bi bi-github"></i>
+          <a
+            href="https://github.com/aliahsan9"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
+            title="GitHub"
+          >
+            <i class="bi bi-github" aria-hidden="true"></i>
           </a>
 
-          <!-- LinkedIn -->
-          <a href="https://www.linkedin.com/in/ali-ahsan-6895a9315" target="_blank" aria-label="LinkedIn">
-            <i class="bi bi-linkedin"></i>
+          <a
+            href="https://www.linkedin.com/in/ali-ahsan-6895a9315"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+            title="LinkedIn"
+          >
+            <i class="bi bi-linkedin" aria-hidden="true"></i>
           </a>
 
-          <!-- X -->
-          <a href="https://x.com/AliAhsa00861384" target="_blank" aria-label="X">
-            <i class="bi bi-twitter-x"></i>
+          <a
+            href="https://x.com/AliAhsa00861384"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="X"
+            title="X"
+          >
+            <i class="bi bi-twitter-x" aria-hidden="true"></i>
           </a>
 
-         <!-- LeetCode -->
-          <a href="https://leetcode.com/u/1a6KAwen5j/" target="_blank" aria-label="LeetCode">
-            <svg viewBox="0 0 24 24">
+          <a
+            href="https://leetcode.com/u/1a6KAwen5j/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LeetCode"
+            title="LeetCode"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
               <path d="M13.48 3.5c-.6 0-1.18.24-1.6.67L4.7 11.34c-.9.9-.9 2.36 0 3.26l7.2 7.17c.43.43 1.01.67 1.6.67h1.12l-8.3-8.3 8.3-8.3h-1.14z"/>
               <path d="M21.3 10.6l-2.2-2.2-1.4 1.4 2.2 2.2c.2.2.2.5 0 .7l-2.2 2.2 1.4 1.4 2.2-2.2c1-1 1-2.6 0-3.6z"/>
             </svg>
           </a>
-          <!-- Substack -->
-          <a href="https://substack.com/@aliahsan638517" target="_blank" aria-label="Substack">
-            <svg viewBox="0 0 24 24">
+
+          <a
+            href="https://substack.com/@aliahsan638517"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Substack"
+            title="Substack"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
               <path d="M3 4h18v2H3V4zm0 4h18v2H3V8zm0 4h18v10l-9-5-9 5V12z"/>
             </svg>
           </a>
         </div>
-      </div>
+
+        <a
+          class="footer-email-cta"
+          href="https://mail.google.com/mail/?view=cm&fs=1&to=aliahsan.dev1%40gmail.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span>Have a project in mind?</span>
+          <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+        </a>
+      </section>
 
     </div>
 
-    <hr />
+    <!-- Bottom bar -->
+    <div class="footer-bottom">
+      <p class="copyright">
+        &copy; {{ currentYear }} Ali Ahsan. All rights reserved.
+      </p>
 
-    <div class="text-center small mt-3">
-      © {{ currentYear }} Ali Ahsan. All Rights Reserved.
+      <a class="back-to-top" href="#top">
+        Back to top
+        <i class="bi bi-arrow-up" aria-hidden="true"></i>
+      </a>
     </div>
 
   </div>
