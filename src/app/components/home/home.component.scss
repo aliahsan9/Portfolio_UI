@@ -275,7 +275,7 @@ $font-body: 'Inter', sans-serif;
 /* ===== Status Pill ===== */
 .status-pill {
   @include glass-panel;
-  padding: 8px 18px;
+  padding: 4px 12px;
   border-radius: 50px;
   font-family: $font-body;
   font-size: 0.85rem;
@@ -307,10 +307,10 @@ $font-body: 'Inter', sans-serif;
 
   h1 {
     font-family: $font-display;
-    font-size: clamp(2.8rem, 5vw, 5rem);
+    font-size: clamp(1.2rem, 5vw, 5rem);
     font-weight: 700;
     line-height: 1.1;
-    margin-bottom: 12px;
+    // margin-bottom: 5px;
     color: $white;
 
     span {
@@ -329,7 +329,7 @@ $font-body: 'Inter', sans-serif;
     gap: 10px;
     font-size: clamp(1.2rem, 2vw, 1.7rem);
     color: $primary;
-    margin-bottom: 20px;
+    // margin-bottom: 20px;
     font-weight: 600;
 
     i {
@@ -341,7 +341,7 @@ $font-body: 'Inter', sans-serif;
     color: $text-light;
     line-height: 1.8;
     font-size: 1.02rem;
-    margin-bottom: 30px;
+    // margin-bottom: 30px;
     max-width: 520px;
   }
 }
@@ -425,6 +425,7 @@ $font-body: 'Inter', sans-serif;
   flex: 1;
   @include center-flex;
   position: relative;
+  top: -30px;
 }
 
 .glass-frame {
