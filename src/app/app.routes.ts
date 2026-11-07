@@ -1,40 +1,108 @@
 import { Routes } from '@angular/router';
+import { provideMarkdown } from 'ngx-markdown';
 
-import { HomeComponent } from './components/home/home.component';
-import { AboutComponent } from './components/about/about.component';
-import { ContactComponent } from './components/contact/contact.component';
-import { SkillsComponent } from './components/skills/skills.component';
-import { PublicProjectsComponent } from './components/projects/projects.component';
-import { PublicResumeComponent } from './components/resume/resume.component';
-import { BlogDetailComponent } from './components/blogs/blog-detail/blog-detail.component';
-import { BlogsComponent } from './components/blogs/blogs/blogs.component';
-import { NewsletterComponent } from './components/newsletter/newsletter.component';
-import { ServicesComponent } from './components/services/services.component';
-import { TestimonialComponent } from './components/testimonial/testimonial.component';
-import { ExamdynamicsDetailComponent } from './components/projects-details/examdynamics-detail/examdynamics-detail.component';
-import { PortfolioDetailComponent } from './components/projects-details/portfolio-detail/portfolio-detail.component';
-import { ProdfalconDetailComponent } from './components/projects-details/prodfalcon-detail/prodfalcon-detail.component';
-import { ErpDetail } from './components/projects-details/erp-detail/erp-detail.component';
- 
-export const routes: Routes = [    
-  // Public Routes
-  { path: '', component: HomeComponent },
-  { path: 'about', component: AboutComponent},
-  { path: 'services', component: ServicesComponent},
-  { path: 'contact', component: ContactComponent },
-  { path: 'news', component: NewsletterComponent },
-  { path: 'projects', component: PublicProjectsComponent },
-  // Projects Detailes
-  { path: 'examdynamics-detail', component: ExamdynamicsDetailComponent },
-  { path: 'erp-detail', component: ErpDetail },
-  { path: 'portfolio-detail', component: PortfolioDetailComponent },
-  { path: 'prodfalcon-detail', component: ProdfalconDetailComponent },
-  { path: 'skills', component: SkillsComponent },
-  { path: 'testimonials', component: TestimonialComponent},
-  { path: 'resume', component: PublicResumeComponent},
-  { path: 'blogs', component: BlogsComponent},
-  { path: 'blog/:slug', component: BlogDetailComponent },
-
-  // Wildcard for 404
-  { path: '**', redirectTo: '' }
+export const routes: Routes = [
+  {
+    path: '',
+    loadComponent: () =>
+      import('./components/home/home.component').then((m) => m.HomeComponent),
+  },
+  {
+    path: 'about',
+    loadComponent: () =>
+      import('./components/about/about.component').then((m) => m.AboutComponent),
+  },
+  {
+    path: 'services',
+    loadComponent: () =>
+      import('./components/services/services.component').then(
+        (m) => m.ServicesComponent
+      ),
+  },
+  {
+    path: 'contact',
+    loadComponent: () =>
+      import('./components/contact/contact.component').then(
+        (m) => m.ContactComponent
+      ),
+  },
+  {
+    path: 'news',
+    loadComponent: () =>
+      import('./components/newsletter/newsletter.component').then(
+        (m) => m.NewsletterComponent
+      ),
+  },
+  {
+    path: 'projects',
+    loadComponent: () =>
+      import('./components/projects/projects.component').then(
+        (m) => m.PublicProjectsComponent
+      ),
+  },
+  {
+    path: 'examdynamics-detail',
+    loadComponent: () =>
+      import(
+        './components/projects-details/examdynamics-detail/examdynamics-detail.component'
+      ).then((m) => m.ExamdynamicsDetailComponent),
+  },
+  {
+    path: 'erp-detail',
+    loadComponent: () =>
+      import(
+        './components/projects-details/erp-detail/erp-detail.component'
+      ).then((m) => m.ErpDetail),
+  },
+  {
+    path: 'portfolio-detail',
+    loadComponent: () =>
+      import(
+        './components/projects-details/portfolio-detail/portfolio-detail.component'
+      ).then((m) => m.PortfolioDetailComponent),
+  },
+  {
+    path: 'prodfalcon-detail',
+    loadComponent: () =>
+      import(
+        './components/projects-details/prodfalcon-detail/prodfalcon-detail.component'
+      ).then((m) => m.ProdfalconDetailComponent),
+  },
+  {
+    path: 'skills',
+    loadComponent: () =>
+      import('./components/skills/skills.component').then(
+        (m) => m.SkillsComponent
+      ),
+  },
+  {
+    path: 'testimonials',
+    loadComponent: () =>
+      import('./components/testimonial/testimonial.component').then(
+        (m) => m.TestimonialComponent
+      ),
+  },
+  {
+    path: 'resume',
+    loadComponent: () =>
+      import('./components/resume/resume.component').then(
+        (m) => m.PublicResumeComponent
+      ),
+  },
+  {
+    path: 'blogs',
+    loadComponent: () =>
+      import('./components/blogs/blogs/blogs.component').then(
+        (m) => m.BlogsComponent
+      ),
+  },
+  {
+    path: 'blog/:slug',
+    loadComponent: () =>
+      import('./components/blogs/blog-detail/blog-detail.component').then(
+        (m) => m.BlogDetailComponent
+      ),
+    providers: [provideMarkdown()],
+  },
+  { path: '**', redirectTo: '' },
 ];
