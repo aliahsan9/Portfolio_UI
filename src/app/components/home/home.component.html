@@ -69,14 +69,18 @@
       <div class="portrait">
         <span class="ring ring-outer" aria-hidden="true"></span>
         <span class="ring ring-inner" aria-hidden="true"></span>
-        <img
-          src="assets/profile/profile.png"
-          alt="Portrait of Ali Ahsan"
-          width="440"
-          height="440"
-          loading="lazy"
-          decoding="async"
-        />
+        <picture>
+          <source srcset="assets/profile/profile.avif" type="image/avif" />
+          <source srcset="assets/profile/profile.webp" type="image/webp" />
+          <img
+            src="assets/profile/profile.png"
+            alt="Portrait of Ali Ahsan"
+            width="800"
+            height="723"
+            fetchpriority="high"
+            decoding="sync"
+          />
+        </picture>
       </div>
 
       <ul class="chips">
@@ -98,7 +102,6 @@
           [alt]="skill.name"
           width="48"
           height="48"
-          loading="lazy"
           decoding="async"
         />
         <img
@@ -108,7 +111,6 @@
           aria-hidden="true"
           width="48"
           height="48"
-          loading="lazy"
           decoding="async"
         />
       </div>

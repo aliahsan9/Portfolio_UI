@@ -34,7 +34,12 @@
             <img
               [src]="project.image"
               [alt]="project.title"
-              class="thumbnail">
+              class="thumbnail"
+              width="640"
+              height="360"
+              loading="lazy"
+              decoding="async"
+              fetchpriority="low">
 
             <div class="thumbnail-overlay"></div>
 

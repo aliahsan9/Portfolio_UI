@@ -24,7 +24,15 @@
 
             <div class="d-flex align-items-center gap-3">
 
-              <img [src]="skill.icon" class="icon" />
+              <img
+                [src]="skill.icon"
+                class="icon"
+                [alt]="skill.title"
+                width="45"
+                height="45"
+                loading="lazy"
+                decoding="async"
+              />
 
               <div>
                 <h5 class="mb-0">{{ skill.title }}</h5>

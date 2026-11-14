@@ -20,7 +20,15 @@
           <!-- Avatar -->
           <div class="d-flex align-items-center mb-3">
 
-            <img [src]="t.image" class="avatar" />
+            <img
+              [src]="t.image"
+              class="avatar"
+              [alt]="t.name"
+              width="55"
+              height="55"
+              loading="lazy"
+              decoding="async"
+            />
 
             <div class="ms-3">
               <h5 class="name">{{ t.name }}</h5>

@@ -4,7 +4,8 @@ import {
 } from '@angular/core';
 
 import {
-  provideRouter
+  provideRouter,
+  withEnabledBlockingInitialNavigation,
 } from '@angular/router';
 
 import {
@@ -22,7 +23,7 @@ export const appConfig: ApplicationConfig = {
       eventCoalescing: true
     }),
 
-    provideRouter(routes),
+    provideRouter(routes, withEnabledBlockingInitialNavigation()),
 
     provideHttpClient(
       withFetch()

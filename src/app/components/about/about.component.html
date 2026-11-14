@@ -10,7 +10,11 @@
           <div class="lanyard-card">
             <span class="card-brand">DEV//2026</span>
             <div class="avatar-placeholder">
-              <img src="assets/profile/profile.png" alt="Ali Ahsan" onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=600'"/>
+              <picture>
+                <source srcset="assets/profile/profile.avif" type="image/avif" />
+                <source srcset="assets/profile/profile.webp" type="image/webp" />
+                <img src="assets/profile/profile.png" alt="Ali Ahsan" width="120" height="120" loading="lazy" decoding="async" />
+              </picture>
             </div>
             <div class="card-details">
               <h3>Ali Ahsan</h3>
@@ -81,7 +85,11 @@
         <div class="project-img-wrapper">
           <img src="assets/projects/erp.avif"
                alt="BusinessOS Preview"
-               class="img-fluid project-display-img">
+               class="img-fluid project-display-img"
+               width="640"
+               height="360"
+               loading="lazy"
+               decoding="async">
 
           <div class="preview-overlay">
             <h6>BusinessOS</h6>
@@ -119,7 +127,11 @@
         <div class="project-img-wrapper">
           <img src="assets/projects/examdynamics.avif"
                alt="ExamDynamics Preview"
-               class="img-fluid project-display-img">
+               class="img-fluid project-display-img"
+               width="640"
+               height="360"
+               loading="lazy"
+               decoding="async">
 
           <div class="preview-overlay">
             <h6>ExamDynamics</h6>
@@ -157,7 +169,11 @@
         <div class="project-img-wrapper">
           <img src="assets/projects/prodfalcon.avif"
                alt="Falcon AI Preview"
-               class="img-fluid project-display-img">
+               class="img-fluid project-display-img"
+               width="640"
+               height="360"
+               loading="lazy"
+               decoding="async">
 
           <div class="preview-overlay">
             <h6>Falcon AI</h6>
