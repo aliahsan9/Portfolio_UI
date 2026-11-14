@@ -42,25 +42,6 @@ export class PublicProjectsComponent {
   icon: 'bi bi-building-gear',
   accent: '#2563eb'
 },
-    {
-      title: 'ExamDynamics',
-      description:
-        'Advanced online examination platform with secure authentication, analytics dashboard, student management and modern UI.',
-      image: 'assets/projects/examdynamics.avif',
-      technologies: ['Angular',
-                     '.NET Core', 
-                     'SQL Server',
-                      'EF Core',
-                      'JWT',
-                      'Clean Architecture',
-                      'Serilog',
-                      'AI',
-                      'Identity framework'
-                    ],
-      route: '/examdynamics-detail',
-      icon: 'bi bi-mortarboard-fill',
-      accent: '#38bdf8'
-    },
      {
       title: 'UAF Management System',
       description:
@@ -83,13 +64,31 @@ export class PublicProjectsComponent {
     {
       title: 'ProdFalcon',
       description:
-        'Powerful ERP and inventory management platform designed for scalability, reporting and enterprise workflows.',
+        'AI-assisted code analysis platform that scans a codebase for risky patterns, explains findings, and suggests fixes for issues such as SQL injection and exposed secrets.',
       image: 'assets/projects/prodfalcon.avif',
-      technologies: ['Angular', '.NET API', 'SQL Server'],
+      technologies: ['Angular', '.NET 8', 'SQL Server', 'EF Core', 'JWT', 'AI'],
       route: '/prodfalcon-detail',
       icon: 'bi bi-box-seam-fill',
       accent: '#8b5cf6'
     },
-  
+    {
+      title: 'ExamDynamics',
+      description:
+        'Advanced online examination platform with secure authentication, analytics dashboard, student management and modern UI.',
+      image: 'assets/projects/examdynamics.avif',
+      technologies: ['Angular',
+                     '.NET Core', 
+                     'SQL Server',
+                      'EF Core',
+                      'JWT',
+                      'Clean Architecture',
+                      'Serilog',
+                      'AI',
+                      'Identity framework'
+                    ],
+      route: '/examdynamics-detail',
+      icon: 'bi bi-mortarboard-fill',
+      accent: '#38bdf8'
+    },
   ];
 }

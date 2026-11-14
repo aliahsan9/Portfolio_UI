@@ -1,115 +1,132 @@
-<section class="project-page">
+<section class="case">
+  <div class="atmosphere" aria-hidden="true">
+    <div class="grid"></div>
+    <div class="orb orb-teal"></div>
+    <div class="orb orb-blue"></div>
+  </div>
+
   <div class="container">
 
-    <header class="hero-section">
-      <div class="row align-items-center gy-5">
-        <div class="col-lg-5">
-          <span class="case-study-label">
-            UNIVERSITY PLATFORM · ENGINEERING CASE STUDY
-          </span>
+    <header class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">
+          <span class="pulse"></span>
+          University platform · Engineering case study
+        </p>
 
-          <h1 class="project-title">UAF Management System</h1>
+        <h1>UAF<span>Management System</span></h1>
 
-          <p class="hero-lead">
-            Academic operations with rules the database can enforce.
-          </p>
+        <p class="lead">Academic operations with rules the database can enforce.</p>
 
-          <p class="project-description">
-            UAF Management System is an independent academic project for
-            university workflows: academic structure, admissions, student
-            records, course offerings, and timetables. It is a final-year
-            system, not an official University of Agriculture Faisalabad
-            product.
-          </p>
+        <p class="body">
+          UAF Management System is an independent academic project for
+          university workflows: academic structure, admissions, student
+          records, course offerings, and timetables. It is a final-year
+          system, not an official University of Agriculture Faisalabad
+          product.
+        </p>
 
-          <p class="hero-supporting-text">
-            The current repository is the .NET backend: Clean Architecture,
-            ASP.NET Core, Entity Framework Core, SQL Server, and JWT
-            authentication. Fees, a learning portal, and a full examination
-            module are still ahead.
-          </p>
+        <p class="support">
+          The current repository is the .NET backend: Clean Architecture,
+          ASP.NET Core, Entity Framework Core, SQL Server, and JWT
+          authentication. Fees, a learning portal, and a full examination
+          module are still ahead.
+        </p>
 
-          <div class="project-buttons">
-            <a
-              [href]="repositoryUrl"
-              class="btn btn-theme-solid custom-btn"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="View UAF Management System source code on GitHub">
-              <i class="bi bi-github" aria-hidden="true"></i>
-              Explore Source Code
-              <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
-            </a>
+        <div class="actions">
+          <a
+            [href]="repositoryUrl"
+            class="cta cta-solid"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="View UAF Management System source code on GitHub">
+            <i class="bi bi-github" aria-hidden="true"></i>
+            Explore source code
+            <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+          </a>
 
-            <a
-              routerLink="/uaf-detail"
-              fragment="engineering"
-              (click)="scrollToEngineering()"
-              class="btn btn-theme-outline custom-btn">
-              Explore the Engineering
-              <i class="bi bi-arrow-down" aria-hidden="true"></i>
-            </a>
+          <a
+            href="/uaf-detail#engineering"
+            class="cta cta-ghost"
+            (click)="scrollToEngineering($event)">
+            Explore the engineering
+            <i class="bi bi-arrow-down" aria-hidden="true"></i>
+          </a>
+        </div>
+
+        <ul class="pills">
+          <li>
+            <i class="bi bi-bank" aria-hidden="true"></i>
+            Academic hierarchy
+          </li>
+          <li>
+            <i class="bi bi-shield-check" aria-hidden="true"></i>
+            Role-based API
+          </li>
+          <li>
+            <i class="bi bi-database-lock" aria-hidden="true"></i>
+            Transactional writes
+          </li>
+        </ul>
+      </div>
+
+      <div class="hero-stage">
+        <div class="frame">
+          <div class="frame-bar">
+            <div class="dots" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <span class="frame-label">UAF / Backend foundation</span>
+            <span class="frame-status">
+              <span class="live"></span>
+              In development
+            </span>
           </div>
 
-          <div class="hero-highlights">
-            <span>
-              <i class="bi bi-bank" aria-hidden="true"></i>
-              Academic hierarchy
-            </span>
-            <span>
-              <i class="bi bi-shield-check" aria-hidden="true"></i>
-              Role-based API
-            </span>
-            <span>
-              <i class="bi bi-database-lock" aria-hidden="true"></i>
-              Transactional writes
-            </span>
+          <div class="scope-board">
+            <div class="scope-row" *ngFor="let area of foundationAreas">
+              <div>
+                <h3>{{ area.title }}</h3>
+                <p>{{ area.description }}</p>
+              </div>
+              <span class="scope-status">In source</span>
+            </div>
           </div>
         </div>
 
-        <div class="col-lg-7">
-          <div class="dashboard-wrapper">
-            <div class="dashboard-topbar">
-              <div class="window-dots" aria-hidden="true">
-                <span class="dot red"></span>
-                <span class="dot yellow"></span>
-                <span class="dot green"></span>
-              </div>
-              <span class="window-label">UAF / Backend foundation</span>
-              <span class="window-status">
-                <span class="status-indicator"></span>
-                In development
-              </span>
-            </div>
-
-            <div class="dashboard-screen">
-              <div class="scope-board">
-                <div class="scope-row" *ngFor="let area of foundationAreas">
-                  <div>
-                    <h3>{{ area.title }}</h3>
-                    <p>{{ area.description }}</p>
-                  </div>
-                  <span class="scope-status">In source</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <p class="image-caption">
-            Capabilities present in the backend source. A product UI and
-            production identity lifecycle are not part of this repository yet.
-          </p>
-        </div>
+        <p class="caption">
+          Capabilities present in the backend source. A product UI and
+          production identity lifecycle are not part of this repository yet.
+        </p>
       </div>
     </header>
 
-    <section class="content-section problem-section" id="problem">
-      <div class="section-heading">
-        <span class="section-eyebrow">01 / THE PROBLEM</span>
-        <h2 class="section-title">
-          A university cannot run on disconnected records.
-        </h2>
-        <p class="section-intro">
+    <ul class="glance" aria-label="Platform at a glance">
+      <li>
+        <span>Backend</span>
+        <strong>.NET 10</strong>
+      </li>
+      <li>
+        <span>Data</span>
+        <strong>SQL Server</strong>
+      </li>
+      <li>
+        <span>Access</span>
+        <strong>JWT + roles</strong>
+      </li>
+      <li>
+        <span>Status</span>
+        <strong>Backend in source</strong>
+      </li>
+    </ul>
+
+    <section class="block" id="problem">
+      <div class="block-head">
+        <p class="kicker">01 / The problem</p>
+        <h2>A university cannot run on disconnected records.</h2>
+        <p>
           Admissions, programs, sessions, and student status only stay
           consistent when the same rules apply to every request. A form
           or spreadsheet cannot lock the last seat or remember who
@@ -118,45 +135,48 @@
       </div>
 
       <div class="problem-grid">
-        <article class="problem-item" *ngFor="let problem of academicProblems">
-          <span class="problem-number">{{ problem.number }}</span>
+        <article class="panel" *ngFor="let problem of academicProblems">
+          <div class="card-top">
+            <span class="index">{{ problem.number }}</span>
+            <span class="icon-well">
+              <i [class]="problem.icon" aria-hidden="true"></i>
+            </span>
+          </div>
           <h3>{{ problem.title }}</h3>
           <p>{{ problem.description }}</p>
-          <div class="problem-impact">
+          <p class="impact">
             <i class="bi bi-arrow-right" aria-hidden="true"></i>
             {{ problem.impact }}
-          </div>
+          </p>
         </article>
       </div>
 
-      <div class="problem-conclusion">
-        <i class="bi bi-lightbulb" aria-hidden="true"></i>
+      <div class="callout">
+        <span class="icon-well">
+          <i class="bi bi-lightbulb" aria-hidden="true"></i>
+        </span>
         <p>
-          <strong>The objective:</strong>
-          build a backend where academic structure, admissions, and
+          <strong>The objective.</strong>
+          Build a backend where academic structure, admissions, and
           student records share one model, and where contested updates
           are decided by the database.
         </p>
       </div>
     </section>
 
-    <section class="content-section solution-section" id="solution">
-      <div class="row gy-4 align-items-start">
-        <div class="col-lg-5">
-          <span class="section-eyebrow">02 / THE SOLUTION</span>
-          <h2 class="section-title">
-            One API for the academic year.
-          </h2>
+    <section class="block" id="solution">
+      <div class="split">
+        <div>
+          <p class="kicker">02 / The solution</p>
+          <h2>One API for the academic year.</h2>
         </div>
-
-        <div class="col-lg-7">
-          <p class="section-intro">
+        <div class="split-copy">
+          <p>
             The system exposes versioned HTTP endpoints for the work
             already modeled: structure, sessions, courses, offerings,
             enrollment, timetable, students, and admissions.
           </p>
-
-          <p class="section-copy">
+          <p>
             Staff operations require the matching role. Applicant
             operations use the authenticated account as the owner.
             Broader modules such as fees, identity cards, a learning
@@ -166,102 +186,85 @@
       </div>
 
       <div class="workflow">
-        <div class="workflow-step" *ngFor="let step of workflowSteps">
-          <div class="workflow-icon">
-            <i [class]="step.icon" aria-hidden="true"></i>
+        <article class="step" *ngFor="let step of workflowSteps; let i = index">
+          <div class="step-mark">
+            <span class="icon-well">
+              <i [class]="step.icon" aria-hidden="true"></i>
+            </span>
+            <span class="index">0{{ i + 1 }}</span>
           </div>
           <h3>{{ step.title }}</h3>
           <p>{{ step.description }}</p>
-        </div>
+        </article>
       </div>
 
-      <div class="workflow-note">
+      <p class="note">
         <i class="bi bi-diagram-3" aria-hidden="true"></i>
-        <span>
-          Each workflow is an application use case backed by domain
-          rules and SQL Server constraints.
-        </span>
-      </div>
+        Each workflow is an application use case backed by domain
+        rules and SQL Server constraints.
+      </p>
     </section>
 
-    <section class="content-section engineering-section" id="engineering">
-      <div class="section-heading">
-        <span class="section-eyebrow">03 / UNDER THE HOOD</span>
-        <h2 class="section-title">
-          Engineering the rules behind the endpoints.
-        </h2>
-        <p class="section-intro">
+    <section class="block" id="engineering">
+      <div class="block-head">
+        <p class="kicker">03 / Under the hood</p>
+        <h2>Engineering the rules behind the endpoints.</h2>
+        <p>
           The interesting work is not a list of routes. It is how parent
           records, role policies, document checks, and concurrent writes
           stay consistent as the model grows.
         </p>
       </div>
 
-      <div class="engineering-list">
-        <article
-          class="engineering-item"
-          *ngFor="let item of engineeringDecisions; let i = index">
-          <div class="engineering-index">
-            {{ (i + 1).toString().padStart(2, '0') }}
-          </div>
-
-          <div class="engineering-content">
-            <span class="engineering-category">{{ item.category }}</span>
+      <div class="decisions">
+        <article class="decision" *ngFor="let item of engineeringDecisions; let i = index">
+          <div class="decision-index">{{ (i + 1).toString().padStart(2, '0') }}</div>
+          <div class="decision-body">
+            <p class="category">{{ item.category }}</p>
             <h3>{{ item.title }}</h3>
             <p>{{ item.description }}</p>
-            <div class="engineering-benefit">
-              <span>WHY IT MATTERS</span>
+            <p class="why">
+              <span>Why it matters</span>
               {{ item.benefit }}
-            </div>
+            </p>
           </div>
-
-          <div class="engineering-technology">
-            <span *ngFor="let technology of item.technologies">
-              {{ technology }}
-            </span>
-          </div>
+          <ul class="chips">
+            <li *ngFor="let technology of item.technologies">{{ technology }}</li>
+          </ul>
         </article>
       </div>
     </section>
 
-    <section class="content-section architecture-section">
-      <div class="row gy-5 align-items-start">
-        <div class="col-lg-5">
-          <span class="section-eyebrow">04 / SYSTEM DESIGN</span>
-          <h2 class="section-title">
-            Clear boundaries. Explicit responsibilities.
-          </h2>
-          <p class="section-intro">
+    <section class="block">
+      <div class="split align-center">
+        <div>
+          <p class="kicker">04 / System design</p>
+          <h2>Clear boundaries. Explicit responsibilities.</h2>
+          <p>
             UAF follows the same layered shape as the other .NET systems
             in this portfolio: domain rules stay independent of EF Core
             and HTTP.
           </p>
-          <p class="section-copy">
+          <p>
             Infrastructure implements application contracts. The API
             project is the entry point for authentication, policies,
             and endpoint mapping.
           </p>
         </div>
 
-        <div class="col-lg-7">
-          <div class="architecture-flow">
-            <div class="architecture-layer" *ngFor="let layer of architectureLayers">
-              <div class="architecture-layer-icon">
-                <i [class]="layer.icon" aria-hidden="true"></i>
-              </div>
-
-              <div class="architecture-layer-copy">
-                <h3>{{ layer.title }}</h3>
-                <p>{{ layer.description }}</p>
-              </div>
-
-              <span class="architecture-layer-label">
-                {{ layer.label }}
-              </span>
+        <div class="layers">
+          <article class="layer" *ngFor="let layer of architectureLayers; let i = index">
+            <span class="layer-num">0{{ i + 1 }}</span>
+            <span class="icon-well">
+              <i [class]="layer.icon" aria-hidden="true"></i>
+            </span>
+            <div>
+              <h3>{{ layer.title }}</h3>
+              <p>{{ layer.description }}</p>
             </div>
-          </div>
-
-          <p class="architecture-caption">
+            <span class="layer-tag">{{ layer.label }}</span>
+          </article>
+          <p class="fine">
             Conceptual responsibility map, not a diagram of every
             project reference or runtime call.
           </p>
@@ -269,13 +272,11 @@
       </div>
     </section>
 
-    <section class="content-section security-section">
-      <div class="section-heading">
-        <span class="section-eyebrow">05 / SECURITY & RELIABILITY</span>
-        <h2 class="section-title">
-          University data needs more than a login route.
-        </h2>
-        <p class="section-intro">
+    <section class="block">
+      <div class="block-head">
+        <p class="kicker">05 / Security & reliability</p>
+        <h2>University data needs more than a login route.</h2>
+        <p>
           The identity foundation covers registration, login, and
           role checks. Email verification, refresh-token rotation,
           password reset, and multi-factor authentication are still
@@ -284,45 +285,41 @@
       </div>
 
       <div class="security-grid">
-        <article class="security-item" *ngFor="let item of securityPractices">
-          <div class="security-icon">
+        <article class="panel compact" *ngFor="let item of securityPractices">
+          <span class="icon-well">
             <i [class]="item.icon" aria-hidden="true"></i>
-          </div>
+          </span>
           <h3>{{ item.title }}</h3>
           <p>{{ item.description }}</p>
         </article>
       </div>
     </section>
 
-    <section class="content-section stack-section">
-      <div class="row gy-4">
-        <div class="col-lg-5">
-          <span class="section-eyebrow">06 / TECHNOLOGY</span>
-          <h2 class="section-title">The tools behind the platform.</h2>
-          <p class="section-intro">
+    <section class="block">
+      <div class="split">
+        <div>
+          <p class="kicker">06 / Technology</p>
+          <h2>The tools behind the platform.</h2>
+          <p>
             A .NET 10 Web API with SQL Server persistence. There is no
             Angular client in this repository yet.
           </p>
         </div>
 
-        <div class="col-lg-7">
-          <div class="stack-groups">
-            <div class="stack-group" *ngFor="let group of technologyGroups">
-              <h3>{{ group.category }}</h3>
-              <div class="tech-stack">
-                <span class="tech-item" *ngFor="let tech of group.items">
-                  {{ tech }}
-                </span>
-              </div>
-            </div>
+        <div class="stack">
+          <div class="stack-group" *ngFor="let group of technologyGroups">
+            <h3>{{ group.category }}</h3>
+            <ul class="chips">
+              <li *ngFor="let tech of group.items">{{ tech }}</li>
+            </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="project-closing">
-      <span class="section-eyebrow">THE ENGINEERING GOAL</span>
-      <h2>Model a university before decorating it.</h2>
+    <section class="close">
+      <p class="kicker">The engineering goal</p>
+      <h2>Model a university before <span>decorating it.</span></h2>
       <p>
         UAF Management System is my work on domain modeling, clean
         architecture, authorization, and data integrity for academic
@@ -333,11 +330,11 @@
 
       <a
         [href]="repositoryUrl"
-        class="btn btn-theme-solid custom-btn"
+        class="cta cta-solid"
         target="_blank"
         rel="noopener noreferrer">
         <i class="bi bi-github" aria-hidden="true"></i>
-        Review the Code
+        Review the code
         <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
       </a>
     </section>

@@ -1,107 +1,126 @@
+<section class="case">
+  <div class="atmosphere" aria-hidden="true">
+    <div class="grid"></div>
+    <div class="orb orb-teal"></div>
+    <div class="orb orb-blue"></div>
+  </div>
 
-<section class="project-page">
   <div class="container">
 
-    <!-- HERO -->
-    <header class="hero-section">
-      <div class="row align-items-center gy-5">
-        <div class="col-lg-5">
-          <span class="case-study-label">
-            FULL-STACK APPLICATION · CASE STUDY
-          </span>
+    <header class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">
+          <span class="pulse"></span>
+          Full-stack application · Case study
+        </p>
 
-          <h1 class="project-title">ExamDynamics</h1>
+        <h1>Exam<span>Dynamics</span></h1>
 
-          <p class="hero-lead">
-            Bringing examination workflows into one system.
-          </p>
+        <p class="lead">Bringing examination workflows into one system.</p>
 
-          <p class="hero-text">
-            ExamDynamics is a web-based examination management platform
-            designed to organize academic examination workflows, student
-            records, exam-related operations, and result management in
-            one centralized application.
-          </p>
+        <p class="body">
+          ExamDynamics is a web-based examination management platform
+          designed to organize academic examination workflows, student
+          records, exam-related operations, and result management in
+          one centralized application.
+        </p>
 
-          <p class="hero-supporting-text">
-            Developed with Angular, ASP.NET Core Web API, and SQL Server,
-            with a focus on API integration, secure authentication,
-            maintainable code, and responsive user experiences.
-          </p>
+        <p class="support">
+          Developed with Angular, ASP.NET Core Web API, and SQL Server,
+          with a focus on API integration, secure authentication,
+          maintainable code, and responsive user experiences.
+        </p>
 
-          <div class="project-buttons">
-            <a
-              href="https://github.com/aliahsan9/ExamDynamicsAPI"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn btn-theme-solid custom-btn">
-              <i class="bi bi-github" aria-hidden="true"></i>
-              Explore Backend Code
-              <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
-            </a>
+        <div class="actions">
+          <a
+            href="https://github.com/aliahsan9/ExamDynamicsAPI"
+            class="cta cta-solid"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="View ExamDynamics backend source code on GitHub">
+            <i class="bi bi-github" aria-hidden="true"></i>
+            Explore backend code
+            <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+          </a>
 
-            <a
-              href="https://exam-dynamics-ui.vercel.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn btn-theme-outline custom-btn">
-              <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i>
-              Open Live Preview
-            </a>
-          </div>
-
-          <div class="hero-highlights">
-            <span>
-              <i class="bi bi-mortarboard" aria-hidden="true"></i>
-              Academic workflows
-            </span>
-            <span>
-              <i class="bi bi-shield-lock" aria-hidden="true"></i>
-              Protected APIs
-            </span>
-            <span>
-              <i class="bi bi-diagram-3" aria-hidden="true"></i>
-              Full-stack integration
-            </span>
-          </div>
+          <a
+            href="https://exam-dynamics-ui.vercel.app/"
+            class="cta cta-ghost"
+            target="_blank"
+            rel="noopener noreferrer">
+            <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i>
+            Open live preview
+          </a>
         </div>
 
-        <div class="col-lg-7">
-          <div class="device-wrapper">
-            <div class="device-topbar">
-              <div class="dots" aria-hidden="true">
-                <span class="dot red"></span>
-                <span class="dot yellow"></span>
-                <span class="dot green"></span>
-              </div>
-              <span class="window-label">ExamDynamics / Application</span>
-              <span class="window-status">Product preview</span>
-            </div>
+        <ul class="pills">
+          <li>
+            <i class="bi bi-mortarboard" aria-hidden="true"></i>
+            Academic workflows
+          </li>
+          <li>
+            <i class="bi bi-shield-lock" aria-hidden="true"></i>
+            Protected APIs
+          </li>
+          <li>
+            <i class="bi bi-diagram-3" aria-hidden="true"></i>
+            Full-stack integration
+          </li>
+        </ul>
+      </div>
 
-            <div class="device-screen">
-              <img
-                src="assets/projects/examdynamics.avif"
-                alt="ExamDynamics examination management application"
-                fetchpriority="high"
-                decoding="async">
+      <div class="hero-stage">
+        <div class="frame">
+          <div class="frame-bar">
+            <div class="dots" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
             </div>
+            <span class="frame-label">ExamDynamics / Application</span>
+            <span class="frame-status">
+              <span class="live"></span>
+              Product preview
+            </span>
           </div>
-
-          <p class="image-caption">
-            A centralized interface for examination-related academic tasks.
-          </p>
+          <div class="frame-screen">
+            <img
+              src="assets/projects/examdynamics.avif"
+              alt="ExamDynamics examination management application"
+              fetchpriority="high"
+              decoding="async">
+          </div>
         </div>
+        <p class="caption">
+          A centralized interface for examination-related academic tasks.
+        </p>
       </div>
     </header>
 
-    <!-- PROBLEM -->
-    <section class="content-section" id="problem">
-      <div class="section-heading">
-        <span class="section-eyebrow">01 / THE PROBLEM</span>
-        <h2 class="section-title">
-          Examination administration involves more than conducting an exam.
-        </h2>
-        <p class="section-intro">
+    <ul class="glance" aria-label="Platform at a glance">
+      <li>
+        <span>Frontend</span>
+        <strong>Angular</strong>
+      </li>
+      <li>
+        <span>Backend</span>
+        <strong>.NET 8</strong>
+      </li>
+      <li>
+        <span>Data</span>
+        <strong>SQL Server</strong>
+      </li>
+      <li>
+        <span>Delivery</span>
+        <strong>Live on Vercel</strong>
+      </li>
+    </ul>
+
+    <section class="block" id="problem">
+      <div class="block-head">
+        <p class="kicker">01 / The problem</p>
+        <h2>Examination administration involves more than conducting an exam.</h2>
+        <p>
           Educational institutions need to coordinate student information,
           examination activities, access permissions, and results.
           When these activities rely on disconnected records or manual
@@ -111,49 +130,50 @@
       </div>
 
       <div class="problem-grid">
-        <article class="problem-item"
-                 *ngFor="let problem of problems">
-          <span class="item-number">{{ problem.number }}</span>
+        <article class="panel" *ngFor="let problem of problems">
+          <div class="card-top">
+            <span class="index">{{ problem.number }}</span>
+            <span class="icon-well">
+              <i [class]="problem.icon" aria-hidden="true"></i>
+            </span>
+          </div>
           <h3>{{ problem.title }}</h3>
           <p>{{ problem.description }}</p>
-          <div class="problem-impact">
+          <p class="impact">
             <i class="bi bi-arrow-right" aria-hidden="true"></i>
             {{ problem.outcome }}
-          </div>
+          </p>
         </article>
       </div>
 
-      <div class="insight-line">
-        <i class="bi bi-lightbulb" aria-hidden="true"></i>
+      <div class="callout">
+        <span class="icon-well">
+          <i class="bi bi-lightbulb" aria-hidden="true"></i>
+        </span>
         <p>
-          <strong>The objective:</strong>
-          provide a centralized application that makes examination
+          <strong>The objective.</strong>
+          Provide a centralized application that makes examination
           workflows easier to organize, manage, and access through
           clearly defined application features and APIs.
         </p>
       </div>
     </section>
 
-    <!-- SOLUTION -->
-    <section class="content-section" id="solution">
-      <div class="row gy-4 align-items-start">
-        <div class="col-lg-5">
-          <span class="section-eyebrow">02 / THE SOLUTION</span>
-          <h2 class="section-title">
-            One application for connected academic workflows.
-          </h2>
+    <section class="block" id="solution">
+      <div class="split">
+        <div>
+          <p class="kicker">02 / The solution</p>
+          <h2>One application for connected academic workflows.</h2>
         </div>
-
-        <div class="col-lg-7">
-          <p class="section-intro">
+        <div class="split-copy">
+          <p>
             ExamDynamics brings examination-related functionality into
             a unified web application. The frontend provides the
             interface for users, while the backend API handles requests,
             applies application rules, and communicates with persistent
             data storage.
           </p>
-
-          <p class="section-copy">
+          <p>
             The emphasis is on making academic operations easier to
             navigate while maintaining a clear separation between
             interface behavior, API responsibilities, authentication,
@@ -162,11 +182,13 @@
         </div>
       </div>
 
-      <div class="workflow-grid">
-        <article class="workflow-item"
-                 *ngFor="let workflow of workflows">
-          <div class="workflow-icon">
-            <i [class]="workflow.icon" aria-hidden="true"></i>
+      <div class="workflow">
+        <article class="step" *ngFor="let workflow of workflows; let i = index">
+          <div class="step-mark">
+            <span class="icon-well">
+              <i [class]="workflow.icon" aria-hidden="true"></i>
+            </span>
+            <span class="index">0{{ i + 1 }}</span>
           </div>
           <h3>{{ workflow.title }}</h3>
           <p>{{ workflow.description }}</p>
@@ -174,77 +196,61 @@
       </div>
     </section>
 
-    <!-- ENGINEERING -->
-    <section class="content-section" id="engineering">
-      <div class="section-heading">
-        <span class="section-eyebrow">03 / ENGINEERING DECISIONS</span>
-        <h2 class="section-title">
-          Connecting the interface to a reliable backend.
-        </h2>
-        <p class="section-intro">
+    <section class="block" id="engineering">
+      <div class="block-head">
+        <p class="kicker">03 / Engineering decisions</p>
+        <h2>Connecting the interface to a reliable backend.</h2>
+        <p>
           A full-stack application is not just a collection of screens.
           Its frontend, API, authentication flow, and database must
           work together predictably.
         </p>
       </div>
 
-      <div class="engineering-list">
-        <article class="engineering-item"
-                 *ngFor="let item of engineeringDecisions; let i = index">
-          <div class="engineering-number">
-            {{ (i + 1).toString().padStart(2, '0') }}
-          </div>
-
-          <div class="engineering-content">
-            <span class="engineering-category">{{ item.category }}</span>
+      <div class="decisions">
+        <article class="decision" *ngFor="let item of engineeringDecisions; let i = index">
+          <div class="decision-index">{{ (i + 1).toString().padStart(2, '0') }}</div>
+          <div class="decision-body">
+            <p class="category">{{ item.category }}</p>
             <h3>{{ item.title }}</h3>
             <p>{{ item.description }}</p>
-
-            <div class="engineering-benefit">
-              <span>WHY IT MATTERS</span>
+            <p class="why">
+              <span>Why it matters</span>
               {{ item.benefit }}
-            </div>
+            </p>
           </div>
-
-          <div class="engineering-tags">
-            <span *ngFor="let technology of item.technologies">
-              {{ technology }}
-            </span>
-          </div>
+          <ul class="chips">
+            <li *ngFor="let technology of item.technologies">{{ technology }}</li>
+          </ul>
         </article>
       </div>
     </section>
 
-    <!-- REQUEST FLOW -->
-    <section class="content-section request-section">
-      <div class="row gy-4">
-        <div class="col-lg-5">
-          <span class="section-eyebrow">04 / REQUEST LIFECYCLE</span>
-          <h2 class="section-title">
-            From an Angular interaction to a database operation.
-          </h2>
-          <p class="section-intro">
+    <section class="block">
+      <div class="split align-center">
+        <div>
+          <p class="kicker">04 / Request lifecycle</p>
+          <h2>From an Angular interaction to a database operation.</h2>
+          <p>
             Understanding the complete request lifecycle is essential
             when diagnosing bugs, handling invalid requests, and
             maintaining consistency between frontend and backend behavior.
           </p>
         </div>
 
-        <div class="col-lg-7">
-          <div class="request-flow">
-            <div class="request-step" *ngFor="let step of requestFlow">
-              <div class="request-step-icon">
-                <i [class]="step.icon" aria-hidden="true"></i>
-              </div>
-              <div>
-                <span>{{ step.label }}</span>
-                <h3>{{ step.title }}</h3>
-                <p>{{ step.description }}</p>
-              </div>
+        <div class="layers">
+          <article class="layer" *ngFor="let step of requestFlow; let i = index">
+            <span class="layer-num">0{{ i + 1 }}</span>
+            <span class="icon-well">
+              <i [class]="step.icon" aria-hidden="true"></i>
+            </span>
+            <div>
+              <h3>{{ step.title }}</h3>
+              <p>{{ step.description }}</p>
             </div>
-          </div>
-
-          <p class="architecture-caption">
+            <span class="layer-tag">{{ step.label }}</span>
+          </article>
+          <p class="fine">
             Conceptual request flow. Exact middleware, validation,
             and persistence paths depend on the endpoint implementation.
           </p>
@@ -252,14 +258,11 @@
       </div>
     </section>
 
-    <!-- SECURITY -->
-    <section class="content-section" id="security">
-      <div class="section-heading">
-        <span class="section-eyebrow">05 / SECURITY & DATA</span>
-        <h2 class="section-title">
-          Protecting access to academic operations.
-        </h2>
-        <p class="section-intro">
+    <section class="block" id="security">
+      <div class="block-head">
+        <p class="kicker">05 / Security & data</p>
+        <h2>Protecting access to academic operations.</h2>
+        <p>
           Examination applications can handle sensitive student and
           academic information. Authentication, authorization, input
           validation, and appropriate data-access rules are important
@@ -268,54 +271,57 @@
       </div>
 
       <div class="security-grid">
-        <article class="security-item"
-                 *ngFor="let practice of securityPractices">
-          <div class="security-icon">
+        <article class="panel compact" *ngFor="let practice of securityPractices">
+          <span class="icon-well">
             <i [class]="practice.icon" aria-hidden="true"></i>
-          </div>
+          </span>
           <h3>{{ practice.title }}</h3>
           <p>{{ practice.description }}</p>
         </article>
       </div>
     </section>
 
-    <!-- DEVELOPMENT CHALLENGE -->
-    <section class="content-section">
-      <div class="row gy-5 align-items-center">
-        <div class="col-lg-6">
-          <div class="image-card">
-            <img
-              src="assets/projects/examdynamics2.avif"
-              alt="ExamDynamics application interface"
-              loading="lazy"
-              decoding="async">
+    <section class="block">
+      <div class="split align-center">
+        <div class="hero-stage">
+          <div class="frame">
+            <div class="frame-bar">
+              <div class="dots" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <span class="frame-label">ExamDynamics / Interface</span>
+            </div>
+            <div class="frame-screen">
+              <img
+                src="assets/projects/examdynamics2.avif"
+                alt="ExamDynamics application interface"
+                loading="lazy"
+                decoding="async">
+            </div>
           </div>
-          <p class="image-caption">
+          <p class="caption">
             Application interface developed as part of the full-stack project.
           </p>
         </div>
 
-        <div class="col-lg-6">
-          <span class="section-eyebrow">06 / DEVELOPMENT CHALLENGE</span>
-          <h2 class="section-title">
-            Making frontend and backend behavior work together.
-          </h2>
-
-          <p class="section-intro">
+        <div>
+          <p class="kicker">06 / Development challenge</p>
+          <h2>Making frontend and backend behavior work together.</h2>
+          <p>
             One of the central challenges in full-stack development
             is ensuring that the UI, API contracts, authentication
             flow, and database operations agree on how a feature
             should behave.
           </p>
-
-          <p class="section-copy">
+          <p>
             ExamDynamics gave me practical experience connecting
             Angular components to REST endpoints, handling API
             responses, organizing relational data, and designing
             protected application workflows.
           </p>
-
-          <p class="section-copy">
+          <p>
             It also reinforced the importance of testing real
             request paths rather than assuming that a working
             interface guarantees correct backend behavior.
@@ -324,21 +330,19 @@
       </div>
     </section>
 
-    <!-- SCREENSHOTS -->
-    <section class="content-section" id="screenshots">
-      <div class="section-heading">
-        <span class="section-eyebrow">07 / PRODUCT WALKTHROUGH</span>
-        <h2 class="section-title">The interface in practice.</h2>
-        <p class="section-intro">
+    <section class="block" id="screenshots">
+      <div class="block-head">
+        <p class="kicker">07 / Product walkthrough</p>
+        <h2>The interface in practice.</h2>
+        <p>
           A closer look at the application screens. Each screenshot
-          should represent a real feature or workflow available
-          in the project.
+          represents a real feature or workflow available in the project.
         </p>
       </div>
 
-      <div class="screenshots-grid">
-        <figure class="preview-card" *ngFor="let screen of screenshots">
-          <div class="preview-image">
+      <div class="gallery">
+        <figure class="shot" *ngFor="let screen of screenshots">
+          <div class="shot-frame">
             <img
               [src]="screen.src"
               [alt]="screen.alt"
@@ -353,40 +357,31 @@
       </div>
     </section>
 
-    <!-- TECH STACK -->
-    <section class="content-section">
-      <div class="row gy-4">
-        <div class="col-lg-5">
-          <span class="section-eyebrow">08 / TECHNOLOGY</span>
-          <h2 class="section-title">
-            The stack behind ExamDynamics.
-          </h2>
-          <p class="section-intro">
+    <section class="block">
+      <div class="split">
+        <div>
+          <p class="kicker">08 / Technology</p>
+          <h2>The stack behind ExamDynamics.</h2>
+          <p>
             Angular for the user interface, ASP.NET Core for API
             development, and SQL Server for relational data storage.
           </p>
         </div>
 
-        <div class="col-lg-7">
-          <div class="technology-groups">
-            <div class="technology-group"
-                 *ngFor="let group of technologyGroups">
-              <h3>{{ group.category }}</h3>
-              <div class="tech-stack">
-                <span class="tech-item" *ngFor="let tech of group.items">
-                  {{ tech }}
-                </span>
-              </div>
-            </div>
+        <div class="stack">
+          <div class="stack-group" *ngFor="let group of technologyGroups">
+            <h3>{{ group.category }}</h3>
+            <ul class="chips">
+              <li *ngFor="let tech of group.items">{{ tech }}</li>
+            </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- CLOSING -->
-    <section class="project-closing">
-      <span class="section-eyebrow">WHAT THIS PROJECT DEMONSTRATES</span>
-      <h2>Building beyond the UI.</h2>
+    <section class="close">
+      <p class="kicker">What this project demonstrates</p>
+      <h2>Building beyond <span>the UI.</span></h2>
       <p>
         ExamDynamics represents my hands-on work in full-stack
         development, REST API integration, relational data modeling,
@@ -394,23 +389,21 @@
         The goal was to bring these skills together in a practical
         academic application.
       </p>
-
-      <div class="project-buttons">
+      <div class="actions">
         <a
           href="https://github.com/aliahsan9/ExamDynamicsAPI"
+          class="cta cta-solid"
           target="_blank"
-          rel="noopener noreferrer"
-          class="btn btn-theme-solid custom-btn">
+          rel="noopener noreferrer">
           <i class="bi bi-github" aria-hidden="true"></i>
-          Explore Backend Code
+          Explore backend code
         </a>
-
         <a
           href="https://exam-dynamics-ui.vercel.app/"
+          class="cta cta-ghost"
           target="_blank"
-          rel="noopener noreferrer"
-          class="btn btn-theme-outline custom-btn">
-          Open Live Preview
+          rel="noopener noreferrer">
+          Open live preview
           <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
         </a>
       </div>

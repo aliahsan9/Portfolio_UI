@@ -13,9 +13,19 @@ import { RouterModule } from '@angular/router';
 })
 export class ErpDetail {
 
+  scrollToEngineering(event: Event): void {
+    event.preventDefault();
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    document.getElementById('engineering')?.scrollIntoView({
+      behavior: reduceMotion ? 'auto' : 'smooth',
+      block: 'start'
+    });
+  }
+
   businessProblems = [
     {
       number: '01',
+      icon: 'bi bi-collection',
       title: 'Fragmented business records',
       description:
         'Inventory, customers, orders, and financial information can end up scattered across spreadsheets and separate applications.',
@@ -23,6 +33,7 @@ export class ErpDetail {
     },
     {
       number: '02',
+      icon: 'bi bi-eye',
       title: 'Limited operational visibility',
       description:
         'Without a consolidated view of business activity, understanding stock levels, sales performance, and outstanding work takes more effort.',
@@ -30,6 +41,7 @@ export class ErpDetail {
     },
     {
       number: '03',
+      icon: 'bi bi-diagram-2',
       title: 'Growing technical complexity',
       description:
         'As workflows expand, tightly coupled features and duplicated business rules make changes harder to maintain safely.',
@@ -37,6 +49,7 @@ export class ErpDetail {
     },
     {
       number: '04',
+      icon: 'bi bi-shield-lock',
       title: 'Business data access',
       description:
         'A shared platform needs to ensure that authenticated users can perform permitted operations without crossing tenant boundaries.',

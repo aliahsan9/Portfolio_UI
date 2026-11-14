@@ -12,9 +12,19 @@ import { CommonModule } from '@angular/common';
 export class ProdfalconDetailComponent {
   readonly repositoryUrl = 'https://github.com/aliahsan9/ProdFalcon';
 
+  scrollToEngineering(event: Event): void {
+    event.preventDefault();
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    document.getElementById('engineering')?.scrollIntoView({
+      behavior: reduceMotion ? 'auto' : 'smooth',
+      block: 'start'
+    });
+  }
+
   problems = [
     {
       number: '01',
+      icon: 'bi bi-search',
       title: 'Code issues are easy to overlook',
       description:
         'Potential vulnerabilities and risky implementation patterns can remain hidden in a repository, especially when a developer has to inspect files manually.',
@@ -23,6 +33,7 @@ export class ProdfalconDetailComponent {
     },
     {
       number: '02',
+      icon: 'bi bi-list-check',
       title: 'Manual reviews take effort',
       description:
         'Searching through a codebase for every known risk can be repetitive and makes it harder to maintain a consistent first-pass review.',
@@ -31,6 +42,7 @@ export class ProdfalconDetailComponent {
     },
     {
       number: '03',
+      icon: 'bi bi-chat-square-text',
       title: 'A warning needs useful context',
       description:
         'A raw match or error message is not always enough to understand why something may be risky or what should be investigated next.',
@@ -39,6 +51,7 @@ export class ProdfalconDetailComponent {
     },
     {
       number: '04',
+      icon: 'bi bi-layout-text-window',
       title: 'Findings need a usable interface',
       description:
         'Analysis output is difficult to act on when findings, scan information, and next steps are scattered across tools or presented without structure.',
@@ -151,18 +164,21 @@ export class ProdfalconDetailComponent {
   analysisPrinciples = [
     {
       number: '01',
+      icon: 'bi bi-exclamation-circle',
       title: 'A rule match is a signal',
       description:
         'A matching code pattern can indicate risk, but it does not automatically prove that an exploitable vulnerability exists.'
     },
     {
       number: '02',
+      icon: 'bi bi-stars',
       title: 'AI output is advisory',
       description:
         'Generated explanations and suggested fixes should be checked against the actual code, execution context, and project requirements.'
     },
     {
       number: '03',
+      icon: 'bi bi-person-check',
       title: 'Developers make the final decision',
       description:
         'Findings are intended to support investigation and remediation, not replace testing, code review, or professional security assessment.'

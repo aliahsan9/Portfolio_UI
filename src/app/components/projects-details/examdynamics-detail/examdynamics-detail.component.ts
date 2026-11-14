@@ -15,6 +15,7 @@ export class ExamdynamicsDetailComponent {
   problems = [
     {
       number: '01',
+      icon: 'bi bi-journal-text',
       title: 'Fragmented academic information',
       description:
         'Student records and examination-related information can become difficult to organize when managed across disconnected records and workflows.',
@@ -22,6 +23,7 @@ export class ExamdynamicsDetailComponent {
     },
     {
       number: '02',
+      icon: 'bi bi-pencil-square',
       title: 'Manual administrative work',
       description:
         'Coordinating examination activities and maintaining academic records can involve repetitive administrative effort.',
@@ -29,6 +31,7 @@ export class ExamdynamicsDetailComponent {
     },
     {
       number: '03',
+      icon: 'bi bi-person-badge',
       title: 'Different user responsibilities',
       description:
         'Students, teachers, and administrators may need different interfaces and permissions for their respective tasks.',
@@ -36,6 +39,7 @@ export class ExamdynamicsDetailComponent {
     },
     {
       number: '04',
+      icon: 'bi bi-bezier2',
       title: 'Disconnected application layers',
       description:
         'A feature can fail when frontend requests, API contracts, authentication, and database operations do not work together correctly.',

@@ -1,109 +1,126 @@
+<section class="case">
+  <div class="atmosphere" aria-hidden="true">
+    <div class="grid"></div>
+    <div class="orb orb-teal"></div>
+    <div class="orb orb-blue"></div>
+  </div>
 
-<section class="project-page">
   <div class="container">
 
-    <!-- HERO -->
-    <header class="hero-section">
-      <div class="row align-items-center gy-5">
-        <div class="col-lg-5">
-          <span class="case-study-label">
-            FULL-STACK SAAS · ENGINEERING CASE STUDY
-          </span>
+    <header class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">
+          <span class="pulse"></span>
+          Full-stack SaaS · Engineering case study
+        </p>
 
-          <h1 class="project-title">BusinessOS</h1>
+        <h1>Business<span>OS</span></h1>
 
-          <p class="hero-lead">
-            One platform. Connected business operations.
-          </p>
+        <p class="lead">One platform. Connected business operations.</p>
 
-          <p class="project-description">
-            BusinessOS is an AI-powered business management platform
-            designed to help small and growing businesses manage
-            inventory, customers, orders, and financial operations
-            through a centralized workspace.
-          </p>
+        <p class="body">
+          BusinessOS is an AI-powered business management platform
+          designed to help small and growing businesses manage
+          inventory, customers, orders, and financial operations
+          through a centralized workspace.
+        </p>
 
-          <p class="hero-supporting-text">
-            Built with Angular, ASP.NET Core, SQL Server, and a
-            multi-tenant architecture designed with maintainability,
-            security, and future scalability in mind.
-          </p>
+        <p class="support">
+          Built with Angular, ASP.NET Core, SQL Server, and a
+          multi-tenant architecture designed with maintainability,
+          security, and future scalability in mind.
+        </p>
 
-          <div class="project-buttons">
-            <a
-              href="https://github.com/aliahsan9/BusinessOS"
-              class="btn btn-theme-solid custom-btn"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="View BusinessOS source code on GitHub">
-              <i class="bi bi-github" aria-hidden="true"></i>
-              Explore Source Code
-              <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
-            </a>
+        <div class="actions">
+          <a
+            href="https://github.com/aliahsan9/BusinessOS"
+            class="cta cta-solid"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="View BusinessOS source code on GitHub">
+            <i class="bi bi-github" aria-hidden="true"></i>
+            Explore source code
+            <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+          </a>
 
-            <a href="#engineering"
-               class="btn btn-theme-outline custom-btn">
-              Explore the Engineering
-              <i class="bi bi-arrow-down" aria-hidden="true"></i>
-            </a>
-          </div>
-
-          <div class="hero-highlights">
-            <span>
-              <i class="bi bi-layers" aria-hidden="true"></i>
-              Multi-tenant SaaS
-            </span>
-            <span>
-              <i class="bi bi-shield-check" aria-hidden="true"></i>
-              Security-focused
-            </span>
-            <span>
-              <i class="bi bi-cpu" aria-hidden="true"></i>
-              AI integration
-            </span>
-          </div>
+          <a
+            href="/erp-detail#engineering"
+            class="cta cta-ghost"
+            (click)="scrollToEngineering($event)">
+            Explore the engineering
+            <i class="bi bi-arrow-down" aria-hidden="true"></i>
+          </a>
         </div>
 
-        <div class="col-lg-7">
-          <div class="dashboard-wrapper">
-            <div class="dashboard-topbar">
-              <div class="window-dots" aria-hidden="true">
-                <span class="dot red"></span>
-                <span class="dot yellow"></span>
-                <span class="dot green"></span>
-              </div>
-              <span class="window-label">BusinessOS / Dashboard</span>
-              <span class="window-status">
-                <span class="status-indicator"></span>
-                Application preview
-              </span>
-            </div>
+        <ul class="pills">
+          <li>
+            <i class="bi bi-layers" aria-hidden="true"></i>
+            Multi-tenant SaaS
+          </li>
+          <li>
+            <i class="bi bi-shield-check" aria-hidden="true"></i>
+            Security-focused
+          </li>
+          <li>
+            <i class="bi bi-cpu" aria-hidden="true"></i>
+            AI integration
+          </li>
+        </ul>
+      </div>
 
-            <div class="dashboard-screen">
-              <img
-                src="assets/projects/erp.avif"
-                alt="BusinessOS business management dashboard"
-                fetchpriority="high"
-                decoding="async">
+      <div class="hero-stage">
+        <div class="frame">
+          <div class="frame-bar">
+            <div class="dots" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
             </div>
+            <span class="frame-label">BusinessOS / Dashboard</span>
+            <span class="frame-status">
+              <span class="live"></span>
+              Application preview
+            </span>
           </div>
-
-          <p class="image-caption">
-            A centralized interface for understanding and managing
-            day-to-day business operations.
-          </p>
+          <div class="frame-screen">
+            <img
+              src="assets/projects/erp.avif"
+              alt="BusinessOS business management dashboard"
+              fetchpriority="high"
+              decoding="async">
+          </div>
         </div>
+        <p class="caption">
+          A centralized interface for understanding and managing
+          day-to-day business operations.
+        </p>
       </div>
     </header>
 
-    <!-- BUSINESS PROBLEM -->
-    <section class="content-section problem-section" id="problem">
-      <div class="section-heading">
-        <span class="section-eyebrow">01 / THE PROBLEM</span>
-        <h2 class="section-title">
-          Business operations shouldn't live in silos.
-        </h2>
-        <p class="section-intro">
+    <ul class="glance" aria-label="Platform at a glance">
+      <li>
+        <span>Frontend</span>
+        <strong>Angular 19</strong>
+      </li>
+      <li>
+        <span>Backend</span>
+        <strong>ASP.NET Core</strong>
+      </li>
+      <li>
+        <span>Data</span>
+        <strong>SQL Server</strong>
+      </li>
+      <li>
+        <span>Architecture</span>
+        <strong>Multi-tenant</strong>
+      </li>
+    </ul>
+
+    <section class="block" id="problem">
+      <div class="block-head">
+        <p class="kicker">01 / The problem</p>
+        <h2>Business operations shouldn't live in silos.</h2>
+        <p>
           As a business grows, managing stock, customer records, orders,
           and finances across spreadsheets and disconnected tools makes
           it harder to maintain accurate records and understand
@@ -112,49 +129,49 @@
       </div>
 
       <div class="problem-grid">
-        <article
-          class="problem-item"
-          *ngFor="let problem of businessProblems">
-          <span class="problem-number">{{ problem.number }}</span>
+        <article class="panel" *ngFor="let problem of businessProblems">
+          <div class="card-top">
+            <span class="index">{{ problem.number }}</span>
+            <span class="icon-well">
+              <i [class]="problem.icon" aria-hidden="true"></i>
+            </span>
+          </div>
           <h3>{{ problem.title }}</h3>
           <p>{{ problem.description }}</p>
-          <div class="problem-impact">
+          <p class="impact">
             <i class="bi bi-arrow-right" aria-hidden="true"></i>
             {{ problem.impact }}
-          </div>
+          </p>
         </article>
       </div>
 
-      <div class="problem-conclusion">
-        <i class="bi bi-lightbulb" aria-hidden="true"></i>
+      <div class="callout">
+        <span class="icon-well">
+          <i class="bi bi-lightbulb" aria-hidden="true"></i>
+        </span>
         <p>
-          <strong>The objective:</strong>
-          create a unified operational system that reduces fragmentation,
+          <strong>The objective.</strong>
+          Create a unified operational system that reduces fragmentation,
           centralizes business data, and gives business owners a clearer
           picture of their operations.
         </p>
       </div>
     </section>
 
-    <!-- THE SOLUTION -->
-    <section class="content-section solution-section" id="solution">
-      <div class="row gy-4 align-items-start">
-        <div class="col-lg-5">
-          <span class="section-eyebrow">02 / THE SOLUTION</span>
-          <h2 class="section-title">
-            A connected workspace for running a business.
-          </h2>
+    <section class="block" id="solution">
+      <div class="split">
+        <div>
+          <p class="kicker">02 / The solution</p>
+          <h2>A connected workspace for running a business.</h2>
         </div>
-
-        <div class="col-lg-7">
-          <p class="section-intro">
+        <div class="split-copy">
+          <p>
             BusinessOS connects essential business workflows through
             a shared application and data model. Instead of treating
             inventory, customers, and orders as isolated features,
             the platform brings them together in one operational system.
           </p>
-
-          <p class="section-copy">
+          <p>
             The goal is not simply to display information on a dashboard.
             It is to provide the underlying workflows, APIs, data
             relationships, and access controls required to manage
@@ -164,32 +181,30 @@
       </div>
 
       <div class="workflow">
-        <div class="workflow-step" *ngFor="let step of workflowSteps">
-          <div class="workflow-icon">
-            <i [class]="step.icon" aria-hidden="true"></i>
+        <article class="step" *ngFor="let step of workflowSteps; let i = index">
+          <div class="step-mark">
+            <span class="icon-well">
+              <i [class]="step.icon" aria-hidden="true"></i>
+            </span>
+            <span class="index">0{{ i + 1 }}</span>
           </div>
           <h3>{{ step.title }}</h3>
           <p>{{ step.description }}</p>
-        </div>
+        </article>
       </div>
 
-      <div class="workflow-note">
+      <p class="note">
         <i class="bi bi-diagram-3" aria-hidden="true"></i>
-        <span>
-          Connected workflows are supported by shared business entities,
-          backend rules, and persistent database records.
-        </span>
-      </div>
+        Connected workflows are supported by shared business entities,
+        backend rules, and persistent database records.
+      </p>
     </section>
 
-    <!-- ENGINEERING -->
-    <section class="content-section engineering-section" id="engineering">
-      <div class="section-heading">
-        <span class="section-eyebrow">03 / UNDER THE HOOD</span>
-        <h2 class="section-title">
-          Engineering the system behind the interface.
-        </h2>
-        <p class="section-intro">
+    <section class="block" id="engineering">
+      <div class="block-head">
+        <p class="kicker">03 / Under the hood</p>
+        <h2>Engineering the system behind the interface.</h2>
+        <p>
           The focus extends beyond frontend functionality to how
           business rules are organized, requests are processed,
           data is persisted, and the application can evolve without
@@ -197,73 +212,55 @@
         </p>
       </div>
 
-      <div class="engineering-list">
-        <article
-          class="engineering-item"
-          *ngFor="let item of engineeringDecisions; let i = index">
-          <div class="engineering-index">
-            {{ (i + 1).toString().padStart(2, '0') }}
-          </div>
-
-          <div class="engineering-content">
-            <span class="engineering-category">{{ item.category }}</span>
+      <div class="decisions">
+        <article class="decision" *ngFor="let item of engineeringDecisions; let i = index">
+          <div class="decision-index">{{ (i + 1).toString().padStart(2, '0') }}</div>
+          <div class="decision-body">
+            <p class="category">{{ item.category }}</p>
             <h3>{{ item.title }}</h3>
             <p>{{ item.description }}</p>
-            <div class="engineering-benefit">
-              <span>WHY IT MATTERS</span>
+            <p class="why">
+              <span>Why it matters</span>
               {{ item.benefit }}
-            </div>
+            </p>
           </div>
-
-          <div class="engineering-technology">
-            <span *ngFor="let technology of item.technologies">
-              {{ technology }}
-            </span>
-          </div>
+          <ul class="chips">
+            <li *ngFor="let technology of item.technologies">{{ technology }}</li>
+          </ul>
         </article>
       </div>
     </section>
 
-    <!-- ARCHITECTURE -->
-    <section class="content-section architecture-section">
-      <div class="row gy-5 align-items-start">
-        <div class="col-lg-5">
-          <span class="section-eyebrow">04 / SYSTEM DESIGN</span>
-          <h2 class="section-title">
-            Clear boundaries. Explicit responsibilities.
-          </h2>
-          <p class="section-intro">
+    <section class="block">
+      <div class="split align-center">
+        <div>
+          <p class="kicker">04 / System design</p>
+          <h2>Clear boundaries. Explicit responsibilities.</h2>
+          <p>
             BusinessOS uses a layered Clean Architecture approach
             to separate business rules from infrastructure and
             HTTP-specific concerns.
           </p>
-          <p class="section-copy">
+          <p>
             This structure helps keep the application easier to test,
             reason about, and extend as new business capabilities
             are introduced.
           </p>
         </div>
 
-        <div class="col-lg-7">
-          <div class="architecture-flow">
-            <div class="architecture-layer"
-                 *ngFor="let layer of architectureLayers">
-              <div class="architecture-layer-icon">
-                <i [class]="layer.icon" aria-hidden="true"></i>
-              </div>
-
-              <div class="architecture-layer-copy">
-                <h3>{{ layer.title }}</h3>
-                <p>{{ layer.description }}</p>
-              </div>
-
-              <span class="architecture-layer-label">
-                {{ layer.label }}
-              </span>
+        <div class="layers">
+          <article class="layer" *ngFor="let layer of architectureLayers; let i = index">
+            <span class="layer-num">0{{ i + 1 }}</span>
+            <span class="icon-well">
+              <i [class]="layer.icon" aria-hidden="true"></i>
+            </span>
+            <div>
+              <h3>{{ layer.title }}</h3>
+              <p>{{ layer.description }}</p>
             </div>
-          </div>
-
-          <p class="architecture-caption">
+            <span class="layer-tag">{{ layer.label }}</span>
+          </article>
+          <p class="fine">
             Conceptual responsibility map, not a representation of
             every project dependency or runtime call.
           </p>
@@ -271,14 +268,11 @@
       </div>
     </section>
 
-    <!-- SECURITY & RELIABILITY -->
-    <section class="content-section security-section">
-      <div class="section-heading">
-        <span class="section-eyebrow">05 / SECURITY & RELIABILITY</span>
-        <h2 class="section-title">
-          Business data needs more than a login screen.
-        </h2>
-        <p class="section-intro">
+    <section class="block">
+      <div class="block-head">
+        <p class="kicker">05 / Security & reliability</p>
+        <h2>Business data needs more than a login screen.</h2>
+        <p>
           A business application must consider who can access an
           operation, which tenant owns the data, how invalid input
           is handled, and how failures can be investigated.
@@ -286,30 +280,29 @@
       </div>
 
       <div class="security-grid">
-        <article class="security-item" *ngFor="let item of securityPractices">
-          <div class="security-icon">
+        <article class="panel compact" *ngFor="let item of securityPractices">
+          <span class="icon-well">
             <i [class]="item.icon" aria-hidden="true"></i>
-          </div>
+          </span>
           <h3>{{ item.title }}</h3>
           <p>{{ item.description }}</p>
         </article>
       </div>
     </section>
 
-    <!-- SCREENSHOTS -->
-    <section class="content-section screens-section" id="screenshots">
-      <div class="section-heading">
-        <span class="section-eyebrow">06 / PRODUCT WALKTHROUGH</span>
-        <h2 class="section-title">The application in practice.</h2>
-        <p class="section-intro">
+    <section class="block" id="screenshots">
+      <div class="block-head">
+        <p class="kicker">06 / Product walkthrough</p>
+        <h2>The application in practice.</h2>
+        <p>
           A look at the interface built around the operational
           workflows BusinessOS is designed to support.
         </p>
       </div>
 
-      <div class="screens-grid">
-        <figure class="screen-card" *ngFor="let screen of screenshots">
-          <div class="screen-image">
+      <div class="gallery">
+        <figure class="shot" *ngFor="let screen of screenshots; let first = first">
+          <div class="shot-frame" [class.shot-frame-lead]="first">
             <img
               [src]="screen.src"
               [alt]="screen.alt"
@@ -324,81 +317,75 @@
       </div>
     </section>
 
-    <!-- AI -->
-    <section class="content-section ai-section">
-      <div class="ai-panel">
-        <div class="ai-panel-content">
-          <span class="section-eyebrow">07 / INTELLIGENCE LAYER</span>
-          <h2 class="section-title">
-            Building toward AI-assisted business operations.
-          </h2>
-          <p class="section-intro">
+    <section class="block">
+      <div class="ai">
+        <div class="ai-copy">
+          <p class="kicker">07 / Intelligence layer</p>
+          <h2>Building toward AI-assisted business operations.</h2>
+          <p>
             BusinessOS also explores how AI can make business data
             easier to understand and business workflows easier to
             interact with through a conversational interface.
           </p>
-          <p class="section-copy">
+          <p>
             The engineering challenge is connecting AI to relevant
             business context while keeping application permissions,
             data ownership, and existing business rules in control.
           </p>
         </div>
 
-        <div class="ai-capabilities">
-          <div *ngFor="let item of aiCapabilities">
-            <i [class]="item.icon" aria-hidden="true"></i>
-            <span>{{ item.title }}</span>
-            <p>{{ item.description }}</p>
-          </div>
-        </div>
+        <ul class="ai-list">
+          <li *ngFor="let item of aiCapabilities">
+            <span class="icon-well">
+              <i [class]="item.icon" aria-hidden="true"></i>
+            </span>
+            <div>
+              <strong>{{ item.title }}</strong>
+              <p>{{ item.description }}</p>
+            </div>
+          </li>
+        </ul>
       </div>
     </section>
 
-    <!-- TECH STACK -->
-    <section class="content-section stack-section">
-      <div class="row gy-4">
-        <div class="col-lg-5">
-          <span class="section-eyebrow">08 / TECHNOLOGY</span>
-          <h2 class="section-title">The tools behind the platform.</h2>
-          <p class="section-intro">
+    <section class="block">
+      <div class="split">
+        <div>
+          <p class="kicker">08 / Technology</p>
+          <h2>The tools behind the platform.</h2>
+          <p>
             A modern Microsoft-oriented backend paired with an
             Angular frontend and a relational data store.
           </p>
         </div>
 
-        <div class="col-lg-7">
-          <div class="stack-groups">
-            <div class="stack-group" *ngFor="let group of technologyGroups">
-              <h3>{{ group.category }}</h3>
-              <div class="tech-stack">
-                <span class="tech-item" *ngFor="let tech of group.items">
-                  {{ tech }}
-                </span>
-              </div>
-            </div>
+        <div class="stack">
+          <div class="stack-group" *ngFor="let group of technologyGroups">
+            <h3>{{ group.category }}</h3>
+            <ul class="chips">
+              <li *ngFor="let tech of group.items">{{ tech }}</li>
+            </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- CLOSING -->
-    <section class="project-closing">
-      <span class="section-eyebrow">THE ENGINEERING GOAL</span>
-      <h2>Build software that solves real operational problems.</h2>
+    <section class="close">
+      <p class="kicker">The engineering goal</p>
+      <h2>Build software that solves <span>real operational problems.</span></h2>
       <p>
         BusinessOS represents my work in full-stack development,
         backend architecture, data modeling, API security, and
         AI integration — bringing these disciplines together
         in a practical business application.
       </p>
-
       <a
         href="https://github.com/aliahsan9/BusinessOS"
-        class="btn btn-theme-solid custom-btn"
+        class="cta cta-solid"
         target="_blank"
         rel="noopener noreferrer">
         <i class="bi bi-github" aria-hidden="true"></i>
-        Review the Code
+        Review the code
         <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
       </a>
     </section>

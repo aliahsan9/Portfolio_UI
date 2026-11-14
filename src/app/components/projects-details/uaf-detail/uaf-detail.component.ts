@@ -1,21 +1,24 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { CommonModule, ViewportScroller } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-uaf-detail',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule],
   templateUrl: './uaf-detail.component.html',
   styleUrls: ['./uaf-detail.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UafDetailComponent {
-  private readonly viewportScroller = inject(ViewportScroller);
   readonly repositoryUrl = 'https://github.com/aliahsan9/UAF_Management_System';
 
-  scrollToEngineering(): void {
-    this.viewportScroller.scrollToAnchor('engineering');
+  scrollToEngineering(event: Event): void {
+    event.preventDefault();
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    document.getElementById('engineering')?.scrollIntoView({
+      behavior: reduceMotion ? 'auto' : 'smooth',
+      block: 'start'
+    });
   }
 
   foundationAreas = [
@@ -48,6 +51,7 @@ export class UafDetailComponent {
   academicProblems = [
     {
       number: '01',
+      icon: 'bi bi-diagram-3',
       title: 'Academic records live apart',
       description:
         'Faculties, departments, programs, sessions, and student records are hard to trust when each one is maintained in a separate spreadsheet or tool.',
@@ -55,6 +59,7 @@ export class UafDetailComponent {
     },
     {
       number: '02',
+      icon: 'bi bi-file-earmark-text',
       title: 'Admissions is a paper trail',
       description:
         'Applications, required documents, reviewer decisions, and the step from applicant to registered student need a single auditable workflow.',
@@ -62,6 +67,7 @@ export class UafDetailComponent {
     },
     {
       number: '03',
+      icon: 'bi bi-person-badge',
       title: 'Roles are not interchangeable',
       description:
         'Students, teachers, registrars, department admins, and finance staff should not share the same operations or see one another’s records.',
@@ -69,6 +75,7 @@ export class UafDetailComponent {
     },
     {
       number: '04',
+      icon: 'bi bi-database-lock',
       title: 'Concurrent work can corrupt records',
       description:
         'Two staff members accepting the same application, or two enrollments taking the last seat, should not both succeed.',
