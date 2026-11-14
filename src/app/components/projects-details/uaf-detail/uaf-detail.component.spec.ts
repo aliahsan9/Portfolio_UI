@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PortfolioDetailComponent } from './portfolio-detail.component';
+import { UafDetailComponent } from './uaf-detail.component';
 
-describe('PortfolioDetailComponent', () => {
-  let component: PortfolioDetailComponent;
-  let fixture: ComponentFixture<PortfolioDetailComponent>;
+describe('UafDetailComponent', () => {
+  let component: UafDetailComponent;
+  let fixture: ComponentFixture<UafDetailComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PortfolioDetailComponent]
+      imports: [UafDetailComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(PortfolioDetailComponent);
+    fixture = TestBed.createComponent(UafDetailComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

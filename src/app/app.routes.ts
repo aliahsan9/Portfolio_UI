@@ -55,11 +55,11 @@ export const routes: Routes = [
       ).then((m) => m.ErpDetail),
   },
   {
-    path: 'portfolio-detail',
+    path: 'uaf-detail',
     loadComponent: () =>
       import(
-        './components/projects-details/portfolio-detail/portfolio-detail.component'
-      ).then((m) => m.PortfolioDetailComponent),
+        './components/projects-details/uaf-detail/uaf-detail.component'
+      ).then((m) => m.UafDetailComponent),
   },
   {
     path: 'prodfalcon-detail',

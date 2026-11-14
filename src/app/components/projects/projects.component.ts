@@ -62,14 +62,23 @@ export class PublicProjectsComponent {
       accent: '#38bdf8'
     },
      {
-      title: 'Portfolio Website',
+      title: 'UAF Management System',
       description:
-        'Modern developer portfolio crafted with premium UI animations, responsive layouts and interactive sections.',
-      image: 'assets/projects/portfolio.avif',
-      technologies: ['Angular', 'SCSS', 'Bootstrap'],
-      route: '/portfolio-detail',
-      icon: 'bi bi-person-badge-fill',
-      accent: '#06b6d4'
+        'University management platform for academic structure, admissions, and student records, with role-based access and a clean .NET architecture.',
+      image: 'assets/projects/portfolio1.avif',
+      technologies: [
+        '.NET 10',
+        'ASP.NET Core',
+        'SQL Server',
+        'EF Core',
+        'JWT',
+        'Clean Architecture',
+        'Identity',
+        'Serilog'
+      ],
+      route: '/uaf-detail',
+      icon: 'bi bi-bank2',
+      accent: '#059669'
     },
     {
       title: 'ProdFalcon',
