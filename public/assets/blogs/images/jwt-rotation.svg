@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="700" viewBox="0 0 960 700" role="img" aria-labelledby="rotTitle rotDesc">
+  <title id="rotTitle">Refresh token rotation and reuse detection</title>
+  <desc id="rotDesc">One login creates a token family. Each refresh revokes the presented token and issues the next one in that family. Presenting an already revoked token revokes the whole family.</desc>
+  <rect width="960" height="700" fill="#f7f3ea"/>
+  <text x="36" y="42" fill="#9a3412" font-family="Segoe Print, Comic Sans MS, Segoe UI, sans-serif" font-size="18">Figure 5</text>
+  <text x="36" y="74" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="26" font-weight="700">One family per login</text>
+  <text x="36" y="102" fill="#57534e" font-family="Segoe UI, sans-serif" font-size="15">RFC 9700 section 4.14.2. Reuse revokes the active token. The server cannot tell who sent the old one.</text>
+
+  <rect x="28" y="128" width="904" height="250" rx="16" fill="#ffffff" stroke="#44403c" stroke-width="1.6"/>
+  <text x="48" y="160" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="16" font-weight="700">Honest client</text>
+
+  <circle cx="90" cy="230" r="28" fill="#dbeafe" stroke="#1d4ed8" stroke-width="2"/>
+  <text x="78" y="236" fill="#1e3a8a" font-family="Segoe UI, sans-serif" font-size="14" font-weight="700">RT1</text>
+  <text x="60" y="278" fill="#57534e" font-family="Segoe UI, sans-serif" font-size="13">login</text>
+
+  <line x1="118" y1="230" x2="250" y2="230" stroke="#44403c" stroke-width="1.7" marker-end="url(#a4)"/>
+
+  <circle cx="300" cy="230" r="28" fill="#dcfce7" stroke="#15803d" stroke-width="2"/>
+  <text x="288" y="236" fill="#14532d" font-family="Segoe UI, sans-serif" font-size="14" font-weight="700">RT2</text>
+  <text x="250" y="278" fill="#57534e" font-family="Segoe UI, sans-serif" font-size="13">refresh</text>
+
+  <line x1="328" y1="230" x2="460" y2="230" stroke="#44403c" stroke-width="1.7" marker-end="url(#a4)"/>
+
+  <circle cx="510" cy="230" r="28" fill="#dcfce7" stroke="#15803d" stroke-width="2"/>
+  <text x="498" y="236" fill="#14532d" font-family="Segoe UI, sans-serif" font-size="14" font-weight="700">RT3</text>
+  <text x="468" y="278" fill="#57534e" font-family="Segoe UI, sans-serif" font-size="13">refresh</text>
+
+  <rect x="600" y="190" width="300" height="110" rx="12" fill="#f5f5f4" stroke="#78716c" stroke-width="1.6"/>
+  <text x="620" y="220" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="14" font-weight="700">Stored row for RT1</text>
+  <text x="620" y="246" fill="#44403c" font-family="Segoe UI, sans-serif" font-size="14">RevokedAt = t1</text>
+  <text x="620" y="270" fill="#44403c" font-family="Segoe UI, sans-serif" font-size="14">ReplacedBy = hash(RT2)</text>
+  <text x="620" y="294" fill="#44403c" font-family="Segoe UI, sans-serif" font-size="14">FamilyId stays F</text>
+
+  <rect x="28" y="400" width="440" height="260" rx="16" fill="#ffffff" stroke="#b91c1c" stroke-width="2"/>
+  <text x="48" y="436" fill="#991b1b" font-family="Segoe UI, sans-serif" font-size="16" font-weight="700">Reuse</text>
+  <text x="48" y="468" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="15">Someone presents RT1 again.</text>
+  <text x="48" y="496" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="15">The row is already revoked.</text>
+  <text x="48" y="524" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="15">Revoke every live token in F.</text>
+  <text x="48" y="552" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="15">RT2 and RT3 die with it.</text>
+  <text x="48" y="592" fill="#991b1b" font-family="Segoe UI, sans-serif" font-size="15" font-weight="700">Both the thief and the user re-login.</text>
+  <text x="48" y="628" fill="#57534e" font-family="Segoe UI, sans-serif" font-size="14">That is the detection signal. Not a who-did-it.</text>
+
+  <rect x="492" y="400" width="440" height="260" rx="16" fill="#ffffff" stroke="#b45309" stroke-width="2"/>
+  <text x="512" y="436" fill="#92400e" font-family="Segoe UI, sans-serif" font-size="16" font-weight="700">The false alarm</text>
+  <text x="512" y="468" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="15">Two tabs both send RT1.</text>
+  <text x="512" y="496" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="15">The second request looks like theft.</text>
+  <text x="512" y="524" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="15">A lost response does the same:</text>
+  <text x="512" y="552" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="15">the client retries a token the</text>
+  <text x="512" y="576" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="15">server has already burned.</text>
+  <text x="512" y="620" fill="#92400e" font-family="Segoe UI, sans-serif" font-size="15" font-weight="700">Fix the client race. Do not weaken detection.</text>
+
+  <defs>
+    <marker id="a4" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 1 1.5 L 8 5 L 1 8.5" fill="none" stroke="#44403c" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+</svg>

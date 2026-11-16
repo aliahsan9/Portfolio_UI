@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="640" viewBox="0 0 960 640" role="img" aria-labelledby="offTitle offDesc">
+  <title id="offTitle">OFFSET walks discarded leaf pages; a keyset seek does not</title>
+  <desc id="offDesc">OFFSET 100000 still walks the ordered leaf until 100000 rows have been passed. At 40 rows per page that is 2500 leaf pages read and thrown away, then one page of results. A keyset predicate seeks to the last key already shown and reads the next leaf page. The cost stays near the height of the tree.</desc>
+  <rect width="960" height="640" fill="#f7f3ea"/>
+  <text x="36" y="40" fill="#9a3412" font-family="Segoe Print, Comic Sans MS, Segoe UI, sans-serif" font-size="18">Figure 5</text>
+  <text x="36" y="72" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="26" font-weight="700">OFFSET pays for the rows it does not return</text>
+  <text x="36" y="100" fill="#57534e" font-family="Segoe UI, sans-serif" font-size="15">The engine has an ordered leaf. Skipping 100,000 rows means walking them. The walk grows with the page number.</text>
+
+  <text x="36" y="146" fill="#991b1b" font-family="Segoe UI, sans-serif" font-size="15" font-weight="700">OFFSET 100000 FETCH NEXT 20</text>
+  <text x="36" y="168" fill="#57534e" font-family="Segoe UI, sans-serif" font-size="13">100,000 / 40 rows per page = 2,500 leaf pages read, then discarded</text>
+
+  <rect x="36" y="188" width="70" height="52" rx="6" fill="#fecaca" stroke="#b91c1c" stroke-width="1.4"/>
+  <rect x="114" y="188" width="70" height="52" rx="6" fill="#fecaca" stroke="#b91c1c" stroke-width="1.4"/>
+  <rect x="192" y="188" width="70" height="52" rx="6" fill="#fecaca" stroke="#b91c1c" stroke-width="1.4"/>
+  <rect x="270" y="188" width="70" height="52" rx="6" fill="#fecaca" stroke="#b91c1c" stroke-width="1.4"/>
+  <text x="360" y="218" fill="#991b1b" font-family="Segoe UI, sans-serif" font-size="18">... 2,500 pages</text>
+  <rect x="560" y="188" width="86" height="52" rx="6" fill="#dcfce7" stroke="#15803d" stroke-width="2"/>
+  <text x="603" y="218" text-anchor="middle" fill="#14532d" font-family="Segoe UI, sans-serif" font-size="13" font-weight="700">20 rows</text>
+  <line x1="106" y1="214" x2="114" y2="214" stroke="#b91c1c" stroke-width="1.5" marker-end="url(#offArrow)"/>
+  <line x1="184" y1="214" x2="192" y2="214" stroke="#b91c1c" stroke-width="1.5" marker-end="url(#offArrow)"/>
+  <line x1="262" y1="214" x2="270" y2="214" stroke="#b91c1c" stroke-width="1.5" marker-end="url(#offArrow)"/>
+
+  <text x="36" y="278" fill="#78716c" font-family="Segoe UI, sans-serif" font-size="13">Page 1 of this query is a few leaf pages. Page 5000 is the same query shape with a much longer walk.</text>
+
+  <text x="36" y="332" fill="#14532d" font-family="Segoe UI, sans-serif" font-size="15" font-weight="700">WHERE OrderDate &gt; @lastDate OR (OrderDate = @lastDate AND OrderId &gt; @lastId)</text>
+  <text x="36" y="354" fill="#57534e" font-family="Segoe UI, sans-serif" font-size="13">Seek to the key the caller already has. Read the next page. Depth does not change the cost.</text>
+
+  <rect x="36" y="376" width="120" height="58" rx="8" fill="#dcfce7" stroke="#15803d" stroke-width="1.8"/>
+  <text x="96" y="400" text-anchor="middle" fill="#14532d" font-family="Segoe UI, sans-serif" font-size="13" font-weight="700">root</text>
+  <text x="96" y="418" text-anchor="middle" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="12">1 page</text>
+  <line x1="156" y1="405" x2="196" y2="405" stroke="#15803d" stroke-width="1.7" marker-end="url(#offArrowG)"/>
+
+  <rect x="204" y="376" width="140" height="58" rx="8" fill="#dcfce7" stroke="#15803d" stroke-width="1.8"/>
+  <text x="274" y="400" text-anchor="middle" fill="#14532d" font-family="Segoe UI, sans-serif" font-size="13" font-weight="700">intermediate</text>
+  <text x="274" y="418" text-anchor="middle" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="12">1 page</text>
+  <line x1="344" y1="405" x2="390" y2="405" stroke="#15803d" stroke-width="1.7" marker-end="url(#offArrowG)"/>
+
+  <rect x="398" y="376" width="170" height="58" rx="8" fill="#dcfce7" stroke="#15803d" stroke-width="2"/>
+  <text x="483" y="400" text-anchor="middle" fill="#14532d" font-family="Segoe UI, sans-serif" font-size="13" font-weight="700">leaf, next 20 rows</text>
+  <text x="483" y="418" text-anchor="middle" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="12">1 page if they fit</text>
+
+  <rect x="28" y="468" width="904" height="140" rx="14" fill="#ffffff" stroke="#44403c" stroke-width="1.6"/>
+  <text x="48" y="502" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="15" font-weight="700">The order has to be unique</text>
+  <text x="48" y="532" fill="#44403c" font-family="Segoe UI, sans-serif" font-size="15">Two rows with the same OrderDate are tied. A cursor of the date alone skips one of them or repeats it,</text>
+  <text x="48" y="556" fill="#44403c" font-family="Segoe UI, sans-serif" font-size="15">depending on which plan you get next time. (OrderDate, OrderId) is a total order. OrderId is already</text>
+  <text x="48" y="580" fill="#44403c" font-family="Segoe UI, sans-serif" font-size="15">the clustered key, so a nonunique index on OrderDate stores it at the end of the key for free.</text>
+  <defs>
+    <marker id="offArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 1 1.5 L 8 5 L 1 8.5" fill="none" stroke="#b91c1c" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="offArrowG" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 1 1.5 L 8 5 L 1 8.5" fill="none" stroke="#15803d" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+</svg>

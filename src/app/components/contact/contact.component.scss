@@ -43,15 +43,15 @@ $input-border: var(--border);
 
 /* Accent Badges & Layout Headers */
 .badge-accent {
-  background: rgba(58, 189, 248, 0.1);
-  color: $accent-cyan;
+  background: var(--badge-bg);
+  color: var(--text-primary);
   padding: 6px 14px;
   border-radius: 20px;
   font-size: 0.8rem;
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  border: 1px solid rgba(58, 189, 248, 0.2);
+  border: 1px solid var(--border);
   display: inline-block;
 }
 

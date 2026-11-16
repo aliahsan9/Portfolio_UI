@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="820" viewBox="0 0 960 820" role="img" aria-labelledby="reactTitle reactDesc">
+  <title id="reactTitle">A ReAct trace for an invoice reminder</title>
+  <desc id="reactDesc">Thoughts stay inside the model. Only actions cross into the database. The observation, not the thought, is what the next action is allowed to trust.</desc>
+  <rect width="960" height="820" fill="#f7f3ea"/>
+  <text x="36" y="42" fill="#9a3412" font-family="Segoe Print, Comic Sans MS, Segoe UI, sans-serif" font-size="18">Figure 2</text>
+  <text x="36" y="74" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="26" font-weight="700">The thought never writes a row</text>
+  <text x="36" y="104" fill="#57534e" font-family="Segoe UI, sans-serif" font-size="15">ReAct interleaves a trace that does not touch the world with an action that does. Yao et al., ICLR 2023.</text>
+
+  <rect x="28" y="132" width="430" height="36" rx="8" fill="#fef3c7" stroke="#b45309" stroke-width="1.5"/>
+  <text x="243" y="155" text-anchor="middle" fill="#92400e" font-family="Segoe UI, sans-serif" font-size="13" font-weight="700">Thought: inside the model, not evidence</text>
+  <rect x="502" y="132" width="430" height="36" rx="8" fill="#dcfce7" stroke="#15803d" stroke-width="1.5"/>
+  <text x="717" y="155" text-anchor="middle" fill="#14532d" font-family="Segoe UI, sans-serif" font-size="13" font-weight="700">Action and observation: the world</text>
+
+  <rect x="28" y="188" width="904" height="150" rx="14" fill="#ffffff" stroke="#44403c" stroke-width="1.6"/>
+  <text x="48" y="216" fill="#9a3412" font-family="Segoe UI, sans-serif" font-size="13" font-weight="700">STEP 1</text>
+  <text x="48" y="244" fill="#92400e" font-family="Segoe UI, sans-serif" font-size="14">Thought. I do not know which invoices are open. I will not guess ids.</text>
+  <text x="48" y="272" fill="#14532d" font-family="Consolas, Courier New, monospace" font-size="13">list_invoices { customerId: 1842, status: "open", dueBefore: "2026-04-16" }</text>
+  <text x="48" y="306" fill="#1e3a8a" font-family="Consolas, Courier New, monospace" font-size="13">observe: [ { id: 9001, amount: 420.00 }, { id: 9014, amount: 80.00 } ]</text>
+
+  <line x1="480" y1="338" x2="480" y2="362" stroke="#44403c" stroke-width="1.7" marker-end="url(#ar2)"/>
+
+  <rect x="28" y="368" width="904" height="150" rx="14" fill="#ffffff" stroke="#44403c" stroke-width="1.6"/>
+  <text x="48" y="396" fill="#9a3412" font-family="Segoe UI, sans-serif" font-size="13" font-weight="700">STEP 2</text>
+  <text x="48" y="424" fill="#92400e" font-family="Segoe UI, sans-serif" font-size="14">Thought. The observation names two ids. The draft may name those two and no others.</text>
+  <text x="48" y="452" fill="#14532d" font-family="Consolas, Courier New, monospace" font-size="13">draft_reminder { invoiceIds: [9001, 9014] }</text>
+  <text x="48" y="486" fill="#1e3a8a" font-family="Consolas, Courier New, monospace" font-size="13">observe: draft d-17 stored. Nothing was sent. Send is not a tool.</text>
+
+  <line x1="480" y1="518" x2="480" y2="542" stroke="#44403c" stroke-width="1.7" marker-end="url(#ar2)"/>
+
+  <rect x="28" y="548" width="904" height="92" rx="14" fill="#ffffff" stroke="#15803d" stroke-width="2"/>
+  <text x="48" y="580" fill="#9a3412" font-family="Segoe UI, sans-serif" font-size="13" font-weight="700">STEP 3</text>
+  <text x="48" y="610" fill="#14532d" font-family="Consolas, Courier New, monospace" font-size="14">finish { answer: "draft d-17 cites 9001 and 9014" }</text>
+
+  <rect x="28" y="660" width="904" height="128" rx="14" fill="#fff7ed" stroke="#c2410c" stroke-width="1.8"/>
+  <text x="52" y="696" fill="#9a3412" font-family="Segoe UI, sans-serif" font-size="16" font-weight="700">If step 1's thought had said "three invoices", the observation would still say two.</text>
+  <text x="52" y="726" fill="#44403c" font-family="Segoe UI, sans-serif" font-size="15">The next action has to be written from the observation. A thought is a scratchpad.</text>
+  <text x="52" y="754" fill="#44403c" font-family="Segoe UI, sans-serif" font-size="15">It is not a percept, and it is not a performance measure.</text>
+
+  <defs>
+    <marker id="ar2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 1 1.5 L 8 5 L 1 8.5" fill="none" stroke="#44403c" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+</svg>

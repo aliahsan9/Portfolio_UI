@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="620" viewBox="0 0 960 620" role="img" aria-labelledby="tiltTitle tiltDesc">
+  <title id="tiltTitle">Preference tuning tilts the reference distribution</title>
+  <desc id="tiltDesc">The temperature-1 distribution is reweighted by exp(reward over beta) with beta 0.5 and then renormalized. Caching rises from 60.25 percent to 78.89 percent. Layers falls from 0.50 percent to 0.0016 percent. Rewards in the figure are chosen so the arithmetic is visible.</desc>
+  <rect width="960" height="620" fill="#f7f3ea"/>
+  <text x="36" y="40" fill="#9a3412" font-family="Segoe Print, Comic Sans MS, Segoe UI, sans-serif" font-size="18">Figure 3</text>
+  <text x="36" y="72" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="26" font-weight="700">The preference update multiplies, then renormalizes</text>
+  <text x="36" y="100" fill="#57534e" font-family="Segoe UI, sans-serif" font-size="15">Optimum of the KL-constrained reward objective. Rewards below are a sketch, spaced so the tilt is obvious.</text>
+
+  <rect x="28" y="124" width="440" height="292" rx="14" fill="#ffffff" stroke="#44403c" stroke-width="1.6"/>
+  <text x="48" y="156" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="16" font-weight="700">Reference model, T = 1</text>
+  <text x="48" y="178" fill="#57534e" font-family="Segoe UI, sans-serif" font-size="13">entropy 1.56 bits</text>
+  <text x="44" y="214" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="14">caching</text>
+  <rect x="130" y="202" width="145" height="14" rx="4" fill="#1d4ed8"/>
+  <text x="284" y="214" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="13">60.25%</text>
+  <text x="44" y="246" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="14">indexing</text>
+  <rect x="130" y="234" width="59" height="14" rx="4" fill="#b45309"/>
+  <text x="284" y="246" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="13">24.49%</text>
+  <text x="44" y="278" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="14">pagination</text>
+  <rect x="130" y="266" width="24" height="14" rx="4" fill="#b45309"/>
+  <text x="284" y="278" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="13">9.96%</text>
+  <text x="44" y="310" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="14">N+1</text>
+  <rect x="130" y="298" width="8" height="14" rx="3" fill="#9f1239"/>
+  <text x="284" y="310" fill="#9f1239" font-family="Segoe UI, sans-serif" font-size="13">3.31%</text>
+  <text x="44" y="342" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="14">tenant</text>
+  <rect x="130" y="330" width="4" height="14" rx="2" fill="#9f1239"/>
+  <text x="284" y="342" fill="#9f1239" font-family="Segoe UI, sans-serif" font-size="13">1.49%</text>
+  <text x="44" y="374" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="14">layers</text>
+  <rect x="130" y="362" width="3" height="14" rx="2" fill="#9f1239"/>
+  <text x="284" y="374" fill="#9f1239" font-family="Segoe UI, sans-serif" font-size="13">0.50%</text>
+
+  <line x1="488" y1="260" x2="524" y2="260" stroke="#44403c" stroke-width="1.7" marker-end="url(#aTilt)"/>
+  <text x="468" y="248" fill="#57534e" font-family="Segoe UI, sans-serif" font-size="12">tilt</text>
+
+  <rect x="532" y="124" width="400" height="292" rx="14" fill="#fff7ed" stroke="#c2410c" stroke-width="2"/>
+  <text x="552" y="156" fill="#9a3412" font-family="Segoe UI, sans-serif" font-size="16" font-weight="700">After exp(r / 0.5), renormalized</text>
+  <text x="552" y="178" fill="#57534e" font-family="Segoe UI, sans-serif" font-size="13">entropy 0.90 bits</text>
+  <text x="548" y="214" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="14">caching</text>
+  <rect x="634" y="202" width="189" height="14" rx="4" fill="#1d4ed8"/>
+  <text x="832" y="214" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="13">78.89%</text>
+  <text x="548" y="246" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="14">indexing</text>
+  <rect x="634" y="234" width="42" height="14" rx="4" fill="#b45309"/>
+  <text x="832" y="246" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="13">17.60%</text>
+  <text x="548" y="278" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="14">pagination</text>
+  <rect x="634" y="266" width="8" height="14" rx="3" fill="#b45309"/>
+  <text x="832" y="278" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="13">3.22%</text>
+  <text x="548" y="310" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="14">N+1</text>
+  <rect x="634" y="298" width="3" height="14" rx="2" fill="#9f1239"/>
+  <text x="832" y="310" fill="#9f1239" font-family="Segoe UI, sans-serif" font-size="13">0.26%</text>
+  <text x="548" y="342" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="14">tenant</text>
+  <rect x="634" y="330" width="3" height="14" rx="2" fill="#9f1239"/>
+  <text x="832" y="342" fill="#9f1239" font-family="Segoe UI, sans-serif" font-size="13">0.0239%</text>
+  <text x="548" y="374" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="14">layers</text>
+  <rect x="634" y="362" width="3" height="14" rx="2" fill="#9f1239"/>
+  <text x="832" y="374" fill="#9f1239" font-family="Segoe UI, sans-serif" font-size="13">0.0016%</text>
+
+  <rect x="28" y="436" width="904" height="156" rx="14" fill="#ffffff" stroke="#44403c" stroke-width="1.6"/>
+  <text x="48" y="470" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="16" font-weight="700">The closed form, from the KL-constrained objective</text>
+  <text x="48" y="504" fill="#1c1917" font-family="Cascadia Code, Consolas, monospace" font-size="16">pi*(y|x) = pi_ref(y|x) * exp(r(x,y) / beta) / Z(x)</text>
+  <text x="48" y="536" fill="#44403c" font-family="Segoe UI, sans-serif" font-size="15">Rewards used here: caching 1.8, indexing 1.5, pagination 1.1, N+1 0.4, tenant -0.4, layers -1.2.</text>
+  <text x="48" y="564" fill="#44403c" font-family="Segoe UI, sans-serif" font-size="15">A real reward model is smoother than six hand-picked numbers. The exponential is not optional.</text>
+  <defs>
+    <marker id="aTilt" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 1 1.5 L 8 5 L 1 8.5" fill="none" stroke="#44403c" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+</svg>

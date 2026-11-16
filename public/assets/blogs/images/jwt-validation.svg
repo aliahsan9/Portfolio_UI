@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="700" viewBox="0 0 960 700" role="img" aria-labelledby="valTitle valDesc">
+  <title id="valTitle">Access-token validation order</title>
+  <desc id="valDesc">The API accepts an access token only after the algorithm, MAC, issuer, audience, lifetime, and type all match. Authorization is a separate step after that.</desc>
+  <rect width="960" height="700" fill="#f7f3ea"/>
+  <text x="36" y="42" fill="#9a3412" font-family="Segoe Print, Comic Sans MS, Segoe UI, sans-serif" font-size="18">Figure 3</text>
+  <text x="36" y="74" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="26" font-weight="700">Reject early, authorize late</text>
+  <text x="36" y="102" fill="#57534e" font-family="Segoe UI, sans-serif" font-size="15">A valid MAC means "we issued these bytes." It does not mean "this caller may delete a user."</text>
+
+  <rect x="330" y="128" width="300" height="52" rx="12" fill="#1c1917" stroke="#1c1917"/>
+  <text x="480" y="160" text-anchor="middle" fill="#fafaf9" font-family="Segoe UI, sans-serif" font-size="16" font-weight="700">Bearer token arrives</text>
+
+  <line x1="480" y1="180" x2="480" y2="204" stroke="#44403c" stroke-width="1.6" marker-end="url(#a5)"/>
+
+  <g font-family="Segoe UI, sans-serif" font-size="15">
+    <rect x="250" y="212" width="460" height="48" rx="12" fill="#fee2e2" stroke="#b91c1c" stroke-width="1.8"/>
+    <text x="272" y="242" fill="#1c1917"><tspan font-weight="700">1  alg</tspan> is HS256. none and anything else die.</text>
+
+    <rect x="250" y="276" width="460" height="48" rx="12" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1.8"/>
+    <text x="272" y="306" fill="#1c1917"><tspan font-weight="700">2  MAC</tspan> recomputed. Compare in constant time.</text>
+
+    <rect x="250" y="340" width="460" height="48" rx="12" fill="#fef3c7" stroke="#b45309" stroke-width="1.8"/>
+    <text x="272" y="370" fill="#1c1917"><tspan font-weight="700">3  iss and aud</tspan> match this API.</text>
+
+    <rect x="250" y="404" width="460" height="48" rx="12" fill="#ede9fe" stroke="#6d28d9" stroke-width="1.8"/>
+    <text x="272" y="434" fill="#1c1917"><tspan font-weight="700">4  exp / nbf</tspan> use a 30 second skew.</text>
+
+    <rect x="250" y="468" width="460" height="48" rx="12" fill="#dcfce7" stroke="#15803d" stroke-width="1.8"/>
+    <text x="272" y="498" fill="#1c1917"><tspan font-weight="700">5  typ</tspan> is at+jwt, or the token is refused.</text>
+  </g>
+
+  <line x1="480" y1="516" x2="480" y2="544" stroke="#44403c" stroke-width="1.6" marker-end="url(#a5)"/>
+
+  <rect x="250" y="552" width="460" height="56" rx="12" fill="#ffffff" stroke="#1c1917" stroke-width="2"/>
+  <text x="480" y="576" text-anchor="middle" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="15" font-weight="700">Claims identity exists</text>
+  <text x="480" y="596" text-anchor="middle" fill="#57534e" font-family="Segoe UI, sans-serif" font-size="14">Now policies run. Role, owner, tenant.</text>
+
+  <text x="48" y="660" fill="#44403c" font-family="Segoe UI, sans-serif" font-size="14">Each failed check is the same 401. The body does not say which check failed.</text>
+
+  <defs>
+    <marker id="a5" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 1 1.5 L 8 5 L 1 8.5" fill="none" stroke="#44403c" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+</svg>

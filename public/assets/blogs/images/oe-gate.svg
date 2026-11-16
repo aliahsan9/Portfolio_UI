@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="700" viewBox="0 0 960 700" role="img" aria-labelledby="oeGateTitle oeGateDesc">
+  <title id="oeGateTitle">A gate for adding a seam, and how a module grows</title>
+  <desc id="oeGateDesc">Three questions before adding an interface, project, or service. A working attendance module grows a policy only after a second written rule exists, and a queue only after a measurement.</desc>
+  <rect width="960" height="700" fill="#f7f3ea"/>
+  <text x="36" y="42" fill="#9a3412" font-family="Segoe Print, Comic Sans MS, Segoe UI, sans-serif" font-size="18">Figure 6</text>
+  <text x="36" y="76" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="26" font-weight="700">The gate, then the growth</text>
+  <text x="36" y="106" fill="#57534e" font-family="Segoe UI, sans-serif" font-size="15">Ask in this order. A yes at the top is the only yes that adds code today.</text>
+
+  <rect x="28" y="132" width="560" height="72" rx="12" fill="#ffffff" stroke="#1d4ed8" stroke-width="1.8"/>
+  <text x="48" y="162" fill="#1e3a8a" font-family="Segoe UI, sans-serif" font-size="13" font-weight="700">1 &#183; TWO IMPLEMENTATIONS IN THIS REPOSITORY TODAY?</text>
+  <text x="48" y="186" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="15">Yes. Hide that decision. Name the decision, not the layer.</text>
+
+  <rect x="28" y="216" width="560" height="72" rx="12" fill="#ffffff" stroke="#b45309" stroke-width="1.8"/>
+  <text x="48" y="246" fill="#92400e" font-family="Segoe UI, sans-serif" font-size="13" font-weight="700">2 &#183; CAN YOU NAME THE CHANGE, AND A DATE?</text>
+  <text x="48" y="270" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="15">No date. Stop. The seam is a guess. Inline the code.</text>
+
+  <rect x="28" y="300" width="560" height="88" rx="12" fill="#ffffff" stroke="#6d28d9" stroke-width="1.8"/>
+  <text x="48" y="330" fill="#5b21b6" font-family="Segoe UI, sans-serif" font-size="13" font-weight="700">3 &#183; IS THE PAIN ALREADY ON PAPER OR IN A MEASUREMENT?</text>
+  <text x="48" y="354" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="15">A second board's rule, a failing test, a traced slow query.</text>
+  <text x="48" y="376" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="15">Otherwise write an ADR paragraph and build nothing.</text>
+
+  <rect x="608" y="132" width="324" height="256" rx="14" fill="#1c1917"/>
+  <text x="628" y="164" fill="#fdba74" font-family="Segoe UI, sans-serif" font-size="13" font-weight="700">ALREADY TRUE ON DAY ONE</text>
+  <text x="628" y="196" fill="#fafaf9" font-family="Segoe UI, sans-serif" font-size="15">Tenant filter. Two schools</text>
+  <text x="628" y="218" fill="#fafaf9" font-family="Segoe UI, sans-serif" font-size="15">would leak rows without it.</text>
+  <text x="628" y="250" fill="#fafaf9" font-family="Segoe UI, sans-serif" font-size="15">Unique (SchoolId, Number).</text>
+  <text x="628" y="272" fill="#fafaf9" font-family="Segoe UI, sans-serif" font-size="15">1042 is legal in both.</text>
+  <text x="628" y="304" fill="#fdba74" font-family="Segoe UI, sans-serif" font-size="13" font-weight="700">NOT TRUE YET</text>
+  <text x="628" y="332" fill="#fafaf9" font-family="Segoe UI, sans-serif" font-size="15">A second late rule, in</text>
+  <text x="628" y="354" fill="#fafaf9" font-family="Segoe UI, sans-serif" font-size="15">writing. Then two classes.</text>
+  <text x="628" y="378" fill="#a8a29e" font-family="Segoe UI, sans-serif" font-size="14">IStudentRepository: neither.</text>
+
+  <text x="36" y="424" fill="#14532d" font-family="Segoe UI, sans-serif" font-size="13" font-weight="700">HOW A MODULE IS ALLOWED TO GROW</text>
+
+  <rect x="28" y="444" width="168" height="100" rx="12" fill="#dcfce7" stroke="#15803d" stroke-width="1.8"/>
+  <text x="44" y="476" fill="#14532d" font-family="Segoe UI, sans-serif" font-size="13" font-weight="700">WORKING</text>
+  <text x="44" y="502" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="14">One method.</text>
+  <text x="44" y="522" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="14">One late rule.</text>
+
+  <text x="204" y="500" fill="#44403c" font-family="Segoe UI, sans-serif" font-size="22">&#8594;</text>
+
+  <rect x="232" y="444" width="176" height="100" rx="12" fill="#fef3c7" stroke="#b45309" stroke-width="1.8"/>
+  <text x="248" y="476" fill="#92400e" font-family="Segoe UI, sans-serif" font-size="13" font-weight="700">SECOND RULE</text>
+  <text x="248" y="502" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="14">Written by a board.</text>
+  <text x="248" y="522" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="14">Then an interface.</text>
+
+  <text x="416" y="500" fill="#44403c" font-family="Segoe UI, sans-serif" font-size="22">&#8594;</text>
+
+  <rect x="444" y="444" width="200" height="100" rx="12" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1.8"/>
+  <text x="460" y="476" fill="#1e3a8a" font-family="Segoe UI, sans-serif" font-size="13" font-weight="700">MEASURED PAIN</text>
+  <text x="460" y="502" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="14">A traced slow query.</text>
+  <text x="460" y="522" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="14">An index first.</text>
+
+  <text x="652" y="500" fill="#44403c" font-family="Segoe UI, sans-serif" font-size="22">&#8594;</text>
+
+  <rect x="680" y="444" width="252" height="100" rx="12" fill="#ffffff" stroke="#44403c" stroke-width="1.8"/>
+  <text x="696" y="476" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="13" font-weight="700">ONLY THEN</text>
+  <text x="696" y="502" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="14">A queue, if the index</text>
+  <text x="696" y="522" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="14">cannot carry the write.</text>
+
+  <rect x="28" y="568" width="904" height="104" rx="14" fill="#fff7ed" stroke="#c2410c" stroke-width="1.8"/>
+  <text x="48" y="602" fill="#9a3412" font-family="Segoe UI, sans-serif" font-size="15" font-weight="700">A complex system that works grew from a simple system that worked.</text>
+  <text x="48" y="632" fill="#44403c" font-family="Segoe UI, sans-serif" font-size="15">Gall wrote that as a rule of thumb in a half-satirical book. The attendance module</text>
+  <text x="48" y="656" fill="#44403c" font-family="Segoe UI, sans-serif" font-size="15">followed it anyway: behavior first, a seam only after a second real case.</text>
+</svg>

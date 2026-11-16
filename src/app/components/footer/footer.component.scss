@@ -728,6 +728,54 @@
   }
 }
 
+/* Light theme: the cream footer swallows the glass status chip and
+   mid-gray icon glyphs. Lift both onto white with darker marks. */
+:host-context([data-theme="light"]) .custom-footer {
+  .footer-status {
+    background: #ffffff;
+    border-color: #86efac;
+    color: #14532d;
+    font-size: 0.84rem;
+    font-weight: 650;
+    box-shadow: 0 8px 18px rgba(22, 163, 74, 0.12);
+  }
+
+  .status-dot {
+    flex-basis: 9px;
+    width: 9px;
+    height: 9px;
+    background: #16a34a;
+    box-shadow: 0 0 0 4px rgba(22, 163, 74, 0.22);
+  }
+
+  .social-icons a,
+  .contact-icon {
+    background: #ffffff;
+    border-color: #d6d3d1;
+    color: #1c1917;
+  }
+
+  .consultation-icon {
+    background: #ffffff;
+    color: #1c1917;
+  }
+
+  .social-icons a i::before,
+  .contact-icon i::before,
+  .consultation-icon i::before,
+  .contact-arrow::before,
+  .consultation-arrow::before {
+    -webkit-font-smoothing: auto;
+    -moz-osx-font-smoothing: auto;
+  }
+
+  .contact-arrow,
+  .consultation-arrow {
+    color: #1c1917;
+    opacity: 1;
+  }
+}
+
 /* Accessible motion */
 @media (prefers-reduced-motion: reduce) {
   .custom-footer,

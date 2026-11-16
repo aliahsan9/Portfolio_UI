@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="740" viewBox="0 0 960 740" role="img" aria-labelledby="fnTitle fnDesc">
+  <title id="fnTitle">Chat completion versus an agent function</title>
+  <desc id="fnDesc">A chat completion maps one prompt to text. An agent maps the whole percept history to one action. The runtime, not the model, executes that action against the environment and appends the observation.</desc>
+  <rect width="960" height="740" fill="#f7f3ea"/>
+  <text x="36" y="42" fill="#9a3412" font-family="Segoe Print, Comic Sans MS, Segoe UI, sans-serif" font-size="18">Figure 1</text>
+  <text x="36" y="74" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="26" font-weight="700">One percept, or the whole history</text>
+  <text x="36" y="104" fill="#57534e" font-family="Segoe UI, sans-serif" font-size="15">Russell and Norvig: the agent function is f : P* to A. The program only receives the latest percept, so it has to remember.</text>
+
+  <rect x="28" y="132" width="420" height="430" rx="16" fill="#ffffff" stroke="#d6d3d1" stroke-width="1.5"/>
+  <text x="48" y="166" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="16" font-weight="700">Chat completion</text>
+  <text x="48" y="190" fill="#57534e" font-family="Segoe UI, sans-serif" font-size="13">one string in, one string out</text>
+
+  <rect x="78" y="220" width="320" height="64" rx="12" fill="#dbeafe" stroke="#1d4ed8" stroke-width="2"/>
+  <text x="238" y="246" text-anchor="middle" fill="#1e3a8a" font-family="Segoe UI, sans-serif" font-size="15" font-weight="700">Prompt</text>
+  <text x="238" y="268" text-anchor="middle" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="13">a single percept</text>
+
+  <line x1="238" y1="284" x2="238" y2="318" stroke="#44403c" stroke-width="1.7" marker-end="url(#af1)"/>
+
+  <rect x="78" y="324" width="320" height="64" rx="12" fill="#ffffff" stroke="#44403c" stroke-width="2"/>
+  <text x="238" y="350" text-anchor="middle" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="15" font-weight="700">Model</text>
+  <text x="238" y="372" text-anchor="middle" fill="#57534e" font-family="Segoe UI, sans-serif" font-size="13">samples the next tokens</text>
+
+  <line x1="238" y1="388" x2="238" y2="422" stroke="#44403c" stroke-width="1.7" marker-end="url(#af1)"/>
+
+  <rect x="78" y="428" width="320" height="64" rx="12" fill="#f5f5f4" stroke="#78716c" stroke-width="2"/>
+  <text x="238" y="454" text-anchor="middle" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="15" font-weight="700">Text</text>
+  <text x="238" y="476" text-anchor="middle" fill="#57534e" font-family="Segoe UI, sans-serif" font-size="13">nothing in the database moved</text>
+
+  <rect x="468" y="132" width="464" height="430" rx="16" fill="#ffffff" stroke="#c2410c" stroke-width="1.6"/>
+  <text x="488" y="166" fill="#9a3412" font-family="Segoe UI, sans-serif" font-size="16" font-weight="700">Agent program</text>
+  <text x="488" y="190" fill="#57534e" font-family="Segoe UI, sans-serif" font-size="13">the model proposes, the architecture acts</text>
+
+  <rect x="548" y="208" width="352" height="56" rx="12" fill="#fef3c7" stroke="#b45309" stroke-width="2"/>
+  <text x="724" y="232" text-anchor="middle" fill="#92400e" font-family="Segoe UI, sans-serif" font-size="14" font-weight="700">Transcript, P*</text>
+  <text x="724" y="250" text-anchor="middle" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="12">goal + every prior observation</text>
+
+  <line x1="724" y1="264" x2="724" y2="286" stroke="#44403c" stroke-width="1.7" marker-end="url(#af1)"/>
+
+  <rect x="548" y="292" width="352" height="50" rx="12" fill="#ffffff" stroke="#44403c" stroke-width="2"/>
+  <text x="724" y="314" text-anchor="middle" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="14" font-weight="700">Model proposes one action</text>
+  <text x="724" y="332" text-anchor="middle" fill="#57534e" font-family="Segoe UI, sans-serif" font-size="12">a string, not a side effect</text>
+
+  <line x1="724" y1="342" x2="724" y2="364" stroke="#44403c" stroke-width="1.7" marker-end="url(#af1)"/>
+
+  <rect x="548" y="370" width="352" height="52" rx="12" fill="#fee2e2" stroke="#b91c1c" stroke-width="2"/>
+  <text x="724" y="392" text-anchor="middle" fill="#991b1b" font-family="Segoe UI, sans-serif" font-size="14" font-weight="700">Runtime, the architecture</text>
+  <text x="724" y="410" text-anchor="middle" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="12">parse, allowlist, schema, budget</text>
+
+  <line x1="724" y1="422" x2="724" y2="444" stroke="#44403c" stroke-width="1.7" marker-end="url(#af1)"/>
+
+  <rect x="548" y="450" width="352" height="56" rx="12" fill="#dcfce7" stroke="#15803d" stroke-width="2"/>
+  <text x="724" y="474" text-anchor="middle" fill="#14532d" font-family="Segoe UI, sans-serif" font-size="14" font-weight="700">Environment returns one observation</text>
+  <text x="724" y="492" text-anchor="middle" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="12">SQL, a file, a test. That string is the next percept.</text>
+
+  <path d="M 548 478 L 516 478 L 516 264 L 548 264" fill="none" stroke="#1d4ed8" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#af1b)"/>
+  <text transform="rotate(-90 500 390)" x="500" y="390" fill="#1d4ed8" font-family="Segoe UI, sans-serif" font-size="12">append to P*</text>
+
+  <rect x="28" y="582" width="904" height="124" rx="14" fill="#fff7ed" stroke="#c2410c" stroke-width="1.8"/>
+  <text x="52" y="618" fill="#9a3412" font-family="Segoe UI, sans-serif" font-size="16" font-weight="700">agent = architecture + program</text>
+  <text x="52" y="648" fill="#44403c" font-family="Segoe UI, sans-serif" font-size="15">The model is the program. It is stateless apart from the text you hand it. The runtime is the architecture:</text>
+  <text x="52" y="676" fill="#44403c" font-family="Segoe UI, sans-serif" font-size="15">it holds the actuators, and it can refuse to move them. A prompt that says "you may call SQL" is not an actuator.</text>
+
+  <defs>
+    <marker id="af1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 1 1.5 L 8 5 L 1 8.5" fill="none" stroke="#44403c" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="af1b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 1 1.5 L 8 5 L 1 8.5" fill="none" stroke="#1d4ed8" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+</svg>

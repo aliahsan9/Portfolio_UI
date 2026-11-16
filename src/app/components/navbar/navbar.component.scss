@@ -330,6 +330,15 @@
       display: none;
     }
 
+    .theme-toggle {
+      width: 34px;
+      height: 34px;
+
+      i {
+        font-size: 0.82rem;
+      }
+    }
+
     .navbar-sidebar {
       position: static;
 

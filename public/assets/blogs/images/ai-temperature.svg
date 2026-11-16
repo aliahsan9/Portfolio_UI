@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="640" viewBox="0 0 960 640" role="img" aria-labelledby="tempTitle tempDesc">
+  <title id="tempTitle">Same logits at three temperatures</title>
+  <desc id="tempDesc">A six-token toy distribution at temperatures 0.3, 1, and 1.8. The mode stays caching. Entropy rises from 0.30 bits to 2.12 bits. At temperature 1 and nucleus 0.9, sampling stops after pagination, which leaves N+1, tenant, and layers outside the nucleus.</desc>
+  <rect width="960" height="640" fill="#f7f3ea"/>
+  <text x="36" y="40" fill="#9a3412" font-family="Segoe Print, Comic Sans MS, Segoe UI, sans-serif" font-size="18">Figure 2</text>
+  <text x="36" y="72" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="26" font-weight="700">Same logits. The winner never moves.</text>
+  <text x="36" y="100" fill="#57534e" font-family="Segoe UI, sans-serif" font-size="15">Constructed scores, not a logged API call. Bar length is the probability. Six equal tokens would be 2.58 bits.</text>
+
+  <rect x="24" y="124" width="296" height="400" rx="14" fill="#ffffff" stroke="#44403c" stroke-width="1.5"/>
+  <text x="40" y="154" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="16" font-weight="700">T = 0.3</text>
+  <text x="40" y="176" fill="#57534e" font-family="Segoe UI, sans-serif" font-size="13">entropy 0.30 bits</text>
+  <text x="40" y="210" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="13">caching</text>
+  <text x="250" y="210" fill="#1e3a8a" font-family="Segoe UI, sans-serif" font-size="13" font-weight="700">95.03%</text>
+  <rect x="40" y="218" width="209" height="12" rx="4" fill="#1d4ed8"/>
+  <text x="40" y="256" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="13">indexing</text>
+  <text x="258" y="256" fill="#57534e" font-family="Segoe UI, sans-serif" font-size="13">4.73%</text>
+  <rect x="40" y="264" width="10" height="12" rx="4" fill="#b45309"/>
+  <text x="40" y="302" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="13">pagination</text>
+  <text x="258" y="302" fill="#57534e" font-family="Segoe UI, sans-serif" font-size="13">0.24%</text>
+  <rect x="40" y="310" width="3" height="12" rx="2" fill="#b45309"/>
+  <text x="40" y="348" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="13">N+1</text>
+  <text x="266" y="348" fill="#9f1239" font-family="Segoe UI, sans-serif" font-size="13">0.01%</text>
+  <rect x="40" y="356" width="3" height="12" rx="2" fill="#9f1239"/>
+  <text x="40" y="394" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="13">tenant</text>
+  <text x="266" y="394" fill="#9f1239" font-family="Segoe UI, sans-serif" font-size="13">0.00%</text>
+  <rect x="40" y="402" width="3" height="12" rx="2" fill="#9f1239"/>
+  <text x="40" y="440" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="13">layers</text>
+  <text x="266" y="440" fill="#9f1239" font-family="Segoe UI, sans-serif" font-size="13">0.00%</text>
+  <rect x="40" y="448" width="3" height="12" rx="2" fill="#9f1239"/>
+  <text x="40" y="490" fill="#57534e" font-family="Segoe UI, sans-serif" font-size="13">Nearly a hard maximum.</text>
+
+  <rect x="332" y="124" width="296" height="400" rx="14" fill="#ffffff" stroke="#1d4ed8" stroke-width="2"/>
+  <text x="348" y="154" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="16" font-weight="700">T = 1</text>
+  <text x="348" y="176" fill="#57534e" font-family="Segoe UI, sans-serif" font-size="13">entropy 1.56 bits</text>
+  <text x="348" y="210" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="13">caching</text>
+  <text x="548" y="210" fill="#1e3a8a" font-family="Segoe UI, sans-serif" font-size="13" font-weight="700">60.25%</text>
+  <rect x="348" y="218" width="133" height="12" rx="4" fill="#1d4ed8"/>
+  <text x="348" y="256" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="13">indexing</text>
+  <text x="556" y="256" fill="#92400e" font-family="Segoe UI, sans-serif" font-size="13">24.49%</text>
+  <rect x="348" y="264" width="54" height="12" rx="4" fill="#b45309"/>
+  <text x="348" y="302" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="13">pagination</text>
+  <text x="564" y="302" fill="#92400e" font-family="Segoe UI, sans-serif" font-size="13">9.96%</text>
+  <rect x="348" y="310" width="22" height="12" rx="4" fill="#b45309"/>
+  <text x="348" y="348" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="13">N+1</text>
+  <text x="564" y="348" fill="#9f1239" font-family="Segoe UI, sans-serif" font-size="13">3.31%</text>
+  <rect x="348" y="356" width="7" height="12" rx="3" fill="#9f1239"/>
+  <text x="348" y="394" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="13">tenant</text>
+  <text x="564" y="394" fill="#9f1239" font-family="Segoe UI, sans-serif" font-size="13">1.49%</text>
+  <rect x="348" y="402" width="4" height="12" rx="2" fill="#9f1239"/>
+  <text x="348" y="440" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="13">layers</text>
+  <text x="564" y="440" fill="#9f1239" font-family="Segoe UI, sans-serif" font-size="13">0.50%</text>
+  <rect x="348" y="448" width="3" height="12" rx="2" fill="#9f1239"/>
+  <text x="348" y="486" fill="#1e3a8a" font-family="Segoe UI, sans-serif" font-size="13" font-weight="700">Nucleus p = 0.9 stops here</text>
+  <text x="348" y="506" fill="#57534e" font-family="Segoe UI, sans-serif" font-size="12">top 3 tokens hold 94.7% of the mass</text>
+
+  <rect x="640" y="124" width="296" height="400" rx="14" fill="#ffffff" stroke="#44403c" stroke-width="1.5"/>
+  <text x="656" y="154" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="16" font-weight="700">T = 1.8</text>
+  <text x="656" y="176" fill="#57534e" font-family="Segoe UI, sans-serif" font-size="13">entropy 2.12 bits</text>
+  <text x="656" y="210" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="13">caching</text>
+  <text x="856" y="210" fill="#1e3a8a" font-family="Segoe UI, sans-serif" font-size="13" font-weight="700">42.17%</text>
+  <rect x="656" y="218" width="93" height="12" rx="4" fill="#1d4ed8"/>
+  <text x="656" y="256" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="13">indexing</text>
+  <text x="864" y="256" fill="#57534e" font-family="Segoe UI, sans-serif" font-size="13">25.57%</text>
+  <rect x="656" y="264" width="56" height="12" rx="4" fill="#b45309"/>
+  <text x="656" y="302" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="13">pagination</text>
+  <text x="864" y="302" fill="#57534e" font-family="Segoe UI, sans-serif" font-size="13">15.51%</text>
+  <rect x="656" y="310" width="34" height="12" rx="4" fill="#b45309"/>
+  <text x="656" y="348" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="13">N+1</text>
+  <text x="872" y="348" fill="#9f1239" font-family="Segoe UI, sans-serif" font-size="13">8.42%</text>
+  <rect x="656" y="356" width="19" height="12" rx="4" fill="#9f1239"/>
+  <text x="656" y="394" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="13">tenant</text>
+  <text x="872" y="394" fill="#9f1239" font-family="Segoe UI, sans-serif" font-size="13">5.40%</text>
+  <rect x="656" y="402" width="12" height="12" rx="4" fill="#9f1239"/>
+  <text x="656" y="440" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="13">layers</text>
+  <text x="872" y="440" fill="#9f1239" font-family="Segoe UI, sans-serif" font-size="13">2.93%</text>
+  <rect x="656" y="448" width="6" height="12" rx="3" fill="#9f1239"/>
+  <text x="656" y="490" fill="#57534e" font-family="Segoe UI, sans-serif" font-size="13">Flatter. Caching still leads.</text>
+
+  <text x="36" y="560" fill="#1d4ed8" font-family="Segoe UI, sans-serif" font-size="13">Blue is the mode.</text>
+  <text x="168" y="560" fill="#b45309" font-family="Segoe UI, sans-serif" font-size="13">Amber is the rest of a typical answer.</text>
+  <text x="430" y="560" fill="#9f1239" font-family="Segoe UI, sans-serif" font-size="13">Red is the tail, where a specific cause would have to come from.</text>
+  <text x="36" y="592" fill="#57534e" font-family="Segoe UI, sans-serif" font-size="14">Logits: caching 4.0, indexing 3.1, pagination 2.2, N+1 1.1, tenant 0.3, layers -0.8. Softmax after dividing by T.</text>
+  <text x="36" y="616" fill="#57534e" font-family="Segoe UI, sans-serif" font-size="14">At T = 1.8, layers is still a 1-in-34 draw, and every other unlikely token was lifted with it.</text>
+</svg>

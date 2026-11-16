@@ -18,9 +18,8 @@
 
           <h1 class="blog-title">{{ title }}</h1>
 
-          <p class="blog-description">
-            Practical insights, implementation details, and engineering
-            concepts explained with clarity.
+          <p class="blog-description" *ngIf="description">
+            {{ description }}
           </p>
 
           <div class="blog-meta">

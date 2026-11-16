@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="620" viewBox="0 0 960 620" role="img" aria-labelledby="storeTitle storeDesc">
+  <title id="storeTitle">Where each credential lives</title>
+  <desc id="storeDesc">The access token stays in JavaScript memory. The refresh token is an HttpOnly cookie. The database stores only the SHA-256 hash, family id, and revocation time.</desc>
+  <rect width="960" height="620" fill="#f7f3ea"/>
+  <text x="36" y="42" fill="#9a3412" font-family="Segoe Print, Comic Sans MS, Segoe UI, sans-serif" font-size="18">Figure 4</text>
+  <text x="36" y="74" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="26" font-weight="700">Three copies, three different jobs</text>
+  <text x="36" y="102" fill="#57534e" font-family="Segoe UI, sans-serif" font-size="15">Nothing long-lived is readable by script. Nothing raw is readable from a database dump.</text>
+
+  <rect x="28" y="132" width="290" height="330" rx="16" fill="#ffffff" stroke="#1d4ed8" stroke-width="2.2"/>
+  <text x="48" y="168" fill="#1e3a8a" font-family="Segoe UI, sans-serif" font-size="18" font-weight="700">Browser memory</text>
+  <text x="48" y="196" fill="#57534e" font-family="Segoe UI, sans-serif" font-size="14">Angular signal. Not localStorage.</text>
+  <rect x="48" y="220" width="250" height="64" rx="10" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1.6"/>
+  <text x="64" y="246" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="15" font-weight="700">Access token</text>
+  <text x="64" y="268" fill="#1e3a8a" font-family="Segoe UI, sans-serif" font-size="13">JWT, 15 minutes, Bearer</text>
+  <text x="48" y="320" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="14">Gone on a full reload.</text>
+  <text x="48" y="346" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="14">Visible to XSS in this tab.</text>
+  <text x="48" y="372" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="14">Not written to disk by us.</text>
+  <text x="48" y="420" fill="#1e3a8a" font-family="Segoe UI, sans-serif" font-size="14" font-weight="700">Dies with the page.</text>
+
+  <rect x="336" y="132" width="290" height="330" rx="16" fill="#ffffff" stroke="#b45309" stroke-width="2.2"/>
+  <text x="356" y="168" fill="#92400e" font-family="Segoe UI, sans-serif" font-size="18" font-weight="700">Cookie jar</text>
+  <text x="356" y="196" fill="#57534e" font-family="Segoe UI, sans-serif" font-size="14">Set by the API. Host-only.</text>
+  <rect x="356" y="220" width="250" height="86" rx="10" fill="#fef3c7" stroke="#b45309" stroke-width="1.6"/>
+  <text x="372" y="246" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="15" font-weight="700">Refresh token</text>
+  <text x="372" y="268" fill="#92400e" font-family="Segoe UI, sans-serif" font-size="13">64 random bytes, 7 days</text>
+  <text x="372" y="288" fill="#92400e" font-family="Segoe UI, sans-serif" font-size="13">HttpOnly, Secure, Strict</text>
+  <text x="356" y="336" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="14">Path = /api/auth only.</text>
+  <text x="356" y="362" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="14">document.cookie cannot see it.</text>
+  <text x="356" y="388" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="14">Sent by the browser, not by JS.</text>
+  <text x="356" y="430" fill="#92400e" font-family="Segoe UI, sans-serif" font-size="14" font-weight="700">Script can use it, not read it.</text>
+
+  <rect x="644" y="132" width="288" height="330" rx="16" fill="#ffffff" stroke="#15803d" stroke-width="2.2"/>
+  <text x="664" y="168" fill="#14532d" font-family="Segoe UI, sans-serif" font-size="18" font-weight="700">Database</text>
+  <text x="664" y="196" fill="#57534e" font-family="Segoe UI, sans-serif" font-size="14">What a stolen backup gets.</text>
+  <rect x="664" y="220" width="248" height="108" rx="10" fill="#dcfce7" stroke="#15803d" stroke-width="1.6"/>
+  <text x="680" y="246" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="15" font-weight="700">SHA-256(refresh)</text>
+  <text x="680" y="270" fill="#14532d" font-family="Segoe UI, sans-serif" font-size="13">family id</text>
+  <text x="680" y="290" fill="#14532d" font-family="Segoe UI, sans-serif" font-size="13">expires at, revoked at</text>
+  <text x="680" y="310" fill="#14532d" font-family="Segoe UI, sans-serif" font-size="13">replaced-by hash</text>
+  <text x="664" y="360" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="14">No raw token column.</text>
+  <text x="664" y="386" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="14">Hash is a lookup key,</text>
+  <text x="664" y="408" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="14">not a password hash.</text>
+  <text x="664" y="448" fill="#14532d" font-family="Segoe UI, sans-serif" font-size="14" font-weight="700">Dump ` live session.</text>
+
+  <rect x="28" y="484" width="904" height="104" rx="14" fill="#fff7ed" stroke="#c2410c" stroke-width="1.8"/>
+  <text x="52" y="522" fill="#9a3412" font-family="Segoe UI, sans-serif" font-size="16" font-weight="700">XSS and CSRF want opposite storage.</text>
+  <text x="52" y="552" fill="#44403c" font-family="Segoe UI, sans-serif" font-size="15">A cookie is exposed to cross-site requests. localStorage is exposed to script. The long-lived half stays out of script. The short-lived half is not attached by a foreign site.</text>
+  <defs>
+    <marker id="a3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 1 1.5 L 8 5 L 1 8.5" fill="none" stroke="#44403c" stroke-width="1.4" stroke-linecap="round"/>
+    </marker>
+  </defs>
+</svg>

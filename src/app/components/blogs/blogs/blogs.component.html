@@ -2,32 +2,147 @@
 
   <div class="container py-5">
 
-    <h1 class="page-title text-center text-gradient mb-5">
-       My Blog Space
+    <h1 class="page-title text-center text-gradient mb-4">
+      My Blog Space
     </h1>
 
-    <div class="row g-4">
+    <div class="blog-search">
+      <label class="visually-hidden" for="blog-search-input">Search blogs</label>
 
-      <div class="col-md-6 col-lg-4" *ngFor="let blog of blogs">
+      <div class="search-box">
+        <i class="bi bi-search search-icon" aria-hidden="true"></i>
+        <input
+          #searchInput
+          id="blog-search-input"
+          type="text"
+          role="combobox"
+          autocomplete="off"
+          placeholder="Search posts, topics, or keywords"
+          aria-autocomplete="list"
+          aria-controls="blog-search-list"
+          [attr.aria-expanded]="panelOpen"
+          [attr.aria-activedescendant]="activeDescendant"
+          [value]="searchQuery"
+          (input)="onSearch($any($event.target).value)"
+          (focus)="onFocus()"
+          (keydown)="onKeydown($event)"
+        />
+        <button
+          *ngIf="searchQuery"
+          type="button"
+          class="clear-btn"
+          aria-label="Clear search"
+          (click)="clearSearch()"
+        >
+          <i class="bi bi-x-lg" aria-hidden="true"></i>
+        </button>
+      </div>
+
+      <div
+        class="suggest-panel"
+        id="blog-search-list"
+        role="listbox"
+        aria-label="Blog suggestions"
+        *ngIf="panelOpen"
+        (mousedown)="$event.preventDefault()"
+      >
+        <ng-container *ngIf="suggestions.length; else noSuggestions">
+          <ng-container *ngFor="let item of suggestions; let i = index">
+            <p class="suggest-label" *ngIf="showGroupLabel(i)">{{ groupLabel(item.kind) }}</p>
+
+            <button
+              *ngIf="item.kind === 'topic'"
+              type="button"
+              class="suggest-item"
+              role="option"
+              [id]="'blog-suggest-' + i"
+              [class.active]="activeIndex === i"
+              [attr.aria-selected]="activeIndex === i"
+              (mouseenter)="activeIndex = i"
+              (click)="selectSuggestion(item)"
+            >
+              <i class="bi bi-hash" aria-hidden="true"></i>
+              <span class="suggest-copy">
+                <span class="suggest-title"><ng-container *ngFor="let part of segments(item.label)"><mark *ngIf="part.hit; else plainTopic">{{ part.text }}</mark><ng-template #plainTopic>{{ part.text }}</ng-template></ng-container></span>
+                <span class="suggest-hint">{{ item.hint }}</span>
+              </span>
+            </button>
+
+            <a
+              *ngIf="item.kind === 'post'"
+              class="suggest-item"
+              role="option"
+              [id]="'blog-suggest-' + i"
+              [class.active]="activeIndex === i"
+              [attr.aria-selected]="activeIndex === i"
+              [routerLink]="['/blog', item.slug]"
+              (mouseenter)="activeIndex = i"
+              (click)="panelOpen = false"
+            >
+              <i class="bi bi-journal-text" aria-hidden="true"></i>
+              <span class="suggest-copy">
+                <span class="suggest-title"><ng-container *ngFor="let part of segments(item.label)"><mark *ngIf="part.hit; else plainPost">{{ part.text }}</mark><ng-template #plainPost>{{ part.text }}</ng-template></ng-container></span>
+                <span class="suggest-hint">{{ item.hint }}</span>
+              </span>
+            </a>
+          </ng-container>
+          <p class="suggest-help">↑↓ to move · Enter to open · Esc to close</p>
+        </ng-container>
+
+        <ng-template #noSuggestions>
+          <p class="suggest-empty">No topics or posts match “{{ searchQuery.trim() }}”.</p>
+        </ng-template>
+      </div>
+
+      <div class="topic-row" aria-label="Blog topics">
+        <button
+          type="button"
+          class="topic-chip"
+          *ngFor="let topic of featuredTopics"
+          [class.active]="isTopicActive(topic)"
+          [attr.aria-pressed]="isTopicActive(topic)"
+          (click)="applyTopic(topic)"
+        >
+          {{ topic }}
+        </button>
+      </div>
+
+      <p class="search-status" aria-live="polite" *ngIf="searchQuery.trim()">
+        {{ resultLabel }}
+      </p>
+    </div>
+
+    <div class="empty-state" *ngIf="filteredBlogs.length === 0">
+      <i class="bi bi-search" aria-hidden="true"></i>
+      <h2>No posts found</h2>
+      <p>Nothing matches “{{ searchQuery.trim() }}”. Try a topic above, or search for JWT, SQL, architecture, or agents.</p>
+      <button type="button" class="read-btn" (click)="clearSearch()">Show all posts</button>
+    </div>
+
+    <div class="row g-4" *ngIf="filteredBlogs.length">
+
+      <div class="col-md-6 col-lg-4" *ngFor="let blog of filteredBlogs; trackBy: trackBlog">
 
         <div class="blog-card">
 
           <div class="image-wrapper">
-            <img [src]="blog.image" alt="blog image" />
+            <img [src]="blog.image" [alt]="blog.title" />
           </div>
 
           <div class="content">
-            <h3>{{ blog.title }}</h3>
+            <h3><ng-container *ngFor="let part of segments(blog.title)"><mark *ngIf="part.hit; else plainTitle">{{ part.text }}</mark><ng-template #plainTitle>{{ part.text }}</ng-template></ng-container></h3>
 
             <p class="date">
               {{ blog.date | date:'mediumDate' }}
             </p>
 
-            <p class="desc">
-              {{ blog.description }}
-            </p>
+            <p class="desc"><ng-container *ngFor="let part of segments(blog.description)"><mark *ngIf="part.hit; else plainDesc">{{ part.text }}</mark><ng-template #plainDesc>{{ part.text }}</ng-template></ng-container></p>
 
-            <a 
+            <div class="card-topics">
+              <span *ngFor="let topic of blog.topics.slice(0, 3)">{{ topic }}</span>
+            </div>
+
+            <a
               class="read-btn"
               [routerLink]="['/blog', blog.slug]"
             >

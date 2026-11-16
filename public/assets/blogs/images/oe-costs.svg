@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="600" viewBox="0 0 960 600" role="img" aria-labelledby="oeCostTitle oeCostDesc">
+  <title id="oeCostTitle">Four costs of a seam built before it was needed</title>
+  <desc id="oeCostDesc">Fowler's four costs of a presumptive feature, applied to a generic student repository in the school system: build, delay, carry, and repair.</desc>
+  <rect width="960" height="600" fill="#f7f3ea"/>
+  <text x="36" y="42" fill="#9a3412" font-family="Segoe Print, Comic Sans MS, Segoe UI, sans-serif" font-size="18">Figure 4</text>
+  <text x="36" y="76" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="26" font-weight="700">What the unused seam cost</text>
+  <text x="36" y="106" fill="#57534e" font-family="Segoe UI, sans-serif" font-size="15">Fowler, Yagni, 2015. One presumptive feature, four bills. The school instance of each.</text>
+
+  <rect x="28" y="136" width="216" height="320" rx="14" fill="#ffffff" stroke="#1d4ed8" stroke-width="1.8"/>
+  <text x="46" y="170" fill="#1e3a8a" font-family="Segoe UI, sans-serif" font-size="13" font-weight="700">1 &#183; BUILD</text>
+  <text x="46" y="210" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="15">The repository,</text>
+  <text x="46" y="234" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="15">the specification</text>
+  <text x="46" y="258" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="15">type, the handler,</text>
+  <text x="46" y="282" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="15">and the tests that</text>
+  <text x="46" y="306" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="15">only proved the</text>
+  <text x="46" y="330" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="15">handler called</text>
+  <text x="46" y="354" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="15">the repository.</text>
+  <text x="46" y="420" fill="#1e3a8a" font-family="Segoe UI, sans-serif" font-size="13">Paid once, up front.</text>
+
+  <rect x="258" y="136" width="216" height="320" rx="14" fill="#ffffff" stroke="#b45309" stroke-width="1.8"/>
+  <text x="276" y="170" fill="#92400e" font-family="Segoe UI, sans-serif" font-size="13" font-weight="700">2 &#183; DELAY</text>
+  <text x="276" y="210" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="15">Fee reminders,</text>
+  <text x="276" y="234" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="15">the report card,</text>
+  <text x="276" y="258" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="15">and the screen a</text>
+  <text x="276" y="282" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="15">clerk had asked</text>
+  <text x="276" y="306" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="15">for waited while</text>
+  <text x="276" y="330" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="15">the seam was</text>
+  <text x="276" y="354" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="15">being finished.</text>
+  <text x="276" y="420" fill="#92400e" font-family="Segoe UI, sans-serif" font-size="13">The feature not built.</text>
+
+  <rect x="488" y="136" width="216" height="320" rx="14" fill="#fff7ed" stroke="#c2410c" stroke-width="2.2"/>
+  <text x="506" y="170" fill="#9a3412" font-family="Segoe UI, sans-serif" font-size="13" font-weight="700">3 &#183; CARRY</text>
+  <text x="506" y="210" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="15">Every later</text>
+  <text x="506" y="234" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="15">feature crossed</text>
+  <text x="506" y="258" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="15">the seam, learned</text>
+  <text x="506" y="282" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="15">the specification</text>
+  <text x="506" y="306" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="15">language, and</text>
+  <text x="506" y="330" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="15">became afraid</text>
+  <text x="506" y="354" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="15">to delete it.</text>
+  <text x="506" y="420" fill="#9a3412" font-family="Segoe UI, sans-serif" font-size="13">Paid on every feature.</text>
+
+  <rect x="718" y="136" width="214" height="320" rx="14" fill="#ffffff" stroke="#6d28d9" stroke-width="1.8"/>
+  <text x="736" y="170" fill="#5b21b6" font-family="Segoe UI, sans-serif" font-size="13" font-weight="700">4 &#183; REPAIR</text>
+  <text x="736" y="210" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="15">The scale I had</text>
+  <text x="736" y="234" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="15">designed for did</text>
+  <text x="736" y="258" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="15">not arrive. Taking</text>
+  <text x="736" y="282" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="15">the seam out meant</text>
+  <text x="736" y="306" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="15">untangling every</text>
+  <text x="736" y="330" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="15">feature that had</text>
+  <text x="736" y="354" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="15">been built on it.</text>
+  <text x="736" y="420" fill="#5b21b6" font-family="Segoe UI, sans-serif" font-size="13">Paid as a removal.</text>
+
+  <rect x="28" y="476" width="904" height="96" rx="14" fill="#1c1917"/>
+  <text x="48" y="512" fill="#fdba74" font-family="Segoe UI, sans-serif" font-size="15" font-weight="700">Carry is the bill that compounds. A correct guess does not cancel it.</text>
+  <text x="48" y="542" fill="#e7e5e4" font-family="Segoe UI, sans-serif" font-size="15">The seam starts costing on the day it is written, which is before it is useful.</text>
+</svg>

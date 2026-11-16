@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="700" viewBox="0 0 960 700" role="img" aria-labelledby="cmpTitle cmpDesc">
+  <title id="cmpTitle">Task success if every step must succeed</title>
+  <desc id="cmpDesc">If each step succeeds with probability 0.95 and the steps are independent, twenty steps succeed about 36 percent of the time. The bar chart shows that decay at 1, 5, 10, 15, and 20 steps.</desc>
+  <rect width="960" height="700" fill="#f7f3ea"/>
+  <text x="36" y="42" fill="#9a3412" font-family="Segoe Print, Comic Sans MS, Segoe UI, sans-serif" font-size="18">Figure 3</text>
+  <text x="36" y="74" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="26" font-weight="700">Twenty careful steps are a coin flip you lose</text>
+  <text x="36" y="104" fill="#57534e" font-family="Segoe UI, sans-serif" font-size="15">P(all n succeed) = p^n, here p = 0.95, and only if a later step cannot repair an earlier one.</text>
+
+  <text x="168" y="156" fill="#57534e" font-family="Segoe UI, sans-serif" font-size="13">0</text>
+  <text x="430" y="156" fill="#57534e" font-family="Segoe UI, sans-serif" font-size="13">0.5</text>
+  <text x="700" y="156" fill="#57534e" font-family="Segoe UI, sans-serif" font-size="13">1</text>
+  <line x1="180" y1="168" x2="780" y2="168" stroke="#d6d3d1" stroke-width="1"/>
+  <line x1="180" y1="168" x2="180" y2="470" stroke="#a8a29e" stroke-width="1.2"/>
+  <line x1="480" y1="168" x2="480" y2="470" stroke="#e7e5e4" stroke-width="1"/>
+  <line x1="780" y1="168" x2="780" y2="470" stroke="#e7e5e4" stroke-width="1"/>
+
+  <text x="36" y="214" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="15" font-weight="700">n = 1</text>
+  <rect x="180" y="192" width="570" height="32" rx="6" fill="#15803d"/>
+  <text x="196" y="214" fill="#f0fdf4" font-family="Segoe UI, sans-serif" font-size="14" font-weight="700">0.950</text>
+
+  <text x="36" y="274" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="15" font-weight="700">n = 5</text>
+  <rect x="180" y="252" width="464" height="32" rx="6" fill="#16a34a"/>
+  <text x="196" y="274" fill="#f0fdf4" font-family="Segoe UI, sans-serif" font-size="14" font-weight="700">0.774</text>
+
+  <text x="36" y="334" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="15" font-weight="700">n = 10</text>
+  <rect x="180" y="312" width="359" height="32" rx="6" fill="#ca8a04"/>
+  <text x="196" y="334" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="14" font-weight="700">0.599</text>
+
+  <text x="36" y="394" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="15" font-weight="700">n = 15</text>
+  <rect x="180" y="372" width="278" height="32" rx="6" fill="#c2410c"/>
+  <text x="196" y="394" fill="#fff7ed" font-family="Segoe UI, sans-serif" font-size="14" font-weight="700">0.463</text>
+
+  <text x="36" y="454" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="15" font-weight="700">n = 20</text>
+  <rect x="180" y="432" width="215" height="32" rx="6" fill="#b91c1c"/>
+  <text x="196" y="454" fill="#fef2f2" font-family="Segoe UI, sans-serif" font-size="14" font-weight="700">0.358</text>
+
+  <text x="180" y="498" fill="#57534e" font-family="Segoe UI, sans-serif" font-size="13">Bar length is p^n. The scale runs from 0 to 1. 0.95^10 = 0.5987, 0.95^20 = 0.3585.</text>
+
+  <rect x="28" y="524" width="904" height="144" rx="14" fill="#fff7ed" stroke="#c2410c" stroke-width="1.8"/>
+  <text x="52" y="560" fill="#9a3412" font-family="Segoe UI, sans-serif" font-size="16" font-weight="700">This is a model of the task, not a measurement of a model.</text>
+  <text x="52" y="590" fill="#44403c" font-family="Segoe UI, sans-serif" font-size="15">Real steps are not independent. A bad observation poisons later steps, which is worse than p^n.</text>
+  <text x="52" y="618" fill="#44403c" font-family="Segoe UI, sans-serif" font-size="15">A later tool call can also repair an earlier mistake, which is better than p^n. SWE-agent's resolved</text>
+  <text x="52" y="646" fill="#44403c" font-family="Segoe UI, sans-serif" font-size="15">runs still finished early (median 12 steps) and the unresolved ones ran long (mean 21).</text>
+
+  <defs>
+    <marker id="ac3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 1 1.5 L 8 5 L 1 8.5" fill="none" stroke="#44403c" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+</svg>

@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="640" viewBox="0 0 960 640" role="img" aria-labelledby="moveTitle moveDesc">
+  <title id="moveTitle">Temperature keeps the mode, a new fact can move it</title>
+  <desc id="moveDesc">Raising temperature from 1 to 1.8 leaves caching as the most likely token and lifts layers from 0.50 percent to 2.93 percent. Replacing the logits, as a more specific prompt does, makes layers the mode at 51.60 percent. A frequency and presence penalty on caching only hands the lead to indexing.</desc>
+  <rect width="960" height="640" fill="#f7f3ea"/>
+  <text x="36" y="40" fill="#9a3412" font-family="Segoe Print, Comic Sans MS, Segoe UI, sans-serif" font-size="18">Figure 5</text>
+  <text x="36" y="72" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="26" font-weight="700">Two edits. Only one of them changes the answer.</text>
+  <text x="36" y="100" fill="#57534e" font-family="Segoe UI, sans-serif" font-size="15">Left and the penalty both keep the original logits. The right replaces them.</text>
+
+  <rect x="24" y="122" width="296" height="292" rx="14" fill="#ffffff" stroke="#44403c" stroke-width="1.6"/>
+  <text x="40" y="152" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="16" font-weight="700">Raise T from 1 to 1.8</text>
+  <text x="40" y="180" fill="#57534e" font-family="Segoe UI, sans-serif" font-size="13">logits unchanged</text>
+  <text x="40" y="216" fill="#1e3a8a" font-family="Segoe UI, sans-serif" font-size="14" font-weight="700">caching stays first</text>
+  <text x="40" y="240" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="14">60.25% to 42.17%</text>
+  <text x="40" y="276" fill="#9f1239" font-family="Segoe UI, sans-serif" font-size="14" font-weight="700">layers is still rare</text>
+  <text x="40" y="300" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="14">0.50% to 2.93%</text>
+  <text x="40" y="340" fill="#57534e" font-family="Segoe UI, sans-serif" font-size="13">About one draw in 34.</text>
+  <text x="40" y="362" fill="#57534e" font-family="Segoe UI, sans-serif" font-size="13">The other tail tokens rose too.</text>
+  <text x="40" y="390" fill="#44403c" font-family="Segoe UI, sans-serif" font-size="13">Entropy 1.56 to 2.12 bits.</text>
+
+  <rect x="332" y="122" width="296" height="292" rx="14" fill="#ffffff" stroke="#b45309" stroke-width="2"/>
+  <text x="348" y="152" fill="#92400e" font-family="Segoe UI, sans-serif" font-size="16" font-weight="700">Penalize "caching"</text>
+  <text x="348" y="180" fill="#57534e" font-family="Segoe UI, sans-serif" font-size="13">seen once; penalties 0.8 and 0.4</text>
+  <text x="348" y="216" fill="#92400e" font-family="Segoe UI, sans-serif" font-size="14" font-weight="700">logit 4.0 becomes 2.8</text>
+  <text x="348" y="244" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="14">indexing takes the lead</text>
+  <text x="348" y="268" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="14">indexing 42.31%</text>
+  <text x="348" y="292" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="14">caching 31.34%</text>
+  <text x="348" y="328" fill="#9f1239" font-family="Segoe UI, sans-serif" font-size="14" font-weight="700">layers moves to 0.86%</text>
+  <text x="348" y="360" fill="#57534e" font-family="Segoe UI, sans-serif" font-size="13">The runner-up inherits the mode.</text>
+  <text x="348" y="382" fill="#57534e" font-family="Segoe UI, sans-serif" font-size="13">The tail does not become the point.</text>
+
+  <rect x="640" y="122" width="296" height="292" rx="14" fill="#ecfdf5" stroke="#15803d" stroke-width="2"/>
+  <text x="656" y="152" fill="#14532d" font-family="Segoe UI, sans-serif" font-size="16" font-weight="700">Put the fact in the prompt</text>
+  <text x="656" y="180" fill="#57534e" font-family="Segoe UI, sans-serif" font-size="13">new logits, T = 1</text>
+  <text x="656" y="214" fill="#14532d" font-family="Segoe UI, sans-serif" font-size="14" font-weight="700">layers is now the mode</text>
+  <text x="656" y="240" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="14">51.60%</text>
+  <rect x="656" y="252" width="160" height="12" rx="4" fill="#15803d"/>
+  <text x="656" y="288" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="14">tenant 23.18%</text>
+  <text x="656" y="312" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="14">caching falls to 4.68%</text>
+  <text x="656" y="344" fill="#57534e" font-family="Segoe UI, sans-serif" font-size="13">Logits: layers 3.4, tenant 2.6,</text>
+  <text x="656" y="364" fill="#57534e" font-family="Segoe UI, sans-serif" font-size="13">N+1 1.8, indexing 1.4,</text>
+  <text x="656" y="384" fill="#57534e" font-family="Segoe UI, sans-serif" font-size="13">pagination 0.6, caching 1.0.</text>
+
+  <rect x="24" y="432" width="912" height="176" rx="14" fill="#ffffff" stroke="#44403c" stroke-width="1.6"/>
+  <text x="44" y="464" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="16" font-weight="700">Then measure the set of answers, not the one you liked</text>
+  <text x="44" y="498" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="15">1. Draw several completions of the same prompt. Kirk et al. used 16 when they scored per-input diversity.</text>
+  <text x="44" y="526" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="15">2. distinct-2 = (number of unique bigrams) / (number of bigrams). This catches repeated wording.</text>
+  <text x="44" y="554" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="15">3. Embed the completions and measure distance to their centroid. Paraphrases fool step 2 and not step 3.</text>
+  <text x="44" y="584" fill="#57534e" font-family="Segoe UI, sans-serif" font-size="14">If step 3 barely moves when you edit the prompt, the edit did not move the distribution that matters.</text>
+</svg>

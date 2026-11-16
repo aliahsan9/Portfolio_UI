@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="680" viewBox="0 0 960 680" role="img" aria-labelledby="treeTitle treeDesc">
+  <title id="treeTitle">B+ tree seek versus leaf scan</title>
+  <desc id="treeDesc">A rowstore index is a B+ tree. The leaf level is a doubly linked list and, for a clustered index, holds the rows. A seek descends one page per level. An ordered scan then walks the leaf links and does not return to the root. With a fanout of about 400, 50,000 leaf pages sit under a tree of height 3.</desc>
+  <rect width="960" height="680" fill="#f7f3ea"/>
+  <text x="36" y="40" fill="#9a3412" font-family="Segoe Print, Comic Sans MS, Segoe UI, sans-serif" font-size="18">Figure 2</text>
+  <text x="36" y="72" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="26" font-weight="700">Seek down, then walk the leaves</text>
+  <text x="36" y="100" fill="#57534e" font-family="Segoe UI, sans-serif" font-size="15">Rowstore indexes are B+ trees. All rows live in the leaves. Each level is a doubly linked list.</text>
+
+  <rect x="400" y="124" width="160" height="58" rx="10" fill="#dcfce7" stroke="#15803d" stroke-width="2"/>
+  <text x="480" y="148" text-anchor="middle" fill="#14532d" font-family="Segoe UI, sans-serif" font-size="14" font-weight="700">root</text>
+  <text x="480" y="168" text-anchor="middle" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="12">keys + child page ids</text>
+
+  <line x1="440" y1="182" x2="250" y2="214" stroke="#15803d" stroke-width="1.8"/>
+  <line x1="520" y1="182" x2="710" y2="214" stroke="#44403c" stroke-width="1.6"/>
+
+  <rect x="150" y="214" width="200" height="58" rx="10" fill="#dcfce7" stroke="#15803d" stroke-width="2"/>
+  <text x="250" y="238" text-anchor="middle" fill="#14532d" font-family="Segoe UI, sans-serif" font-size="14" font-weight="700">intermediate</text>
+  <text x="250" y="258" text-anchor="middle" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="12">separator keys</text>
+
+  <rect x="610" y="214" width="200" height="58" rx="10" fill="#ffffff" stroke="#44403c" stroke-width="1.6"/>
+  <text x="710" y="238" text-anchor="middle" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="14" font-weight="700">intermediate</text>
+  <text x="710" y="258" text-anchor="middle" fill="#57534e" font-family="Segoe UI, sans-serif" font-size="12">not touched by this seek</text>
+
+  <line x1="190" y1="272" x2="100" y2="312" stroke="#44403c" stroke-width="1.5"/>
+  <line x1="250" y1="272" x2="300" y2="312" stroke="#15803d" stroke-width="1.8"/>
+  <line x1="310" y1="272" x2="500" y2="312" stroke="#44403c" stroke-width="1.5"/>
+
+  <rect x="36" y="318" width="150" height="64" rx="8" fill="#ffffff" stroke="#44403c" stroke-width="1.5"/>
+  <text x="111" y="346" text-anchor="middle" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="13" font-weight="700">leaf</text>
+  <text x="111" y="366" text-anchor="middle" fill="#57534e" font-family="Segoe UI, sans-serif" font-size="12">rows, key order</text>
+
+  <rect x="226" y="318" width="150" height="64" rx="8" fill="#dcfce7" stroke="#15803d" stroke-width="2.2"/>
+  <text x="301" y="346" text-anchor="middle" fill="#14532d" font-family="Segoe UI, sans-serif" font-size="13" font-weight="700">leaf, found</text>
+  <text x="301" y="366" text-anchor="middle" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="12">the row is here</text>
+
+  <rect x="416" y="318" width="150" height="64" rx="8" fill="#fef3c7" stroke="#b45309" stroke-width="1.8"/>
+  <text x="491" y="346" text-anchor="middle" fill="#92400e" font-family="Segoe UI, sans-serif" font-size="13" font-weight="700">next leaf</text>
+  <text x="491" y="366" text-anchor="middle" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="12">range continues</text>
+
+  <rect x="606" y="318" width="150" height="64" rx="8" fill="#ffffff" stroke="#44403c" stroke-width="1.5"/>
+  <text x="681" y="346" text-anchor="middle" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="13" font-weight="700">leaf</text>
+  <text x="681" y="366" text-anchor="middle" fill="#57534e" font-family="Segoe UI, sans-serif" font-size="12">same level</text>
+
+  <rect x="796" y="318" width="128" height="64" rx="8" fill="#ffffff" stroke="#44403c" stroke-width="1.5"/>
+  <text x="860" y="346" text-anchor="middle" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="13" font-weight="700">leaf</text>
+  <text x="860" y="366" text-anchor="middle" fill="#57534e" font-family="Segoe UI, sans-serif" font-size="12">...</text>
+
+  <line x1="186" y1="350" x2="226" y2="350" stroke="#b45309" stroke-width="1.7" marker-end="url(#treeArrow)"/>
+  <line x1="226" y1="362" x2="186" y2="362" stroke="#b45309" stroke-width="1.7" marker-end="url(#treeArrow)"/>
+  <line x1="376" y1="350" x2="416" y2="350" stroke="#b45309" stroke-width="1.7" marker-end="url(#treeArrow)"/>
+  <line x1="416" y1="362" x2="376" y2="362" stroke="#b45309" stroke-width="1.7" marker-end="url(#treeArrow)"/>
+  <line x1="566" y1="350" x2="606" y2="350" stroke="#a8a29e" stroke-width="1.4" marker-end="url(#treeArrow)"/>
+  <line x1="756" y1="350" x2="796" y2="350" stroke="#a8a29e" stroke-width="1.4" marker-end="url(#treeArrow)"/>
+
+  <text x="480" y="412" text-anchor="middle" fill="#92400e" font-family="Segoe UI, sans-serif" font-size="13">ordered scan follows the leaf links. It does not climb back to the root.</text>
+
+  <rect x="28" y="436" width="904" height="216" rx="14" fill="#ffffff" stroke="#44403c" stroke-width="1.6"/>
+  <text x="48" y="468" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="15" font-weight="700">Height, under an assumption you can check</text>
+  <text x="48" y="498" fill="#1c1917" font-family="Cascadia Code, Consolas, monospace" font-size="15">fanout F ~ 400 keys on an intermediate page</text>
+  <text x="48" y="528" fill="#1c1917" font-family="Cascadia Code, Consolas, monospace" font-size="15">50,000 leaf pages / 400 = 125 pages on the level above</text>
+  <text x="48" y="558" fill="#1c1917" font-family="Cascadia Code, Consolas, monospace" font-size="15">125 / 400 -> a single root. Height = 3.</text>
+  <text x="48" y="596" fill="#44403c" font-family="Segoe UI, sans-serif" font-size="15">A point seek touches 3 pages. A full ordered scan of the leaf touches about 50,000.</text>
+  <text x="48" y="624" fill="#57534e" font-family="Segoe UI, sans-serif" font-size="14">The green path is the seek. Fanout falls as the key gets wider, which is why a 16-byte GUID key costs every level.</text>
+  <defs>
+    <marker id="treeArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 1 1.5 L 8 5 L 1 8.5" fill="none" stroke="#44403c" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+</svg>

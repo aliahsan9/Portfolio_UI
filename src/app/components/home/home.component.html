@@ -65,8 +65,13 @@
       </ul>
     </div>
 
-    <div class="hero-visual">
+    <div
+      class="hero-visual"
+      (pointermove)="tilt($event)"
+      (pointerleave)="resetTilt($event)"
+    >
       <div class="portrait">
+        <span class="spotlight" aria-hidden="true"></span>
         <span class="ring ring-outer" aria-hidden="true"></span>
         <span class="ring ring-inner" aria-hidden="true"></span>
         <picture>

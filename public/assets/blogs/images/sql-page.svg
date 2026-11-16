@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="660" viewBox="0 0 960 660" role="img" aria-labelledby="pageTitle pageDesc">
+  <title id="pageTitle">Anatomy of an 8 KiB SQL Server page</title>
+  <desc id="pageDesc">A page is 8192 bytes with a 96-byte header and a 2-byte slot array at the end. Rows are not stored in key order; the slot array is. An extent is eight contiguous pages, 64 KiB. At 200 bytes per on-page row, a page holds about 40 rows, so two million rows are about 50,000 pages.</desc>
+  <rect width="960" height="660" fill="#f7f3ea"/>
+  <text x="36" y="40" fill="#9a3412" font-family="Segoe Print, Comic Sans MS, Segoe UI, sans-serif" font-size="18">Figure 1</text>
+  <text x="36" y="72" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="26" font-weight="700">A logical read is one page, not one row</text>
+  <text x="36" y="100" fill="#57534e" font-family="Segoe UI, sans-serif" font-size="15">Disk I/O and the buffer pool both move 8 KiB pages. The slot array, not the physical row order, is the key order.</text>
+
+  <rect x="28" y="124" width="470" height="508" rx="14" fill="#ffffff" stroke="#44403c" stroke-width="1.8"/>
+  <text x="48" y="154" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="15" font-weight="700">One data page, 8,192 bytes</text>
+
+  <rect x="48" y="172" width="430" height="52" rx="8" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1.8"/>
+  <text x="64" y="194" fill="#1e3a8a" font-family="Segoe UI, sans-serif" font-size="14" font-weight="700">96-byte header</text>
+  <text x="64" y="214" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="13">page id, page type, index id, free-space pointers</text>
+
+  <rect x="48" y="236" width="430" height="40" rx="6" fill="#fef3c7" stroke="#b45309" stroke-width="1.5"/>
+  <text x="64" y="261" fill="#92400e" font-family="Segoe UI, sans-serif" font-size="14">row A, about 200 bytes, including the row header</text>
+
+  <rect x="48" y="284" width="430" height="40" rx="6" fill="#fde68a" stroke="#b45309" stroke-width="1.5"/>
+  <text x="64" y="309" fill="#92400e" font-family="Segoe UI, sans-serif" font-size="14">row B, dropped into a hole left by a delete</text>
+
+  <rect x="48" y="332" width="430" height="40" rx="6" fill="#fef3c7" stroke="#b45309" stroke-width="1.5"/>
+  <text x="64" y="357" fill="#92400e" font-family="Segoe UI, sans-serif" font-size="14">row C. Physical order on the page is not key order.</text>
+
+  <rect x="48" y="384" width="430" height="64" rx="6" fill="#f5f5f4" stroke="#a8a29e" stroke-width="1.4" stroke-dasharray="5 4"/>
+  <text x="64" y="412" fill="#57534e" font-family="Segoe UI, sans-serif" font-size="14">free space, used by the next insert that fits</text>
+  <text x="64" y="432" fill="#78716c" font-family="Segoe UI, sans-serif" font-size="13">a page split happens when the insert does not fit</text>
+
+  <rect x="48" y="460" width="430" height="72" rx="8" fill="#ede9fe" stroke="#6d28d9" stroke-width="1.8"/>
+  <text x="64" y="486" fill="#5b21b6" font-family="Segoe UI, sans-serif" font-size="14" font-weight="700">slot array, at the end of the page</text>
+  <text x="64" y="508" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="13">2 bytes per row: the offset of that row from byte 0</text>
+  <text x="64" y="528" fill="#1c1917" font-family="Cascadia Code, Consolas, monospace" font-size="13">slot 0 -> row C    slot 1 -> row A    slot 2 -> row B</text>
+
+  <line x1="470" y1="496" x2="430" y2="352" stroke="#6d28d9" stroke-width="1.3" stroke-dasharray="3 3"/>
+
+  <rect x="518" y="124" width="414" height="150" rx="14" fill="#ffffff" stroke="#44403c" stroke-width="1.6"/>
+  <text x="538" y="154" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="15" font-weight="700">Extent: 8 pages, 64 KiB</text>
+  <text x="538" y="176" fill="#57534e" font-family="Segoe UI, sans-serif" font-size="13">space is allocated in extents, I/O is still per page</text>
+  <rect x="538" y="196" width="36" height="48" rx="4" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1.4"/>
+  <rect x="580" y="196" width="36" height="48" rx="4" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1.4"/>
+  <rect x="622" y="196" width="36" height="48" rx="4" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1.4"/>
+  <rect x="664" y="196" width="36" height="48" rx="4" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1.4"/>
+  <rect x="706" y="196" width="36" height="48" rx="4" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1.4"/>
+  <rect x="748" y="196" width="36" height="48" rx="4" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1.4"/>
+  <rect x="790" y="196" width="36" height="48" rx="4" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1.4"/>
+  <rect x="832" y="196" width="36" height="48" rx="4" fill="#dcfce7" stroke="#15803d" stroke-width="1.4"/>
+  <text x="538" y="262" fill="#57534e" font-family="Segoe UI, sans-serif" font-size="13">uniform extent: all 8 pages belong to one object</text>
+
+  <rect x="518" y="292" width="414" height="340" rx="14" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+  <text x="538" y="324" fill="#9a3412" font-family="Segoe UI, sans-serif" font-size="15" font-weight="700">Substitute your own row size</text>
+  <text x="538" y="354" fill="#1c1917" font-family="Cascadia Code, Consolas, monospace" font-size="14">usable = 8192 - 96 = 8096</text>
+  <text x="538" y="382" fill="#1c1917" font-family="Cascadia Code, Consolas, monospace" font-size="14">per row = 200 + 2 slot = 202</text>
+  <text x="538" y="410" fill="#1c1917" font-family="Cascadia Code, Consolas, monospace" font-size="14">8096 / 202 = 40 rows / page</text>
+  <text x="538" y="448" fill="#1c1917" font-family="Cascadia Code, Consolas, monospace" font-size="14">2,000,000 / 40 = 50,000 pages</text>
+  <text x="538" y="476" fill="#1c1917" font-family="Cascadia Code, Consolas, monospace" font-size="14">50,000 x 8 KiB = 390.6 MiB</text>
+  <text x="538" y="516" fill="#44403c" font-family="Segoe UI, sans-serif" font-size="14">A scan of this leaf reads about</text>
+  <text x="538" y="538" fill="#44403c" font-family="Segoe UI, sans-serif" font-size="14">50,000 pages. A point seek reads</text>
+  <text x="538" y="560" fill="#44403c" font-family="Segoe UI, sans-serif" font-size="14">one page per level of the tree.</text>
+  <text x="538" y="598" fill="#78716c" font-family="Segoe UI, sans-serif" font-size="13">200 bytes is an assumption. Read</text>
+  <text x="538" y="616" fill="#78716c" font-family="Segoe UI, sans-serif" font-size="13">avg_record_size_in_bytes and redo it.</text>
+</svg>

@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="700" viewBox="0 0 960 700" role="img" aria-labelledby="memTitle memDesc">
+  <title id="memTitle">Three stores an agent loop actually has</title>
+  <desc id="memDesc">Working memory is the transcript and is lossy in the middle. Episodic memory is a short note from a previous failed run. The environment, usually the database, is the only store allowed to settle a factual question.</desc>
+  <rect width="960" height="700" fill="#f7f3ea"/>
+  <text x="36" y="42" fill="#9a3412" font-family="Segoe Print, Comic Sans MS, Segoe UI, sans-serif" font-size="18">Figure 5</text>
+  <text x="36" y="74" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="26" font-weight="700">Three stores, one of them is allowed to be right</text>
+  <text x="36" y="104" fill="#57534e" font-family="Segoe UI, sans-serif" font-size="15">A vector index is a way to copy text into the transcript. It is not a fourth kind of memory.</text>
+
+  <rect x="28" y="140" width="290" height="300" rx="14" fill="#fef3c7" stroke="#b45309" stroke-width="2"/>
+  <text x="48" y="176" fill="#92400e" font-family="Segoe UI, sans-serif" font-size="16" font-weight="700">Working</text>
+  <text x="48" y="204" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="14">The transcript.</text>
+  <text x="48" y="232" fill="#44403c" font-family="Segoe UI, sans-serif" font-size="14">Finite. You pay for every</text>
+  <text x="48" y="254" fill="#44403c" font-family="Segoe UI, sans-serif" font-size="14">token of it, every step.</text>
+  <text x="48" y="286" fill="#44403c" font-family="Segoe UI, sans-serif" font-size="14">Liu et al.: use of a long</text>
+  <text x="48" y="308" fill="#44403c" font-family="Segoe UI, sans-serif" font-size="14">context is U-shaped.</text>
+  <text x="48" y="330" fill="#44403c" font-family="Segoe UI, sans-serif" font-size="14">The middle is where</text>
+  <text x="48" y="352" fill="#44403c" font-family="Segoe UI, sans-serif" font-size="14">facts go to be ignored.</text>
+  <text x="48" y="390" fill="#92400e" font-family="Segoe UI, sans-serif" font-size="13">Keep the goal and the</text>
+  <text x="48" y="410" fill="#92400e" font-family="Segoe UI, sans-serif" font-size="13">latest observation at the end.</text>
+
+  <rect x="336" y="140" width="290" height="300" rx="14" fill="#dbeafe" stroke="#1d4ed8" stroke-width="2"/>
+  <text x="356" y="176" fill="#1e3a8a" font-family="Segoe UI, sans-serif" font-size="16" font-weight="700">Episodic</text>
+  <text x="356" y="204" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="14">A note from last time.</text>
+  <text x="356" y="232" fill="#44403c" font-family="Segoe UI, sans-serif" font-size="14">Reflexion stores verbal</text>
+  <text x="356" y="254" fill="#44403c" font-family="Segoe UI, sans-serif" font-size="14">feedback, not a weight</text>
+  <text x="356" y="276" fill="#44403c" font-family="Segoe UI, sans-serif" font-size="14">update. Their coding</text>
+  <text x="356" y="298" fill="#44403c" font-family="Segoe UI, sans-serif" font-size="14">setup kept one note.</text>
+  <text x="356" y="330" fill="#44403c" font-family="Segoe UI, sans-serif" font-size="14">The note is useful when</text>
+  <text x="356" y="352" fill="#44403c" font-family="Segoe UI, sans-serif" font-size="14">the feedback was a test</text>
+  <text x="356" y="374" fill="#44403c" font-family="Segoe UI, sans-serif" font-size="14">failure. It is a rumor</text>
+  <text x="356" y="396" fill="#44403c" font-family="Segoe UI, sans-serif" font-size="14">when the model wrote</text>
+  <text x="356" y="418" fill="#1e3a8a" font-family="Segoe UI, sans-serif" font-size="13">both the attempt and the grade.</text>
+
+  <rect x="644" y="140" width="288" height="300" rx="14" fill="#dcfce7" stroke="#15803d" stroke-width="2"/>
+  <text x="664" y="176" fill="#14532d" font-family="Segoe UI, sans-serif" font-size="16" font-weight="700">Environment</text>
+  <text x="664" y="204" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="14">The database, the file,</text>
+  <text x="664" y="226" fill="#1c1917" font-family="Segoe UI, sans-serif" font-size="14">the test process.</text>
+  <text x="664" y="258" fill="#44403c" font-family="Segoe UI, sans-serif" font-size="14">This is the only store</text>
+  <text x="664" y="280" fill="#44403c" font-family="Segoe UI, sans-serif" font-size="14">that can settle</text>
+  <text x="664" y="302" fill="#44403c" font-family="Segoe UI, sans-serif" font-size="14">"which invoices are open".</text>
+  <text x="664" y="334" fill="#44403c" font-family="Segoe UI, sans-serif" font-size="14">Re-query it. Do not</text>
+  <text x="664" y="356" fill="#44403c" font-family="Segoe UI, sans-serif" font-size="14">accept the model's</text>
+  <text x="664" y="378" fill="#44403c" font-family="Segoe UI, sans-serif" font-size="14">summary of a query</text>
+  <text x="664" y="400" fill="#44403c" font-family="Segoe UI, sans-serif" font-size="14">you already ran.</text>
+  <text x="664" y="418" fill="#14532d" font-family="Segoe UI, sans-serif" font-size="13">Rows in, predicate out.</text>
+
+  <rect x="28" y="464" width="904" height="200" rx="14" fill="#fff7ed" stroke="#c2410c" stroke-width="1.8"/>
+  <text x="52" y="504" fill="#9a3412" font-family="Segoe UI, sans-serif" font-size="16" font-weight="700">What gets copied where</text>
+  <text x="52" y="540" fill="#44403c" font-family="Segoe UI, sans-serif" font-size="15">A retrieval query copies a few rows into the working store. After that copy, the rows are just tokens,</text>
+  <text x="52" y="568" fill="#44403c" font-family="Segoe UI, sans-serif" font-size="15">subject to the same U-shape as any other paragraph in the middle of the prompt.</text>
+  <text x="52" y="602" fill="#44403c" font-family="Segoe UI, sans-serif" font-size="15">An episodic note is also tokens. I keep one, from the previous failed run, and I put it next to the goal</text>
+  <text x="52" y="630" fill="#44403c" font-family="Segoe UI, sans-serif" font-size="15">so it sits at the start. I do not accumulate a diary. The diary becomes the middle.</text>
+
+  <defs>
+    <marker id="am5" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 1 1.5 L 8 5 L 1 8.5" fill="none" stroke="#44403c" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+</svg>

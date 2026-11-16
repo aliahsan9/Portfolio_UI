@@ -56,7 +56,7 @@ $border-color: var(--border);
 
   &:hover .lanyard-card {
     transform: rotateY(8deg) rotateX(4deg) translateY(-5px);
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(58, 189, 248, 0.15);
+    box-shadow: 0 24px 48px var(--shadow-strong);
   }
 }
 
@@ -150,9 +150,9 @@ $border-color: var(--border);
     transition: all 0.25s ease;
 
     &:hover {
-      background: rgba(58, 189, 248, 0.08);
-      border-color: rgba(58, 189, 248, 0.3);
-      color: $accent-neon;
+      background: var(--badge-bg);
+      border-color: var(--border-strong);
+      color: var(--text-primary);
       transform: translateY(-2px);
     }
   }
@@ -235,7 +235,7 @@ $border-color: var(--border);
 
   &:hover {
     transform: translateY(-4px);
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4), 0 0 30px rgba(58, 189, 248, 0.05);
+    box-shadow: 0 18px 36px var(--shadow-strong);
   }
 
   .project-display-img {
@@ -252,17 +252,17 @@ $border-color: var(--border);
     left: 0;
     right: 0;
     padding: 20px;
-    background: linear-gradient(to top, color-mix(in srgb, var(--bg-about) 95%, transparent) 40%, transparent);
+    background: linear-gradient(to top, rgba(28, 25, 23, 0.88) 20%, transparent);
     
     h6 {
       font-size: 1.1rem;
       font-weight: 700;
       margin-bottom: 2px;
-      color: var(--text-primary);
+      color: #fafaf9;
     }
     p {
       font-size: 0.85rem;
-      color: $accent-neon;
+      color: #e7e5e4;
       margin: 0;
     }
   }
@@ -274,7 +274,6 @@ $border-color: var(--border);
   border: 1px solid $border-color;
   border-radius: 24px;
   padding: 40px;
-  backdrop-filter: blur(12px);
 
   .edu-university {
     font-size: 1.6rem;
@@ -300,7 +299,7 @@ $border-color: var(--border);
 }
 
 .edu-graphic-card {
-  background: linear-gradient(135deg, rgba(15, 23, 42, 0.6) 0%, rgba(30, 41, 59, 0.3) 100%);
+  background: var(--bg-surface);
   border: 1px solid $border-color;
   border-radius: 24px;
   padding: 40px;
@@ -311,24 +310,72 @@ $border-color: var(--border);
 
   .decorative-code {
     font-family: 'Fira Code', 'Courier New', monospace;
-    font-size: 0.9rem;
-    color: var(--text-muted);
-    background: rgba(0, 0, 0, 0.2);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: #f5f5f4;
+    background: var(--bg-code);
     padding: 20px;
     border-radius: 12px;
-    border-left: 3px solid $accent-neon;
+    border-left: 3px solid #a8a29e;
     margin-bottom: 24px;
 
-    .keyword { color: #f43f5e; }
-    .class-name { color: #f59e0b; }
-    .value { color: #10b981; }
+    .keyword { color: #fda4af; }
+    .class-name { color: #fcd34d; }
+    .value { color: #6ee7b7; }
   }
 
   .graphic-quote {
     font-style: italic;
-    color: $text-muted;
+    color: var(--text-secondary);
     font-size: 1.05rem;
+    font-weight: 500;
+    line-height: 1.6;
     margin: 0;
+  }
+}
+
+/* Light theme: the strap and card share the page cream, so the badge
+   loses its edge. Give the lanyard a visible strap and a lifted card. */
+:host-context([data-theme="light"]) {
+  .lanyard-strap {
+    background: linear-gradient(
+      90deg,
+      #292524 0%,
+      #44403c 22%,
+      #78716c 50%,
+      #44403c 78%,
+      #292524 100%
+    );
+    border-color: #292524;
+  }
+
+  .lanyard-clip {
+    background: radial-gradient(circle at 35% 35%, #a8a29e, #1c1917 68%);
+    box-shadow: 0 0 0 3px #f6f5f2;
+  }
+
+  .lanyard-card {
+    border-color: #d6d3d1;
+    box-shadow:
+      0 1px 2px rgba(28, 25, 23, 0.05),
+      0 16px 36px rgba(28, 25, 23, 0.1);
+
+    .card-brand {
+      color: #78716c;
+    }
+
+    .avatar-placeholder {
+      border-color: #d6d3d1;
+      background: #f6f5f2;
+    }
+
+    .card-details p {
+      color: #57534e;
+    }
+  }
+
+  .lanyard-container:hover .lanyard-card {
+    box-shadow: 0 22px 44px rgba(28, 25, 23, 0.16);
   }
 }
 

@@ -67,6 +67,33 @@ export class HomeComponent {
     { icon: 'bi-cloud', label: 'Azure' },
   ];
 
+  tilt(event: PointerEvent): void {
+    if (!this.motionAllowed()) {
+      return;
+    }
+
+    const frame = event.currentTarget as HTMLElement;
+    const bounds = frame.getBoundingClientRect();
+    const x = (event.clientX - bounds.left) / bounds.width - 0.5;
+    const y = (event.clientY - bounds.top) / bounds.height - 0.5;
+
+    frame.style.setProperty('--tilt-x', `${(-y * 7).toFixed(2)}deg`);
+    frame.style.setProperty('--tilt-y', `${(x * 9).toFixed(2)}deg`);
+  }
+
+  resetTilt(event: PointerEvent): void {
+    const frame = event.currentTarget as HTMLElement;
+    frame.style.setProperty('--tilt-x', '0deg');
+    frame.style.setProperty('--tilt-y', '0deg');
+  }
+
+  private motionAllowed(): boolean {
+    return (
+      window.matchMedia('(min-width: 961px)').matches &&
+      !window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    );
+  }
+
   readonly socialLinks: SocialLink[] = [
     { icon: 'bi-github', url: 'https://github.com/aliahsan9', label: 'GitHub' },
     {
