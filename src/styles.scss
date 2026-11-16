@@ -474,7 +474,6 @@ html {
 [data-theme="light"] .skill-card,
 [data-theme="light"] .service-card,
 [data-theme="light"] .contact-card,
-[data-theme="light"] .newsletter-container,
 [data-theme="light"] .resume-viewer,
 [data-theme="light"] .testimonial-card,
 [data-theme="light"] .edu-card,
@@ -532,8 +531,8 @@ html {
 }
 
 [data-theme="light"] .newsletter-form input:focus {
-  border-color: #1c1917 !important;
-  box-shadow: 0 0 0 4px rgba(28, 25, 23, 0.08) !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
 }
 
 [data-theme="light"] .badge-accent {

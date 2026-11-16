@@ -1,44 +1,106 @@
 <section class="newsletter-section">
 
-  <div class="newsletter-container">
+  <div class="newsletter-layout">
 
-    <span class="newsletter-badge">
-      Trusted by Developers & Tech Learners
-    </span>
+    <div class="newsletter-copy">
 
-    <h2 class="newsletter-title">
-      Engineering Insights <br>
-      Delivered Weekly
-    </h2>
+      <p class="eyebrow">Trusted by Developers &amp; Tech Learners</p>
 
-    <p class="newsletter-description">
-      Practical content on Angular, .NET, scalable architecture,
-      backend engineering, clean code, and real-world software development.
-    </p>
+      <h1 class="newsletter-title">
+        Engineering<br>
+        Insights
+        <span>Delivered Weekly</span>
+      </h1>
 
-    <form
-      class="newsletter-form"
-      action="https://app.kit.com/forms/9410292/subscriptions"
-      method="post">
+      <p class="newsletter-description">
+        Practical content on Angular, .NET, scalable architecture,
+        backend engineering, clean code, and real-world software development.
+      </p>
 
-      <input
-        type="email"
-        name="email_address"
-        placeholder="Enter your email address"
-        aria-label="Email Address"
-        required>
+      <ul class="topic-list" aria-label="Topics covered">
+        <li>Angular</li>
+        <li>.NET</li>
+        <li>Architecture</li>
+        <li>SQL</li>
+        <li>Clean code</li>
+      </ul>
 
-      <button type="submit">
-        Subscribe
-      </button>
+      <form
+        class="newsletter-form"
+        action="https://app.kit.com/forms/9410292/subscriptions"
+        method="post">
 
-    </form>
+        <label class="field-label" for="newsletter-email">Email address</label>
 
-    <div class="newsletter-footer">
-      <span>No spam</span>
-      <span>Free forever</span>
-      <span>Unsubscribe anytime</span>
+        <div class="field">
+          <input
+            id="newsletter-email"
+            type="email"
+            name="email_address"
+            placeholder="you@company.com"
+            autocomplete="email"
+            inputmode="email"
+            required>
+
+          <button type="submit">
+            Subscribe
+            <i class="bi bi-arrow-right" aria-hidden="true"></i>
+          </button>
+        </div>
+
+      </form>
+
+      <ul class="promises">
+        <li>
+          <i class="bi bi-shield-check" aria-hidden="true"></i>
+          No spam
+        </li>
+        <li>
+          <i class="bi bi-infinity" aria-hidden="true"></i>
+          Free forever
+        </li>
+        <li>
+          <i class="bi bi-box-arrow-right" aria-hidden="true"></i>
+          Unsubscribe anytime
+        </li>
+      </ul>
+
     </div>
+
+    <aside class="issue-card" aria-label="What a typical issue includes">
+
+      <div class="issue-head">
+        <span>Inside a typical issue</span>
+        <span>About 8 minutes</span>
+      </div>
+
+      <ol>
+        <li>
+          <span class="num">01</span>
+          <div>
+            <h2>One decision worth keeping</h2>
+            <p>A boundary, query, or API shape from real Angular and .NET work.</p>
+          </div>
+        </li>
+        <li>
+          <span class="num">02</span>
+          <div>
+            <h2>A failure that taught something</h2>
+            <p>The bug, the fix, and the habit that keeps it from coming back.</p>
+          </div>
+        </li>
+        <li>
+          <span class="num">03</span>
+          <div>
+            <h2>Something to try this week</h2>
+            <p>A small exercise in architecture, SQL, or cleaner code.</p>
+          </div>
+        </li>
+      </ol>
+
+      <p class="issue-foot">One letter. No filler. Written for people who ship.</p>
+
+    </aside>
 
   </div>
 
