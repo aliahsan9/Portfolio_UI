@@ -9,6 +9,7 @@
     <div class="blog-search">
       <label class="visually-hidden" for="blog-search-input">Search blogs</label>
 
+      <div class="search-field" #searchField (focusout)="onSearchFocusOut($event)">
       <div class="search-box">
         <i class="bi bi-search search-icon" aria-hidden="true"></i>
         <input
@@ -86,12 +87,13 @@
               </span>
             </a>
           </ng-container>
-          <p class="suggest-help">↑↓ to move · Enter to open · Esc to close</p>
+          <p class="suggest-help">↑↓ to move · Enter to open</p>
         </ng-container>
 
         <ng-template #noSuggestions>
           <p class="suggest-empty">No topics or posts match “{{ searchQuery.trim() }}”.</p>
         </ng-template>
+      </div>
       </div>
 
       <div class="topic-row" aria-label="Blog topics">

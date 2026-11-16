@@ -1,29 +1,64 @@
 <section class="skills-section">
-
   <div class="container">
 
-    <!-- HEADER -->
-    <div class="text-center mb-5">
-      <h1 class="fw-bold text-gradient mb-3">Skills & Engineering Practices</h1>
-
+    <header class="skills-header text-center">
+      <p class="eyebrow">Skills</p>
+      <h1 class="fw-bold text-gradient">Applied AI on a production stack</h1>
       <p class="subtitle">
-        A combination of full-stack development skills and real-world engineering workflows
-        including Agile, Jira-based project management, and production-style development practices.
+        Language models, retrieval, and agents, on the same Angular and .NET systems
+        I already ship. Custom RAG, LLM integration, and agents on the Microsoft Agent
+        Framework — with the engineering practice that keeps them reliable.
       </p>
+    </header>
+
+    <div class="focus-grid">
+      <article class="focus-card" *ngFor="let area of focusAreas">
+        <div class="focus-top">
+          <span class="focus-index">{{ area.index }}</span>
+          <span class="focus-icon" aria-hidden="true">
+            <i class="bi" [ngClass]="area.icon"></i>
+          </span>
+        </div>
+
+        <p class="focus-kicker">{{ area.kicker }}</p>
+        <h2>{{ area.title }}</h2>
+        <p class="focus-copy">{{ area.description }}</p>
+        <p class="focus-outcome">{{ area.outcome }}</p>
+
+        <div class="tags">
+          <span *ngFor="let tech of area.technologies">{{ tech }}</span>
+        </div>
+      </article>
     </div>
 
-    <!-- GRID -->
+    <div class="practice-row">
+      <p>Also in this work</p>
+      <ul>
+        <li *ngFor="let practice of practices">{{ practice }}</li>
+      </ul>
+    </div>
+
+    <div class="proof">
+      <p>Where this shows up</p>
+      <div class="proof-links">
+        <a *ngFor="let item of proof" [routerLink]="item.route">
+          <strong>{{ item.label }}</strong>
+          <span>{{ item.detail }}</span>
+          <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+
+    <div class="group-head">
+      <h2>Engineering practice</h2>
+      <p>Angular, .NET, SQL Server, and the delivery habits around them.</p>
+    </div>
+
     <div class="row g-4">
-
       <div class="col-lg-6" *ngFor="let skill of skills">
-
         <div class="skill-card">
-
-          <!-- TOP -->
           <div class="d-flex justify-content-between align-items-center">
-
             <div class="d-flex align-items-center gap-3">
-
               <img
                 [src]="skill.icon"
                 class="icon"
@@ -35,46 +70,28 @@
               />
 
               <div>
-                <h5 class="mb-0">{{ skill.title }}</h5>
+                <h3 class="mb-0">{{ skill.title }}</h3>
                 <small class="level">{{ skill.level }}</small>
               </div>
-
             </div>
 
-            <div class="percent">
-              {{ skill.percent }}%
-            </div>
-
+            <div class="percent">{{ skill.percent }}%</div>
           </div>
 
-          <!-- PROGRESS -->
-          <div class="progress mt-3">
+          <div class="progress mt-3" role="presentation">
             <div class="progress-bar" [style.width.%]="skill.percent"></div>
           </div>
 
-          <!-- DESCRIPTION -->
-          <p class="desc mt-3">
-            {{ skill.description }}
-          </p>
+          <p class="desc mt-3">{{ skill.description }}</p>
 
-          <!-- AGILE / WORKFLOW CONTEXT (NEW) -->
-          <p class="workflow-note" *ngIf="skill.workflow">
-            {{ skill.workflow }}
-          </p>
+          <p class="workflow-note">{{ skill.workflow }}</p>
 
-          <!-- TAGS -->
           <div class="tags">
-            <span *ngFor="let tech of skill.technologies">
-              {{ tech }}
-            </span>
+            <span *ngFor="let tech of skill.technologies">{{ tech }}</span>
           </div>
-
         </div>
-
       </div>
-
     </div>
 
   </div>
-
 </section>

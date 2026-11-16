@@ -536,7 +536,13 @@ html {
   box-shadow: 0 0 0 4px rgba(28, 25, 23, 0.08) !important;
 }
 
-[data-theme="light"] .badge-accent,
+[data-theme="light"] .badge-accent {
+  background: #1c1917 !important;
+  color: #ffffff !important;
+  border-color: #1c1917 !important;
+  box-shadow: 0 8px 18px rgba(28, 25, 23, 0.14);
+}
+
 [data-theme="light"] .service-badge {
   background: #f3f1ec !important;
   color: #1c1917 !important;

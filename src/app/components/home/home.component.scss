@@ -693,11 +693,15 @@ h1 {
 }
 
 app-about,
-app-skills,
 app-testimonial,
 app-contact {
   content-visibility: auto;
   contain-intrinsic-size: auto 720px;
+}
+
+app-skills {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 1680px;
 }
 
 @media (prefers-reduced-motion: reduce) {

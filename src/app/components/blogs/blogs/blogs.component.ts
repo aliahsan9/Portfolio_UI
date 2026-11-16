@@ -103,10 +103,9 @@ export class BlogsComponent {
 
   private tokens: string[] = [];
 
-  constructor(
-    private readonly host: ElementRef<HTMLElement>,
-    private readonly router: Router
-  ) {
+  @ViewChild('searchField') searchField?: ElementRef<HTMLElement>;
+
+  constructor(private readonly router: Router) {
     this.refresh();
   }
 
@@ -249,12 +248,35 @@ export class BlogsComponent {
     return parts.length ? parts : [{ text, hit: false }];
   }
 
-  @HostListener('document:click', ['$event'])
-  onDocumentClick(event: MouseEvent): void {
-    if (!this.host.nativeElement.contains(event.target as Node)) {
-      this.panelOpen = false;
-      this.activeIndex = -1;
+  onSearchFocusOut(event: FocusEvent): void {
+    const next = event.relatedTarget as Node | null;
+    const root = this.searchField?.nativeElement;
+    if (next && root?.contains(next)) {
+      return;
     }
+    this.closeSuggestions();
+  }
+
+  @HostListener('document:pointerdown', ['$event'])
+  onDocumentPointerDown(event: PointerEvent): void {
+    const root = this.searchField?.nativeElement;
+    const target = event.target as Node | null;
+    const inside = !!(root && target && root.contains(target));
+
+    if (inside) {
+      this.panelOpen = true;
+      this.refresh();
+      return;
+    }
+
+    if (this.panelOpen) {
+      this.closeSuggestions();
+    }
+  }
+
+  private closeSuggestions(): void {
+    this.panelOpen = false;
+    this.activeIndex = -1;
   }
 
   private moveActive(step: number): void {

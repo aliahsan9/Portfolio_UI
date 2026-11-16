@@ -20,4 +20,18 @@ describe('SkillsComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('leads with applied AI, RAG, LLM integration, and agents', () => {
+    const titles = Array.from(
+      fixture.nativeElement.querySelectorAll('.focus-card h2') as NodeListOf<HTMLElement>
+    ).map((heading) => heading.textContent?.trim());
+
+    expect(titles).toEqual([
+      'Applied AI',
+      'LLM integration',
+      'Custom RAG',
+      'Agents'
+    ]);
+    expect(fixture.nativeElement.textContent).toContain('Microsoft Agent Framework');
+  });
 });

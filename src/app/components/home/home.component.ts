@@ -47,7 +47,9 @@ export class HomeComponent {
   readonly skills: SkillLogo[] = [
     { src: 'assets/icons/angular.avif', name: 'Angular' },
     { src: 'assets/icons/dotnet.avif', name: '.NET' },
+    { src: 'assets/icons/agentic-ai.avif', name: 'Agentic Framework' },
     { src: 'assets/icons/sql.avif', name: 'SQL Server' },
+    { src: 'assets/icons/qdrant.avif', name: 'Qdrant' },
     { src: 'assets/icons/azure.avif', name: 'Azure' },
     { src: 'assets/icons/ts.avif', name: 'TypeScript' },
     { src: 'assets/icons/js.avif', name: 'JavaScript' },
@@ -58,6 +60,7 @@ export class HomeComponent {
     { src: 'assets/icons/github.avif', name: 'GitHub' },
     { src: 'assets/icons/figma.avif', name: 'Figma' },
     { src: 'assets/icons/leetcode.avif', name: 'LeetCode' },
+    { src: 'assets/icons/geeks-icon.avif', name: 'GeeksForGeeks' },
   ];
 
   readonly orbitBadges: TechBadge[] = [

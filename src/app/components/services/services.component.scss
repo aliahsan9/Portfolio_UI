@@ -1,3 +1,13 @@
+:host {
+  display: block;
+  /* /services starts under the fixed navbar. Home already has content above this section. */
+  padding-top: 2.75rem;
+}
+
+:host-context(app-home) {
+  padding-top: 0;
+}
+
 // Color Schema Definitions
 $bg-primary: var(--bg-tertiary);
 $bg-card: var(--bg-about-mid);
@@ -51,6 +61,13 @@ $border-tint: var(--border);
   text-transform: uppercase;
   display: inline-block;
   border: 1px solid var(--border);
+}
+
+:host-context([data-theme="light"]) .badge-accent {
+  background: #1c1917;
+  border-color: #1c1917;
+  color: #ffffff;
+  box-shadow: 0 8px 18px rgba(28, 25, 23, 0.14);
 }
 
 .section-header {
